@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/cadastro.css">
+    <link rel="stylesheet" href="./css/redefinir.css">
+    <link rel="shortcut icon" href="./img/Logo Sisguard/logo-white-noname-tamBom.svg" type="image/x-icon">
+    <title>Redefinir senha</title>
+</head>
+
+<body>
+    <!-- <header>
+        <nav class="navigation">
+            <a href="#" class="logo"><img src="./img/Logo Sisguard/logo-white-noname-tamBom.svg" alt="logo" width="90px"></a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html">Home</a></li>
+                <li class="nav-item"><a href="#">Sobre</a></li>
+                <li class="nav-item"><a href="login.html">Login</a></li>
+                <li class="nav-item button"><a href="cadastro.html">Cadastre-se</a></li>
+            </ul>
+            <div class="menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header> -->
+    <section class="redefinir">
+        <div class="div-img">
+        </div>
+        
+        <div class="coluna-1">
+            <div class="card-redefinir">
+                <div class="box-voltar">
+                    <a href="login.html">Voltar</a>
+                    <i class="fa-solid fa-rotate-left" style="color: #5B2A86;"></i>
+                </div>
+                <div class="titulo">
+                    <h1>Redefina sua senha</h1>
+                </div>
+                <div class="box">
+                    <p>Nova senha</p>
+                    <input type="password" class="input-redefinir" id="input_senha">
+                </div>
+                <div class="box">
+                    <p>Confirmar Senha</p>
+                    <input type="password" class="input-redefinir" id="input_senha_repetir">
+                </div>
+                <div class="botao">
+                    <button class="btn-redefinir">Redefinir</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="script.js"></script>
+</body>
+<script>
+    function Redefinir() {
+        let senha = input_senha.value
+        let repetirSenha = input_senha_repetir.value
+        let idUsuario = 0;
+
+        if(senha != repetirSenha) {
+            alert("Senhas diferentes")
+        }else {
+            fetch(`/recuperarSenha/${idUsuario}`, {
+                method:"PUT",
+                body: JSON.parse(senha)
+            })
+            .then(function(resposta) {
+                if(resposta.ok) {
+                    alert("Senha foi trocada")
+                }else {
+                    alert("Senha não foi trocada")
+                }
+            }).catch(erro => console.log(erro))
+        }
+    }
+</script>
+</html>

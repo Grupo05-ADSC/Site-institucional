@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/carrossel.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="shortcut icon" href="./img/Logo Sisguard/logo-white-noname-tamBom.svg" type="image/x-icon">
+    <title>Página Inicial</title>
+</head>
+
+<body>
+    <header id="headerInicio">
+        <div class="header_logo">
+            <a href="index.html"><img src="./img/Logo Sisguard/logo-w-name-w.svg" alt="header logo" width="150rem"></a>
+        </div>
+        <div class="header_links">
+            <ul>
+                <li class="hLinks1"><a href="#integrantes">Time Sisguard</a></li>
+                <li class="hLinks2"><a href="#sobre">Sobre</a></li>
+                <li class="hLinks2"><a href="login.html">Login</a></li>
+                <li id="lista_button_header"><a href="./cadastro.html"><button
+                            class="button_link_cadastrar_header">Cadastre-se</button></a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <section class="home">
+            <div class="home-text">
+                <h1 class="text-h1">Explorando o Mundo dos Sensores: Desvendando a Tecnologia de Hardware para um Futuro
+                    Conectado!</h1>
+                <h4 class="text-h4">Saiba Mais Sobre a Fascinante Tecnologia por Trás dos Sensores de Hardware e Seja
+                    Parte dessa Revolução!</h4>
+                <button class="home-btn"> Saiba Mais</button>
+            </div>
+            <div class="home-img">
+                <img src="./img/Online world-bro (1).svg" alt="">
+            </div>
+        </section>
+
+        <section id="sobre" class="descricao">
+            <h1>Sobre o projeto</h1>
+            <p>Somos uma empresa que surgiu de uma necessidade quase que imperceptível aos olhos dos consumidores
+                finais, mas que, na realidade, é um dos principais causadores dos atrasos na entrega dos pedidos: a
+                lentidão e variação de desempenho do hardware que recebe e processa o pedido dentro de uma Dark Store.
+                Pensando em sanar esta dor, a Sisguard foi concebida, para que através dela consigamos realizar nossa
+                missão de trazer mais confiabilidade, previsibilidade, maior satisfação do cliente e, consequentemente,
+                maior faturamento da sua operação. Venha fazer parte dessa comunidade de empresas que desejam cada dia
+                mais entregar com mais qualidade e rapidez ao seus clientes!
+            </p>
+        </section>
+
+        <section class="carrossel">
+            <div class="slider">
+                <div class="slides">
+                    <!-- radio buttons -->
+                    <input type="radio" name="radio-btn" id="radio1">
+                    <input type="radio" name="radio-btn" id="radio2">
+                    <input type="radio" name="radio-btn" id="radio3">
+                    <input type="radio" name="radio-btn" id="radio4">
+                    <!-- fim radio buttons -->
+
+                    <!-- slides images -->
+                    <div class="slide first">
+                        <img src="https://images.unsplash.com/photo-1527090251414-a1113cd96a39?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="img1">
+                    </div>
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1682361370648-521dce49abb2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwcm9maWxlLWxpa2VkfDE1fHx8ZW58MHx8fHx8&w=1000&q=80"
+                            alt="img2">
+                    </div>
+                    <div class="slide">
+                        <img src="https://images.pexels.com/photos/1671630/pexels-photo-1671630.jpeg?cs=srgb&dl=pexels-tyler-lastovich-1671630.jpg&fm=jpg"
+                            alt="img3">
+                    </div>
+                    <div class="slide">
+                        <img src="https://images.unsplash.com/photo-1527055885637-caa453ae5bc7?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="img4">
+                    </div>
+
+
+                </div>
+                <div class="div_descricao_carrosel">
+                    <div class="div_titulo_carrosel">
+                        <h2>Titulo do slide</h2>
+                    </div>
+                    <div class="div_p_carrosel">
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                            been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
+                            galley of type and scrambled it to make a type specimen book. It has survived not only five
+                            centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                        </p>
+                    </div>
+                </div>
+                <div class="manual-navigation">
+                    <label for="radio1" class="manual-btn"></label>
+                    <label for="radio2" class="manual-btn"></label>
+                    <label for="radio3" class="manual-btn"></label>
+                    <label for="radio4" class="manual-btn"></label>
+                </div>
+            </div>
+            <script src="carrossel.js"></script>
+        </section>
+
+        <section id="integrantes" class="membros">
+            <h1>Time Sisguard</h1>
+
+            <div class="integrantes">
+                <div class="pessoa">
+                    <img src="" alt="">
+                    <p>Gustavo Bueno</p>
+                </div>
+                <div class="pessoa">
+                    <img src="" alt="">
+                    <p>Carlos Augusto</p>
+                </div>
+                <div class="pessoa">
+                    <img src="" alt="">
+                    <p>Michelly Mendes</p>
+                </div>
+                <div class="pessoa">
+                    <img src="" alt="">
+                    <p>Vitor Hugo</p>
+                </div>
+                <div class="pessoa">
+                    <img src="" alt="">
+                    <p>Gustavo Viana</p>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="comunicacao">
+            <div class="suporte">
+                <h1>Suporte</h1>
+                <div class="texto-comunicacao">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad blanditiis, repudiandae temporibus
+                        dicta dolore culpa ea sequi laudantium non quae dignissimos voluptates illum nostrum harum error
+                        totam est, quo voluptas.</p>
+                </div>
+            </div>
+
+            <div class="contato">
+                <h1>Contato</h1>
+                <div class="texto-comunicacao">
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Veritatis expedita, tempora harum
+                        consequatur officia vel. Perspiciatis maxime perferendis, repudiandae at itaque, libero nulla
+                        animi omnis architecto quibusdam repellat, est asperiores?</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div id="footer_content">
+                <div id="footer_contacts">
+                    <img src="./img/Logo Sisguard/logo-white-noname-tamBom.svg" width="80px" alt="logo">
+    
+                    <div id="footer_social_media">
+                        <a href="http://" target="_blank" class="footer_link" id="instagram">
+                            <i class="fa-brands fa-instagram fa-xl" style="color: #FFFFFFFF;"></i>
+                        </a>
+                        <a href="https://www.linkedin.com" target="_blank" class="footer_link"
+                            id="linkedin">
+                            <i class="fa-brands fa-linkedin fa-xl" style="color: #FFFFFFFF;"></i>
+                        </a>
+                        <a href="https://github.com" target="_blank" class="footer_link" id="github">
+                            <i class="fa-brands fa-github fa-xl" style="color: #FFFFFFFF;"></i>
+                        </a>
+                    </div>
+                </div>
+    
+                <ul class="footer_list">
+                    <li>
+                        <h3>Navegação</h3>
+                    </li>
+                    <li>
+                        <a href="#headerInicio" class="footer_link">Início</a>
+                    </li>
+                    <li>
+                        <a href="#integrantes" class="footer_link">Time Sisguard</a>
+                    </li>
+                    <li>
+                        <a href="#sobre" class="footer_link">O Projeto</a>
+                    </li>
+                </ul>
+    
+                <ul class="footer_list">
+                    <li>
+                        <h3>Conta</h3>
+                    </li>
+                    <li>
+                        <a target="_blank" href="cadastro.html" class="footer_link">Cadastre-se</a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="login.html" class="footer_link">Login</a>
+                    </li>
+                </ul>
+    
+                <div id="footer_subscribe">
+                    <h3>Inscreva-se</h3>
+    
+                    <p>
+                        Se inscreva para receber notícias, novidades e atualizações da Sisguard
+                    </p>
+                    <div id="input_group">
+                        <input type="email" id="email">
+                        <button>
+                            <i class="fa-solid fa-envelope" style="color: #ffffff;"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+    
+            <div id="footer_copyright">
+                &#169
+                2024 all rigths reserved
+            </div>
+        </footer>
+    </main>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
