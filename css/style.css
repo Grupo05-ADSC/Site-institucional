@@ -336,7 +336,14 @@ header .header_links .hLinks2:after {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-radius: 50%;
     gap: 3rem;
+}
+.pessoa img {
+    width: 200px;
+    height: 200px;
+    background-size: contain;
+    background-position: auto;
 }
 
 .comunicacao {
