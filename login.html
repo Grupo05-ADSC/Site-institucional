@@ -65,7 +65,7 @@
 
         function login() {
             let emailVar = input_email.value
-         let senhaVar = input_senha
+         let senhaVar = input_senha.value
 
          if(emailVar === "" || senhaVar === "") {
             alert("Insira todos os dados")
@@ -79,13 +79,22 @@
                     email: emailVar,
                     senha: senhaVar
                 })
-            }).then(resposta => {
-                if(resposta) {
-                    console.log(resposta)
+            }).then(resposta => resposta.json()
+            .then(dados => {
+                if(resposta.ok) {
+                    alert("Seja bem-vindo novamente")
+
+                localStorage.ID = dados.idUsuario
+                localStorage.NOME = dados.nome
+
+               setTimeout(() => {
+                    location.href = "sistema.html"
+               },[3000]) 
                 }else {
-                    console.log(resposta)
+                    alert("Crie uma conta")
                 }
-            }).catch(erro => console.log(erro))
+            })
+        ).catch(erro => console.log(erro))
         }
         }
        
