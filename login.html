@@ -55,13 +55,41 @@
                     <a href="http://" target="_blank" rel="noopener noreferrer"></a>
                 </div>
                 <div class="btn">
-                    <button class="btn-login">Entrar</button>
+                    <button class="btn-login" onclick="login()">Entrar</button>
                 </div>
 
             </div>
         </div>
     </section>
-    
+    <script>
+
+        function login() {
+            let emailVar = input_email.value
+         let senhaVar = input_senha
+
+         if(emailVar === "" || senhaVar === "") {
+            alert("Insira todos os dados")
+        }else {
+            fetch(`http://localhost:3000/login`, {
+                method:"POST",
+                headers: {
+                    "Content-Type":"application/json"
+                },
+                body: JSON.stringify({
+                    email: emailVar,
+                    senha: senhaVar
+                })
+            }).then(resposta => {
+                if(resposta) {
+                    console.log(resposta)
+                }else {
+                    console.log(resposta)
+                }
+            }).catch(erro => console.log(erro))
+        }
+        }
+       
+    </script>
 
 </body>
 </html>
