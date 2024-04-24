@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/pop-ups.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="cadastro-maquina">
+        <div class="pop-up">
+            <div class="titulo">
+                <h1>Cadastro de máquina</h1>
+                <img src="img/icone-x.png" onclick="exitCadastroMaquinas()"  alt="">
+            </div>
+
+            <div class="conteudo">
+                <h3>IP da máquina</h3>
+                <input type="text">
+                <button class="cadastrar">Cadastrar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="lista-maquinas">
+        <div class="pop-up">
+            <div class="titulo">
+                <h1>Todas as máquinas</h1>
+                <img src="img/icone-x.png" onclick="exitListaMaquinas()"  alt="">
+            </div>
+
+            <div class="conteudo">
+                <div class="maquina"> 
+                    <p>IP: 69.69696.96969</p>
+
+                    <div class="status">
+                    <p>Status:</p> <span></span>
+                    </div> 
+                </div>
+                <div class="maquina"> 
+                    <p>IP: 69.69696.96969</p>
+
+                    <div class="status">
+                    <p>Status:</p> <span></span>
+                    </div> 
+                </div>
+                <div class="maquina"> 
+                    <p>IP: 69.69696.96969</p>
+
+                    <div class="status">
+                    <p>Status:</p> <span></span>
+                    </div> 
+                </div>
+                <div class="maquina"> 
+                    <p>IP: 69.69696.96969</p>
+
+                    <div class="status">
+                    <p>Status:</p> <span></span>
+                    </div> 
+                </div>
+                <div class="maquina"> 
+                    <p>IP: 69.69696.96969</p>
+
+                    <div class="status">
+                    <p>Status:</p> <span></span>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="notificacoes">
+        <div class="pop-up">
+            <div class="titulo">
+                <h1>Notificações</h1>
+                <img src="img/icone-x.png" onclick="exitNotificacoes()" alt="">
+            </div>
+
+            <div class="conteudo">
+                <h2>Você teve notificações da máquina:</h2>
+                <div class="maquina"> 
+                    <p>IP: 69.69696.96969</p>
+                     
+                    <div class="status">
+                    <p>Status:</p> <span></span>
+                    </div> 
+                </div>
+                <div class="maquina"> 
+                    <p>IP: 69.69696.96969</p>
+                     
+                    <div class="status">
+                    <p>Status:</p> <span></span>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="lista-funcionarios">
+        <div class="pop-up">
+            <div class="titulo">
+                <h1>Funcionários</h1>
+                <img src="img/icone-x.png" onclick="exitListaFuncionarios()"  alt="">
+            </div>
+
+            <div class="conteudo">
+                <div class="funcionario">
+                    <div class="ID">
+                        <h2>ID</h2>
+                        <p>1</p>
+                    </div>
+
+                    <div class="Nome">
+                        <h2>Nome</h2>
+                        <p>Jubileu</p>
+                    </div> 
+                    
+                    <div class="E-mail">
+                        <h2>ID</h2>
+                        <p>jubileu@gmail.com</p>
+                    </div>
+                    <span></span> 
+                </div>
+                <div class="funcionario">
+                    <div class="ID">
+                        <h2>ID</h2>
+                        <p>1</p>
+                    </div>
+
+                    <div class="Nome">
+                        <h2>Nome</h2>
+                        <p>Jubileu</p>
+                    </div> 
+                    
+                    <div class="E-mail">
+                        <h2>ID</h2>
+                        <p>jubileu@gmail.com</p>
+                    </div>
+                    <span></span> 
+                </div>
+
+                <div class="funcionario">
+                    <div class="ID">
+                        <h2>ID</h2>
+                        <p>1</p>
+                    </div>
+
+                    <div class="Nome">
+                        <h2>Nome</h2>
+                        <p>Jubileu</p>
+                    </div> 
+                    
+                    <div class="E-mail">
+                        <h2>ID</h2>
+                        <p>jubileu@gmail.com</p>
+                    </div>
+                    <span></span> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cadastro-funcionarios">
+        <div class="pop-up">
+            <div class="titulo">
+                <h1>Cadastrar Funcionários</h1>
+                <img src="img/icone-x.png" onclick="exitCadastroFuncionarios()"  alt="">
+            </div>
+
+            <div class="conteudo">
+                <div class="campo">
+                    <p>Nome:</p>
+                    <input type="text">
+                </div>
+                <div class="campo">
+                    <p>Nome:</p>
+                    <input type="text">
+                </div>
+                <div class="campo">
+                    <p>Nome:</p>
+                    <input type="text">
+                </div>
+                <div class="campo">
+                    <p>Nome:</p>
+                    <input type="text">
+                </div>
+                <button> Cadastrar </button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+    function exitCadastroMaquinas() {
+        const cadastroMaquinas = document.querySelector('.cadastro-maquina');
+        cadastroMaquinas.style.display = "none"
+    }
+
+    function exitListaMaquinas() {
+        const listaMaquinas = document.querySelector('.lista-maquinas');
+        listaMaquinas.style.display = "none";
+    }
+
+    function exitNotificacoes() {
+        const notificacoes = document.querySelector('.notificacoes');
+        notificacoes.style.display = "none"
+    }
+
+    function exitListaFuncionarios() {
+        const listaFuncionarios = document.querySelector('.lista-funcionarios');
+        listaFuncionarios.style.display = "none"
+    }
+
+    function exitCadastroFuncionarios() {
+        const cadastroFuncionarios = document.querySelector('.cadastro-funcionarios');
+        cadastroFuncionarios.style.display = "none"
+    }
+</script>

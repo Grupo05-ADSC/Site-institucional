@@ -1,0 +1,364 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+body {
+    color: #000;
+    background: #fff;
+}
+
+.cadastro-maquina {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+
+    background-color: rgb(25, 31, 52, 0.2);
+
+    width: 100%;
+    height: 100vh;
+    transition: 0.6s;
+}
+
+.cadastro-maquina .pop-up {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 50px;
+
+    background-color: #d3beeb;
+    width: 40%;
+    height: 40%;
+
+    padding: 30px 80px;
+}
+
+.cadastro-maquina .pop-up .titulo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.cadastro-maquina .pop-up .titulo img {
+    width: 40px;
+    height: 40px;
+}
+
+.cadastro-maquina .pop-up .conteudo {
+    display: flex;
+    flex-direction: column;
+}
+
+.cadastro-maquina .pop-up .conteudo input {
+    width: 80%;
+    height: 35px;
+    
+    padding: 10px;
+
+    margin-bottom: 50px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+.cadastro-maquina .pop-up .conteudo button {
+    width: 200px;
+    height: 40px;
+
+    background-color: #000;
+    color: white;
+
+    border: none;
+}
+
+.lista-maquinas {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+
+    background-color: rgb(25, 31, 52, 0.2);
+
+    width: 100%;
+    height: 100vh;
+    transition: 0.6s;
+}
+
+.lista-maquinas .pop-up {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 100px;
+
+    background-color: #d3beeb;
+    width: 30%;
+    height: 70%;
+
+    padding: 0 80px;
+    padding-bottom: 30px;
+}
+
+.lista-maquinas .pop-up .titulo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.lista-maquinas .pop-up .titulo img {
+    width: 40px;
+    height: 40px;
+}
+
+.lista-maquinas .pop-up .conteudo {
+    display: flex;
+    flex-direction: column;
+}
+
+.lista-maquinas .pop-up .conteudo .maquina {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.lista-maquinas .pop-up .conteudo .maquina p{
+    font-size: 23px;
+}
+
+.lista-maquinas .pop-up .conteudo .maquina .status {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.lista-maquinas .pop-up .conteudo .maquina .status span {
+    width: 70px;
+    height: 25px;
+
+    background-color: green;
+
+    border: #000 1px solid;
+    border-radius: 5px;
+}
+
+.notificacoes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+
+    background-color: rgb(25, 31, 52, 0.2);
+
+    width: 100%;
+    height: 100vh;
+    transition: 0.6s;
+}
+
+.notificacoes .pop-up {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 100px;
+
+    background-color: #d3beeb;
+    width: 40%;
+    height: 60%;
+
+    padding: 0 80px;
+    padding-bottom: 30px;
+}
+
+.notificacoes .pop-up .titulo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    margin-top: -30px;
+}
+
+.notificacoes .pop-up .titulo img {
+    width: 40px;
+    height: 40px;
+}
+
+.notificacoes .pop-up .conteudo {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.notificacoes .pop-up .conteudo h2 {
+    margin-bottom: 30px;
+}
+
+.notificacoes .pop-up .conteudo .maquina {
+    display: flex;
+    flex-direction: row;
+    gap: 200px;
+}
+
+.notificacoes .pop-up .conteudo .maquina p{
+    font-size: 23px;
+}
+
+.notificacoes .pop-up .conteudo .maquina .status {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.notificacoes .pop-up .conteudo .maquina .status span {
+    width: 70px;
+    height: 25px;
+
+    background-color: red;
+
+    border: #000 1px solid;
+    border-radius: 5px;
+}
+
+.lista-funcionarios {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+
+    background-color: rgb(25, 31, 52, 0.2);
+
+    width: 100%;
+    height: 100vh;
+    transition: 0.6s;
+}
+
+.lista-funcionarios .pop-up {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 100px;
+
+    background-color: #d3beeb;
+    width: 40%;
+    height: 60%;
+
+    padding: 0 80px;
+    padding-bottom: 30px;
+}
+
+.lista-funcionarios .pop-up .titulo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    margin-top: -30px;
+}
+
+.lista-funcionarios .pop-up .titulo img {
+    width: 40px;
+    height: 40px;
+}
+
+.lista-funcionarios .pop-up .conteudo {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.lista-funcionarios .pop-up .conteudo .funcionario {
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+}
+
+.lista-funcionarios .pop-up .conteudo .funcionario p {
+    font-size: 23px;
+}
+
+.lista-funcionarios .pop-up .conteudo .funcionario span {
+    width: 5%;
+    height: 13%;
+    margin-top: 6%;
+    margin-left: 50px;
+
+    background-color: #000;
+}
+
+.cadastro-funcionarios {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgb(25, 31, 52, 0.2);
+
+    width: 100%;
+    height: 100vh;
+    transition: 0.6s;
+}
+
+.cadastro-funcionarios .pop-up {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 50px;
+
+    background-color: #d3beeb;
+    width: 45%;
+    height: 80%;
+
+    padding: 0 80px;
+    padding-bottom: 0px;
+}
+
+.cadastro-funcionarios .pop-up .titulo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    margin-top: -30px;
+}
+
+.cadastro-funcionarios .pop-up .titulo img {
+    width: 40px;
+    height: 40px;
+}
+
+.cadastro-funcionarios .pop-up .conteudo {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 40px;
+}
+
+.cadastro-funcionarios .pop-up .conteudo .campo {
+    width: 100%;
+}
+
+.cadastro-funcionarios .pop-up .conteudo .campo input{
+    width: 100%;
+    height: 50px;
+
+    border: none;
+    border-radius: 5px;
+}
+
+.cadastro-funcionarios .pop-up .conteudo .campo p {
+    font-size: 25px;
+}
+
+.cadastro-funcionarios .pop-up .conteudo button {
+    width: 200px;
+    height: 50px;
+
+    font-size: 18px;
+    background-color: #000;
+    color: #fff;
+
+    border: none;
+    border-radius: 5px;
+}
