@@ -293,10 +293,60 @@ body{
     color: #8039EB;
 }
 
+
 .indicadores{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    justify-content: space-between;
+}
+
+.legendaGauge{
+    width: 90%;
+    height: 40px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    text-align: center;
+}
+
+.legendaGauge .legenda1{
+    background-color: #1EA614;
+    height: 15px;
+    width: 15px;
+    margin: 10px 5px 10px 0px;
+}
+
+.legendaGauge .legenda2{
+    background-color: #9FCC00;
+    height: 15px;
+    width: 15px;
+    margin: 10px 5px 10px 0px;
+    margin-left: 30px;
+}
+
+.legendaGauge .legenda3{
+    background-color: #FFF001;
+    height: 15px;
+    width: 15px;
+    margin: 10px 5px 10px 0px;
+    margin-left: 30px;
+}
+
+.legendaGauge .legenda4{
+    background-color:  #FFAF00;
+    height: 15px;
+    width: 15px;
+    margin: 10px 5px 10px 0px;
+    margin-left: 30px;
+}
+
+.legendaGauge .legenda5{
+    background-color: #FE2B00;
+    height: 15px;
+    width: 15px;
+    margin: 10px 5px 10px 0px;
+    margin-left: 30px;
 }
