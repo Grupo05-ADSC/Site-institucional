@@ -199,54 +199,6 @@ body {
     border-radius: 10px;
 }
 
-.coluna-2 {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 100px;
-    width: 25%;
-}
-
-.card-lembrete {
-    border: 1px solid #00000033;
-    box-shadow: 0px 4px 4px 0px #00000040;
-
-    width: 450px;
-    height: 300px;
-    padding: 30px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: justify;
-}
-
-.card-lembrete h1 {
-    margin-bottom: 30px;
-    color: #7325C3;
-}
-
-.card-erro {
-    border: 1px solid #00000033;
-    box-shadow: 0px 4px 4px 0px #00000040;
-
-    width: 450px;
-    height: 300px;
-    padding: 30px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: justify;
-}
-
-.card-erro h1 {
-    margin-bottom: 30px;
-    color: #D05B5B;
-}
-
 @media (max-width: 1500px) {
 
     .titulo {
