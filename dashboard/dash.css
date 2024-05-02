@@ -1,0 +1,382 @@
+body{
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: rgb(10, 10, 10);
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.menuLateral{
+    padding: 40px 0px 30px 0px;
+    height: 536px;
+    width: 16vw;
+    background-color: #111111;
+}
+
+.logo{
+    height: 14vh;
+    width: 14vh;
+    background-color: #000000;
+    border: white solid 2px;
+    border-radius: 10vh;
+}
+
+.boxLogo{
+    height: 15vh;
+    width: 35vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.boxTitulo{
+    font-size: 25PX;
+    font-weight: bold;
+    color: rgb(214, 214, 214);
+    text-align: center;
+    padding: 2vh 0vh 4vh 0vh;
+    height: 7vh;
+}
+
+.menuGraficos{
+    height: 8vh;
+    width: 35vh;
+    border-bottom: #b6b6b6 solid 2px;
+    border-top: #b6b6b6 solid 2px;
+    display: flex;
+    flex-direction: row;
+}
+
+.iconGraficos{
+    height: 8vh;
+    width: 8vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.material-symbols-outlined{
+    color: rgb(221, 221, 221);
+    
+}
+
+.boxTextoMenu{
+    color: #b6b6b6;
+    font-size: 3vh;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    justify-content: center;
+}
+
+.menuTabelas{
+    height: 8vh;
+    width: 35vh;
+    border-bottom: #b6b6b6 solid 2px;
+    display: flex;
+    flex-direction: row;
+}
+
+.iconTabelas{
+    height: 8vh;
+    width: 8vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menuPerfil{
+    height: 8vh;
+    width: 35vh;
+    border-bottom: #b6b6b6 solid 2px;
+    display: flex;
+    flex-direction: row;
+}
+
+.iconPerfil{
+    height: 8vh;
+    width: 8vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.boxSair{
+    height: 10vh;
+    width: 35vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.sair{
+    margin-left: 10px;
+    color: #b6b6b6;
+}
+
+.linha1{
+    margin: 20px 0px 0px 20px;
+    height: 580px;
+    width: 230px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.linha1 .box1{
+    background-color: #181818;
+    height: 35px;
+    width: 200px;
+    margin: 10px 0px 0px 0px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.linha1 .box2{
+    background-color: #181818;
+    height: 85px;
+    width: 200px;
+    margin: 10px 0px 0px 0px;
+    padding: 30px 0px 0px 0px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #b6b6b6;
+}
+
+.linha1 .box3{
+    background-color: #181818;
+    height: 220px;
+    padding: 20px 0px 0px 20px;
+    width: 200px;
+    margin: 10px 0px 0px 0px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #b6b6b6;
+    padding: 0%;
+}
+
+#darkStoreSelect{
+    height: 35px;
+    width: 170px;
+    font-size: 19px;
+    background-color: #181818;
+    border: none;
+    color: #b6b6b6;
+}
+
+#computerSelect{
+    height: 35px;
+    width: 170px;
+    font-size: 19px;
+    background-color: #181818;
+    border: none;
+    color: #b6b6b6;
+}
+
+#donutChart {
+    width: 140px !important;
+    height: 140px !important;
+    border: none !important;
+}
+
+.legenda{
+    height: 25px;
+    width: 165px;
+    margin: 10px 0px 10px 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 15px;
+}
+
+.legenda .legenda1{
+    background-color: rgba(54, 122, 235, 0.8);
+    height: 15px;
+    width: 15px;
+    margin: 10px 5px 10px 0px;
+}
+
+.legenda .legenda2{
+    background-color: rgba(153, 42, 255, 0.8);
+    height: 15px;
+    width: 15px;
+    margin: 10px 5px 10px 10px;
+}
+
+.linha2{
+    height: 558px;
+    width: 770px;
+    margin: 30px 0px 0px 0px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #b6b6b6;
+    padding: 0%;
+}
+
+.imagem{
+    height: 80px;
+    width: 80px;
+}
+
+.linha3{
+    height: 560px;
+    width: 120px;
+    margin: 30px 5px 0px 5px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #b6b6b6;
+    padding: 0%;
+}
+
+
+.boxgraficos{
+    height: 380px;
+    width: 770px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.graficos{
+    height: 370px;
+    width: 380px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.grafico1{
+    background-color: #181818;
+    height: 180px;
+    width: 380px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.linha3 .box{
+    height: 100px;
+    width: 100%;
+    margin: 10px 0px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.destaque{
+    color: #8039EB;
+}
+
+.indicadores{
+    height: 185px;
+    width: 770px;
+    margin: 0px 0px 10px 0px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.testee{
+    background-color: #181818;
+    height: 185px;
+    width: 205px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+.cardMetrica{
+    background-color: #181818;
+    width: 560px;
+    border-radius: 5px;
+}
+
+.cardGauge{
+    height: 155px;
+    width: 550px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 5px;
+}
+
+.cardGauge .box{
+    height: 140px;
+    width: 180px;
+    background-color: #4e4e4e;
+    border-radius: 5px;
+}
+
+.legendaGauge{
+    width: 555px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.legendaGauge .legenda1{
+    background-color: #1EA614;
+    height: 15px;
+    width: 15px;
+    margin: 10px 5px 10px 0px;
+}
+
+.legendaGauge .legenda2{
+    background-color: #9FCC00;
+    height: 15px;
+    width: 15px;
+    margin: 10px 5px 10px 0px;
+    margin-left: 30px;
+}
+
+.legendaGauge .legenda3{
+    background-color: #FFF001;
+    height: 15px;
+    width: 15px;
+    margin: 10px 5px 10px 0px;
+    margin-left: 30px;
+}
+
+.legendaGauge .legenda4{
+    background-color:  #FFAF00;
+    height: 15px;
+    width: 15px;
+    margin: 10px 5px 10px 0px;
+    margin-left: 30px;
+}
+
+.legendaGauge .legenda5{
+    background-color: #FE2B00;
+    height: 15px;
+    width: 15px;
+    margin: 10px 5px 10px 0px;
+    margin-left: 30px;
+}
