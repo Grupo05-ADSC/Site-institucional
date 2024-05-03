@@ -130,8 +130,9 @@
                 <div class="cardGauge">
                     <div class="box">
                         <span>% do Disco em uso</span>
-                        <canvas id="gauge1" style="width: 180px;margin-top: 10%;" >
+                        <canvas id="gauge1" class="gauge" >
                         </canvas>
+                        <span id="uso_atual1"></span>
                         <script type="text/javascript">
                             var uso = 32;//pegar valor de uso direto do banco
                             var opts = {
@@ -163,14 +164,16 @@
                             gauge.setMinValue(0);  // Valor minimo
                             gauge.animationSpeed = 32; // Velocidade da animacao
                             gauge.set(uso); // Valor a ser exibido
-                            document.getElementById('uso_atual').innerHTML = uso + '%'; 
+                            document.getElementById('uso_atual1').innerHTML = uso + '%'; 
                         </script>                    
-                    </div>
+                    </div>   
                     <div class="box">
                         <span>% da Mãe em uso</span>
 
-                        <canvas id="gauge2" style="width: 180px;margin-top: 10%;" >
+                        <canvas id="gauge2" class="gauge" >
                         </canvas>
+                        <span id="uso_atual2"></span>
+
                         <script type="text/javascript">
                             var uso = 32;//pegar valor de uso direto do banco
                             var opts = {
@@ -202,13 +205,15 @@
                             gauge.setMinValue(0);  // Valor minimo
                             gauge.animationSpeed = 32; // Velocidade da animacao
                             gauge.set(uso); // Valor a ser exibido
-                            document.getElementById('uso_atual').innerHTML = uso + '%'; 
+                            document.getElementById('uso_atual2').innerHTML = uso + '%'; 
                         </script> 
                     </div>
                     <div class="box">
                         <span>% da RAM em uso</span>
-                        <canvas id="gauge3" style="width: 180px;margin-top: 10%;" >
+                        <canvas id="gauge3" class="gauge" >
                         </canvas>
+                        <span id="uso_atual3"></span>
+
                         <script type="text/javascript">
                             var uso = 32;//pegar valor de uso direto do banco
                             var opts = {
@@ -240,7 +245,7 @@
                             gauge.setMinValue(0);  // Valor minimo
                             gauge.animationSpeed = 32; // Velocidade da animacao
                             gauge.set(uso); // Valor a ser exibido
-                            document.getElementById('uso_atual').innerHTML = uso + '%'; 
+                            document.getElementById('uso_atual3').innerHTML = uso + '%'; 
                         </script> 
                     </div>
                 </div>
