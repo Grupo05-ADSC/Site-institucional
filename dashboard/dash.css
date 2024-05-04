@@ -335,6 +335,12 @@ body{
     border-radius: 5px;
 }
 
+.cardGauge .box .gauge{
+    width: 180px;
+    /* align-items: center; */
+    
+}
+
 .legendaGauge{
     width: 555px;
     height: 40px;
