@@ -330,6 +330,10 @@ body{
     height: 140px;
     width: 180px;
     padding: 0;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
 
     background-color: #4e4e4e;
     border-radius: 5px;

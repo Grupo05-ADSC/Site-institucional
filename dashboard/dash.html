@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -129,14 +129,13 @@
                 </div>
                 <div class="cardGauge">
                     <div class="box">
-                        <span>% do Disco em uso</span>
-                        <canvas id="gauge1" class="gauge" >
-                        </canvas>
                         <span id="uso_atual1"></span>
+                        <canvas id="gauge1" class="gauge">
+                        </canvas>
                         <script type="text/javascript">
                             var uso = 32;//pegar valor de uso direto do banco
                             var opts = {
-                                angle: 0, 
+                                angle: 0,
                                 lineWidth: 0.5,
                                 radiusScale: 0.8, // Raio relativo
                                 pointer: {
@@ -147,13 +146,15 @@
                                 generateGradient: true,
                                 highDpiSupport: true,
                                 staticZones: [
-                                    {strokeStyle: "#30B32D", min: 0, max: 45}, // Verde 
-                                    {strokeStyle: "#FFDD00", min: 45, max: 70}, // Amarelo 
-                                    {strokeStyle: "#F03E3E", min: 70, max: 100}, // Vermelho 
+                                    { strokeStyle: "#1EA614", min: 0, max: 30 }, // Ótimo (Verde)
+                                    { strokeStyle: "#9FCC00", min: 30, max: 50 }, // Bom (Amarelo)
+                                    { strokeStyle: "#FFF001", min: 50, max: 70 }, // Atenção (Laranja)
+                                    { strokeStyle: "#FFAF00", min: 70, max: 90 }, // Alerta (Vermelho)
+                                    { strokeStyle: "#FE2B00", min: 90, max: 100 } // Crítico (Vermelho escuro)
                                 ],
                                 staticLabels: {
                                     font: "15px sans-serif", // Especifica a fonte dos rótulos
-                                    labels: [0, 45, 70, 100], // Rótulos nas divisórias das cores
+                                    labels: [0, 30, 50, 70, 90, 100], // Rótulos nas divisórias das cores
                                     color: "#000000", // Cor do texto do rótulo
                                     fractionDigits: 0 // Precisão numérica. 0 = arredondar
                                 }
@@ -164,20 +165,17 @@
                             gauge.setMinValue(0);  // Valor minimo
                             gauge.animationSpeed = 32; // Velocidade da animacao
                             gauge.set(uso); // Valor a ser exibido
-                            document.getElementById('uso_atual1').innerHTML = uso + '%'; 
-                        </script>                    
-                    </div>   
+                            document.getElementById('uso_atual1').innerHTML = uso + '% CPU';                        </script>
+                    </div>
                     <div class="box">
-                        <span>% da Mãe em uso</span>
-
-                        <canvas id="gauge2" class="gauge" >
-                        </canvas>
                         <span id="uso_atual2"></span>
+                        <canvas id="gauge2" class="gauge">
+                        </canvas>
 
                         <script type="text/javascript">
                             var uso = 32;//pegar valor de uso direto do banco
                             var opts = {
-                                angle: 0, 
+                                angle: 0,
                                 lineWidth: 0.5,
                                 radiusScale: 0.8, // Raio relativo
                                 pointer: {
@@ -188,13 +186,15 @@
                                 generateGradient: true,
                                 highDpiSupport: true,
                                 staticZones: [
-                                    {strokeStyle: "#30B32D", min: 0, max: 45}, // Verde 
-                                    {strokeStyle: "#FFDD00", min: 45, max: 70}, // Amarelo 
-                                    {strokeStyle: "#F03E3E", min: 70, max: 100}, // Vermelho 
+                                    { strokeStyle: "#1EA614", min: 0, max: 40 }, // Ótimo (Verde)
+                                    { strokeStyle: "#9FCC00", min: 40, max: 60 }, // Bom (Amarelo)
+                                    { strokeStyle: "#FFF001", min: 60, max: 80 }, // Atenção (Laranja)
+                                    { strokeStyle: "#FFAF00", min: 80, max: 90 }, // Alerta (Vermelho)
+                                    { strokeStyle: "#FE2B00", min: 90, max: 100 } // Crítico (Vermelho escuro)
                                 ],
                                 staticLabels: {
                                     font: "15px sans-serif", // Especifica a fonte dos rótulos
-                                    labels: [0, 45, 70, 100], // Rótulos nas divisórias das cores
+                                    labels: [0, 40, 60, 80, 90, 100], // Rótulos nas divisórias das cores
                                     color: "#000000", // Cor do texto do rótulo
                                     fractionDigits: 0 // Precisão numérica. 0 = arredondar
                                 }
@@ -205,19 +205,18 @@
                             gauge.setMinValue(0);  // Valor minimo
                             gauge.animationSpeed = 32; // Velocidade da animacao
                             gauge.set(uso); // Valor a ser exibido
-                            document.getElementById('uso_atual2').innerHTML = uso + '%'; 
-                        </script> 
+                            document.getElementById('uso_atual2').innerHTML = uso + '% RAM';                        </script>
+                        </script>
                     </div>
                     <div class="box">
-                        <span>% da RAM em uso</span>
-                        <canvas id="gauge3" class="gauge" >
-                        </canvas>
                         <span id="uso_atual3"></span>
+                        <canvas id="gauge3" class="gauge">
+                        </canvas>
 
                         <script type="text/javascript">
                             var uso = 32;//pegar valor de uso direto do banco
                             var opts = {
-                                angle: 0, 
+                                angle: 0,
                                 lineWidth: 0.5,
                                 radiusScale: 0.8, // Raio relativo
                                 pointer: {
@@ -228,13 +227,15 @@
                                 generateGradient: true,
                                 highDpiSupport: true,
                                 staticZones: [
-                                    {strokeStyle: "#30B32D", min: 0, max: 45}, // Verde 
-                                    {strokeStyle: "#FFDD00", min: 45, max: 70}, // Amarelo 
-                                    {strokeStyle: "#F03E3E", min: 70, max: 100}, // Vermelho 
+                                    { strokeStyle: "#1EA614", min: 0, max: 40 }, // Ótimo (Verde)
+                                    { strokeStyle: "#9FCC00", min: 40, max: 60 }, // Bom (Amarelo)
+                                    { strokeStyle: "#FFF001", min: 60, max: 80 }, // Atenção (Laranja)
+                                    { strokeStyle: "#FFAF00", min: 80, max: 90 }, // Alerta (Vermelho)
+                                    { strokeStyle: "#FE2B00", min: 90, max: 100 } // Crítico (Vermelho escuro)
                                 ],
                                 staticLabels: {
                                     font: "15px sans-serif", // Especifica a fonte dos rótulos
-                                    labels: [0, 45, 70, 100], // Rótulos nas divisórias das cores
+                                    labels: [0, 40, 60, 80, 90, 100], // Rótulos nas divisórias das cores
                                     color: "#000000", // Cor do texto do rótulo
                                     fractionDigits: 0 // Precisão numérica. 0 = arredondar
                                 }
@@ -245,8 +246,8 @@
                             gauge.setMinValue(0);  // Valor minimo
                             gauge.animationSpeed = 32; // Velocidade da animacao
                             gauge.set(uso); // Valor a ser exibido
-                            document.getElementById('uso_atual3').innerHTML = uso + '%'; 
-                        </script> 
+                            document.getElementById('uso_atual3').innerHTML = uso + '% Disco';                        </script>
+                        </script>
                     </div>
                 </div>
             </div>
