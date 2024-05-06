@@ -25,6 +25,7 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="http://bernii.github.io/gauge.js/dist/gauge.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/justgage/1.4.0/justgage.min.js"></script>
 
 </head>
 
@@ -133,14 +134,14 @@
                         <canvas id="gauge1" class="gauge">
                         </canvas>
                         <script type="text/javascript">
-                            var uso = 32;//pegar valor de uso direto do banco
+                            var uso = 12;//pegar valor de uso direto do banco
                             var opts = {
                                 angle: 0,
                                 lineWidth: 0.5,
-                                radiusScale: 0.8, // Raio relativo
+                                radiusScale: 0.9, // Raio relativo
                                 pointer: {
-                                    length: 0.7, // Relativo ao raio do Gauge
-                                    strokeWidth: 0.04, // Largura do traço
+                                    length: 0.5, // Relativo ao raio do Gauge
+                                    strokeWidth: 0.02, // Largura do traço
                                     color: '#000000' // Cor do ponteiro
                                 },
                                 generateGradient: true,
@@ -153,7 +154,7 @@
                                     { strokeStyle: "#FE2B00", min: 90, max: 100 } // Crítico (Vermelho escuro)
                                 ],
                                 staticLabels: {
-                                    font: "15px sans-serif", // Especifica a fonte dos rótulos
+                                    font: "12px sans-serif", // Especifica a fonte dos rótulos
                                     labels: [0, 30, 50, 70, 90, 100], // Rótulos nas divisórias das cores
                                     color: "#000000", // Cor do texto do rótulo
                                     fractionDigits: 0 // Precisão numérica. 0 = arredondar
@@ -165,7 +166,28 @@
                             gauge.setMinValue(0);  // Valor minimo
                             gauge.animationSpeed = 32; // Velocidade da animacao
                             gauge.set(uso); // Valor a ser exibido
-                            document.getElementById('uso_atual1').innerHTML = uso + '% CPU';                        </script>
+                            document.getElementById('uso_atual1').innerHTML = uso + '<b> % CPU </b>';
+
+                            //tentando atualizar gauge1 - cpu
+                            function atualizarGauge(uso, gauge, uso_atual) {
+                                var novoValor = Math.floor(Math.random() * (12 - 8 + 1)) + 8; // Gerar número aleatório entre 8 e 12
+                                gauge.refresh(novoValor);
+                                uso_atual.innerHTML = novoValor + '<b> % CPU </b>';
+                            }
+
+                            var opts1 = { /* opções do medidor 1 */ };
+                            var target1 = document.getElementById('gauge1');
+                            var gauge1 = new JustGage({
+                                id: 'gauge1',
+                                options: opts1
+                            });
+
+                            var uso_atual1 = document.getElementById('uso_atual1');
+
+                            setInterval(function () {
+                                atualizarGauge(12, gauge1, uso_atual1);
+                            }, 1000);
+                        </script>
                     </div>
                     <div class="box">
                         <span id="uso_atual2"></span>
@@ -173,7 +195,7 @@
                         </canvas>
 
                         <script type="text/javascript">
-                            var uso = 32;//pegar valor de uso direto do banco
+                            var uso = 52;//pegar valor de uso direto do banco
                             var opts = {
                                 angle: 0,
                                 lineWidth: 0.5,
@@ -193,7 +215,7 @@
                                     { strokeStyle: "#FE2B00", min: 90, max: 100 } // Crítico (Vermelho escuro)
                                 ],
                                 staticLabels: {
-                                    font: "15px sans-serif", // Especifica a fonte dos rótulos
+                                    font: "12px sans-serif", // Especifica a fonte dos rótulos
                                     labels: [0, 40, 60, 80, 90, 100], // Rótulos nas divisórias das cores
                                     color: "#000000", // Cor do texto do rótulo
                                     fractionDigits: 0 // Precisão numérica. 0 = arredondar
@@ -205,7 +227,7 @@
                             gauge.setMinValue(0);  // Valor minimo
                             gauge.animationSpeed = 32; // Velocidade da animacao
                             gauge.set(uso); // Valor a ser exibido
-                            document.getElementById('uso_atual2').innerHTML = uso + '% RAM';                        </script>
+                            document.getElementById('uso_atual2').innerHTML = uso + '<b> % RAM </b>';    
                         </script>
                     </div>
                     <div class="box">
@@ -214,7 +236,7 @@
                         </canvas>
 
                         <script type="text/javascript">
-                            var uso = 32;//pegar valor de uso direto do banco
+                            var uso = 45;//pegar valor de uso direto do banco
                             var opts = {
                                 angle: 0,
                                 lineWidth: 0.5,
@@ -222,7 +244,7 @@
                                 pointer: {
                                     length: 0.7, // Relativo ao raio do Gauge
                                     strokeWidth: 0.04, // Largura do traço
-                                    color: '#000000' // Cor do ponteiro
+                                    color: '#00000' // Cor do ponteiro
                                 },
                                 generateGradient: true,
                                 highDpiSupport: true,
@@ -234,7 +256,7 @@
                                     { strokeStyle: "#FE2B00", min: 90, max: 100 } // Crítico (Vermelho escuro)
                                 ],
                                 staticLabels: {
-                                    font: "15px sans-serif", // Especifica a fonte dos rótulos
+                                    font: "12px sans-serif", // Especifica a fonte dos rótulos
                                     labels: [0, 40, 60, 80, 90, 100], // Rótulos nas divisórias das cores
                                     color: "#000000", // Cor do texto do rótulo
                                     fractionDigits: 0 // Precisão numérica. 0 = arredondar
@@ -246,7 +268,7 @@
                             gauge.setMinValue(0);  // Valor minimo
                             gauge.animationSpeed = 32; // Velocidade da animacao
                             gauge.set(uso); // Valor a ser exibido
-                            document.getElementById('uso_atual3').innerHTML = uso + '% Disco';                        </script>
+                            document.getElementById('uso_atual3').innerHTML = uso + '<b> % Disco </b>';    
                         </script>
                     </div>
                 </div>
@@ -281,9 +303,35 @@
                     </div>
                 </div>
                 <div class="grafico1">
-                    <div>
+                    <div class="box">
                         <b id="titulo">Processos abertos</b>
                         <button class="button">Ver mais</button>
+                        <table>
+                            <thead>
+                              <tr>
+                                <th>PID</th>
+                                <th>%CPU</th>
+                                <th>%RAM</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>21</td>
+                                <td>12</td>
+                                <td>20</td>
+                              </tr>
+                              <tr>
+                                <td>22</td>
+                                <td>9</td>
+                                <td>20</td>
+                              </tr>
+                              <tr>
+                                <td>03</td>
+                                <td>5</td>
+                                <td>22</td>
+                              </tr>
+                            </tbody>
+                          </table>
                     </div>
                     <!-- <div style="width: 90%; height: 85%; margin: 0px 0px 0px 40px;">
                         <canvas id="lineChart4"></canvas>
@@ -323,7 +371,8 @@
                 backgroundColor: [
                     'rgba(54, 122, 235, 0.8)',
                     'rgba(153, 42, 255, 0.8)'
-                ]
+                ],
+                borderWidth: 0
             }]
         },
         options: {
@@ -529,4 +578,7 @@
         chart.data.datasets[0].data.push(Math.floor(Math.random() * 3001) + 6000);
         chart.update();
     }
+
+    // parte da table de processos
+    
 </script>

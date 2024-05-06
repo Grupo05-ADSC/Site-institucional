@@ -334,13 +334,14 @@ body{
     justify-content: center;
     display: flex;
     flex-direction: column;
-
     background-color: #4e4e4e;
     border-radius: 5px;
+    color: black;
+    font-weight: bold;
 }
 
 .cardGauge .box .gauge{
-    width: 180px;
+    width: 200px;
     /* align-items: center; */
     
 }
@@ -392,3 +393,43 @@ body{
     margin: 10px 5px 10px 0px;
     margin-left: 30px;
 }
+
+/* parte da table de processos */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    
+    margin: 10px auto;
+  }
+  
+  th, td {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+    height: 15px;
+    font-size: 12px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f2f2f217;
+  }
+  
+  th {
+    background-color: #541a8b46;
+    color: white;
+  }
+
+  .grafico1 .box{
+    width: 350px;
+  }
+
+  .button{
+    border: none;
+    background-color: #4e4e4e;
+    height: 22px;
+    width: 80px;
+    border-radius: 5px;
+    margin-left: 120px;
+    font-weight: bold;
+    color: #b6b6b6;
+  }
