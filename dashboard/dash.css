@@ -246,6 +246,83 @@ body{
     padding: 0%;
 }
 
+.lista-funcionarios {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+
+    background-color: rgb(25, 31, 52, 0.2);
+    color: #fff;
+
+    width: 100%;
+    height: 100vh;
+    transition: 0.6s;
+}
+
+.lista-funcionarios .pop-up {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10%;
+
+    background-color: #8039EB;
+    width: 50%;
+    height: 70%;
+
+    padding: 0 80px;
+    padding-bottom: 30px;
+}
+
+.lista-funcionarios .pop-up .titulo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 10%;
+}
+
+.lista-funcionarios .pop-up .titulo h1 {
+    font-size: 2vw;
+    margin: 0;
+}
+
+.lista-funcionarios .pop-up .titulo img {
+    width: 6%;
+    height: 70%;
+}
+
+.lista-funcionarios .pop-up .conteudo {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.lista-funcionarios .pop-up .conteudo .funcionario {
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+}
+
+.lista-funcionarios .pop-up .conteudo .funcionario h2 {
+    font-size: 1.5vw;
+}
+
+.lista-funcionarios .pop-up .conteudo .funcionario p {
+    font-size: 1.2vw;
+}
+
+.lista-funcionarios .pop-up .conteudo .funcionario span {
+    width: 5%;
+    height: 13%;
+    margin-top: 6%;
+    margin-left: 50px;
+
+    background-color: #000;
+}
+
 
 .boxgraficos{
     height: 380px;

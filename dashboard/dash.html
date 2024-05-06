@@ -60,7 +60,7 @@
                 <div class="boxTextoMenu"> Máquinas </div>
             </div>
 
-            <div class="menuPerfil">
+            <div class="menuPerfil" onclick="openListaFuncionarios()">
                 <div class="iconPerfil">
                     <span class="material-symbols-outlined"> groups </span>
                 </div>
@@ -289,6 +289,123 @@
 
         </div>
 
+        <div class="lista-funcionarios">
+            <div class="pop-up">
+                <div class="titulo">
+                    <h1>Funcionários</h1>
+                    <img src="../img/icone-x.png" onclick="exitListaFuncionarios()"  alt="">
+                </div>
+    
+                <div class="conteudo">
+                    <div class="funcionario">
+                        <div class="ID">
+                            <h2>ID</h2>
+                            <p>1</p>
+                        </div>
+    
+                        <div class="Nome">
+                            <h2>Nome</h2>
+                            <p>Jubileu</p>
+                        </div> 
+                        
+                        <div class="E-mail">
+                            <h2>ID</h2>
+                            <p>jubileu@gmail.com</p>
+                        </div>
+                        <span></span> 
+                    </div>
+                    <div class="funcionario">
+                        <div class="ID">
+                            <h2>ID</h2>
+                            <p>1</p>
+                        </div>
+    
+                        <div class="Nome">
+                            <h2>Nome</h2>
+                            <p>Jubileu</p>
+                        </div> 
+                        
+                        <div class="E-mail">
+                            <h2>ID</h2>
+                            <p>jubileu@gmail.com</p>
+                        </div>
+                        <span></span> 
+                    </div>
+    
+                    <div class="funcionario">
+                        <div class="ID">
+                            <h2>ID</h2>
+                            <p>1</p>
+                        </div>
+    
+                        <div class="Nome">
+                            <h2>Nome</h2>
+                            <p>Jubileu</p>
+                        </div> 
+                        
+                        <div class="E-mail">
+                            <h2>ID</h2>
+                            <p>jubileu@gmail.com</p>
+                        </div>
+                        <span></span> 
+                    </div>
+
+                    <div class="funcionario">
+                        <div class="ID">
+                            <h2>ID</h2>
+                            <p>1</p>
+                        </div>
+    
+                        <div class="Nome">
+                            <h2>Nome</h2>
+                            <p>Jubileu</p>
+                        </div> 
+                        
+                        <div class="E-mail">
+                            <h2>ID</h2>
+                            <p>jubileu@gmail.com</p>
+                        </div>
+                        <span></span> 
+                    </div>
+
+                    <div class="funcionario">
+                        <div class="ID">
+                            <h2>ID</h2>
+                            <p>1</p>
+                        </div>
+    
+                        <div class="Nome">
+                            <h2>Nome</h2>
+                            <p>Jubileu</p>
+                        </div> 
+                        
+                        <div class="E-mail">
+                            <h2>ID</h2>
+                            <p>jubileu@gmail.com</p>
+                        </div>
+                        <span></span> 
+                    </div>
+
+                    <div class="funcionario">
+                        <div class="ID">
+                            <h2>ID</h2>
+                            <p>1</p>
+                        </div>
+    
+                        <div class="Nome">
+                            <h2>Nome</h2>
+                            <p>Jubileu</p>
+                        </div> 
+                        
+                        <div class="E-mail">
+                            <h2>ID</h2>
+                            <p>jubileu@gmail.com</p>
+                        </div>
+                        <span></span> 
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="boxgraficos">
             <div class="graficos">
@@ -371,6 +488,19 @@
 
 </html>
 <script>
+
+    // POPUPS
+
+    var listaFuncionarios = document.querySelector('.lista-funcionarios');
+
+    function openListaFuncionarios() {
+        listaFuncionarios.style.display = "flex"
+    }
+
+    function exitListaFuncionarios() {
+        listaFuncionarios.style.display = "none"
+    }
+
     // GRAFICO DONUT
     var ctx = document.getElementById('donutChart').getContext('2d');
     var donutChart = new Chart(ctx, {
