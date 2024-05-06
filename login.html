@@ -21,41 +21,53 @@
                 <li class="nav-item"><a href="login.html" class="current">Login</a></li>
                 <li class="nav-item button"><a href="cadastro.html">Cadastre-se</a></li>
             </ul>
+            <div class="menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </nav>
     </header>
 
-    <section class="Login">
-        <div class="Card-Formulario">
-            <div class="titulo-login">
-                <h1>Login</h1>
-                <div class="hints">
-                    <div class="tooltip">
-                        <img src="./img/help.png" alt="" class="tooltip-img">
-                        <span class="tooltip-text"> Consulte os termos para entender os detalhes importantes. Eles explicam nossas políticas e como usamos seus dados </span>
+    <section class="login">
+        <div class="card-formulario">
+            <div class="info">
+                <div class="intro">
+                    <div class="titulo">
+                        <h1>Login</h1>
                     </div>
-                    <div class="tooltip">
-                        <img src="./img/help.png" alt="" class="tooltip-img">
-                        <span class="tooltip-text"> Caso ocorra algum erro ao cadastrar sua conta, entre em contato conosco através da nossa equipe de suporte. </span>
+                    
+                    <div class="hints">
+                        <div class="tooltip">
+                            <img style="background-color: rgb(255, 255, 255); border: 1px solid transparent; border-radius: 20px; width: 30px;" src="./img/help.png" alt="" class="tooltip-img">
+                            <span class="tooltip-text"> Consulte os termos para entender os detalhes importantes. Eles explicam nossas políticas e como usamos seus dados </span>
+                        </div>
+                        <div class="tooltip">
+                            <img style="background-color: rgb(255, 255, 255); border: 1px solid transparent; border-radius: 20px; width: 30px;" src="./img/help.png" alt="" class="tooltip-img">
+                            <span class="tooltip-text"> Caso ocorra algum erro ao cadastrar sua conta, entre em contato conosco através da nossa equipe de suporte. </span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="box-login">
-                <p>E-mail</p>
-                <input type="text" class="ipt-email" id="input_email">
-            </div>
-            <div class="box-login">
-                <p>Senha</p>
-                <input type="password" class="ipt-senha" id="input_senha">
-            </div>
-            <div class="box-redefinir">
-                <a rel="noopener noreferrer" target="_blank" href="redefinir.html">Esqueceu sua senha? Clique aqui</a>
-                <a href="http://" target="_blank" rel="noopener noreferrer"></a>
-            </div>
-            <div class="btn">
-                <button class="btn-login" onclick="login()">Entrar</button>
+                
+                <div class="box">
+                    <p>E-mail</p>
+                    <input type="text" class="ipt-login" id="input_email">
+                </div>
+                <div class="box">
+                    <p>Senha</p>
+                    <input type="password" class="ipt-login" id="input_senha">
+                </div>
+                <div class="box-redefinir">
+                    <a rel="noopener noreferrer" target="_blank" href="redefinir.html" style="color: aliceblue;">Esqueceu sua senha? Clique aqui</a>
+                    <a href="http://" target="_blank" rel="noopener noreferrer"></a>
+                </div>
+                <div class="btn">
+                    <button class="btn-login" onclick="login()">Entrar</button>
+                </div>
             </div>
         </div>
     </section>
+    <script src="script.js"></script>
     <script>
 
         function login() {
