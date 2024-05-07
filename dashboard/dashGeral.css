@@ -50,6 +50,10 @@ body{
 .menuGraficos:hover{
     cursor: pointer;
 }
+.menuGraficos a{
+    text-decoration: none;
+    color: #b6b6b6;
+}
 
 .iconGraficos{
     height: 8vh;
