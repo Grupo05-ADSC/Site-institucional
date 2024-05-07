@@ -1,0 +1,203 @@
+body{
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: rgb(10, 10, 10);
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+
+/* menu lateral esquerdo */
+.menuLateral{
+    padding: 40px 0px 30px 0px;
+    height: 88.8vh;
+    width: 16vw;
+    background-color: #111111;
+}
+
+.boxLogo{
+    height: 15vh;
+    width: 35vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagem{
+    height: 80px;
+    width: 80px;
+}
+
+.boxTitulo{
+    font-size: 25PX;
+    font-weight: bold;
+    color: rgb(214, 214, 214);
+    text-align: center;
+    padding: 2vh 0vh 4vh 0vh;
+    height: 7vh;
+}
+
+.menuGraficos{
+    height: 8vh;
+    width: 35vh;
+    border-bottom: #b6b6b6 solid 2px;
+    border-top: #b6b6b6 solid 2px;
+    display: flex;
+    flex-direction: row;
+}
+
+.menuGraficos:hover{
+    cursor: pointer;
+}
+
+.iconGraficos{
+    height: 8vh;
+    width: 8vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.material-symbols-outlined{
+    color: rgb(221, 221, 221);
+}
+
+.boxTextoMenu{
+    color: #b6b6b6;
+    font-size: 3vh;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    justify-content: center;
+}
+
+.boxSair{
+    height: 10vh;
+    width: 35vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.playSair{
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+.playSair{
+    cursor: pointer;
+}
+
+.sair{
+    margin-left: 10px;
+    color: #b6b6b6;
+}
+
+.voltar{
+    color: #b6b6b6;
+    text-decoration: none;
+}
+
+/* conteudo geral centro */
+.conteudoGeral{
+    height: 600px;
+    width: 1050px;
+    margin: 40px 20px 0px 40px;
+}
+
+.cardBox{
+    height: 180px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cardBox .box{
+    height: 150px;
+    width: 230px;
+    background-color: #111111;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #b6b6b6;
+    font-size: 20px;
+}
+
+.cardBox .box{
+border: solid 4px #8039EB;
+}
+
+.cardGeral{
+    height: 445px;
+    width: 100%;
+    margin-top: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.maquinas{
+    background-color: #111111;
+    height: 100%;
+    width: 57%;
+    border-radius: 5px;
+}
+
+.linha{
+    height: 135px;
+    width: 90%;
+    margin: 10px 0px 0px 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.boxMaquina{
+    background-color: #2E2E2E;
+    height: 100%;
+    width: 125px;
+    border-radius: 5px;
+}
+
+.graficoDiario{
+    background-color: #111111;
+    height: 100%;
+    width: 42%;
+}
+
+/* menu lado direiro */
+.linha3{
+    height: 560px;
+    width: 120px;
+    margin: 30px 5px 0px 5px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #b6b6b6;
+    padding: 0%;
+}
+
+.linha3 .box{
+    height: 100px;
+    width: 100%;
+    margin: 10px 0px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.destaque{
+    color: #8039EB;
+}

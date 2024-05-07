@@ -47,6 +47,7 @@ body{
     display: flex;
     flex-direction: row;
 }
+
 .menuGraficos:hover{
     cursor: pointer;
 }
@@ -61,7 +62,6 @@ body{
 
 .material-symbols-outlined{
     color: rgb(221, 221, 221);
-    
 }
 
 .boxTextoMenu{
