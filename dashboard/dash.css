@@ -9,7 +9,7 @@ body{
 
 .menuLateral{
     padding: 40px 0px 30px 0px;
-    height: 536px;
+    height: 88.8vh;
     width: 16vw;
     background-color: #111111;
 }
@@ -118,6 +118,15 @@ body{
     margin-top: 40px;
 }
 
+.playSair{
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+}
+.playSair{
+    cursor: pointer;
+}
+
 .sair{
     margin-left: 10px;
     color: #b6b6b6;
@@ -181,6 +190,12 @@ body{
     border: none;
     color: #b6b6b6;
 }
+#darkStoreSelect:hover{
+    cursor: pointer;
+}
+#darkStoreSelect option:hover{
+    cursor: pointer;
+}
 
 #computerSelect{
     height: 35px;
@@ -189,6 +204,12 @@ body{
     background-color: #181818;
     border: none;
     color: #b6b6b6;
+}
+#computerSelect:hover{
+    cursor: pointer;
+}
+#computerSelect option:hover{
+    cursor: pointer;
 }
 
 #donutChart {
