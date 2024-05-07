@@ -272,14 +272,18 @@ body{
     color: #b6b6b6;
     padding: 0%;
 }
-
+.sobrepor {
+    opacity: 1;
+    display: flex;
+}
 .lista-funcionarios {
+    z-index: 100;
     display: flex;
     align-items: center;
     justify-content: center;
     position: fixed;
 
-    background-color: rgb(25, 31, 52, 0.2);
+    background-color: rgba(12, 12, 14, 0.2);
     color: #fff;
 
     width: 100%;
@@ -293,15 +297,19 @@ body{
     justify-content: center;
     gap: 10%;
 
-    background-color: #8039EB;
+    background-color: #272628;
     width: 50%;
     height: 70%;
+
+    border: 1px solid #8039EB;
+    border-radius: 2vh;
 
     padding: 0 80px;
     padding-bottom: 30px;
 }
 
-.lista-funcionarios .pop-up .titulo {
+.lista-funcionarios .pop-up .head {
+    margin-top: 30px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -309,14 +317,19 @@ body{
     height: 10%;
 }
 
-.lista-funcionarios .pop-up .titulo h1 {
+.lista-funcionarios .pop-up .head .titulo{
+    width: 95%;
+    text-align: center;
+}
+
+.lista-funcionarios .pop-up .head h1 {
     font-size: 2vw;
     margin: 0;
 }
 
-.lista-funcionarios .pop-up .titulo img {
-    width: 6%;
-    height: 70%;
+
+.lista-funcionarios .pop-up .head i:hover {
+    cursor: pointer;
 }
 
 .lista-funcionarios .pop-up .conteudo {
@@ -324,7 +337,7 @@ body{
     flex-direction: column;
     gap: 40px;
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: scroll;
 }
 
 .lista-funcionarios .pop-up .conteudo .funcionario {
@@ -560,7 +573,25 @@ table {
     margin-left: 20px;
     font-weight: bold;
     color: #b6b6b6;
+    transition: all 0.2s;
   }
   .button:hover{
     cursor: pointer;
+    background-color: #595757;
   }
+
+  .btnCadastro{
+      border: none;
+      background-color: #4e4e4e;
+      height: 22px;
+      width: 90%;
+      border-radius: 5px;
+      margin-left: 20px;
+      font-weight: bold;
+      color: #b6b6b6;
+      transition: all 0.2s;
+    }
+.btnCadastro:hover{
+      cursor: pointer;
+      background-color: #595757;
+    }

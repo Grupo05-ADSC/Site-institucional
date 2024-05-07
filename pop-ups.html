@@ -100,8 +100,11 @@
         <div class="pop-up">
             <div class="titulo">
                 <h1>Funcionários</h1>
-                <img src="img/icone-x.png" onclick="exitListaFuncionarios()"  alt="">
+                <button><img src="img/icone-x.png" onclick="exitListaFuncionarios()"  alt=""></button>
+                <button onclick="openCadastroFuncionarios()">Cadastrar funcionários</button>
             </div>
+
+            
 
             <div class="conteudo">
                 <div class="funcionario">
@@ -212,6 +215,10 @@
         listaFuncionarios.style.display = "none"
     }
 
+    function openCadastroFuncionarios() {
+        const cadastroFuncionarios = document.querySelector('.cadastro-funcionarios');
+        cadastroFuncionarios.style.display = "flex"
+    }
     function exitCadastroFuncionarios() {
         const cadastroFuncionarios = document.querySelector('.cadastro-funcionarios');
         cadastroFuncionarios.style.display = "none"
