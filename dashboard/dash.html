@@ -23,7 +23,7 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" 
+    <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="http://bernii.github.io/gauge.js/dist/gauge.min.js"></script>
@@ -135,16 +135,16 @@
                         <span id="uso_atual1"></span>
                         <canvas id="gauge1" class="gauge">
                         </canvas>
+                        
                         <script type="text/javascript">
-                            var uso = ;//pegar valor de uso direto do banco
                             var opts = {
                                 angle: 0,
                                 lineWidth: 0.5,
-                                radiusScale: 0.9, // Raio relativo
+                                radiusScale: 0.8, // Raio relativo
                                 pointer: {
-                                    length: 0.5, // Relativo ao raio do Gauge
-                                    strokeWidth: 0.02, // Largura do traço
-                                    color: '#000000' // Cor do ponteiro
+                                    length: 0.7, // Relativo ao raio do Gauge
+                                    strokeWidth: 0.04, // Largura do traço
+                                    color: '#00000' // Cor do ponteiro
                                 },
                                 generateGradient: true,
                                 highDpiSupport: true,
@@ -163,41 +163,26 @@
                                 }
                             };
                             var target = document.getElementById('gauge1'); // Elemento onde o gauge deve ser criado
-                            var gauge = new Gauge(target).setOptions(opts); // Criar gauge
-                            gauge.maxValue = 100; // Valor maximo
-                            gauge.setMinValue(0);  // Valor minimo
-                            gauge.animationSpeed = 32; // Velocidade da animacao
-                            gauge.set(uso); // Valor a ser exibido
-                            document.getElementById('uso_atual1').innerHTML = uso + '<b> % CPU </b>';
+                            var gauge1 = new Gauge(target).setOptions(opts); // Criar gauge
+                            gauge1.maxValue = 100; // Valor maximo
+                            gauge1.setMinValue(0);  // Valor minimo
+                            gauge1.animationSpeed = 32; // Velocidade da animacao
 
-                            //tentando atualizar gauge1 - cpu
-                            function atualizarGauge(uso, gauge, uso_atual) {
-                                var novoValor = Math.floor(Math.random() * (12 - 8 + 1)) + 8; // Gerar número aleatório entre 8 e 12
-                                gauge.refresh(novoValor);
-                                uso_atual.innerHTML = novoValor + '<b> % CPU </b>';
+                            function atualizarValor() {
+                                var novoUso = Math.floor(Math.random() * 101); // Gerar valor aleatório entre 0 e 100
+                                gauge1.set(novoUso); // Atualizar valor do gráfico
+                                document.getElementById('uso_atual1').innerHTML = novoUso + '<b> % CPU </b>'; // Atualizar texto
                             }
 
-                            var opts1 = { /* opções do medidor 1 */ };
-                            var target1 = document.getElementById('gauge1');
-                            var gauge1 = new JustGage({
-                                id: 'gauge1',
-                                options: opts1
-                            });
-
-                            var uso_atual1 = document.getElementById('uso_atual1');
-
-                            setInterval(function () {
-                                atualizarGauge(12, gauge1, uso_atual1);
-                            }, 1000);
+                            // Chamar a função a cada 1 segundos
+                            setInterval(atualizarValor, 1000);
                         </script>
                     </div>
                     <div class="box">
                         <span id="uso_atual2"></span>
-                        <canvas id="gauge2" class="gauge">
-                        </canvas>
+                        <canvas id="gauge2" class="gauge"></canvas>
 
                         <script type="text/javascript">
-                            var uso = 52;//pegar valor de uso direto do banco
                             var opts = {
                                 angle: 0,
                                 lineWidth: 0.5,
@@ -205,7 +190,7 @@
                                 pointer: {
                                     length: 0.7, // Relativo ao raio do Gauge
                                     strokeWidth: 0.04, // Largura do traço
-                                    color: '#000000' // Cor do ponteiro
+                                    color: '#00000' // Cor do ponteiro
                                 },
                                 generateGradient: true,
                                 highDpiSupport: true,
@@ -224,21 +209,27 @@
                                 }
                             };
                             var target = document.getElementById('gauge2'); // Elemento onde o gauge deve ser criado
-                            var gauge = new Gauge(target).setOptions(opts); // Criar gauge
-                            gauge.maxValue = 100; // Valor maximo
-                            gauge.setMinValue(0);  // Valor minimo
-                            gauge.animationSpeed = 32; // Velocidade da animacao
-                            gauge.set(uso); // Valor a ser exibido
-                            document.getElementById('uso_atual2').innerHTML = uso + '<b> % RAM </b>';    
+                            var gauge2 = new Gauge(target).setOptions(opts); // Criar gauge
+                            gauge2.maxValue = 100; // Valor maximo
+                            gauge2.setMinValue(0);  // Valor minimo
+                            gauge2.animationSpeed = 32; // Velocidade da animacao
+
+                            function atualizarValor() {
+                                var novoUso = Math.floor(Math.random() * 101); // Gerar valor aleatório entre 0 e 100
+                                gauge2.set(novoUso); // Atualizar valor do gráfico
+                                document.getElementById('uso_atual2').innerHTML = novoUso + '<b> % RAM </b>'; // Atualizar texto
+                            }
+
+                            // Chamar a função a cada 1 segundos
+                            setInterval(atualizarValor, 1000);
+
                         </script>
                     </div>
                     <div class="box">
                         <span id="uso_atual3"></span>
-                        <canvas id="gauge3" class="gauge">
-                        </canvas>
+                        <canvas id="gauge3" class="gauge"></canvas>
 
                         <script type="text/javascript">
-                            var uso = 45;//pegar valor de uso direto do banco
                             var opts = {
                                 angle: 0,
                                 lineWidth: 0.5,
@@ -269,8 +260,16 @@
                             gauge.maxValue = 100; // Valor maximo
                             gauge.setMinValue(0);  // Valor minimo
                             gauge.animationSpeed = 32; // Velocidade da animacao
-                            gauge.set(uso); // Valor a ser exibido
-                            document.getElementById('uso_atual3').innerHTML = uso + '<b> % Disco </b>';    
+
+                            function atualizarValor() {
+                                var novoUso = Math.floor(Math.random() * 101); // Gerar valor aleatório entre 0 e 100
+                                gauge.set(novoUso); // Atualizar valor do gráfico
+                                document.getElementById('uso_atual3').innerHTML = novoUso + '<b> % Disco </b>'; // Atualizar texto
+                            }
+
+                            // Chamar a função a cada 1 segundos
+                            setInterval(atualizarValor, 1000);
+
                         </script>
                     </div>
                 </div>
@@ -293,61 +292,43 @@
             <div class="pop-up">
                 <div class="titulo">
                     <h1>Funcionários</h1>
-                    <img src="../img/icone-x.png" onclick="exitListaFuncionarios()"  alt="">
+                    <img src="../img/icone-x.png" onclick="exitListaFuncionarios()" alt="">
                 </div>
-    
+
                 <div class="conteudo">
                     <div class="funcionario">
                         <div class="ID">
                             <h2>ID</h2>
                             <p>1</p>
                         </div>
-    
+
                         <div class="Nome">
                             <h2>Nome</h2>
                             <p>Jubileu</p>
-                        </div> 
-                        
+                        </div>
+
                         <div class="E-mail">
                             <h2>ID</h2>
                             <p>jubileu@gmail.com</p>
                         </div>
-                        <span></span> 
+                        <span></span>
                     </div>
                     <div class="funcionario">
                         <div class="ID">
                             <h2>ID</h2>
                             <p>1</p>
                         </div>
-    
+
                         <div class="Nome">
                             <h2>Nome</h2>
                             <p>Jubileu</p>
-                        </div> 
-                        
+                        </div>
+
                         <div class="E-mail">
                             <h2>ID</h2>
                             <p>jubileu@gmail.com</p>
                         </div>
-                        <span></span> 
-                    </div>
-    
-                    <div class="funcionario">
-                        <div class="ID">
-                            <h2>ID</h2>
-                            <p>1</p>
-                        </div>
-    
-                        <div class="Nome">
-                            <h2>Nome</h2>
-                            <p>Jubileu</p>
-                        </div> 
-                        
-                        <div class="E-mail">
-                            <h2>ID</h2>
-                            <p>jubileu@gmail.com</p>
-                        </div>
-                        <span></span> 
+                        <span></span>
                     </div>
 
                     <div class="funcionario">
@@ -355,17 +336,17 @@
                             <h2>ID</h2>
                             <p>1</p>
                         </div>
-    
+
                         <div class="Nome">
                             <h2>Nome</h2>
                             <p>Jubileu</p>
-                        </div> 
-                        
+                        </div>
+
                         <div class="E-mail">
                             <h2>ID</h2>
                             <p>jubileu@gmail.com</p>
                         </div>
-                        <span></span> 
+                        <span></span>
                     </div>
 
                     <div class="funcionario">
@@ -373,17 +354,17 @@
                             <h2>ID</h2>
                             <p>1</p>
                         </div>
-    
+
                         <div class="Nome">
                             <h2>Nome</h2>
                             <p>Jubileu</p>
-                        </div> 
-                        
+                        </div>
+
                         <div class="E-mail">
                             <h2>ID</h2>
                             <p>jubileu@gmail.com</p>
                         </div>
-                        <span></span> 
+                        <span></span>
                     </div>
 
                     <div class="funcionario">
@@ -391,17 +372,35 @@
                             <h2>ID</h2>
                             <p>1</p>
                         </div>
-    
+
                         <div class="Nome">
                             <h2>Nome</h2>
                             <p>Jubileu</p>
-                        </div> 
-                        
+                        </div>
+
                         <div class="E-mail">
                             <h2>ID</h2>
                             <p>jubileu@gmail.com</p>
                         </div>
-                        <span></span> 
+                        <span></span>
+                    </div>
+
+                    <div class="funcionario">
+                        <div class="ID">
+                            <h2>ID</h2>
+                            <p>1</p>
+                        </div>
+
+                        <div class="Nome">
+                            <h2>Nome</h2>
+                            <p>Jubileu</p>
+                        </div>
+
+                        <div class="E-mail">
+                            <h2>ID</h2>
+                            <p>jubileu@gmail.com</p>
+                        </div>
+                        <span></span>
                     </div>
                 </div>
             </div>
@@ -435,30 +434,30 @@
                         <button class="button">Ver mais</button>
                         <table>
                             <thead>
-                              <tr>
-                                <th>PID</th>
-                                <th>%CPU</th>
-                                <th>%RAM</th>
-                              </tr>
+                                <tr>
+                                    <th>PID</th>
+                                    <th>%CPU</th>
+                                    <th>%RAM</th>
+                                </tr>
                             </thead>
                             <tbody>
-                              <tr>
-                                <td>21</td>
-                                <td>12</td>
-                                <td>20</td>
-                              </tr>
-                              <tr>
-                                <td>22</td>
-                                <td>9</td>
-                                <td>20</td>
-                              </tr>
-                              <tr>
-                                <td>03</td>
-                                <td>5</td>
-                                <td>22</td>
-                              </tr>
+                                <tr>
+                                    <td>21</td>
+                                    <td>12</td>
+                                    <td>20</td>
+                                </tr>
+                                <tr>
+                                    <td>22</td>
+                                    <td>9</td>
+                                    <td>20</td>
+                                </tr>
+                                <tr>
+                                    <td>03</td>
+                                    <td>5</td>
+                                    <td>22</td>
+                                </tr>
                             </tbody>
-                          </table>
+                        </table>
                     </div>
                     <!-- <div style="width: 90%; height: 85%; margin: 0px 0px 0px 40px;">
                         <canvas id="lineChart4"></canvas>
@@ -720,5 +719,5 @@
     }
 
     // parte da table de processos
-    
+
 </script>
