@@ -222,9 +222,53 @@
                     <input type="password" name="" id="senha_input">
                     <p>Confirmar nova senha:</p>
                     <input type="password" name="" id="confirme_input">
-
                 </div>
                 <button onclick="editar()" style="width: 40vh;" class="btnCadastro">Editar funcionário</button>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="abrirPerfil" style="display: none;">
+        <div class="pop-up">
+            <div class="head">
+                <div class="titulo">
+                    <h1>Editar Perfil</h1>
+                </div>
+                <i class="fa fa-remove" style="width: 6vh; font-size: 4vh;" onclick="exitPerfil()"></i>
+            </div>
+
+            <div class="conteudo">
+                <div>
+                    <p><b>E-mail:</b></p>
+                    <p>perfil@email.com</p>
+                    <p><b>Senha:</b></p>
+                    <p>********</p>
+                </div>
+                <button onclick="openEditarPerfil()" style="width: 40vh;" class="btnCadastro">Editar Perfil</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="editarPerfil" style="display: none;">
+        <div class="pop-up">
+            <div class="head">
+                <div class="titulo">
+                    <h1>Editar Perfil</h1>
+                </div>
+                <i class="fa fa-remove" style="width: 6vh; font-size: 4vh;" onclick="exitPerfilOk()"></i>
+            </div>
+
+            <div class="conteudo">
+                <div>
+                    <p>E-mail:</p>
+                    <input type="email" name="" id="email_input"">
+                    <p>Nova senha:</p>
+                    <input type="password" name="" id="senha_input">
+                    <p>Confirmar nova senha:</p>
+                    <input type="password" name="" id="confirme_input">
+                </div>
+                <button onclick="editarPerfilOk()" style="width: 40vh;" class="btnCadastro">Editar Perfil</button>
             </div>
 
         </div>
@@ -273,7 +317,7 @@
                     <div class="boxTextoMenu"> Funcionários </div>
                 </div>
 
-                <div class="menuPerfil" onclick="">
+                <div class="menuPerfil" onclick="openPerfil()">
                     <div class="iconPerfil">
                         <span class="material-symbols-outlined"> person </span>
                     </div>
@@ -588,9 +632,26 @@
     var listaFuncionarios = document.querySelector('.lista-funcionarios');
     var cadastroFuncionarios = document.querySelector('.cadastroFuncionarios');
     var editarFuncionarios = document.querySelector('.editarFuncionarios');
+    var abrirPerfil = document.querySelector('.abrirPerfil');
+    var editarPerfil = document.querySelector('.editarPerfil');
+
+
 
     function openListaFuncionarios() {
         listaFuncionarios.style.display = "flex"
+    }
+
+    function openPerfil() {
+        abrirPerfil.style.display = "flex"
+    }
+
+    function exitPerfil(){
+        abrirPerfil.style.display = "none"
+    }
+
+    function exitPerfilOk(){
+        editarPerfil.style.display = "none"
+        abrirPerfil.style.display = "none"
     }
 
     function exitListaFuncionarios() {
@@ -607,6 +668,10 @@
 
     function openEditarFuncionarios() {
         editarFuncionarios.style.display = "flex"
+    }
+
+    function openEditarPerfil() {
+        editarPerfil.style.display = "flex"
     }
 
     function exitEditarFuncionarios() {
@@ -891,9 +956,6 @@
     }
 
     function cadastrar() {
-        
-
-
         const nome = nome_inputCadastro.value
         const email = email_inputCadastro.value
         const senha = senha_inputCadastro.value
@@ -964,6 +1026,84 @@
     function editar() {
         Swal.fire({
             title: "Funcionário editado com sucesso!",
+            icon: "success",
+            color: "#ffffff",
+            background: "#272628",
+            confirmButtonColor: "#8039EB"
+        });
+    }
+
+    /* editar Perfil */
+    function editarPerfilOk() {
+        const email = email_input.value
+        const senha = senha_input.value
+        const confirmar = confirme_inputCadastro.value
+        let dados = {}
+
+        if (nome === '' || email === '' || senha === '' || confirmar === '') {
+            Swal.fire({
+                color: "#ffffff",
+                background: "#272628",
+                confirmButtonColor: "#8039EB",
+                icon: "error",
+                title: "Oops...",
+                text: "Preencha todos os campos",
+            });
+            return false
+        } else if (senha.length < 8) {
+            Swal.fire({
+                color: "#ffffff",
+                background: "#272628",
+                confirmButtonColor: "#8039EB",
+                icon: "warning",
+                title: "Oops...",
+                text: "Senha tem que ser maior que 8",
+            });
+            return false
+        } else if (senha != confirmar) {
+            Swal.fire({
+                color: "#ffffff",
+                background: "#272628",
+                confirmButtonColor: "#8039EB",
+                icon: "warning",
+                title: "Oops...",
+                text: "As senhas precisam ser iguais",
+            });
+            return false
+        } else if (!email.endsWith(".com")) {
+            Swal.fire({
+                color: "#ffffff",
+                background: "#272628",
+                confirmButtonColor: "#8039EB",
+                icon: "warning",
+                title: "Oops...",
+                text: "E-mail tem que terminar com '.com'",
+            });
+            return false
+        }  else {
+            dados = {
+                nome,
+                email,
+                senha
+            }
+            Swal.fire({
+            title: "Funcionário cadastrado com sucesso!",
+            icon: "success",
+            color: "#ffffff",
+            background: "#272628",
+            confirmButtonColor: "#8039EB"
+        });
+
+        nome_input.value = ""
+        email_input.value = ""
+        senha_input.value = ""
+        confirme_input.value = ""
+        }
+    }
+
+    function editarPerfilOk() {
+        Swal.fire({
+            title: "Perfil editado com sucesso!",
             icon: "success",
             color: "#ffffff",
             background: "#272628",
