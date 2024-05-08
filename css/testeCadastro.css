@@ -170,6 +170,9 @@ a{
     width: 180px;
     margin-bottom: 65px;
 }
+.button:hover{
+    cursor: pointer;
+}
 
 .button2{
     margin-left: 20px;

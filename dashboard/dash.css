@@ -370,7 +370,7 @@ body {
     scale: 1.08;
 }
 
-.cadastroFuncionarios {
+.cadastroFuncionarios  {
     z-index: 100;
     display: flex;
     align-items: center;
@@ -442,7 +442,77 @@ body {
     border-radius: 5px;
 }
 
+.editarFuncionarios  {
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
 
+    background-color: rgba(12, 12, 14, 0.2);
+    color: #fff;
+
+    width: 100%;
+    height: 100vh;
+    transition: 0.6s;
+}
+
+.editarFuncionarios .pop-up {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    background-color: #272628;
+    width: 50%;
+    height: 70%;
+
+    border: 1px solid #8039EB;
+    border-radius: 5px;
+
+    padding: 0 80px;
+    padding-bottom: 30px;
+}
+
+.editarFuncionarios .pop-up .head {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 10%;
+}
+
+.editarFuncionarios .pop-up .head .titulo {
+    width: 95%;
+    text-align: center;
+}
+
+.editarFuncionarios .pop-up .head h1 {
+    font-size: 2vw;
+    margin: 0;
+}
+
+
+.editarFuncionarios .pop-up .head i:hover {
+    cursor: pointer;
+}
+
+.editarFuncionarios .pop-up .conteudo {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.editarFuncionarios .pop-up .conteudo input {
+    width: 100%;
+    height: 4vh;
+
+    background-color: #000000;
+    color: #ffffff;
+
+    border: 1px solid #8039EB;
+    border-radius: 5px;
+}
 
 *::-webkit-scrollbar {
     width: 12px;
@@ -450,6 +520,19 @@ body {
 
 *::-webkit-scrollbar-track {
     background: #272628;
+}
+button{
+    background-color: #8039EB;
+    width: 25vh;
+    border: 1px solid #272628;
+    border-radius: 5px;
+    transition: all 0.3s linear;
+    color: #ffffff;
+}
+button:hover{
+    cursor: pointer;
+    background-color: #9658f2;
+    border: 1px solid #272628;
 }
 
 *::-webkit-scrollbar-thumb {

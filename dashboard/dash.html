@@ -18,6 +18,9 @@
 </head>
 
 <body>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
     <div class="lista-funcionarios" style="display: none;">
         <div class="pop-up">
             <div class="head">
@@ -50,10 +53,11 @@
                         <p>Carlos@gmail.com</p>
                     </div>
                     <div class="excluir">
-                        <i class="fa fa-trash-o" style="font-size:24px; display: flex; align-items: center;"></i>
+                        <i onclick="excluir()" class="fa fa-trash-o"
+                            style="font-size:24px; display: flex; align-items: center;"></i>
                     </div>
                     <div class="editar">
-                        <i class="fa fa-edit" style="font-size:24px; display: flex; align-items: center;"></i>
+                        <i onclick="openEditarFuncionarios()" class="fa fa-edit" style="font-size:24px; display: flex; align-items: center;"></i>
                     </div>
                 </div>
                 <div class="funcionario">
@@ -68,12 +72,13 @@
                     </div>
                     <div class="excluir">
                         <!-- <button class="iconsCRUD"> -->
-                        <i class="fa fa-trash-o" style="font-size:24px; display: flex; align-items: center;"></i>
+                        <i onclick="excluir()" class="fa fa-trash-o"
+                            style="font-size:24px; display: flex; align-items: center;"></i>
                         </button>
                     </div>
                     <div class="editar">
                         <!-- <button class="iconsCRUD"> -->
-                        <i class="fa fa-edit" style="font-size:24px; display: flex; align-items: center;"></i>
+                        <i onclick="openEditarFuncionarios()" class="fa fa-edit" style="font-size:24px; display: flex; align-items: center;"></i>
                         </button>
                     </div>
                 </div>
@@ -88,10 +93,11 @@
                         <p>Viana@gmail.com</p>
                     </div>
                     <div class="excluir">
-                        <i class="fa fa-trash-o" style="font-size:24px; display: flex; align-items: center;"></i>
+                        <i onclick="excluir()" class="fa fa-trash-o"
+                            style="font-size:24px; display: flex; align-items: center;"></i>
                     </div>
                     <div class="editar">
-                        <i class="fa fa-edit" style="font-size:24px; display: flex; align-items: center;"></i>
+                        <i onclick="openEditarFuncionarios()" class="fa fa-edit" style="font-size:24px; display: flex; align-items: center;"></i>
                     </div>
                 </div>
                 <div class="funcionario">
@@ -105,10 +111,11 @@
                         <p>Michelly@gmail.com</p>
                     </div>
                     <div class="excluir">
-                        <i class="fa fa-trash-o" style="font-size:24px; display: flex; align-items: center;"></i>
+                        <i onclick="excluir()" class="fa fa-trash-o"
+                            style="font-size:24px; display: flex; align-items: center;"></i>
                     </div>
                     <div class="editar">
-                        <i class="fa fa-edit" style="font-size:24px; display: flex; align-items: center;"></i>
+                        <i onclick="openEditarFuncionarios()" class="fa fa-edit" style="font-size:24px; display: flex; align-items: center;"></i>
                     </div>
                 </div>
                 <div class="funcionario">
@@ -122,10 +129,11 @@
                         <p>Vitor@gmail.com</p>
                     </div>
                     <div class="excluir">
-                        <i class="fa fa-trash-o" style="font-size:24px; display: flex; align-items: center;"></i>
+                        <i onclick="excluir()" class="fa fa-trash-o"
+                            style="font-size:24px; display: flex; align-items: center;"></i>
                     </div>
                     <div class="editar">
-                        <i class="fa fa-edit" style="font-size:24px; display: flex; align-items: center;"></i>
+                        <i onclick="openEditarFuncionarios()" class="fa fa-edit" style="font-size:24px; display: flex; align-items: center;"></i>
                     </div>
                 </div>
                 <div class="funcionario">
@@ -139,7 +147,8 @@
                         <p>Fernanda@gmail.com</p>
                     </div>
                     <div class="excluir">
-                        <i class="fa fa-trash-o" style="font-size:24px; display: flex; align-items: center;"></i>
+                        <i onclick="excluir()" class="fa fa-trash-o"
+                            style="font-size:24px; display: flex; align-items: center;"></i>
                     </div>
                     <div class="editar">
                         <i class="fa fa-edit" style="font-size:24px; display: flex; align-items: center;"></i>
@@ -156,10 +165,11 @@
                         <p>Caramicou@gmail.com</p>
                     </div>
                     <div class="excluir">
-                        <i class="fa fa-trash-o" style="font-size:24px; display: flex; align-items: center;"></i>
+                        <i onclick="excluir()" class="fa fa-trash-o"
+                            style="font-size:24px; display: flex; align-items: center;"></i>
                     </div>
                     <div class="editar">
-                        <i class="fa fa-edit" style="font-size:24px; display: flex; align-items: center;"></i>
+                        <i onclick="openEditarFuncionarios()" class="fa fa-edit" style="font-size:24px; display: flex; align-items: center;"></i>
                     </div>
                 </div>
             </div>
@@ -178,14 +188,43 @@
             <div class="conteudo">
                 <div>
                     <p>Nome:</p>
-                    <input type="text">
+                    <input type="text" id="nome_inputCadastro">
                     <p>E-mail:</p>
-                    <input type="email" name="" id="">
+                    <input type="email" name="" id="email_inputCadastro">
                     <p>Senha:</p>
-                    <input type="password" name="" id="">
+                    <input type="password" name="" id="senha_inputCadastro">
+                    <p>Confirmar senha:</p>
+                    <input type="password" name="" id="confirme_inputCadastro">
 
                 </div>
-                <button style="width: 40vh;" class="btnCadastro">Cadastrar funcionário</button>
+                <button onclick="cadastrar()" style="width: 40vh;" class="btnCadastro">Cadastrar funcionário</button>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="editarFuncionarios" style="display: none;">
+        <div class="pop-up">
+            <div class="head">
+                <div class="titulo">
+                    <h1>Editar Funcionário</h1>
+                </div>
+                <i class="fa fa-remove" style="width: 6vh; font-size: 4vh;" onclick="exitEditarFuncionarios()"></i>
+            </div>
+
+            <div class="conteudo">
+                <div>
+                    <p>Nome:</p>
+                    <input type="text" id="nome_input" >
+                    <p>E-mail:</p>
+                    <input type="email" name="" id="email_input"">
+                    <p>Nova senha:</p>
+                    <input type="password" name="" id="senha_input">
+                    <p>Confirmar nova senha:</p>
+                    <input type="password" name="" id="confirme_input">
+
+                </div>
+                <button onclick="editar()" style="width: 40vh;" class="btnCadastro">Editar funcionário</button>
             </div>
 
         </div>
@@ -544,11 +583,11 @@
 
 </html>
 <script>
-
     // POPUPS
 
     var listaFuncionarios = document.querySelector('.lista-funcionarios');
     var cadastroFuncionarios = document.querySelector('.cadastroFuncionarios');
+    var editarFuncionarios = document.querySelector('.editarFuncionarios');
 
     function openListaFuncionarios() {
         listaFuncionarios.style.display = "flex"
@@ -566,13 +605,13 @@
         cadastroFuncionarios.style.display = "none"
     }
 
-    // function openListaFuncionarios() {
-    //     listaFuncionarios.style.display = "flex"
-    // }
+    function openEditarFuncionarios() {
+        editarFuncionarios.style.display = "flex"
+    }
 
-    // function exitListaFuncionarios() {
-    //     listaFuncionarios.style.display = "none"
-    // }
+    function exitEditarFuncionarios() {
+        editarFuncionarios.style.display = "none"
+    }
 
     // function openListaFuncionarios() {
     //     listaFuncionarios.style.display = "flex"
@@ -801,5 +840,135 @@
     }
 
     // parte da table de processos
+
+
+
+
+
+
+
+    //sweet alert
+    function excluir() {
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: "btn btn-success",
+                cancelButton: "btn btn-danger",
+            },
+            buttonsStyling: false
+        });
+        swalWithBootstrapButtons.fire({
+            background: "#272628",
+            color: "#ffffff",
+            title: "Tem certeza de que deseja excluir?",
+            text: "Você não poderá reverter esta ação",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Excluir",
+            cancelButtonText: "Cancelar",
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                swalWithBootstrapButtons.fire({
+                    background: "#272628",
+                    color: "#ffffff",
+                    title: "Funcionário excluído",
+                    // text: "Funcionário excluído",
+                    icon: "success"
+                });
+            } else if (
+                /* Read more about handling dismissals below */
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swalWithBootstrapButtons.fire({
+                    background: "#272628",
+                    color: "#ffffff",
+                    title: "Exclusão de funcionário cancelada",
+                    // text: "Exclusão de funcionário cancelada",
+                    icon: "error"
+                });
+            }
+        });
+    }
+
+    function cadastrar() {
+        
+
+
+        const nome = nome_inputCadastro.value
+        const email = email_inputCadastro.value
+        const senha = senha_inputCadastro.value
+        const confirmar = confirme_inputCadastro.value
+        let dados = {}
+
+        if (nome === '' || email === '' || senha === '' || confirmar === '') {
+            Swal.fire({
+                color: "#ffffff",
+                background: "#272628",
+                confirmButtonColor: "#8039EB",
+                icon: "error",
+                title: "Oops...",
+                text: "Preencha todos os campos",
+            });
+            return false
+        } else if (senha.length < 8) {
+            Swal.fire({
+                color: "#ffffff",
+                background: "#272628",
+                confirmButtonColor: "#8039EB",
+                icon: "warning",
+                title: "Oops...",
+                text: "Senha tem que ser maior que 8",
+            });
+            return false
+        } else if (senha != confirmar) {
+            Swal.fire({
+                color: "#ffffff",
+                background: "#272628",
+                confirmButtonColor: "#8039EB",
+                icon: "warning",
+                title: "Oops...",
+                text: "As senhas precisam ser iguais",
+            });
+            return false
+        } else if (!email.endsWith(".com")) {
+            Swal.fire({
+                color: "#ffffff",
+                background: "#272628",
+                confirmButtonColor: "#8039EB",
+                icon: "warning",
+                title: "Oops...",
+                text: "E-mail tem que terminar com '.com'",
+            });
+            return false
+        }  else {
+            dados = {
+                nome,
+                email,
+                senha
+            }
+            Swal.fire({
+            title: "Funcionário cadastrado com sucesso!",
+            icon: "success",
+            color: "#ffffff",
+            background: "#272628",
+            confirmButtonColor: "#8039EB"
+        });
+
+        nome_input.value = ""
+        email_input.value = ""
+        senha_input.value = ""
+        confirme_input.value = ""
+        }
+    }
+
+    function editar() {
+        Swal.fire({
+            title: "Funcionário editado com sucesso!",
+            icon: "success",
+            color: "#ffffff",
+            background: "#272628",
+            confirmButtonColor: "#8039EB"
+        });
+    }
 
 </script>
