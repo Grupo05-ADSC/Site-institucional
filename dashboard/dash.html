@@ -203,6 +203,26 @@
         </div>
     </div>
 
+    <div class="cadastrarSlack" style="display: none;">
+        <div class="pop-up">
+            <div class="head">
+                <div class="titulo">
+                    <h1>Slack</h1>
+                </div>
+                <i class="fa fa-remove" style="width: 6vh; font-size: 4vh;" onclick="exitCadastrarSlack()"></i>
+            </div>
+
+            <div class="conteudo">
+                <div>
+                    <p>ID do workspace ou colaborador</p>
+                    <input type="email" name="" id="email_inputCadastroSlack">
+
+                </div>
+                <button onclick="cadastrarSlack()" style="width: 40vh;" class="btnCadastro">Cadastrar Slack</button>
+            </div>
+        </div>
+    </div>
+
     <div class="editarFuncionarios" style="display: none;">
         <div class="pop-up">
             <div class="head">
@@ -535,8 +555,8 @@
                         <b>CPU alterada</b> <br>
                         Descrição: o uso da sua cpu está acima do ideal
 
-                        <button class="buttonSlack">
-                            <a href="https://app.slack.com/">Ir para o slack</a>
+                        <button class="buttonSlack" onclick="openCadastrarSlack()">
+                            Cadastrar slack
                         </button>
                     </div>
                 </div>
@@ -634,8 +654,15 @@
     var editarFuncionarios = document.querySelector('.editarFuncionarios');
     var abrirPerfil = document.querySelector('.abrirPerfil');
     var editarPerfil = document.querySelector('.editarPerfil');
+    var cadastrarSlack = document.querySelector('.cadastrarSlack');
 
+    function openCadastrarSlack() {
+        cadastrarSlack.style.display = "flex"
+    }
 
+    function exitCadastrarSlack() {
+        cadastrarSlack.style.display = "none"
+    }
 
     function openListaFuncionarios() {
         listaFuncionarios.style.display = "flex"
@@ -1104,6 +1131,16 @@
     function editarPerfilOk() {
         Swal.fire({
             title: "Perfil editado com sucesso!",
+            icon: "success",
+            color: "#ffffff",
+            background: "#272628",
+            confirmButtonColor: "#8039EB"
+        });
+    }
+
+    function cadastrarSlack() {
+        Swal.fire({
+            title: "Funcionário editado com sucesso!",
             icon: "success",
             color: "#ffffff",
             background: "#272628",
