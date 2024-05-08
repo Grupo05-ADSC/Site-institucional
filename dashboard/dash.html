@@ -7,8 +7,7 @@
     <title>DASHBOARD - SISGUARD</title>
 
     <link rel="stylesheet" href="dash.css">
-    <link rel="stylesheet" 
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet"
@@ -44,7 +43,7 @@
             </div>
 
             <button class="btnCadastroF" onclick="openCadastroFuncionarios()">Cadastrar funcionários</button>
-            
+
             <div class="legendaFuncionarios">
                 <b class="id">ID</b>
                 <b class="nome">Nome</b>
@@ -54,7 +53,7 @@
             </div>
 
             <div class="conteudo">
-            
+
                 <div class="funcionario">
                     <div class="id">
                         <p>1</p>
@@ -84,12 +83,12 @@
                     </div>
                     <div class="excluir">
                         <!-- <button class="iconsCRUD"> -->
-                            <i class="fa fa-trash-o" style="font-size:24px; display: flex; align-items: center;"></i>
+                        <i class="fa fa-trash-o" style="font-size:24px; display: flex; align-items: center;"></i>
                         </button>
                     </div>
                     <div class="editar">
                         <!-- <button class="iconsCRUD"> -->
-                            <i class="fa fa-edit" style="font-size:24px; display: flex; align-items: center;"></i>
+                        <i class="fa fa-edit" style="font-size:24px; display: flex; align-items: center;"></i>
                         </button>
                     </div>
                 </div>
@@ -214,7 +213,7 @@
             </div>
             <div class="boxTitulo"> Olá, nome! </div>
             <div class="menu">
-    
+
                 <div class="menuGraficos">
                     <div class="iconGraficos">
                         <span class="material-symbols-outlined"> monitoring </span>
@@ -228,35 +227,35 @@
                     </div>
                     <div class="boxTextoMenu"><a href="dashGeral.html">Overview</a></div>
                 </div>
-    
+
                 <div class="menuPerfil" onclick="">
                     <div class="iconPerfil">
                         <span class="material-symbols-outlined"> warehouse </span>
                     </div>
                     <div class="boxTextoMenu"> Dark store </div>
                 </div>
-    
+
                 <div class="menuPerfil" onclick="">
                     <div class="iconPerfil">
                         <span class="material-symbols-outlined"> computer </span>
                     </div>
                     <div class="boxTextoMenu"> Máquinas </div>
                 </div>
-    
+
                 <div class="menuPerfil" onclick="openListaFuncionarios()">
                     <div class="iconPerfil">
                         <span class="material-symbols-outlined"> groups </span>
                     </div>
                     <div class="boxTextoMenu"> Funcionários </div>
                 </div>
-    
+
                 <div class="menuPerfil" onclick="">
                     <div class="iconPerfil">
                         <span class="material-symbols-outlined"> person </span>
                     </div>
                     <div class="boxTextoMenu"> Perfil </div>
                 </div>
-    
+
                 <div class="boxSair">
                     <div class="playSair">
                         <span class="material-symbols-outlined"> logout </span>
@@ -265,7 +264,7 @@
                 </div>
             </div>
         </nav>
-    
+
         <div class="linha1">
             <div class="box1">
                 <select id="darkStoreSelect">
@@ -302,7 +301,7 @@
                 <canvas id="donutChart"></canvas>
             </div>
         </div>
-    
+
         <div class="linha2">
             <div class="indicadores">
                 <div class="cardMetrica">
@@ -318,7 +317,7 @@
                             <span id="uso_atual1"></span>
                             <canvas id="gauge1" class="gauge">
                             </canvas>
-                            
+
                             <script type="text/javascript">
                                 var opts = {
                                     angle: 0,
@@ -350,13 +349,13 @@
                                 gauge1.maxValue = 100; // Valor maximo
                                 gauge1.setMinValue(0);  // Valor minimo
                                 gauge1.animationSpeed = 32; // Velocidade da animacao
-    
+
                                 function atualizarValor() {
                                     var novoUso = Math.floor(Math.random() * 101); // Gerar valor aleatório entre 0 e 100
                                     gauge1.set(novoUso); // Atualizar valor do gráfico
                                     document.getElementById('uso_atual1').innerHTML = novoUso + '<b> % CPU </b>'; // Atualizar texto
                                 }
-    
+
                                 // Chamar a função a cada 1 segundos
                                 setInterval(atualizarValor, 1000);
                             </script>
@@ -364,7 +363,7 @@
                         <div class="box">
                             <span id="uso_atual2"></span>
                             <canvas id="gauge2" class="gauge"></canvas>
-    
+
                             <script type="text/javascript">
                                 var opts = {
                                     angle: 0,
@@ -396,22 +395,22 @@
                                 gauge2.maxValue = 100; // Valor maximo
                                 gauge2.setMinValue(0);  // Valor minimo
                                 gauge2.animationSpeed = 32; // Velocidade da animacao
-    
+
                                 function atualizarValor() {
                                     var novoUso = Math.floor(Math.random() * 101); // Gerar valor aleatório entre 0 e 100
                                     gauge2.set(novoUso); // Atualizar valor do gráfico
                                     document.getElementById('uso_atual2').innerHTML = novoUso + '<b> % RAM </b>'; // Atualizar texto
                                 }
-    
+
                                 // Chamar a função a cada 1 segundos
                                 setInterval(atualizarValor, 1000);
-    
+
                             </script>
                         </div>
                         <div class="box">
                             <span id="uso_atual3"></span>
                             <canvas id="gauge3" class="gauge"></canvas>
-    
+
                             <script type="text/javascript">
                                 var opts = {
                                     angle: 0,
@@ -443,36 +442,41 @@
                                 gauge.maxValue = 100; // Valor maximo
                                 gauge.setMinValue(0);  // Valor minimo
                                 gauge.animationSpeed = 32; // Velocidade da animacao
-    
+
                                 function atualizarValor() {
                                     var novoUso = Math.floor(Math.random() * 101); // Gerar valor aleatório entre 0 e 100
                                     gauge.set(novoUso); // Atualizar valor do gráfico
                                     document.getElementById('uso_atual3').innerHTML = novoUso + '<b> % Disco </b>'; // Atualizar texto
                                 }
-    
+
                                 // Chamar a função a cada 1 segundos
                                 setInterval(atualizarValor, 1000);
-    
+
                             </script>
                         </div>
                     </div>
                 </div>
                 <div class="card_alerta">
                     <div class="titulo_icon">
-                        <div class="titulo_alerta">Alertas</div>
+                        <div class="titulo_alerta"><b>Notificações</b></div>
                         <span class="material-symbols-outlined">
                             notifications_active
                         </span>
                     </div>
                     <div class="box">
-                        aqui ficarão os alertas
+                        <b>CPU alterada</b> <br>
+                        Descrição: o uso da sua cpu está acima do ideal
+
+                        <button class="buttonSlack">
+                            <a href="https://app.slack.com/">Ir para o slack</a>
+                        </button>
                     </div>
                 </div>
-    
+
             </div>
-    
-            
-    
+
+
+
             <div class="boxgraficos">
                 <div class="graficos">
                     <div class="grafico1">
@@ -533,7 +537,7 @@
                 </div>
             </div>
         </div>
-    
+
         <div class="linha3">
             <div class="box">
                 <b>Total de Máquinas</b>
@@ -548,7 +552,7 @@
                 <h1 class="destaque">7</h1>
             </div>
         </div>
-    
+
     </div>
 
 </body>

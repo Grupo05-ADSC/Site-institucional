@@ -601,6 +601,22 @@ body {
     margin-top: 10px;
 }
 
+.buttonSlack{
+    margin-top: 20px;
+    background-color: black;
+    border: solid 2px #8039EB;
+    border-radius: 5px;
+    color: #b6b6b6;
+    height: 25px;
+    width: 120px;
+}
+
+.card_alerta .box a {
+    text-decoration: none;
+    color: #b6b6b6;
+    font-weight: bolder;
+}
+
 .titulo_icon {
     display: flex;
     flex-direction: row;
