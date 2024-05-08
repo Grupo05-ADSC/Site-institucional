@@ -109,7 +109,7 @@ body{
 .conteudoGeral{
     height: 600px;
     width: 1050px;
-    margin: 40px 20px 0px 40px;
+    margin: 10px 20px 0px 40px;
 }
 
 .cardBox{
@@ -135,12 +135,13 @@ body{
     font-size: 20px;
 }
 
+
 .cardBox .box{
 border: solid 4px #8039EB;
 }
 
 .cardGeral{
-    height: 445px;
+    height: 470px;
     width: 100%;
     margin-top: 0px;
     display: flex;
@@ -148,15 +149,20 @@ border: solid 4px #8039EB;
     justify-content: space-between;
 }
 
+.linhaSelect{
+    background-color: #885050;
+    height: 30px;
+    width: 100%;
+}
+
 .maquinas{
-    background-color: #111111;
+    background-color: #960000;
     height: 100%;
     width: 57%;
     border-radius: 5px;
     overflow-x: hidden;
     overflow-y: scroll;
 }
-
 
 *::-webkit-scrollbar {
     width: 12px;
@@ -174,7 +180,7 @@ border: solid 4px #8039EB;
 
 .linha{
     height: 135px;
-    width: 90%;
+    width: 95%;
     margin: 10px 0px 0px 5px;
     display: flex;
     flex-direction: row;
@@ -184,9 +190,15 @@ border: solid 4px #8039EB;
 
 .boxMaquina{
     background-color: #2E2E2E;
-    height: 100%;
+    height: 95%;
     width: 125px;
     border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #b6b6b6;
+    padding: 5px 0px 0px 0px;
 }
 
 .graficoDiario{
