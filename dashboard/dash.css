@@ -124,6 +124,11 @@ body {
     margin-top: 40px;
 }
 
+.voltar{
+    color: #b6b6b6;
+    text-decoration: none;
+}
+
 .playSair {
     display: flex;
     justify-content: center;

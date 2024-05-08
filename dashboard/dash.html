@@ -259,7 +259,7 @@
                 <div class="boxSair">
                     <div class="playSair">
                         <span class="material-symbols-outlined"> logout </span>
-                        <b class="sair">sair</b>
+                        <b class="sair"><a class="voltar" href="../index.html">sair</a></b>
                     </div>
                 </div>
             </div>
@@ -351,7 +351,7 @@
                                 gauge1.animationSpeed = 32; // Velocidade da animacao
 
                                 function atualizarValor() {
-                                    var novoUso = Math.floor(Math.random() * 101); // Gerar valor aleatório entre 0 e 100
+                                    var novoUso = (Math.floor(Math.random() * 70) + 25) // Gerar valor aleatório entre 0 e 100
                                     gauge1.set(novoUso); // Atualizar valor do gráfico
                                     document.getElementById('uso_atual1').innerHTML = novoUso + '<b> % CPU </b>'; // Atualizar texto
                                 }
@@ -397,7 +397,7 @@
                                 gauge2.animationSpeed = 32; // Velocidade da animacao
 
                                 function atualizarValor() {
-                                    var novoUso = Math.floor(Math.random() * 101); // Gerar valor aleatório entre 0 e 100
+                                    var novoUso = (Math.floor(Math.random() * 16) + 35) // Gerar valor aleatório entre 0 e 100
                                     gauge2.set(novoUso); // Atualizar valor do gráfico
                                     document.getElementById('uso_atual2').innerHTML = novoUso + '<b> % RAM </b>'; // Atualizar texto
                                 }
@@ -444,7 +444,7 @@
                                 gauge.animationSpeed = 32; // Velocidade da animacao
 
                                 function atualizarValor() {
-                                    var novoUso = Math.floor(Math.random() * 101); // Gerar valor aleatório entre 0 e 100
+                                    var novoUso = (Math.floor(Math.random() * 5)) // Gerar valor aleatório entre 0 e 100
                                     gauge.set(novoUso); // Atualizar valor do gráfico
                                     document.getElementById('uso_atual3').innerHTML = novoUso + '<b> % Disco </b>'; // Atualizar texto
                                 }
@@ -666,7 +666,7 @@
             chart.data.labels.shift();
             chart.data.datasets[0].data.shift();
         }
-        chart.data.datasets[0].data.push(Math.floor(Math.random() * 10) + 8);
+        chart.data.datasets[0].data.push(Math.floor(Math.random() * 70) + 25);
         chart.update();
     }
 

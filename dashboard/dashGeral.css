@@ -220,6 +220,20 @@ border: solid 3px #8039EB;
     padding: 5px 0px 0px 0px;
 }
 
+.boxMaquinaV{
+    background-color: #2E2E2E;
+    border: solid 2px red;
+    height: 95%;
+    width: 125px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #b6b6b6;
+    padding: 5px 0px 0px 0px;
+}
+
 .graficoDiario{
     background-color: #111111;
     height: 100%;
