@@ -42,7 +42,7 @@ body{
     height: 8vh;
     width: 35vh;
     border-bottom: #b6b6b6 solid 2px;
-    border-top: #b6b6b6 solid 2px;
+
     display: flex;
     flex-direction: row;
 }
@@ -137,7 +137,7 @@ body{
 
 
 .cardBox .box{
-border: solid 4px #8039EB;
+border: solid 3px #8039EB;
 }
 
 .cardGeral{
@@ -155,10 +155,29 @@ border: solid 4px #8039EB;
     width: 100%;
 }
 
-.maquinas{
-    background-color: #960000;
+.caixaMaquinasGeral{
+    background-color: #111111;
     height: 100%;
     width: 57%;
+    border-radius: 5px;
+}
+
+#darkStoreSelect{
+    height: 25px;
+    width: 100%;
+    font-size: 19px;
+    background-color: #181818;
+    border-radius: 5px;
+    border: none;
+    color: #b6b6b6;
+}
+#darkStoreSelect:hover{
+    cursor: pointer;
+}
+
+.maquinas{
+    height: 93%;
+    width: 100%;
     border-radius: 5px;
     overflow-x: hidden;
     overflow-y: scroll;
