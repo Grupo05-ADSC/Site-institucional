@@ -6,25 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DASHBOARD - SISGUARD</title>
 
+    <link rel="shortcut icon" href="./img/logoSISGUARD.png" type="image/x-icon">
     <link rel="stylesheet" href="dash.css">
-    <link rel="stylesheet" 
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -43,118 +27,170 @@
                 <i class="fa fa-remove" style="width: 6vh; font-size: 4vh;" onclick="exitListaFuncionarios()"></i>
             </div>
 
-            <button class="btnCadastro" onclick="openCadastroFuncionarios()">Cadastrar funcionários</button>
+            <button class="btnCadastroF" onclick="openCadastroFuncionarios()">Cadastrar funcionários</button>
+
+            <div class="legendaFuncionarios">
+                <b class="id">ID</b>
+                <b class="nome">Nome</b>
+                <b class="email">E-mail</b>
+                <b class="excluir">Excluir</b>
+                <b class="editar">Editar</b>
+            </div>
 
             <div class="conteudo">
+
                 <div class="funcionario">
-                    <div class="ID">
-                        <h2>ID</h2>
+                    <div class="id">
                         <p>1</p>
                     </div>
-
-                    <div class="Nome">
-                        <h2>Nome</h2>
-                        <p>Jubileu</p>
+                    <div class="nome">
+                        <p>Carlos</p>
                     </div>
-
-                    <div class="E-mail">
-                        <h2>ID</h2>
-                        <p>jubileu@gmail.com</p>
+                    <div class="email">
+                        <p>Carlos@gmail.com</p>
                     </div>
-                    <span><i class="fa-solid fa-pen-to-square"></i></span>
+                    <div class="excluir">
+                        <i class="fa fa-trash-o" style="font-size:24px; display: flex; align-items: center;"></i>
+                    </div>
+                    <div class="editar">
+                        <i class="fa fa-edit" style="font-size:24px; display: flex; align-items: center;"></i>
+                    </div>
                 </div>
                 <div class="funcionario">
-                    <div class="ID">
-                        <h2>ID</h2>
-                        <p>1</p>
+                    <div class="id">
+                        <p>2</p>
                     </div>
-
-                    <div class="Nome">
-                        <h2>Nome</h2>
-                        <p>Jubileu</p>
+                    <div class="nome">
+                        <p>Bueno</p>
                     </div>
-
-                    <div class="E-mail">
-                        <h2>ID</h2>
-                        <p>jubileu@gmail.com</p>
+                    <div class="email">
+                        <p>Bueno@gmail.com</p>
                     </div>
-                    <span></span>
+                    <div class="excluir">
+                        <!-- <button class="iconsCRUD"> -->
+                        <i class="fa fa-trash-o" style="font-size:24px; display: flex; align-items: center;"></i>
+                        </button>
+                    </div>
+                    <div class="editar">
+                        <!-- <button class="iconsCRUD"> -->
+                        <i class="fa fa-edit" style="font-size:24px; display: flex; align-items: center;"></i>
+                        </button>
+                    </div>
                 </div>
-
                 <div class="funcionario">
-                    <div class="ID">
-                        <h2>ID</h2>
-                        <p>1</p>
+                    <div class="id">
+                        <p>3</p>
                     </div>
-
-                    <div class="Nome">
-                        <h2>Nome</h2>
-                        <p>Jubileu</p>
+                    <div class="nome">
+                        <p>Viana</p>
                     </div>
-
-                    <div class="E-mail">
-                        <h2>ID</h2>
-                        <p>jubileu@gmail.com</p>
+                    <div class="email">
+                        <p>Viana@gmail.com</p>
                     </div>
-                    <span></span>
+                    <div class="excluir">
+                        <i class="fa fa-trash-o" style="font-size:24px; display: flex; align-items: center;"></i>
+                    </div>
+                    <div class="editar">
+                        <i class="fa fa-edit" style="font-size:24px; display: flex; align-items: center;"></i>
+                    </div>
                 </div>
-
                 <div class="funcionario">
-                    <div class="ID">
-                        <h2>ID</h2>
-                        <p>1</p>
+                    <div class="id">
+                        <p>4</p>
                     </div>
-
-                    <div class="Nome">
-                        <h2>Nome</h2>
-                        <p>Jubileu</p>
+                    <div class="nome">
+                        <p>Michelly</p>
                     </div>
-
-                    <div class="E-mail">
-                        <h2>ID</h2>
-                        <p>jubileu@gmail.com</p>
+                    <div class="email">
+                        <p>Michelly@gmail.com</p>
                     </div>
-                    <span></span>
+                    <div class="excluir">
+                        <i class="fa fa-trash-o" style="font-size:24px; display: flex; align-items: center;"></i>
+                    </div>
+                    <div class="editar">
+                        <i class="fa fa-edit" style="font-size:24px; display: flex; align-items: center;"></i>
+                    </div>
                 </div>
-
                 <div class="funcionario">
-                    <div class="ID">
-                        <h2>ID</h2>
-                        <p>1</p>
+                    <div class="id">
+                        <p>5</p>
                     </div>
-
-                    <div class="Nome">
-                        <h2>Nome</h2>
-                        <p>Jubileu</p>
+                    <div class="nome">
+                        <p>Vitor</p>
                     </div>
-
-                    <div class="E-mail">
-                        <h2>ID</h2>
-                        <p>jubileu@gmail.com</p>
+                    <div class="email">
+                        <p>Vitor@gmail.com</p>
                     </div>
-                    <span></span>
+                    <div class="excluir">
+                        <i class="fa fa-trash-o" style="font-size:24px; display: flex; align-items: center;"></i>
+                    </div>
+                    <div class="editar">
+                        <i class="fa fa-edit" style="font-size:24px; display: flex; align-items: center;"></i>
+                    </div>
                 </div>
-
                 <div class="funcionario">
-                    <div class="ID">
-                        <h2>ID</h2>
-                        <p>1</p>
+                    <div class="id">
+                        <p>6</p>
                     </div>
-
-                    <div class="Nome">
-                        <h2>Nome</h2>
-                        <p>Jubileu</p>
+                    <div class="nome">
+                        <p>Fernanda</p>
                     </div>
-
-                    <div class="E-mail">
-                        <h2>ID</h2>
-                        <p>jubileu@gmail.com</p>
+                    <div class="email">
+                        <p>Fernanda@gmail.com</p>
                     </div>
-                    <span></span>
+                    <div class="excluir">
+                        <i class="fa fa-trash-o" style="font-size:24px; display: flex; align-items: center;"></i>
+                    </div>
+                    <div class="editar">
+                        <i class="fa fa-edit" style="font-size:24px; display: flex; align-items: center;"></i>
+                    </div>
+                </div>
+                <div class="funcionario">
+                    <div class="id">
+                        <p>7</p>
+                    </div>
+                    <div class="nome">
+                        <p>Caramico</p>
+                    </div>
+                    <div class="email">
+                        <p>Caramicou@gmail.com</p>
+                    </div>
+                    <div class="excluir">
+                        <i class="fa fa-trash-o" style="font-size:24px; display: flex; align-items: center;"></i>
+                    </div>
+                    <div class="editar">
+                        <i class="fa fa-edit" style="font-size:24px; display: flex; align-items: center;"></i>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="cadastroFuncionarios" style="display: none;">
+        <div class="pop-up">
+            <div class="head">
+                <div class="titulo">
+                    <h1>Cadastrar Funcionários</h1>
+                </div>
+                <i class="fa fa-remove" style="width: 6vh; font-size: 4vh;" onclick="exitCadastroFuncionarios()"></i>
+            </div>
+
+            <div class="conteudo">
+                <div>
+                    <p>Nome:</p>
+                    <input type="text">
+                    <p>E-mail:</p>
+                    <input type="email" name="" id="">
+                    <p>Senha:</p>
+                    <input type="password" name="" id="">
+
+                </div>
+                <button style="width: 40vh;" class="btnCadastro">Cadastrar funcionário</button>
+            </div>
+
+        </div>
+    </div>
+
     <div class="sobrepor">
         <nav class="menuLateral">
             <div class="boxLogo">
@@ -162,55 +198,61 @@
             </div>
             <div class="boxTitulo"> Olá, nome! </div>
             <div class="menu">
-    
+
                 <div class="menuGraficos">
                     <div class="iconGraficos">
                         <span class="material-symbols-outlined"> monitoring </span>
                     </div>
                     <div class="boxTextoMenu"><a href="dash.html">Gráficos</a></div>
                 </div>
-    
+
+                <div class="menuGraficos">
+                    <div class="iconGraficos">
+                        <span class="material-symbols-outlined"> capture </span>
+                    </div>
+                    <div class="boxTextoMenu"><a href="dashGeral.html">Overview</a></div>
+                </div>
+
                 <div class="menuPerfil" onclick="">
                     <div class="iconPerfil">
                         <span class="material-symbols-outlined"> warehouse </span>
                     </div>
                     <div class="boxTextoMenu"> Dark store </div>
                 </div>
-    
+
                 <div class="menuPerfil" onclick="">
                     <div class="iconPerfil">
                         <span class="material-symbols-outlined"> computer </span>
                     </div>
                     <div class="boxTextoMenu"> Máquinas </div>
                 </div>
-    
+
                 <div class="menuPerfil" onclick="openListaFuncionarios()">
                     <div class="iconPerfil">
                         <span class="material-symbols-outlined"> groups </span>
                     </div>
                     <div class="boxTextoMenu"> Funcionários </div>
                 </div>
-    
+
                 <div class="menuPerfil" onclick="">
                     <div class="iconPerfil">
                         <span class="material-symbols-outlined"> person </span>
                     </div>
                     <div class="boxTextoMenu"> Perfil </div>
                 </div>
-    
+
                 <div class="boxSair">
                     <div class="playSair">
                         <span class="material-symbols-outlined"> logout </span>
-                        <b class="sair">sair</b>
+                        <b class="sair"><a class="voltar" href="../index.html">sair</a></b>
                     </div>
                 </div>
             </div>
         </nav>
-    
+
         <div class="linha1">
             <div class="box1">
                 <select id="darkStoreSelect">
-                    <option value="darkStore1">Dark Store</option>
                     <option value="darkStore1">Dark Store 1</option>
                     <option value="darkStore2">Dark Store 2</option>
                     <option value="darkStore3">Dark Store 3</option>
@@ -220,7 +262,6 @@
             </div>
             <div class="box1">
                 <select id="computerSelect">
-                    <option value="computer1">Máquina</option>
                     <option value="computer2">Máquina 1</option>
                     <option value="computer3">Máquina 2</option>
                     <option value="computer4">Máquina 3</option>
@@ -245,7 +286,7 @@
                 <canvas id="donutChart"></canvas>
             </div>
         </div>
-    
+
         <div class="linha2">
             <div class="indicadores">
                 <div class="cardMetrica">
@@ -261,7 +302,7 @@
                             <span id="uso_atual1"></span>
                             <canvas id="gauge1" class="gauge">
                             </canvas>
-                            
+
                             <script type="text/javascript">
                                 var opts = {
                                     angle: 0,
@@ -293,13 +334,13 @@
                                 gauge1.maxValue = 100; // Valor maximo
                                 gauge1.setMinValue(0);  // Valor minimo
                                 gauge1.animationSpeed = 32; // Velocidade da animacao
-    
+
                                 function atualizarValor() {
-                                    var novoUso = Math.floor(Math.random() * 101); // Gerar valor aleatório entre 0 e 100
+                                    var novoUso = (Math.floor(Math.random() * 70) + 25) // Gerar valor aleatório entre 0 e 100
                                     gauge1.set(novoUso); // Atualizar valor do gráfico
                                     document.getElementById('uso_atual1').innerHTML = novoUso + '<b> % CPU </b>'; // Atualizar texto
                                 }
-    
+
                                 // Chamar a função a cada 1 segundos
                                 setInterval(atualizarValor, 1000);
                             </script>
@@ -307,7 +348,7 @@
                         <div class="box">
                             <span id="uso_atual2"></span>
                             <canvas id="gauge2" class="gauge"></canvas>
-    
+
                             <script type="text/javascript">
                                 var opts = {
                                     angle: 0,
@@ -339,22 +380,22 @@
                                 gauge2.maxValue = 100; // Valor maximo
                                 gauge2.setMinValue(0);  // Valor minimo
                                 gauge2.animationSpeed = 32; // Velocidade da animacao
-    
+
                                 function atualizarValor() {
-                                    var novoUso = Math.floor(Math.random() * 101); // Gerar valor aleatório entre 0 e 100
+                                    var novoUso = (Math.floor(Math.random() * 16) + 35) // Gerar valor aleatório entre 0 e 100
                                     gauge2.set(novoUso); // Atualizar valor do gráfico
                                     document.getElementById('uso_atual2').innerHTML = novoUso + '<b> % RAM </b>'; // Atualizar texto
                                 }
-    
+
                                 // Chamar a função a cada 1 segundos
                                 setInterval(atualizarValor, 1000);
-    
+
                             </script>
                         </div>
                         <div class="box">
                             <span id="uso_atual3"></span>
                             <canvas id="gauge3" class="gauge"></canvas>
-    
+
                             <script type="text/javascript">
                                 var opts = {
                                     angle: 0,
@@ -386,36 +427,41 @@
                                 gauge.maxValue = 100; // Valor maximo
                                 gauge.setMinValue(0);  // Valor minimo
                                 gauge.animationSpeed = 32; // Velocidade da animacao
-    
+
                                 function atualizarValor() {
-                                    var novoUso = Math.floor(Math.random() * 101); // Gerar valor aleatório entre 0 e 100
+                                    var novoUso = (Math.floor(Math.random() * 5)) // Gerar valor aleatório entre 0 e 100
                                     gauge.set(novoUso); // Atualizar valor do gráfico
                                     document.getElementById('uso_atual3').innerHTML = novoUso + '<b> % Disco </b>'; // Atualizar texto
                                 }
-    
+
                                 // Chamar a função a cada 1 segundos
                                 setInterval(atualizarValor, 1000);
-    
+
                             </script>
                         </div>
                     </div>
                 </div>
                 <div class="card_alerta">
                     <div class="titulo_icon">
-                        <div class="titulo_alerta">Alertas</div>
+                        <div class="titulo_alerta"><b>Notificações</b></div>
                         <span class="material-symbols-outlined">
                             notifications_active
                         </span>
                     </div>
                     <div class="box">
-                        aqui ficarão os alertas
+                        <b>CPU alterada</b> <br>
+                        Descrição: o uso da sua cpu está acima do ideal
+
+                        <button class="buttonSlack">
+                            <a href="https://app.slack.com/">Ir para o slack</a>
+                        </button>
                     </div>
                 </div>
-    
+
             </div>
-    
-            
-    
+
+
+
             <div class="boxgraficos">
                 <div class="graficos">
                     <div class="grafico1">
@@ -476,22 +522,22 @@
                 </div>
             </div>
         </div>
-    
+
         <div class="linha3">
             <div class="box">
                 <b>Total de Máquinas</b>
-                <h1 class="destaque">27</h1>
+                <h1 class="destaque">24</h1>
             </div>
             <div class="box">
                 <b>Máquinas Ativas</b>
-                <h1 class="destaque">26</h1>
+                <h1 class="destaque">23</h1>
             </div>
             <div class="box">
                 <b>Total de Funcionários</b>
-                <h1 class="destaque">11</h1>
+                <h1 class="destaque">7</h1>
             </div>
         </div>
-    
+
     </div>
 
 </body>
@@ -502,6 +548,7 @@
     // POPUPS
 
     var listaFuncionarios = document.querySelector('.lista-funcionarios');
+    var cadastroFuncionarios = document.querySelector('.cadastroFuncionarios');
 
     function openListaFuncionarios() {
         listaFuncionarios.style.display = "flex"
@@ -511,13 +558,13 @@
         listaFuncionarios.style.display = "none"
     }
 
-    // function openListaFuncionarios() {
-    //     listaFuncionarios.style.display = "flex"
-    // }
+    function openCadastroFuncionarios() {
+        cadastroFuncionarios.style.display = "flex"
+    }
 
-    // function exitListaFuncionarios() {
-    //     listaFuncionarios.style.display = "none"
-    // }
+    function exitCadastroFuncionarios() {
+        cadastroFuncionarios.style.display = "none"
+    }
 
     // function openListaFuncionarios() {
     //     listaFuncionarios.style.display = "flex"
@@ -604,7 +651,7 @@
             chart.data.labels.shift();
             chart.data.datasets[0].data.shift();
         }
-        chart.data.datasets[0].data.push(Math.floor(Math.random() * 10) + 8);
+        chart.data.datasets[0].data.push(Math.floor(Math.random() * 70) + 25);
         chart.update();
     }
 

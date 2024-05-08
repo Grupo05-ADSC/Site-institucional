@@ -1,0 +1,134 @@
+body{
+    margin: 0;
+}
+
+*{
+    font-family: 'Lato', sans-serif;
+}
+
+.banner{
+    display: flex;
+    align-items: center;
+    background-image: url('https://img.freepik.com/fotos-premium/close-up-do-ciberespaco-do-circuito-com-luzes-de-neon_148840-15281.jpg');
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+}
+
+.container{
+    width: 65%;
+    height: 80vh;
+}
+
+.cabecalho{
+    padding-left: 30px;
+    display: flex;
+    flex-direction: row;
+}
+
+.linha{
+    margin: 15px 10px 0px 10px;
+    background-color: white;
+    height: 2px;
+    width: 610px;
+}
+
+.destaque{
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+}
+
+.sel{
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+}
+
+.conteiner2{
+    display: flex;
+    flex-direction: row;
+}
+
+.caixa1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #000000d2;
+    height: 75vh;
+    width: 400px;
+    position: relative;
+    z-index: 0;
+}
+
+.texto{
+    font-size: 14px;
+}
+
+.container3{
+    margin-left: 30px;
+    color: white;
+    width: 300px;
+    height: 350px;
+    border-bottom: 2px solid white;
+    padding-bottom: 0px;
+}
+
+.caixa2{
+    background-color: rgba(35, 0, 90, 0.603);
+    padding: 50px 0px 0px 0px;
+    height: 405px;
+    width: 450px;
+}
+
+.caixa{
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 10px;
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.inputgrande{
+    background-color: rgba(46, 46, 46, 0.507);
+    border-radius: 5px;
+    border: 2px solid rgb(158, 158, 158);
+    height: 20px;
+    width: 375px;
+}
+
+.caixabutton{
+    margin-top: 40px;
+    margin-left: 30px;
+    width: 390px;
+    border-bottom: 2px solid white;
+}
+
+.button{
+    color: white;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.637);
+    border-radius: 5px;
+    border: 2px solid white;
+    height: 30px;
+    width: 180px;
+    margin-bottom: 163px;
+}
+
+.button2{
+    margin-left: 20px;
+    color: white;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.705);
+    border-radius: 5px;
+    border: 2px solid white;
+    height: 30px;
+    width: 180px;
+}
