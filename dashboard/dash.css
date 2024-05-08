@@ -903,10 +903,10 @@ th {
 .abrirPerfil .pop-up {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
 
     background-color: #272628;
-    width: 50%;
+    width: 30%;
     height: 70%;
 
     border: 1px solid #8039EB;
