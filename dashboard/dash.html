@@ -83,10 +83,14 @@
                         <p>jubileu@gmail.com</p>
                     </div>
                     <div class="excluir">
-                        <i class="fa fa-trash-o" style="font-size:24px; display: flex; align-items: center;"></i>
+                        <!-- <button class="iconsCRUD"> -->
+                            <i class="fa fa-trash-o" style="font-size:24px; display: flex; align-items: center;"></i>
+                        </button>
                     </div>
                     <div class="editar">
-                        <i class="fa fa-edit" style="font-size:24px; display: flex; align-items: center;"></i>
+                        <!-- <button class="iconsCRUD"> -->
+                            <i class="fa fa-edit" style="font-size:24px; display: flex; align-items: center;"></i>
+                        </button>
                     </div>
                 </div>
                 <div class="funcionario">
@@ -174,11 +178,35 @@
                         <i class="fa fa-edit" style="font-size:24px; display: flex; align-items: center;"></i>
                     </div>
                 </div>
-
-                
             </div>
         </div>
     </div>
+
+    <div class="cadastroFuncionarios" style="display: none;">
+        <div class="pop-up">
+            <div class="head">
+                <div class="titulo">
+                    <h1>Cadastrar Funcionários</h1>
+                </div>
+                <i class="fa fa-remove" style="width: 6vh; font-size: 4vh;" onclick="exitCadastroFuncionarios()"></i>
+            </div>
+
+            <div class="conteudo">
+                <div>
+                    <p>Nome:</p>
+                    <input type="text">
+                    <p>E-mail:</p>
+                    <input type="email" name="" id="">
+                    <p>Senha:</p>
+                    <input type="password" name="" id="">
+
+                </div>
+                <button style="width: 40vh;" class="btnCadastro">Cadastrar funcionário</button>
+            </div>
+
+        </div>
+    </div>
+
     <div class="sobrepor">
         <nav class="menuLateral">
             <div class="boxLogo">
@@ -526,6 +554,7 @@
     // POPUPS
 
     var listaFuncionarios = document.querySelector('.lista-funcionarios');
+    var cadastroFuncionarios = document.querySelector('.cadastroFuncionarios');
 
     function openListaFuncionarios() {
         listaFuncionarios.style.display = "flex"
@@ -535,13 +564,13 @@
         listaFuncionarios.style.display = "none"
     }
 
-    // function openListaFuncionarios() {
-    //     listaFuncionarios.style.display = "flex"
-    // }
+    function openCadastroFuncionarios() {
+        cadastroFuncionarios.style.display = "flex"
+    }
 
-    // function exitListaFuncionarios() {
-    //     listaFuncionarios.style.display = "none"
-    // }
+    function exitCadastroFuncionarios() {
+        cadastroFuncionarios.style.display = "none"
+    }
 
     // function openListaFuncionarios() {
     //     listaFuncionarios.style.display = "flex"
