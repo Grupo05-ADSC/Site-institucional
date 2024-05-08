@@ -280,6 +280,7 @@ body{
     opacity: 1;
     display: flex;
 }
+
 .lista-funcionarios {
     z-index: 100;
     display: flex;
@@ -358,10 +359,45 @@ body{
     border: 3px solid #272628;
   }
 
-.lista-funcionarios .pop-up .conteudo .funcionario {
+  .id{
     display: flex;
-    flex-direction: row;
-    gap: 60px;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+  }
+
+  .nome{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+  }
+
+  .email{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+  }
+
+  .excluir{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+  }
+
+  .editar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+  }
+
+.funcionario {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 13vh 0 0;
 }
 
 .lista-funcionarios .pop-up .conteudo .funcionario h2 {
@@ -379,6 +415,12 @@ body{
     margin-left: 50px;
 
     background-color: #000;
+}
+
+.legendaFuncionarios{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 15vh 0 0;
 }
 
 
