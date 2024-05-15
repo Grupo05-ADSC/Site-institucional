@@ -3,109 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
     <link rel="stylesheet" href="./css/login.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital@0;1&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@1,100&family=Sofia+Sans+Extra+Condensed&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="./img/Logo Sisguard/logo-white-noname-tamBom.svg" type="image/x-icon">
-    <title>Login</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="sweetalert2.min.css">
 </head>
 <body>
-    
-    <header>
-        <nav class="navigation">
-            <!-- <a href="index.html" class="logo">EYE_COMMERCE</a> -->
-            <a class="logo" href="index.html"><img src="./img/Logo Sisguard/logo-white-noname-tamBom.svg" alt="header logo" width="60px"></a>
-            <ul class="nav-menu">
-                <li class="nav-item"><a href="index.html">Home</a></li>
-                <li class="nav-item"><a href="login.html" class="current">Login</a></li>
-                <li class="nav-item button"><a href="cadastro.html">Cadastre-se</a></li>
-            </ul>
-            <div class="menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+    <div class="div_principal">
+        <div class="header">
+            <div class="div_header_logo">
+                <img src="./img/Logo Sisguard/logo-w-name-w.svg" alt="">
             </div>
-        </nav>
-    </header>
-
-    <section class="login">
-        <div class="card-formulario">
-            <div class="info">
-                <div class="intro">
-                    <div class="titulo">
+            <div class="div_header_links">
+                <ul class="lista_header_links">
+                    <a href="">Home</a>
+                    <button class="button_header_login_cadastro">
+                        Cadastro
+                    </button>
+                </ul>
+            </div>
+        </div>
+        <div class="div_principal_separation_login">
+            <div class="div_separation_login">
+                <div class="div_separation_login_children">
+                    <div class="div_titulo_cadastro_login">
+                        <a href="">Cadastrar-se</a>
+                    </div>
+                    <div class="div_suporte_login">
+                        <h3>Suporte</h3>
+                        <p>Caso tenha duvidas ou tenha dificuldades em entrar em nosso sistema, entre em contato com nossa equipe na tela home</p>
+                    </div>
+                    <div class=""></div>
+                </div>
+                <div class="div_separation_login_children_2">
+                    <div class="div_titulo_login">
                         <h1>Login</h1>
                     </div>
-                    
-                    <div class="hints">
-                        <div class="tooltip">
-                            <img style="background-color: rgb(255, 255, 255); border: 1px solid transparent; border-radius: 20px; width: 30px;" src="./img/help.png" alt="" class="tooltip-img">
-                            <span class="tooltip-text"> Consulte os termos para entender os detalhes importantes. Eles explicam nossas políticas e como usamos seus dados </span>
-                        </div>
-                        <div class="tooltip">
-                            <img style="background-color: rgb(255, 255, 255); border: 1px solid transparent; border-radius: 20px; width: 30px;" src="./img/help.png" alt="" class="tooltip-img">
-                            <span class="tooltip-text"> Caso ocorra algum erro ao cadastrar sua conta, entre em contato conosco através da nossa equipe de suporte. </span>
+                    <div class="div_separar_input_login">
+                        <div class="div_input_text_login">
+                            <p>E-mail</p>
+                            <input type="text" name="" id="input_email" class="">
                         </div>
                     </div>
-                </div>
-                
-                <div class="box">
-                    <p>E-mail</p>
-                    <input type="text" class="ipt-login" id="input_email">
-                </div>
-                <div class="box">
-                    <p>Senha</p>
-                    <input type="password" class="ipt-login" id="input_senha">
-                </div>
-                <div class="box-redefinir">
-                    <a rel="noopener noreferrer" target="_blank" href="redefinir.html" style="color: aliceblue;">Esqueceu sua senha? Clique aqui</a>
-                    <a href="http://" target="_blank" rel="noopener noreferrer"></a>
-                </div>
-                <div class="btn">
-                    <button class="btn-login" onclick="login()">Entrar</button>
+                    <div class="div_separar_input_login">
+                        <div class="div_input_text_login">
+                            <p>E-mail</p>
+                            <input type="text" name="" id="input_senha">
+                        </div>
+                    </div>
+                    <div class="div_esqueceu_a_senha">
+                         <p>Esqueceu sua senha?</p> <a href="">Redefina agora!</a>
+                    </div>
+                    <div class="div_button_login">
+                        <button onclick="login()">Entrar</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
-    <script src="script.js"></script>
-    <script>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+<script>
+   const login = () => {
+    let email = input_email.value
+    let senha = input_senha.value
 
-        function login() {
-            let emailVar = input_email.value
-         let senhaVar = input_senha.value
-
-         if(emailVar === "" || senhaVar === "") {
-            alert("Insira todos os dados")
-        }else {
-            fetch(`http://localhost:3000/login`, {
+    if(email === "" || senha === '') {
+        Swal.fire({
+            title: 'Insira todos os dados!',
+            icon: 'error',
+            confirmButtonText: 'Ok'
+        });
+    }else {
+        fetch(`http://localhost:3000/login`, {
                 method:"POST",
-                headers: {
+                headers:{
                     "Content-Type":"application/json"
                 },
                 body: JSON.stringify({
-                    email: emailVar,
-                    senha: senhaVar
+                    email: email,
+                    senha: senha
                 })
-            }).then(resposta => resposta.json()
-            .then(dados => {
-                if(resposta.ok) {
-                    alert("Seja bem-vindo novamente")
-
-                localStorage.ID = dados.idUsuario
-                localStorage.NOME = dados.nome
-
-               setTimeout(() => {
-                    location.href = "sistema.html"
-               },[3000]) 
-                }else {
-                    alert("Crie uma conta")
+            }).then(resposta => resposta.json())
+            .then(function (dados) {
+                if(dados) {
+                    setTimeout(() => {
+                        Swal.fire({
+                        title: 'Insira todos os dados!',
+                        icon: 'error',
+                        confirmButtonText: 'Ok'
+                        })
+                    }, 3000);
+                } else {
+                    Swal.fire({
+                        title: 'Não conta registrada',
+                        icon: 'error',
+                        confirmButtonText: 'Ok'
+                        })
                 }
-            })
-        ).catch(erro => console.log(erro))
-        }
-        }
+            }).catch(erro => console.log(erro))
+            
+    }
        
-    </script>
-
-</body>
+   }
+</script>
+</script>
 </html>
