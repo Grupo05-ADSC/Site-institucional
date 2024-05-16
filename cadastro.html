@@ -3,120 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
     <link rel="stylesheet" href="./css/cadastro.css">
-    <link rel="shortcut icon" href="./img/Logo Sisguard/logo-white-noname-tamBom.svg" type="image/x-icon">
-    <title>Cadastre-se</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="sweetalert2.min.css">
 </head>
 <body>
-    <header>
-        <nav class="navigation">
-            <a class="logo" href="index.html"><img src="./img/Logo Sisguard/logo-white-noname-tamBom.svg" alt="header logo" width="60px"></a>
-            <ul class="nav-menu">
-                <li class="nav-item"><a href="index.html">Home</a></li>
-                <li class="nav-item"><a href="login.html">Login</a></li>
-                <li class="nav-item button"><a href="cadastro.html" class="current">Cadastre-se</a></li>
+    <div class="header">
+        <div class="div_header_logo">
+            <img src="./img/Logo Sisguard/logo-w-name-w.svg" alt="">
+        </div>
+        <div class="div_header_links">
+            <ul class="lista_header_links">
+                <a href="">Home</a>
+                <button class="button_header_login_cadastro">
+                    Cadastro
+                </button>
             </ul>
-            <div class="menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </nav>
-    </header>
-
-    <section class="cadastro">
-            <div class="card-cadastro">
-                <div class="info">
-                    <div class="intro">
-                        <div class="titulo">
-                            <h1>Cadastro</h1>
-                        </div>
-                        <div class="hints">
-                            <div class="tooltip">
-                                <img style="background-color: rgb(255, 255, 255); border: 1px solid transparent; border-radius: 20px; width: 30px;" src="./img/help.png" alt="" class="tooltip-img">
-                                <span class="tooltip-text"> Consulte os termos para entender os detalhes importantes. Eles explicam nossas políticas e como usamos seus dados </span>
-                            </div>
-                            <div class="tooltip">
-                                <img style="background-color: rgb(255, 255, 255); border: 1px solid transparent; border-radius: 20px; width: 30px;" src="./img/help.png" alt="" class="tooltip-img">
-                                <span class="tooltip-text"> Caso ocorra algum erro ao cadastrar sua conta, entre em contato conosco através da nossa equipe de suporte. </span>
-                            </div>
-                        </div>
+        </div>
+    </div>
+    <div class="div_principal_cadastro">
+        <div class="div_separacao_principal_cadastro">
+            <div class="div_esquerdo_cadastro">
+                <div class="div_titulo_cadastro">
+                    <h1>Cadastro</h1>
+                </div>
+                <div class="div_separar_input_cadastro">
+                    <div class="div_input_text_cadastro">
+                        <p>Nome da empresa</p>
+                        <input type="text" name="" id="input_nome" class="">
                     </div>
-
-                    <div class="box">
-                        <p>Nome</p> 
-                        <input type="text" class="input-cadastro" id="input_nome">
-                    </div>  
-                    <div class="box">
-                        <p>CNPJ</p>
-                        <input type="text" class="input-cadastro" id="input_cnpj">
+                </div>
+                <div class="div_separar_input_cadastro">
+                    <div class="div_input_text_cadastro">
+                        <p>CPNJ</p>
+                        <input type="text" name="" id="input_cnpj" class="">
                     </div>
-                    <div class="box">
+                </div>
+                <div class="div_separar_input_cadastro">
+                    <div class="div_input_text_cadastro">
                         <p>E-mail</p>
-                        <input type="text" class="input-cadastro" id="input_email">
+                        <input type="email" name="" id="input_email" class="">
                     </div>
-                    <div class="box">
+                    <div class="div_input_text_cadastro">
                         <p>Senha</p>
-                        <input type="password" class="input-cadastro" id="input_senha">
+                        <input type="password" name="" id="input_senha" class="">
                     </div>
-                    <div class="box">
-                        <p>Confirmar Senha</p>
-                        <input type="password" class="input-cadastro" id="input_confirmar_senha">
+                    <div class="div_input_text_cadastro">
+                        <p>Repita a senha</p>
+                        <input type="password" name="" id="input_repita_senha" class="">
                     </div>
-
-                <div class="botao">
-                    <button class="btn-cadastrar" onclick="cadastrar()">Cadastrar</button>
                 </div>
             </div>
-    </section>
-    <script src="script.js"></script>
-    <script>
-        const cadastrar = () => {
+            <div class="div_direito_cadastro">
+                <div class="div_titulo_cadastro_separation">
+                    <a href="">Login</a>
+                </div>
+                <div class="div_suporte_login">
+                    <h3>Suporte</h3>
+                    <p>Caso tenha duvidas ou tenha dificuldades em entrar em nosso sistema, entre em contato com nossa equipe na tela home</p>
+                </div>
+                <div class="div_div_button_login_telaCadastro">
+                    <button onclick="Cadastrar()">Cadastrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
+<script>
+    function Cadastrar() {
         let nome = input_nome.value
         let email = input_email.value
         let cnpj = input_cnpj.value
         let senha = input_senha.value
-        let confirmar = input_confirmar_senha.value
-        let dados = {}
-        
-        if(nome === '' || email === '' || cnpj === '' || senha === '' || confirmar === '') {
-            alert("Insira todos os dados")
-            return false
-        }else if(senha.length < 8) {
-            alert("Senha tem que ser maior que 8")
-            return false
-        }else if(senha != confirmar){
-            alert("Senhas diferentes")
-            return false
-        }else if(!email.endsWith(".com")) {
-            alert("E-mail tem que terminar com '.com'")
-            return false
-        }else if(cnpj.length < 14){
-            alert("Cnpj tem que ser 14")
-            return false
-        }else {
-            dados = {
-                nome,
-                email,
-                cnpj,
-                senha
-            }
+        let repita = input_repita_senha.value
 
-            fetch(`http://localhost:3000/cadastro`, {
-                method:"POST",
-                headers:{
-                    "Content-Type":"application/json"
-                },
-                body: JSON.stringify(dados)
-            }).then(function (resposta) {
-                if(dados) {
-                    alert("Cadastro feito com sucesso")
-                } else {
-                    alert('Cadastro deu ruim')
-                }
-            }).catch(erro => console.log(erro))
+        if(nome === "" || email === "" || cnpj === "" || senha === "" ||repita === ""  ) {
+            Swal.fire({
+                        title: 'Insira todos os dados',
+                        icon: 'error',
+                        confirmButtonText: 'Ok'
+                    })
+        }else {
+            if(senha !== repita) {
+                Swal.fire({
+                        title: 'Senhas difentes!',
+                        icon: 'error',
+                        confirmButtonText: 'Ok'
+                    })
+            }else {
+                fetch(`http://localhost:3000/cadastro`, {
+                    method:"POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        senha: senha,
+                        cnpj: cnpj,
+                        nome: nome
+                    })
+                }).then(function(resposta) {
+                    if(resposta.ok) {
+                        Swal.fire({
+                        title: 'Cadastro realizado com sucesso!',
+                        icon: 'success',
+                        confirmButtonText: 'Ok'
+                    })
+                    setTimeout(() => {
+                        location.href="./login.html"
+                    },3000)
+                    }else {
+                        Swal.fire({
+                        title: 'Erro ao cadastrar!',
+                        icon: 'error',
+                        confirmButtonText: 'Ok'
+                    })
+                    }
+                }).catch(err => {
+                    console.log(err)
+                })
             }
         }
-    </script>
-</body>
+    }
+</script>
 </html>

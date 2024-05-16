@@ -299,7 +299,8 @@
             <div class="boxLogo">
                 <img class="imagem" src="img/logoSISGUARD.png" alt="">
             </div>
-            <div class="boxTitulo"> Olá, nome! </div>
+            <div class="boxTitulo"> Olá, <span id="span_nome_empresa"></span>
+            </div>
             <div class="menu">
 
                 <div class="menuGraficos">
@@ -356,11 +357,7 @@
         <div class="linha1">
             <div class="box1">
                 <select id="darkStoreSelect">
-                    <option value="darkStore1">Dark Store 1</option>
-                    <option value="darkStore2">Dark Store 2</option>
-                    <option value="darkStore3">Dark Store 3</option>
-                    <option value="darkStore4">Dark Store 4</option>
-                    <option value="darkStore5">Dark Store 5</option>
+                 
                 </select>
             </div>
             <div class="box1">
@@ -647,7 +644,39 @@
 
 </html>
 <script>
+    let nomeEmpresa = localStorage.NOME
+    let idEmpresa = localStorage.ID
+
+    span_nome_empresa.innerHTML = `${nomeEmpresa}!`
     // POPUPS
+
+
+    
+    function mostrarDark() {
+        try {
+        fetch(`http://localhost:3000/mostrarDarkstore/${idEmpresa}`, {
+            method:"GET",
+            headers: {
+                "Content-Type":"application/json"
+            }
+        }).then(resposta => resposta.json())
+        .then(dados => {
+            plotarDark(dados.resposta)
+        })
+    }catch(erro) {
+        console.log(erro)
+    }
+    } 
+    
+    mostrarDark()
+
+    function plotarDark(dados) {
+        let selectDark = darkStoreSelect
+        dados.map(item => {
+            console.log(item)
+            selectDark.innerHTML += `<option value=${item.idDarkstore}>${item.nome}</option>`
+        })
+    }
 
     var listaFuncionarios = document.querySelector('.lista-funcionarios');
     var cadastroFuncionarios = document.querySelector('.cadastroFuncionarios');

@@ -49,7 +49,7 @@
                     </div>
                     <div class="div_separar_input_login">
                         <div class="div_input_text_login">
-                            <p>E-mail</p>
+                            <p>Senha</p>
                             <input type="text" name="" id="input_senha">
                         </div>
                     </div>
@@ -86,24 +86,28 @@
                     email: email,
                     senha: senha
                 })
-            }).then(resposta => resposta.json())
-            .then(function (dados) {
-                if(dados) {
-                    setTimeout(() => {
-                        Swal.fire({
-                        title: 'Insira todos os dados!',
-                        icon: 'error',
-                        confirmButtonText: 'Ok'
-                        })
-                    }, 3000);
-                } else {
+            }).then(resposta => resposta.json()
+            .then(dados => {
+                if(resposta.ok) {
                     Swal.fire({
-                        title: 'Não conta registrada',
+                        title: 'Seja bem-vindo novamente',
+                        icon: 'success',
+                        confirmButtonText: 'Ok'
+                    })
+                    localStorage.NOME = dados.nomeEmpresa 
+                    localStorage.ID = dados.idEmpresa 
+                    setTimeout(() => {
+                        location.href = "./dashboard/dash.html"
+                    },3000)
+                }else {
+                    Swal.fire({
+                        title: 'Usuario não encontrado!',
                         icon: 'error',
                         confirmButtonText: 'Ok'
-                        })
+                    })
                 }
-            }).catch(erro => console.log(erro))
+            }
+            )).catch(erro => console.log(erro))
             
     }
        
