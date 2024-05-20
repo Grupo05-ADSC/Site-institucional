@@ -36,7 +36,7 @@ FOREIGN KEY (fkEmpresa) REFERENCES empresa (idEmpresa)
 );
 
 CREATE TABLE metrica_ideal (
-idMetrica_ideal INT AUTO_INCREMENT,
+idMetrica_ideal INT PRIMARY KEY AUTO_INCREMENT,
 metrica_padrao VARCHAR(45)
 );
 
@@ -86,7 +86,7 @@ FOREIGN KEY (componente_fkMaquina) REFERENCES componentes (fkMaquina),
 componente_maquina_fkDarkstore INT NOT NULL,
 FOREIGN KEY (componente_maquina_fkDarkstore) REFERENCES componentes (maquina_fkDarkstore),
 componente_maquina_fkMetrica_ideal INT NOT NULL,
-FOREIGN KEY (componente_maquina_fkMetrica_ideal) REFERENCES componentes (maquina_fkMetrica_ideal),
+FOREIGN KEY (componente_maquina_fkMetrica_ideal) REFERENCES componentes (fkMetrica_ideal),
 PRIMARY KEY(idRegistro, fkComponentes, componente_fkMaquina, componente_maquina_fkDarkstore, componente_maquina_fkMetrica_ideal)
 );
 
@@ -103,7 +103,7 @@ PRIMARY KEY(idAlerta, fkMaquina)
 
 CREATE TABLE historico (
 fkRegistro INT NOT NULL,
-FOREIGN KEY (fkLeitura) REFERENCES registro (idRegistro),
+FOREIGN KEY (fkRegistro) REFERENCES registro (idRegistro),
 registro_fkComponentes INT NOT NULL,
 FOREIGN KEY (registro_fkComponentes) REFERENCES registro (fkComponentes),
 registro_fkMaquina INT NOT NULL,

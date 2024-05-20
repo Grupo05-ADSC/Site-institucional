@@ -3,6 +3,141 @@
     margin: 0;
     font-family: 'Poppins';
 }
+body {
+    background: url("../img/imagemRosa.jpg") 100%  center;
+}
+.div_principal {
+     width: 100%;
+     height: 100%;
+     display: flex;
+     flex-direction: column;
+}
+
+.div_principal_cadastro {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.div_separacao_principal_cadastro {
+    margin-top: 3%;
+    width: 60%;
+    border: 1px solid rgba(0, 0, 0, 0.212);
+    height: 450px;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    display: flex;
+    flex-direction: row;
+}
+.div_esquerdo_cadastro {
+    width: 60%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 4% 0 0 0;
+}
+.div_titulo_cadastro {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.div_titulo_cadastro  h1 {
+    font-size: 24px;
+    font-weight: 300;
+    margin-bottom: 2%;
+}
+
+
+.div_direito_cadastro {
+    width: 40%;
+    height: auto;
+    background-color: #5b2a867a;
+}
+
+
+
+
+.div_separar_input_cadastro {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+.div_input_text_cadastro {
+    width: auto;
+    padding: 1% 4% 1% 4%;
+    height: auto;
+    align-items: left;
+    justify-content: left;
+    flex-direction: column;
+    display: flex;
+}
+.div_input_text_cadastro p {
+    font-size: 13px;
+}
+.div_input_text_cadastro input {
+    margin-top: 2%;
+    padding: 1% 1% 1% 2%;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.253);
+}
+.div_input_text_cadastro input:focus {
+    border: 1px solid rgba(0, 0, 0, 0);
+    box-shadow: 0 0 0 2px #3483fa; /* Adiciona uma borda de 2px colorida ao redor do input */
+    outline: 0;
+}
+
+.div_titulo_cadastro_separation {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.div_titulo_cadastro_separation a {
+    font-size: 20px;
+    color: white;
+    list-style: none;
+    text-decoration: 1px solid white;
+    font-weight: 500;
+}
+
+.div_div_button_login_telaCadastro {
+    display: flex;
+    align-items: center;
+    height: auto;
+    justify-content: center;
+    width: auto;
+    padding: 5% 2% 0 5% 2%;
+}
+.div_div_button_login_telaCadastro button{
+    width:80%;
+    border-radius: 5px;
+    border: 0;
+    padding: 2.5%;
+    background-color: #5B2A86;
+    color: white;
+    font-weight: 500;
+    font-size: 15px; 
+}
+.div_div_button_login_telaCadastro button:hover{
+    color: white;
+    transition: all 0.8s;
+    cursor: pointer;
+    background-color: black;
+}
+
+
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins';
+}
 
 .div_principal {
      width: 100%;
@@ -74,6 +209,8 @@
     height: 450px;
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    
+    background-color: white;
     display: flex;
     flex-direction: row;
 }
@@ -202,4 +339,10 @@
     color: white;
     transition: all 0.6s;
     background-color: rgba(255, 255, 255, 0.158);
+}
+#div_input_text_login_id {
+    padding:2% 4% 0 4%;
+}
+#div_button_login_id {
+    height:20%;
 }
