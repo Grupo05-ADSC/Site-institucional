@@ -22,12 +22,6 @@ fkEmpresa INT NOT NULL,
 FOREIGN KEY (fkEmpresa) REFERENCES empresa (idEmpresa)
 );
 
-CREATE TABLE nivel_acesso (
-idNivel_acesso INT PRIMARY KEY AUTO_INCREMENT,
-fkFuncionario INT NOT NULL,
-FOREIGN KEY (fkFuncionario) REFERENCES funcionario (idFuncionario)
-);
-
 CREATE TABLE darkstore (
 idDarkstore INT PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR(40) UNIQUE,
@@ -58,7 +52,12 @@ maquina_fkDarkstore INT NOT NULL,
 FOREIGN KEY (maquina_fkDarkstore) REFERENCES maquina (fkDarkstore),
 fkMetrica_ideal INT,
 FOREIGN KEY (fkMetrica_ideal) REFERENCES metrica_ideal (idMetrica_ideal),
-PRIMARY KEY(idComponentes, fkMaquina)
+PRIMARY KEY(idComponentes, fkMaquina),
+RAM VARCHAR(45),
+CPU_COMPONENTE VARCHAR(45),
+DISCO VARCHAR(45),
+REDE VARCHAR(45),
+DISPOSITIVOS_USB VARCHAR(45)
 );
 
 CREATE TABLE processos (
@@ -69,16 +68,16 @@ maquina_fkDarkstore INT NOT NULL,
 FOREIGN KEY (maquina_fkDarkstore) REFERENCES maquina (fkDarkstore),
 maquina_fkMetrica_ideal INT,
 FOREIGN KEY (maquina_fkMetrica_ideal) REFERENCES maquina (fkMetrica_ideal),
-PRIMARY KEY(idProcessos, fkMaquina)
+PRIMARY KEY(idProcessos, fkMaquina),
+PID varchar(45) NOT NULL,
+usoCPU varchar(45) NOT NULL,
+usoRAM varchar(45) NOT NULL,
+usoDISCO varchar(45) NOT NULL
 );
 
 CREATE TABLE registro (
-idRegistro INT AUTO_INCREMENT,
-cpuPorcentagem FLOAT,
-ramPorcentagem FLOAT,
-discoPorcentagem FLOAT,
-pid INT,
-momento DATETIME,
+dado VARCHAR(100) NOT NULL,
+data_registro VARCHAR(100) NOT NULL,
 fkComponentes INT NOT NULL,
 FOREIGN KEY (fkComponentes) REFERENCES componentes (idComponentes),
 componente_fkMaquina INT NOT NULL,
@@ -98,7 +97,8 @@ maquina_fkDarkstore INT NOT NULL,
 FOREIGN KEY (maquina_fkDarkstore) REFERENCES maquina (fkDarkstore),
 maquina_fkMetrica_ideal INT,
 FOREIGN KEY (maquina_fkMetrica_ideal) REFERENCES maquina (fkMetrica_ideal),
-PRIMARY KEY(idAlerta, fkMaquina)
+PRIMARY KEY(idAlerta, fkMaquina),
+descricao varchar(200)
 );
 
 CREATE TABLE historico (
@@ -127,7 +127,7 @@ PRIMARY KEY(fkRegistro, registro_fkComponentes, registro_fkMaquina, registro_fkD
 CREATE TABLE endereco (
 idEndereco INT PRIMARY KEY AUTO_INCREMENT,
 cep CHAR(8) NOT NULL,
-estado VARCHAR(50) NOT NULL,
+estado VARCHAR(50) NOT NULL,1g
 cidade VARCHAR(50) NOT NULL,
 bairro VARCHAR(50)NOT NULL,
 rua VARCHAR(50) NOT NULL,
