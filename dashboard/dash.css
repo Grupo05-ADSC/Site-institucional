@@ -9,7 +9,7 @@ body {
 
 .menuLateral {
     padding: 40px 0px 30px 0px;
-    height: 88.8vh;
+    height: fit-content;
     width: 16vw;
     background-color: #111111;
 }
@@ -38,12 +38,20 @@ body {
     padding: 2vh 0vh 4vh 0vh;
     height: 7vh;
 }
-
+.menu {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .menuGraficos {
     height: 8vh;
-    width: 35vh;
+    width: 100%;
     border-bottom: #b6b6b6 solid 2px;
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: row;
 }
 
@@ -97,10 +105,12 @@ body {
 
 .menuPerfil {
     height: 8vh;
-    width: 35vh;
+    width: 100%;
     border-bottom: #b6b6b6 solid 2px;
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
 
 .menuPerfil:hover {
@@ -116,8 +126,8 @@ body {
 }
 
 .boxSair {
-    height: 10vh;
-    width: 35vh;
+    height:auto;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -327,12 +337,12 @@ body {
 }
 
 .lista-funcionarios .pop-up .head {
-    margin-top: 30px;
+
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    height: 10%;
+    height: 0%;
     transition: all 0.3s;
 }
 
@@ -480,6 +490,7 @@ body {
     justify-content: space-between;
     align-items: center;
     height: 10%;
+
 }
 
 .editarFuncionarios .pop-up .head .titulo {
@@ -709,12 +720,19 @@ button:hover{
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+
 }
 
 .titulo_alerta {
-    height: 20px;
-    width: 50px;
-    margin-right: 95px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
 }
 
 .cardMetrica {
@@ -853,6 +871,7 @@ th {
     background-color: #000000;
     height: 90px;
     width: 26%;
+    max-height: 8%;
     border: 1px solid #8039EB;
     border-radius: 5px;
     margin-left: 0px;
@@ -907,7 +926,7 @@ th {
 
     background-color: #272628;
     width: 30%;
-    height: 70%;
+    height: 60%;
 
     border: 1px solid #8039EB;
     border-radius: 5px;
@@ -1030,7 +1049,7 @@ th {
 }
 
 /* slack */
-.cadastrarSlack  {
+.cadastrarSlack_div  {
     z-index: 100;
     display: flex;
     align-items: center;
@@ -1045,53 +1064,53 @@ th {
     transition: 0.6s;
 }
 
-.cadastrarSlack .pop-up {
+.cadastrarSlack_div .pop-up {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
     background-color: #272628;
-    width: 30%;
-    height: 45%;
+    width: 40%;
+    height: 60%;
 
     border: 1px solid #8039EB;
     border-radius: 5px;
 
-    padding: 0 80px;
-    padding-bottom: 30px;
 }
 
-.cadastrarSlack .pop-up .head {
-    margin-top: 30px;
+.cadastrarSlack_div .pop-up .head {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    height: 10%;
+    height: 30%;
+    width: 100%;
 }
 
-.cadastrarSlack .pop-up .head .titulo {
+.cadastrarSlack_div .pop-up .head .titulo {
     width: 95%;
     text-align: center;
 }
 
-.cadastrarSlack .pop-up .head h1 {
+.cadastrarSlack_div .pop-up .head h1 {
     font-size: 2vw;
     margin: 0;
 }
 
 
-.cadastrarSlack .pop-up .head i:hover {
+.cadastrarSlack_div .pop-up .head i:hover {
     cursor: pointer;
 }
 
-.cadastrarSlack .pop-up .conteudo {
+.cadastrarSlack_div .pop-up .conteudo {
     display: flex;
+    padding: 3% 5% 0 5%;
+    height: 70%;
     flex-direction: column;
     gap: 40px;
 }
 
-.cadastrarSlack .pop-up .conteudo input {
+.cadastrarSlack_div .pop-up .conteudo input {
     width: 100%;
     height: 4vh;
     background-color: #000000;

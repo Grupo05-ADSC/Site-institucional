@@ -40,138 +40,10 @@
                 <b class="editar">Editar</b>
             </div>
 
-            <div class="conteudo">
+            <div class="conteudo" id="conteudo_funcionario">
 
-                <div class="funcionario">
-                    <div class="id">
-                        <p>1</p>
-                    </div>
-                    <div class="nome">
-                        <p>Carlos</p>
-                    </div>
-                    <div class="email">
-                        <p>Carlos@gmail.com</p>
-                    </div>
-                    <div class="excluir">
-                        <i onclick="excluir()" class="fa fa-trash-o"
-                            style="font-size:24px; display: flex; align-items: center;"></i>
-                    </div>
-                    <div class="editar">
-                        <i onclick="openEditarFuncionarios()" class="fa fa-edit" style="font-size:24px; display: flex; align-items: center;"></i>
-                    </div>
-                </div>
-                <div class="funcionario">
-                    <div class="id">
-                        <p>2</p>
-                    </div>
-                    <div class="nome">
-                        <p>Bueno</p>
-                    </div>
-                    <div class="email">
-                        <p>Bueno@gmail.com</p>
-                    </div>
-                    <div class="excluir">
-                        <!-- <button class="iconsCRUD"> -->
-                        <i onclick="excluir()" class="fa fa-trash-o"
-                            style="font-size:24px; display: flex; align-items: center;"></i>
-                        </button>
-                    </div>
-                    <div class="editar">
-                        <!-- <button class="iconsCRUD"> -->
-                        <i onclick="openEditarFuncionarios()" class="fa fa-edit" style="font-size:24px; display: flex; align-items: center;"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="funcionario">
-                    <div class="id">
-                        <p>3</p>
-                    </div>
-                    <div class="nome">
-                        <p>Viana</p>
-                    </div>
-                    <div class="email">
-                        <p>Viana@gmail.com</p>
-                    </div>
-                    <div class="excluir">
-                        <i onclick="excluir()" class="fa fa-trash-o"
-                            style="font-size:24px; display: flex; align-items: center;"></i>
-                    </div>
-                    <div class="editar">
-                        <i onclick="openEditarFuncionarios()" class="fa fa-edit" style="font-size:24px; display: flex; align-items: center;"></i>
-                    </div>
-                </div>
-                <div class="funcionario">
-                    <div class="id">
-                        <p>4</p>
-                    </div>
-                    <div class="nome">
-                        <p>Michelly</p>
-                    </div>
-                    <div class="email">
-                        <p>Michelly@gmail.com</p>
-                    </div>
-                    <div class="excluir">
-                        <i onclick="excluir()" class="fa fa-trash-o"
-                            style="font-size:24px; display: flex; align-items: center;"></i>
-                    </div>
-                    <div class="editar">
-                        <i onclick="openEditarFuncionarios()" class="fa fa-edit" style="font-size:24px; display: flex; align-items: center;"></i>
-                    </div>
-                </div>
-                <div class="funcionario">
-                    <div class="id">
-                        <p>5</p>
-                    </div>
-                    <div class="nome">
-                        <p>Vitor</p>
-                    </div>
-                    <div class="email">
-                        <p>Vitor@gmail.com</p>
-                    </div>
-                    <div class="excluir">
-                        <i onclick="excluir()" class="fa fa-trash-o"
-                            style="font-size:24px; display: flex; align-items: center;"></i>
-                    </div>
-                    <div class="editar">
-                        <i onclick="openEditarFuncionarios()" class="fa fa-edit" style="font-size:24px; display: flex; align-items: center;"></i>
-                    </div>
-                </div>
-                <div class="funcionario">
-                    <div class="id">
-                        <p>6</p>
-                    </div>
-                    <div class="nome">
-                        <p>Fernanda</p>
-                    </div>
-                    <div class="email">
-                        <p>Fernanda@gmail.com</p>
-                    </div>
-                    <div class="excluir">
-                        <i onclick="excluir()" class="fa fa-trash-o"
-                            style="font-size:24px; display: flex; align-items: center;"></i>
-                    </div>
-                    <div class="editar">
-                        <i class="fa fa-edit" style="font-size:24px; display: flex; align-items: center;"></i>
-                    </div>
-                </div>
-                <div class="funcionario">
-                    <div class="id">
-                        <p>7</p>
-                    </div>
-                    <div class="nome">
-                        <p>Caramico</p>
-                    </div>
-                    <div class="email">
-                        <p>Caramicou@gmail.com</p>
-                    </div>
-                    <div class="excluir">
-                        <i onclick="excluir()" class="fa fa-trash-o"
-                            style="font-size:24px; display: flex; align-items: center;"></i>
-                    </div>
-                    <div class="editar">
-                        <i onclick="openEditarFuncionarios()" class="fa fa-edit" style="font-size:24px; display: flex; align-items: center;"></i>
-                    </div>
-                </div>
+                
+            
             </div>
         </div>
     </div>
@@ -197,13 +69,13 @@
                     <input type="password" name="" id="confirme_inputCadastro">
 
                 </div>
-                <button onclick="cadastrar()" style="width: 40vh;" class="btnCadastro">Cadastrar funcionário</button>
+                <button onclick="cadastrarFuncionario()" style="width: 40vh;" class="btnCadastro">Cadastrar funcionário</button>
             </div>
 
         </div>
     </div>
 
-    <div class="cadastrarSlack" style="display: none;">
+    <div class="cadastrarSlack_div" style="display: none;">
         <div class="pop-up">
             <div class="head">
                 <div class="titulo">
@@ -235,13 +107,13 @@
             <div class="conteudo">
                 <div>
                     <p>Nome:</p>
-                    <input type="text" id="nome_input" >
+                    <input type="text" id="nome_input_funcionario" >
                     <p>E-mail:</p>
-                    <input type="email" name="" id="email_input"">
+                    <input type="email" name="" id="email_input_funcionario">
                     <p>Nova senha:</p>
-                    <input type="password" name="" id="senha_input">
+                    <input type="password" name="" id="senha_input_funcionario">
                     <p>Confirmar nova senha:</p>
-                    <input type="password" name="" id="confirme_input">
+                    <input type="password" name="" id="confirme_input_funcionario">
                 </div>
                 <button onclick="editar()" style="width: 40vh;" class="btnCadastro">Editar funcionário</button>
             </div>
@@ -282,7 +154,7 @@
             <div class="conteudo">
                 <div>
                     <p>E-mail:</p>
-                    <input type="email" name="" id="email_input"">
+                    <input type="email" name="" id="email_input">
                     <p>Nova senha:</p>
                     <input type="password" name="" id="senha_input">
                     <p>Confirmar nova senha:</p>
@@ -304,50 +176,38 @@
             <div class="menu">
 
                 <div class="menuGraficos">
-                    <div class="iconGraficos">
-                        <span class="material-symbols-outlined"> monitoring </span>
-                    </div>
+                
                     <div class="boxTextoMenu"><a href="dash.html">Gráficos</a></div>
                 </div>
 
                 <div class="menuGraficos">
-                    <div class="iconGraficos">
-                        <span class="material-symbols-outlined"> capture </span>
-                    </div>
+                   
                     <div class="boxTextoMenu"><a href="dashGeral.html">Overview</a></div>
                 </div>
 
                 <div class="menuPerfil" onclick="">
-                    <div class="iconPerfil">
-                        <span class="material-symbols-outlined"> warehouse </span>
-                    </div>
+                   
                     <div class="boxTextoMenu"> Dark store </div>
                 </div>
 
                 <div class="menuPerfil" onclick="">
-                    <div class="iconPerfil">
-                        <span class="material-symbols-outlined"> computer </span>
-                    </div>
+                  
                     <div class="boxTextoMenu"> Máquinas </div>
                 </div>
 
                 <div class="menuPerfil" onclick="openListaFuncionarios()">
-                    <div class="iconPerfil">
-                        <span class="material-symbols-outlined"> groups </span>
-                    </div>
+                    
                     <div class="boxTextoMenu"> Funcionários </div>
                 </div>
 
                 <div class="menuPerfil" onclick="openPerfil()">
-                    <div class="iconPerfil">
-                        <span class="material-symbols-outlined"> person </span>
-                    </div>
+                   
                     <div class="boxTextoMenu"> Perfil </div>
                 </div>
 
                 <div class="boxSair">
                     <div class="playSair">
-                        <span class="material-symbols-outlined"> logout </span>
+                       
                         <b class="sair"><a class="voltar" href="../index.html">sair</a></b>
                     </div>
                 </div>
@@ -402,151 +262,24 @@
                             <span id="uso_atual1"></span>
                             <canvas id="gauge1" class="gauge">
                             </canvas>
-
-                            <script type="text/javascript">
-                                var opts = {
-                                    angle: 0,
-                                    lineWidth: 0.5,
-                                    radiusScale: 0.8, // Raio relativo
-                                    pointer: {
-                                        length: 0.7, // Relativo ao raio do Gauge
-                                        strokeWidth: 0.04, // Largura do traço
-                                        color: '#00000' // Cor do ponteiro
-                                    },
-                                    generateGradient: true,
-                                    highDpiSupport: true,
-                                    staticZones: [
-                                        { strokeStyle: "#1EA614", min: 0, max: 30 }, // Ótimo (Verde)
-                                        { strokeStyle: "#9FCC00", min: 30, max: 50 }, // Bom (Amarelo)
-                                        { strokeStyle: "#FFF001", min: 50, max: 70 }, // Atenção (Laranja)
-                                        { strokeStyle: "#FFAF00", min: 70, max: 90 }, // Alerta (Vermelho)
-                                        { strokeStyle: "#FE2B00", min: 90, max: 100 } // Crítico (Vermelho escuro)
-                                    ],
-                                    staticLabels: {
-                                        font: "12px sans-serif", // Especifica a fonte dos rótulos
-                                        labels: [0, 30, 50, 70, 90, 100], // Rótulos nas divisórias das cores
-                                        color: "#b6b6b6", // Cor do texto do rótulo
-                                        fractionDigits: 0 // Precisão numérica. 0 = arredondar
-                                    }
-                                };
-                                var target = document.getElementById('gauge1'); // Elemento onde o gauge deve ser criado
-                                var gauge1 = new Gauge(target).setOptions(opts); // Criar gauge
-                                gauge1.maxValue = 100; // Valor maximo
-                                gauge1.setMinValue(0);  // Valor minimo
-                                gauge1.animationSpeed = 32; // Velocidade da animacao
-
-                                function atualizarValor() {
-                                    var novoUso = (Math.floor(Math.random() * 70) + 25) // Gerar valor aleatório entre 0 e 100
-                                    gauge1.set(novoUso); // Atualizar valor do gráfico
-                                    document.getElementById('uso_atual1').innerHTML = novoUso + '<b> % CPU </b>'; // Atualizar texto
-                                }
-
-                                // Chamar a função a cada 1 segundos
-                                setInterval(atualizarValor, 1000);
-                            </script>
                         </div>
                         <div class="box">
                             <span id="uso_atual2"></span>
                             <canvas id="gauge2" class="gauge"></canvas>
 
-                            <script type="text/javascript">
-                                var opts = {
-                                    angle: 0,
-                                    lineWidth: 0.5,
-                                    radiusScale: 0.8, // Raio relativo
-                                    pointer: {
-                                        length: 0.7, // Relativo ao raio do Gauge
-                                        strokeWidth: 0.04, // Largura do traço
-                                        color: '#00000' // Cor do ponteiro
-                                    },
-                                    generateGradient: true,
-                                    highDpiSupport: true,
-                                    staticZones: [
-                                        { strokeStyle: "#1EA614", min: 0, max: 40 }, // Ótimo (Verde)
-                                        { strokeStyle: "#9FCC00", min: 40, max: 60 }, // Bom (Amarelo)
-                                        { strokeStyle: "#FFF001", min: 60, max: 80 }, // Atenção (Laranja)
-                                        { strokeStyle: "#FFAF00", min: 80, max: 90 }, // Alerta (Vermelho)
-                                        { strokeStyle: "#FE2B00", min: 90, max: 100 } // Crítico (Vermelho escuro)
-                                    ],
-                                    staticLabels: {
-                                        font: "12px sans-serif", // Especifica a fonte dos rótulos
-                                        labels: [0, 40, 60, 80, 90, 100], // Rótulos nas divisórias das cores
-                                        color: "#b6b6b6", // Cor do texto do rótulo
-                                        fractionDigits: 0 // Precisão numérica. 0 = arredondar
-                                    }
-                                };
-                                var target = document.getElementById('gauge2'); // Elemento onde o gauge deve ser criado
-                                var gauge2 = new Gauge(target).setOptions(opts); // Criar gauge
-                                gauge2.maxValue = 100; // Valor maximo
-                                gauge2.setMinValue(0);  // Valor minimo
-                                gauge2.animationSpeed = 32; // Velocidade da animacao
-
-                                function atualizarValor() {
-                                    var novoUso = (Math.floor(Math.random() * 16) + 35) // Gerar valor aleatório entre 0 e 100
-                                    gauge2.set(novoUso); // Atualizar valor do gráfico
-                                    document.getElementById('uso_atual2').innerHTML = novoUso + '<b> % RAM </b>'; // Atualizar texto
-                                }
-
-                                // Chamar a função a cada 1 segundos
-                                setInterval(atualizarValor, 1000);
-
-                            </script>
+                           
                         </div>
                         <div class="box">
                             <span id="uso_atual3"></span>
                             <canvas id="gauge3" class="gauge"></canvas>
 
-                            <script type="text/javascript">
-                                var opts = {
-                                    angle: 0,
-                                    lineWidth: 0.5,
-                                    radiusScale: 0.8, // Raio relativo
-                                    pointer: {
-                                        length: 0.7, // Relativo ao raio do Gauge
-                                        strokeWidth: 0.04, // Largura do traço
-                                        color: '#00000' // Cor do ponteiro
-                                    },
-                                    generateGradient: true,
-                                    highDpiSupport: true,
-                                    staticZones: [
-                                        { strokeStyle: "#1EA614", min: 0, max: 40 }, // Ótimo (Verde)
-                                        { strokeStyle: "#9FCC00", min: 40, max: 60 }, // Bom (Amarelo)
-                                        { strokeStyle: "#FFF001", min: 60, max: 80 }, // Atenção (Laranja)
-                                        { strokeStyle: "#FFAF00", min: 80, max: 90 }, // Alerta (Vermelho)
-                                        { strokeStyle: "#FE2B00", min: 90, max: 100 } // Crítico (Vermelho escuro)
-                                    ],
-                                    staticLabels: {
-                                        font: "12px sans-serif", // Especifica a fonte dos rótulos
-                                        labels: [0, 40, 60, 80, 90, 100], // Rótulos nas divisórias das cores
-                                        color: "#b6b6b6", // Cor do texto do rótulo
-                                        fractionDigits: 0 // Precisão numérica. 0 = arredondar
-                                    }
-                                };
-                                var target = document.getElementById('gauge3'); // Elemento onde o gauge deve ser criado
-                                var gauge = new Gauge(target).setOptions(opts); // Criar gauge
-                                gauge.maxValue = 100; // Valor maximo
-                                gauge.setMinValue(0);  // Valor minimo
-                                gauge.animationSpeed = 32; // Velocidade da animacao
-
-                                function atualizarValor() {
-                                    var novoUso = (Math.floor(Math.random() * 5)) // Gerar valor aleatório entre 0 e 100
-                                    gauge.set(novoUso); // Atualizar valor do gráfico
-                                    document.getElementById('uso_atual3').innerHTML = novoUso + '<b> % Disco </b>'; // Atualizar texto
-                                }
-
-                                // Chamar a função a cada 1 segundos
-                                setInterval(atualizarValor, 1000);
-
-                            </script>
                         </div>
                     </div>
                 </div>
                 <div class="card_alerta">
                     <div class="titulo_icon">
                         <div class="titulo_alerta"><b>Notificações</b></div>
-                        <span class="material-symbols-outlined">
-                            notifications_active
-                        </span>
+                    
                     </div>
                     <div class="box">
                         <b>CPU alterada</b> <br>
@@ -643,9 +376,19 @@
 </body>
 
 </html>
-<script>
+<script defer>
     let nomeEmpresa = localStorage.NOME
     let idEmpresa = localStorage.ID
+
+    
+    var listaFuncionarios = document.querySelector('.lista-funcionarios');
+    var cadastroFuncionarios = document.querySelector('.cadastroFuncionarios');
+    var editarFuncionarios = document.querySelector('.editarFuncionarios');
+    var abrirPerfil = document.querySelector('.abrirPerfil');
+    var editarPerfil = document.querySelector('.editarPerfil');
+    var cadastrarSlack_div = document.querySelector('.cadastrarSlack_div');
+    var conteudo_funcionario = document.querySelector('#conteudo_funcionario');
+
 
     span_nome_empresa.innerHTML = `${nomeEmpresa}!`
     // POPUPS
@@ -670,6 +413,7 @@
     
     mostrarDark()
 
+
     function plotarDark(dados) {
         let selectDark = darkStoreSelect
         dados.map(item => {
@@ -677,20 +421,219 @@
             selectDark.innerHTML += `<option value=${item.idDarkstore}>${item.nome}</option>`
         })
     }
+    
+    const mostrarFuncionario = () => {
+        if (idEmpresa === null || idEmpresa === 0) {
+            
+        }else  {
+            fetch(`http://localhost:3000/funcionario/${idEmpresa}`, {
+                method: "GET",
+                headers : {
+                    "Content-Type":"application/json"
+                }
+            }).then(resposta => resposta.json())
+            .then(value => {
+                conteudo_funcionario.innerHTML = "";
+                value['resposta'].map(item => {
 
-    var listaFuncionarios = document.querySelector('.lista-funcionarios');
-    var cadastroFuncionarios = document.querySelector('.cadastroFuncionarios');
-    var editarFuncionarios = document.querySelector('.editarFuncionarios');
-    var abrirPerfil = document.querySelector('.abrirPerfil');
-    var editarPerfil = document.querySelector('.editarPerfil');
-    var cadastrarSlack = document.querySelector('.cadastrarSlack');
+                conteudo_funcionario.innerHTML += `
+                <div class="funcionario">
+                    <div class="id">
+                        <p>${item.idFuncionario}</p>
+                    </div>
+                    <div class="nome">
+                        <p>${item.nomeFuncionario}</p>
+                    </div>
+                    <div class="email">
+                        <p>${item.emailFuncionario}</p>
+                    </div>
+                    <div class="excluir">
+                        <i onclick="excluirFuncionario(${item.idFuncionario})" class="fa fa-trash-o"
+                            style="font-size:24px; display: flex; align-items: center;"></i>
+                    </div>
+                    <div class="editar">
+                        <i onclick="openEditarFuncionarios(${item.idFuncionario})" class="fa fa-edit" style="font-size:24px; display: flex; align-items: center;"></i>
+                    </div>
+                </div>
+                `
+            })
+            })
+        }
+    }
 
-    function openCadastrarSlack() {
-        cadastrarSlack.style.display = "flex"
+    mostrarFuncionario()
+
+    const excluirFuncionario = (idFuncionario) => {
+    fetch(`http://localhost:3000/deletarFuncionario/${idEmpresa}/${idFuncionario}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type":"application/json"
+        },
+    }).then(function (resposta) {
+        if(resposta.ok) {
+            Swal.fire({
+                title: 'Funcionario excluido!',
+                icon: 'success',
+                confirmButtonText: 'Ok'
+            })
+           mostrarFuncionario()
+        }else {
+            Swal.fire({
+                confirmButtonText: 'Ok',
+                icon: "error",
+                title: "Erro ao excluir funcionario",
+            });
+        }
+    }).catch(erro => {
+        console.log(erro)
+    })
+}
+
+    // function openListaFuncionarios() {
+    //     listaFuncionarios.style.display = "flex"
+    // }
+
+    // function exitListaFuncionarios() {
+    //     listaFuncionarios.style.display = "none"
+    // }
+
+    // GRAFICO DONUT
+
+    // parte da table de processos
+
+
+
+
+ 
+    const cadastrarFuncionario = () =>  {
+    const nome = nome_inputCadastro.value
+    const email = email_inputCadastro.value
+    const senha = senha_inputCadastro.value
+    const confirmar = confirme_inputCadastro.value
+
+    if (nome === '' || email === '' || senha === '' || confirmar === '') {
+        Swal.fire({
+            color: "#ffffff",
+            background: "#272628",
+            confirmButtonColor: "#8039EB",
+            icon: "error",
+            title: "Oops...",
+            text: "Preencha todos os campos",
+        });
+        return false
+    } else if (senha != confirmar) {
+        Swal.fire({
+            color: "#ffffff",
+            background: "#272628",
+            confirmButtonColor: "#8039EB",
+            icon: "warning",
+            title: "Oops...",
+            text: "As senhas precisam ser iguais",
+        });
+        return false
+    }  else {
+        fetch(`http://localhost:3000/cadastroFunc/${idEmpresa}`, {
+            method:"POST",
+            headers: {
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify({
+                nome:nome,
+                email:email,
+                senha:senha
+            })
+        }).then(function(resposta) {
+            if(resposta.ok) {
+                Swal.fire({
+                        title: 'Cadastrado!',
+                        icon: 'success',
+                        confirmButtonText: 'Ok'
+                    })
+                    mostrarFuncionario()
+            }else {
+                Swal.fire({
+                        title: 'Erro ao cadastrar',
+                        icon: 'error',
+                        confirmButtonText: 'Ok'
+                    })
+            }
+        }).catch(erro => console.log(erro))
+    }
+}
+
+function openEditarFuncionarios(idFuncionarioParams) {
+        idFuncionario = idFuncionarioParams
+        editarFuncionarios.style.display = "flex"
+    }
+
+const editarPerfilOk = () => {
+    alert(idFuncionario)
+    let nome = nome_input_funcionario.value
+    let email = email_input_funcionario.value
+    let senha = senha_input_funcionario.value
+    let confirme = senha_input_funcionario.value
+
+    if(nome === "" || email === "" || senha === "" || confirme === "") {
+        Swal.fire({
+                        title: 'Campos vazios',
+                        icon: 'error',
+                        confirmButtonText: 'Ok'
+                    })
+    }else {
+        if(senha != confirme) {
+            Swal.fire({
+                        title: 'Senhas diferentes',
+                        icon: 'error',
+                        confirmButtonText: 'Ok'
+                    })
+        }else {
+            fetch(`http://localhost:3000/atualizarFuncionario/${idEmpresa}/${idFuncionario}`, 
+                {
+            method:"POST",
+            headers: {
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify({
+                nome:nome,
+                email:email,
+                senha:senha
+            })
+        }).then(function(resposta) {
+            if(resposta.ok) {
+                Swal.fire({
+                        title: 'Alterado!',
+                        icon: 'success',
+                        confirmButtonText: 'Ok'
+                    })
+                    mostrarFuncionario()
+            }else {
+                Swal.fire({
+                        title: 'Erro ao alterar',
+                        icon: 'error',
+                        confirmButtonText: 'Ok'
+                    })
+            }
+        
+            }).catch(erro => console.log(erro))
+        }
+    }
+}
+
+    //sweet alert
+   
+</script>
+<script src="./js/plotarGrafico.js" defer></script>
+<script src="./js/graficos.js"defer></script>
+<script src="./js/Alerts.js"defer></script>
+<script src="./js/gerenciarFuncionario.js"defer></script>
+<script>
+    let idFuncionario = 0
+     function openCadastrarSlack() {
+        cadastrarSlack_div.style.display = "flex"
     }
 
     function exitCadastrarSlack() {
-        cadastrarSlack.style.display = "none"
+        cadastrarSlack_div.style.display = "none"
     }
 
     function openListaFuncionarios() {
@@ -722,10 +665,7 @@
         cadastroFuncionarios.style.display = "none"
     }
 
-    function openEditarFuncionarios() {
-        editarFuncionarios.style.display = "flex"
-    }
-
+ 
     function openEditarPerfil() {
         editarPerfil.style.display = "flex"
     }
@@ -733,448 +673,4 @@
     function exitEditarFuncionarios() {
         editarFuncionarios.style.display = "none"
     }
-
-    // function openListaFuncionarios() {
-    //     listaFuncionarios.style.display = "flex"
-    // }
-
-    // function exitListaFuncionarios() {
-    //     listaFuncionarios.style.display = "none"
-    // }
-
-    // GRAFICO DONUT
-    var ctx = document.getElementById('donutChart').getContext('2d');
-    var donutChart = new Chart(ctx, {
-        type: 'doughnut',
-        data: {
-            datasets: [{
-                data: [70, 30],
-                backgroundColor: [
-                    'rgba(54, 122, 235, 0.8)',
-                    'rgba(153, 42, 255, 0.8)'
-                ],
-                borderWidth: 0
-            }]
-        },
-        options: {
-            title: {
-                display: true,
-                text: 'Espaço do Disco'
-            },
-            cutoutPercentage: 70
-        }
-    });
-
-
-    // Gráfico da CPU
-    var ctx1 = document.getElementById('lineChart1').getContext('2d');
-    var lineChart1 = new Chart(ctx1, {
-        type: 'line',
-        data: {
-            labels: [],
-            datasets: [{
-                label: 'Registros CPU',
-                data: [],
-                backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                borderColor: 'rgba(54, 162, 235, 1)',
-                borderWidth: 1,
-                fill: true
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true,
-                        min: 0,
-                        max: 20,
-                        stepSize: 5
-                    }
-                }]
-            }
-        }
-    });
-
-    setInterval(function () {
-        updateCPUData(lineChart1);
-    }, 1000);
-
-
-    function updateCPUData(chart) {
-        var now = new Date();
-        var hour = now.getHours();
-        var minute = now.getMinutes();
-        var time = (hour < 10 ? '0' : '') + hour + ':' + (minute < 10 ? '0' : '') + minute;
-
-        chart.data.labels.push(time);
-        if (chart.data.labels.length > 10) {
-            chart.data.labels.shift();
-            chart.data.datasets[0].data.shift();
-        }
-        chart.data.datasets[0].data.push(Math.floor(Math.random() * 70) + 25);
-        chart.update();
-    }
-
-    // Gráfico do Disco
-    var ctx2 = document.getElementById('lineChart2').getContext('2d');
-    var lineChart2 = new Chart(ctx2, {
-        type: 'line',
-        data: {
-            labels: [],
-            datasets: [{
-                label: 'Registros DISCO',
-                data: [],
-                backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                borderColor: 'rgba(54, 162, 235, 1)',
-                borderWidth: 1,
-                fill: true
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true,
-                        min: 0,
-                        max: 20,
-                        stepSize: 5
-                    }
-                }]
-            }
-        }
-    });
-
-    setInterval(function () {
-        updateDiskData(lineChart2);
-    }, 1000);
-
-    function updateDiskData(chart) {
-        var now = new Date();
-        var hour = now.getHours();
-        var minute = now.getMinutes();
-        var time = (hour < 10 ? '0' : '') + hour + ':' + (minute < 10 ? '0' : '') + minute;
-
-        chart.data.labels.push(time);
-        if (chart.data.labels.length > 10) {
-            chart.data.labels.shift();
-            chart.data.datasets[0].data.shift();
-        }
-        chart.data.datasets[0].data.push(Math.floor(Math.random() * 5));
-        chart.update();
-    }
-
-    // Gráfico da RAM AQUI
-    var ctx3 = document.getElementById('lineChart3').getContext('2d');
-    var lineChart3 = new Chart(ctx3, {
-        type: 'line',
-        data: {
-            labels: [],
-            datasets: [{
-                label: 'Registros RAM',
-                data: [],
-                backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                borderColor: 'rgba(54, 162, 235, 1)',
-                borderWidth: 1,
-                fill: true
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true,
-                        min: 35,
-                        max: 50,
-                        stepSize: 5
-                    }
-                }]
-            }
-        }
-    });
-
-    setInterval(function () {
-        updateRAMData(lineChart3);
-    }, 1000);
-
-    function updateRAMData(chart) {
-        var now = new Date();
-        var hour = now.getHours();
-        var minute = now.getMinutes();
-        var time = (hour < 10 ? '0' : '') + hour + ':' + (minute < 10 ? '0' : '') + minute;
-
-        chart.data.labels.push(time);
-        if (chart.data.labels.length > 10) {
-            chart.data.labels.shift();
-            chart.data.datasets[0].data.shift();
-        }
-        chart.data.datasets[0].data.push(Math.floor(Math.random() * 16) + 35);
-        chart.update();
-    }
-
-
-    // Gráfico da REDE
-    var ctx4 = document.getElementById('lineChart4').getContext('2d');
-    var lineChart4 = new Chart(ctx4, {
-        type: 'line',
-        data: {
-            labels: [],
-            datasets: [{
-                label: 'Registros REDE',
-                data: [],
-                backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                borderColor: 'rgba(54, 162, 235, 1)',
-                borderWidth: 1,
-                fill: true
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true,
-                        min: 35,
-                        max: 50,
-                        stepSize: 5
-                    }
-                }]
-            }
-        }
-    });
-
-    setInterval(function () {
-        updateREDEData(lineChart4);
-    }, 1000);
-
-    function updateREDEData(chart) {
-        var now = new Date();
-        var hour = now.getHours();
-        var minute = now.getMinutes();
-        var time = (hour < 10 ? '0' : '') + hour + ':' + (minute < 10 ? '0' : '') + minute;
-
-        chart.data.labels.push(time);
-        if (chart.data.labels.length > 10) {
-            chart.data.labels.shift();
-            chart.data.datasets[0].data.shift();
-        }
-        chart.data.datasets[0].data.push(Math.floor(Math.random() * 3001) + 6000);
-        chart.update();
-    }
-
-    // parte da table de processos
-
-
-
-
-
-
-
-    //sweet alert
-    function excluir() {
-        const swalWithBootstrapButtons = Swal.mixin({
-            customClass: {
-                confirmButton: "btn btn-success",
-                cancelButton: "btn btn-danger",
-            },
-            buttonsStyling: false
-        });
-        swalWithBootstrapButtons.fire({
-            background: "#272628",
-            color: "#ffffff",
-            title: "Tem certeza de que deseja excluir?",
-            text: "Você não poderá reverter esta ação",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonText: "Excluir",
-            cancelButtonText: "Cancelar",
-            reverseButtons: true
-        }).then((result) => {
-            if (result.isConfirmed) {
-                swalWithBootstrapButtons.fire({
-                    background: "#272628",
-                    color: "#ffffff",
-                    title: "Funcionário excluído",
-                    // text: "Funcionário excluído",
-                    icon: "success"
-                });
-            } else if (
-                /* Read more about handling dismissals below */
-                result.dismiss === Swal.DismissReason.cancel
-            ) {
-                swalWithBootstrapButtons.fire({
-                    background: "#272628",
-                    color: "#ffffff",
-                    title: "Exclusão de funcionário cancelada",
-                    // text: "Exclusão de funcionário cancelada",
-                    icon: "error"
-                });
-            }
-        });
-    }
-
-    function cadastrar() {
-        const nome = nome_inputCadastro.value
-        const email = email_inputCadastro.value
-        const senha = senha_inputCadastro.value
-        const confirmar = confirme_inputCadastro.value
-        let dados = {}
-
-        if (nome === '' || email === '' || senha === '' || confirmar === '') {
-            Swal.fire({
-                color: "#ffffff",
-                background: "#272628",
-                confirmButtonColor: "#8039EB",
-                icon: "error",
-                title: "Oops...",
-                text: "Preencha todos os campos",
-            });
-            return false
-        } else if (senha.length < 8) {
-            Swal.fire({
-                color: "#ffffff",
-                background: "#272628",
-                confirmButtonColor: "#8039EB",
-                icon: "warning",
-                title: "Oops...",
-                text: "Senha tem que ser maior que 8",
-            });
-            return false
-        } else if (senha != confirmar) {
-            Swal.fire({
-                color: "#ffffff",
-                background: "#272628",
-                confirmButtonColor: "#8039EB",
-                icon: "warning",
-                title: "Oops...",
-                text: "As senhas precisam ser iguais",
-            });
-            return false
-        } else if (!email.endsWith(".com")) {
-            Swal.fire({
-                color: "#ffffff",
-                background: "#272628",
-                confirmButtonColor: "#8039EB",
-                icon: "warning",
-                title: "Oops...",
-                text: "E-mail tem que terminar com '.com'",
-            });
-            return false
-        }  else {
-            dados = {
-                nome,
-                email,
-                senha
-            }
-            Swal.fire({
-            title: "Funcionário cadastrado com sucesso!",
-            icon: "success",
-            color: "#ffffff",
-            background: "#272628",
-            confirmButtonColor: "#8039EB"
-        });
-
-        nome_input.value = ""
-        email_input.value = ""
-        senha_input.value = ""
-        confirme_input.value = ""
-        }
-    }
-
-    function editar() {
-        Swal.fire({
-            title: "Funcionário editado com sucesso!",
-            icon: "success",
-            color: "#ffffff",
-            background: "#272628",
-            confirmButtonColor: "#8039EB"
-        });
-    }
-
-    /* editar Perfil */
-    function editarPerfilOk() {
-        const email = email_input.value
-        const senha = senha_input.value
-        const confirmar = confirme_inputCadastro.value
-        let dados = {}
-
-        if (nome === '' || email === '' || senha === '' || confirmar === '') {
-            Swal.fire({
-                color: "#ffffff",
-                background: "#272628",
-                confirmButtonColor: "#8039EB",
-                icon: "error",
-                title: "Oops...",
-                text: "Preencha todos os campos",
-            });
-            return false
-        } else if (senha.length < 8) {
-            Swal.fire({
-                color: "#ffffff",
-                background: "#272628",
-                confirmButtonColor: "#8039EB",
-                icon: "warning",
-                title: "Oops...",
-                text: "Senha tem que ser maior que 8",
-            });
-            return false
-        } else if (senha != confirmar) {
-            Swal.fire({
-                color: "#ffffff",
-                background: "#272628",
-                confirmButtonColor: "#8039EB",
-                icon: "warning",
-                title: "Oops...",
-                text: "As senhas precisam ser iguais",
-            });
-            return false
-        } else if (!email.endsWith(".com")) {
-            Swal.fire({
-                color: "#ffffff",
-                background: "#272628",
-                confirmButtonColor: "#8039EB",
-                icon: "warning",
-                title: "Oops...",
-                text: "E-mail tem que terminar com '.com'",
-            });
-            return false
-        }  else {
-            dados = {
-                nome,
-                email,
-                senha
-            }
-            Swal.fire({
-            title: "Funcionário cadastrado com sucesso!",
-            icon: "success",
-            color: "#ffffff",
-            background: "#272628",
-            confirmButtonColor: "#8039EB"
-        });
-
-        nome_input.value = ""
-        email_input.value = ""
-        senha_input.value = ""
-        confirme_input.value = ""
-        }
-    }
-
-    function editarPerfilOk() {
-        Swal.fire({
-            title: "Perfil editado com sucesso!",
-            icon: "success",
-            color: "#ffffff",
-            background: "#272628",
-            confirmButtonColor: "#8039EB"
-        });
-    }
-
-    function cadastrarSlack() {
-        Swal.fire({
-            title: "Funcionário editado com sucesso!",
-            icon: "success",
-            color: "#ffffff",
-            background: "#272628",
-            confirmButtonColor: "#8039EB"
-        });
-    }
-
 </script>

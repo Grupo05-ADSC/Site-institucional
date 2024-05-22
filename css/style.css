@@ -312,7 +312,7 @@ header .header_links .hLinks2:after {
 
 .membros {
     width: 100%;
-    height: 500px;
+    height: fit-content;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -330,26 +330,46 @@ header .header_links .hLinks2:after {
     border-radius: 100%;
 }
 
-.integrantes {
+.div_titulo_sisguard {
+    width: 100%;
+    margin-top: 3%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 5rem;
+    justify-content: center;
 }
 
-.pessoa {
+
+.div_juncao_foto_membros {
+    width: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    gap: 3rem;
+    margin: 0;
+    padding: 0;
+    flex-direction: row;
 }
-.pessoa img {
-    width: 200px;
-    height: 200px;
-    background-size: contain;
-    background-position: auto;
+
+
+.div_juncao_foto {
+    width: 100%;
+    height: auto;
+    display: flex;
+    margin: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.div_foto_inicial {
+    background:contain;
+    height: 50%;
+    display: flex;
+    border-radius: 100%;
+}
+
+
+.nome_integrante {
+
+    margin-top: 5%;
 }
 
 .comunicacao {
