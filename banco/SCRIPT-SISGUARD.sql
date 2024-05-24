@@ -12,6 +12,9 @@ email VARCHAR(100) NOT NULL,
 senha VARCHAR(18) NOT NULL
 );
 
+insert into empresa values
+(null, "empresa", "12345678912345", "michelly@gmail.com", "123");
+
 CREATE TABLE funcionario (
 idFuncionario INT PRIMARY KEY AUTO_INCREMENT,
 nomeFuncionario VARCHAR(49),
@@ -37,6 +40,7 @@ metrica_padrao VARCHAR(45)
 CREATE TABLE maquina (
 idMaquina INT AUTO_INCREMENT,
 fkMetrica_ideal INT,
+
 FOREIGN KEY (fkMetrica_ideal) REFERENCES metrica_ideal (idMetrica_ideal),
 fkDarkstore INT NOT NULL,
 CONSTRAINT fkDarkstore FOREIGN KEY (fkDarkstore) 
@@ -76,6 +80,7 @@ usoDISCO varchar(45) NOT NULL
 );
 
 CREATE TABLE registro (
+idRegistro INT AUTO_INCREMENT,
 dado VARCHAR(100) NOT NULL,
 data_registro VARCHAR(100) NOT NULL,
 fkComponentes INT NOT NULL,
@@ -127,7 +132,7 @@ PRIMARY KEY(fkRegistro, registro_fkComponentes, registro_fkMaquina, registro_fkD
 CREATE TABLE endereco (
 idEndereco INT PRIMARY KEY AUTO_INCREMENT,
 cep CHAR(8) NOT NULL,
-estado VARCHAR(50) NOT NULL,1g
+estado VARCHAR(50) NOT NULL,
 cidade VARCHAR(50) NOT NULL,
 bairro VARCHAR(50)NOT NULL,
 rua VARCHAR(50) NOT NULL,
