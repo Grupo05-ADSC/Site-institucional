@@ -75,52 +75,68 @@
 </body>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
 <script>
-    function Redefinir() {
-        let email = input_email.value
-        let senha = input_senha.value
-        let repetirSenha = input_senha_repetir.value
+  function Redefinir() {
+    let email = input_email.value;
+    let senha = input_senha.value;
+    let repetirSenha = input_senha_repetir.value;
 
-        if(email === "" || senha === "" || repetirSenha ==="") {
-            Swal.fire({
-                        title: 'Campos vazios!',
-                        icon: 'error',
-                        confirmButtonText: 'Ok'
-                    })
-                    return false;
-        }else if(senha != repetirSenha) {
-            Swal.fire({
-                        title: 'Senhas diferentes!',
-                        icon: 'error',
-                        confirmButtonText: 'Ok'
-                    })
-                    return false;
-        }else {
-            fetch(`http://localhost:3000/recuperarSenha`, {
-                method:"PUT",
-                headers: {
-                    "Content-Type":"application/json"
-                },
-                body: JSON.stringify({
-                    email:email,
-                    senha:senha
-                })
+    if (email === "" || senha === "" || repetirSenha === "") {
+        Swal.fire({
+            title: 'Campos vazios!',
+            icon: 'error',
+            confirmButtonText: 'Ok'
+        });
+        return false;
+    } else if (senha !== repetirSenha) {
+        Swal.fire({
+            title: 'Senhas diferentes!',
+            icon: 'error',
+            confirmButtonText: 'Ok'
+        });
+        return false;
+    } else {
+        fetch(`http://localhost:3000/recuperarSenha`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                email: email,
+                senha: senha
             })
-            .then(function(resposta) {
-                if(resposta.ok) {
-                    Swal.fire({
-                        title: 'A senha foi trocada com sucesso!',
-                        icon: 'success',
-                        confirmButtonText: 'Ok'
-                    })
-                }else {
-                    Swal.fire({
-                        title: 'Erro ao trocar a senha!',
-                        icon: 'error',
-                        confirmButtonText: 'Ok'
-                    })
-                }
-            }).catch(erro => console.log(erro))
-        }
+        })
+        .then(resposta => resposta.json()
+        .then(data => ({status: resposta.status, body: data})))
+        .then(({status, body}) => {
+            if (status === 200) {
+                Swal.fire({
+                    title: 'A senha foi trocada com sucesso!',
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+                });
+            } else if (status === 404) {
+                Swal.fire({
+                    title: 'Email não encontrado!',
+                    icon: 'error',
+                    confirmButtonText: 'Ok'
+                });
+            } else {
+                Swal.fire({
+                    title: 'Erro ao trocar a senha!',
+                    icon: 'error',
+                    confirmButtonText: 'Ok'
+                });
+            }
+        }).catch(erro => {
+            console.log(erro);
+            Swal.fire({
+                title: 'Erro ao trocar a senha!',
+                icon: 'error',
+                confirmButtonText: 'Ok'
+            });
+        });
     }
+}
+
 </script>
 </html>

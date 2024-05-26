@@ -20,8 +20,8 @@
 <body>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-
-    <div class="lista-funcionarios" style="display: none;">
+    <!--lISTA DE FUNCIONARIOS-->
+    <div class="lista-funcionarios" id="lista_funcionarios" style="display: none;">
         <div class="pop-up">
             <div class="head">
                 <div class="titulo">
@@ -48,6 +48,33 @@
         </div>
     </div>
 
+    <div class="lista-funcionarios" id="lista_dark" style="display: none;">
+        <div class="pop-up">
+            <div class="head">
+                <div class="titulo">
+                    <h1>Dark Store</h1>
+                </div>
+                <i class="fa fa-remove" style="width: 6vh; font-size: 4vh;" onclick="exitListaDark()"></i>
+            </div>
+
+            <button class="btnCadastroF" onclick="openCadastrarDark()">Cadastrar DarkStore</button>
+
+            <div class="legendaFuncionarios">
+                <b class="id">ID</b>
+                <b class="nome">Nome</b>
+                <b class="excluir">Excluir</b>
+                <b class="editar">Editar</b>
+            </div>
+
+            <div class="conteudo" id="conteudo_darkStore">
+
+                
+            
+            </div>
+        </div>
+    </div>
+
+    <!--CADASTRO DE FUNCIONARIO -- MODAL -->
     <div class="cadastroFuncionarios" style="display: none;">
         <div class="pop-up">
             <div class="head">
@@ -58,9 +85,20 @@
             </div>
 
             <div class="conteudo">
-                <div>
-                    <p>Nome:</p>
-                    <input type="text" id="nome_inputCadastro">
+                <div class="conteudo_principal_cadastroFuncionario">
+                    <div class="div_separar_nome_and_cargo">
+                        <div class="div_nome_funcionario_cadastroFuncionario">
+                            <p>Nome:</p>
+                            <input type="text" id="nome_inputCadastro">
+                        </div>
+                        <div class="div_cargo_funcionario_cadastroFuncionario">
+                            <p>Cargo:</p>
+                            <select name="" id="select_funcionario">
+                                <option value="gerente">Gerente</option>
+                                <option value="comum">Comum</option>
+                            </select>
+                        </div>
+                 </div>
                     <p>E-mail:</p>
                     <input type="email" name="" id="email_inputCadastro">
                     <p>Senha:</p>
@@ -74,6 +112,123 @@
 
         </div>
     </div>
+
+
+
+    <!--CADASTRO DE DARK STORE-->
+    <div class="cadastroFuncionarios" id="div_cadastro_darkStore" style="display: none;">
+        <div class="pop-up" id="pop-up_cadastro_dark">
+            <div class="header_pop-up">
+                <div class="div_titulo_pop-up">
+                    <h2>Cadastrar DarkStore</h2>
+                </div>
+                <div class="div_sair_pop-up">
+                    <i class="fa fa-remove" id="icon_sair_pop-up" onclick="exitCadastroDark()"></i>
+           
+                </div>
+            </div>
+            <div class="div_conteudo_cadastrar_darkstore">
+                <div class="div_principal_inputs_pop-up">
+                    <div class="div_esquerdo_inputs_pop-up">
+                        <p>Nome</p>
+                        <input type="text" name="" id="nome_dark">
+                    </div>
+                    <div class="div_direito_inputs_pop-up">
+                        <p>CEP</p>
+                        <input type="text" id="cep" name="" id="" onchange="buscarCep()">
+                    </div>
+                </div>
+                <div class="div_principal_inputs_pop-up">
+                    <div class="div_esquerdo_inputs_pop-up">
+                        <p>Estado</p>
+                        <input type="text" name="" id="estado">
+                    </div>
+                    <div class="div_direito_inputs_pop-up">
+                        <p>Cidade</p>
+                        <input type="text" name="" id="cidade">
+                    </div>
+                </div> 
+                <div class="div_principal_inputs_pop-up">
+                    <div class="div_esquerdo_inputs_pop-up">
+                        <p>Bairro</p>
+                        <input type="text" name="" id="bairro">
+                    </div>
+                    <div class="div_direito_inputs_pop-up">
+                        <p>Rua</p>
+                        <input type="text" name="" id="rua">
+                    </div>
+                </div>
+                <div class="div_principal_inputs_pop-up">
+                    <div class="div_esquerdo_inputs_pop-up">
+                        <p>Número</p>
+                        <input type="text" name="" id="numero_dark">
+                    </div>
+                    <div class="div_direito_inputs_pop-up" id="div_direito_button_pop-up">
+                        <button onclick="cadastrarDark()">Cadastrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--EDITAR DARK-->
+    <div class="cadastroFuncionarios" id="div_editar_darkStore" style="display: none;">
+        <div class="pop-up" id="pop-up_cadastro_dark">
+            <div class="header_pop-up">
+                <div class="div_titulo_pop-up">
+                    <h2>Editar DarkStore</h2>
+                </div>
+                <div class="div_sair_pop-up">
+                    <i class="fa fa-remove" id="icon_sair_pop-up" onclick="exitEditarDark()"></i>
+           
+                </div>
+            </div>
+            <div class="div_conteudo_cadastrar_darkstore">
+                <div class="div_principal_inputs_pop-up">
+                    <div class="div_esquerdo_inputs_pop-up">
+                        <p>Nome</p>
+                        <input type="text" name="" id="nome_dark_editar">
+                    </div>
+                    <div class="div_direito_inputs_pop-up">
+                        <p>CEP</p>
+                        <input type="text" id="cep_editar" name="" id="" onchange="buscarCep()">
+                    </div>
+                </div>
+                <div class="div_principal_inputs_pop-up">
+                    <div class="div_esquerdo_inputs_pop-up">
+                        <p>Estado</p>
+                        <input type="text" name="" id="estado_editar">
+                    </div>
+                    <div class="div_direito_inputs_pop-up">
+                        <p>Cidade</p>
+                        <input type="text" name="" id="cidade_editar">
+                    </div>
+                </div> 
+                <div class="div_principal_inputs_pop-up">
+                    <div class="div_esquerdo_inputs_pop-up">
+                        <p>Bairro</p>
+                        <input type="text" name="" id="bairro_editar">
+                    </div>
+                    <div class="div_direito_inputs_pop-up">
+                        <p>Rua</p>
+                        <input type="text" name="" id="rua_editar">
+                    </div>
+                </div>
+                <div class="div_principal_inputs_pop-up">
+                    <div class="div_esquerdo_inputs_pop-up">
+                        <p>Número</p>
+                        <input type="text" name="" id="numero_dark_editar">
+                    </div>
+                    <div class="div_direito_inputs_pop-up" id="div_direito_button_pop-up">
+                        <button onclick="editarDark()">Editar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 
     <div class="cadastrarSlack_div" style="display: none;">
         <div class="pop-up">
@@ -115,7 +270,7 @@
                     <p>Confirmar nova senha:</p>
                     <input type="password" name="" id="confirme_input_funcionario">
                 </div>
-                <button onclick="editar()" style="width: 40vh;" class="btnCadastro">Editar funcionário</button>
+                <button onclick="editarFuncionarioOk()" style="width: 40vh;" class="btnCadastro">Editar funcionário</button>
             </div>
 
         </div>
@@ -130,10 +285,10 @@
                 <i class="fa fa-remove" style="width: 6vh; font-size: 4vh;" onclick="exitPerfil()"></i>
             </div>
 
-            <div class="conteudo">
+            <div class="conteudo" id="conteudo_div_funcionario">
                 <div>
                     <p><b>E-mail:</b></p>
-                    <p>perfil@email.com</p>
+                    <p id="email_perfil">perfil@email.com</p>
                     <p><b>Senha:</b></p>
                     <p>********</p>
                 </div>
@@ -154,11 +309,11 @@
             <div class="conteudo">
                 <div>
                     <p>E-mail:</p>
-                    <input type="email" name="" id="email_input">
+                    <input type="email" name="" id="email_input_perfil">
                     <p>Nova senha:</p>
-                    <input type="password" name="" id="senha_input">
+                    <input type="password" name="" id="senha_input_perfil">
                     <p>Confirmar nova senha:</p>
-                    <input type="password" name="" id="confirme_input">
+                    <input type="password" name="" id="confirme_input_perfil">
                 </div>
                 <button onclick="editarPerfilOk()" style="width: 40vh;" class="btnCadastro">Editar Perfil</button>
             </div>
@@ -187,7 +342,7 @@
 
                 <div class="menuPerfil" onclick="">
                    
-                    <div class="boxTextoMenu"> Dark store </div>
+                    <div class="boxTextoMenu" onclick="openListaDark()"> Dark store </div>
                 </div>
 
                 <div class="menuPerfil" onclick="">
@@ -379,9 +534,11 @@
 <script defer>
     let nomeEmpresa = localStorage.NOME
     let idEmpresa = localStorage.ID
+    let email =localStorage.EMAIL
+    let idDark;
 
-    
-    var listaFuncionarios = document.querySelector('.lista-funcionarios');
+    var listaFuncionarios = document.querySelector('#lista_funcionarios');
+    var listaDark = document.querySelector('#lista_dark');
     var cadastroFuncionarios = document.querySelector('.cadastroFuncionarios');
     var editarFuncionarios = document.querySelector('.editarFuncionarios');
     var abrirPerfil = document.querySelector('.abrirPerfil');
@@ -390,11 +547,13 @@
     var conteudo_funcionario = document.querySelector('#conteudo_funcionario');
 
 
+
     span_nome_empresa.innerHTML = `${nomeEmpresa}!`
     // POPUPS
-
-
+    email_perfil.innerHTML = `${email}`
     
+
+
     function mostrarDark() {
         try {
         fetch(`http://localhost:3000/mostrarDarkstore/${idEmpresa}`, {
@@ -510,8 +669,9 @@
     const email = email_inputCadastro.value
     const senha = senha_inputCadastro.value
     const confirmar = confirme_inputCadastro.value
+    const cargo = select_funcionario.value
 
-    if (nome === '' || email === '' || senha === '' || confirmar === '') {
+    if (nome === '' || email === '' || senha === '' || confirmar === ''|| cargo === "") {
         Swal.fire({
             color: "#ffffff",
             background: "#272628",
@@ -540,7 +700,8 @@
             body: JSON.stringify({
                 nome:nome,
                 email:email,
-                senha:senha
+                senha:senha,
+                cargo: cargo
             })
         }).then(function(resposta) {
             if(resposta.ok) {
@@ -566,8 +727,7 @@ function openEditarFuncionarios(idFuncionarioParams) {
         editarFuncionarios.style.display = "flex"
     }
 
-const editarPerfilOk = () => {
-    alert(idFuncionario)
+const editarFuncionarioOk = () => {
     let nome = nome_input_funcionario.value
     let email = email_input_funcionario.value
     let senha = senha_input_funcionario.value
@@ -589,14 +749,13 @@ const editarPerfilOk = () => {
         }else {
             fetch(`http://localhost:3000/atualizarFuncionario/${idEmpresa}/${idFuncionario}`, 
                 {
-            method:"POST",
+            method:"PUT",
             headers: {
                 "Content-Type":"application/json"
             },
             body: JSON.stringify({
                 nome:nome,
                 email:email,
-                senha:senha
             })
         }).then(function(resposta) {
             if(resposta.ok) {
@@ -606,6 +765,11 @@ const editarPerfilOk = () => {
                         confirmButtonText: 'Ok'
                     })
                     mostrarFuncionario()
+
+                     nome_input_funcionario.innerHTML = ""
+                     email_input_funcionario.innerHTML = ""
+                     senha_input_funcionario.innerHTML = ""
+                     senha_input_funcionario.innerHTML = ""
             }else {
                 Swal.fire({
                         title: 'Erro ao alterar',
@@ -618,16 +782,271 @@ const editarPerfilOk = () => {
         }
     }
 }
+const editarPerfilOk =() => {
+    let email = email_input_perfil.value
+    let senha = senha_input_perfil.value
+    let confirmar = confirme_input_perfil.value
 
+    if(email === "" || senha === "" || confirmar === "") {
+        Swal.fire({
+                        title: 'Campos vazios',
+                        icon: 'error',
+                        confirmButtonText: 'Ok'
+                    })
+    }else {
+        if(senha != confirmar) {
+            Swal.fire({
+                        title: 'Senhas diferentes',
+                        icon: 'error',
+                        confirmButtonText: 'Ok'
+                    })
+        }else {
+            fetch(`http://localhost:3000/editarPerfil/${idEmpresa}`, 
+                {
+            method:"PUT",
+            headers: {
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify({
+                senha:senha,
+                email:email,
+            })
+        }).then(function(resposta) {
+            if(resposta.ok) {
+                Swal.fire({
+                        title: 'Alterado!',
+                        icon: 'success',
+                        confirmButtonText: 'Ok'
+                    })
+                    email_perfil.innerHTML = `${email}`
+            }else {
+                Swal.fire({
+                        title: 'Erro ao alterar',
+                        icon: 'error',
+                        confirmButtonText: 'Ok'
+                    })
+            }
+        
+            }).catch(erro => console.log(erro))
+        }
+    }
+}
     //sweet alert
    
+
+function exibirListaDark() {
+        if (idEmpresa === null || idEmpresa === 0) {
+            
+        }else  {
+            fetch(`http://localhost:3000/mostrarDarkstore/${idEmpresa}`, {
+                method: "GET",
+                headers : {
+                    "Content-Type":"application/json"
+                }
+            }).then(resposta => resposta.json())
+            .then(value => {
+                conteudo_darkStore.innerHTML = "";
+                value['resposta'].map(item => {
+
+                    conteudo_darkStore.innerHTML += `
+                <div class="funcionario">
+                    <div class="id">
+                        <p>${item.idDarkstore}</p>
+                    </div>
+                    <div class="nome">
+                        <p>${item.nome}</p>
+                    </div>
+                    <div class="excluir">
+                        <i onclick="excluirDark(${item.idDarkstore})" class="fa fa-trash-o"
+                            style="font-size:24px; display: flex; align-items: center;"></i>
+                    </div>
+                    <div class="editar">
+                        <i onclick="editarDarkOk(${item.idDarkstore})" class="fa fa-edit" style="font-size:24px; display: flex; align-items: center;"></i>
+                    </div>
+                </div>
+                `
+            })
+            })
+        }
+}
+exibirListaDark()
+
+    const buscarCep = () => {
+        var cep = document.querySelector('#cep').value;
+        if(cep.length === 8) {
+            fetch(`https://viacep.com.br/ws/${cep}/json/`, {
+                method:"GET",
+                headers: {
+                    "Content-type":"application/json"
+                }
+            })
+            .then(resposta => resposta.json())
+            .then(item => {
+                console.log(item)
+                var rua = document.querySelector('#rua').value = item.logradouro;
+                var estado = document.querySelector('#estado').value = item.uf;
+                var bairro = document.querySelector('#bairro').value = item.bairro;
+                var cidade = document.querySelector('#cidade').value = item.localidade;
+
+            }) .catch(error => {
+                    console.error('Erro ao buscar CEP:', error);
+                });
+        }
+    }
+
+
+const cadastrarDark = () => {
+    var nome = document.querySelector('#nome_dark').value;
+    var rua = document.querySelector('#rua').value;
+    var cep = document.querySelector('#cep').value;
+    var estado = document.querySelector('#estado').value;
+    var bairro = document.querySelector('#bairro').value;
+    var cidade = document.querySelector('#cidade').value;
+    var numero = document.querySelector('#numero_dark').value;
+
+    if(nome === "" || rua === "" || cep === "" || estado === "" || 
+    bairro === "" ||  cidade === "" || numero === "") {
+        Swal.fire({
+            color: "#ffffff",
+            background: "#272628",
+            confirmButtonColor: "#8039EB",
+            icon: "error",
+            title: "Oops...",
+            text: "Preencha todos os campos",
+        });
+    }else {
+        fetch(`http://localhost:3000/cadastroDark/${idEmpresa}`, {
+            method:"POST",
+            headers: {
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify({
+                nome:nome,
+                rua:rua,
+                cep:cep,
+                estado:estado,
+                bairro:bairro,
+                cidade:cidade,
+                numero:numero
+            })
+        }).then(function(resposta) {
+            if(resposta.ok) {
+                Swal.fire({
+                        title: 'Cadastrado!',
+                        icon: 'success',
+                        confirmButtonText: 'Ok'
+                    })
+                    exibirListaDark()
+            }else {
+                Swal.fire({
+                        title: 'Erro ao cadastrar',
+                        icon: 'error',
+                        confirmButtonText: 'Ok'
+                    })
+            }
+        }).catch(erro => console.log(erro))
+    }
+}
+
+function excluirDark(idDark)  {
+    fetch(`http://localhost:3000/deletarDark/${idEmpresa}/${idDark}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type":"application/json"
+        },
+    }).then(function (resposta) {
+        if(resposta.ok) {
+            Swal.fire({
+                title: 'Dark Store excluido!',
+                icon: 'success',
+                confirmButtonText: 'Ok'
+            })
+           exibirListaDark()
+        }else {
+            Swal.fire({
+                confirmButtonText: 'Ok',
+                icon: "error",
+                title: "Erro ao excluir Dark Store",
+            });
+        }
+    }).catch(erro => {
+        console.log(erro)
+    })
+}
+
+function editarDarkOk(idDarkParams) {
+    idDark = idDarkParams
+    div_editar_darkStore.style.display = "flex"
+}
+
+const editarDark = () => {
+    var nome = document.querySelector('#nome_dark_editar').value;
+    var rua = document.querySelector('#rua_editar').value;
+    var cep = document.querySelector('#cep_editar').value;
+    var estado = document.querySelector('#estado_editar').value;
+    var bairro = document.querySelector('#bairro_editar').value;
+    var cidade = document.querySelector('#cidade_editar').value;
+    var numero = document.querySelector('#numero_dark_editar').value;
+
+    if(nome === "" || rua === "" || cep === "" || estado === "" || 
+    bairro === "" ||  cidade === "" || numero === "") {
+    
+        Swal.fire({
+            color: "#ffffff",
+            background: "#272628",
+            confirmButtonColor: "#8039EB",
+            icon: "error",
+            title: "Oops...",
+            text: "Preencha todos os campos",
+        });
+    }else {
+            fetch(`http://localhost:3000/atualizarDark/${idEmpresa}/${idDark}`, 
+                {
+            method:"PUT",
+            headers: {
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify({
+                nome:nome,
+                rua:rua,
+                cep:cep,
+                estado:estado,
+                bairro:bairro,
+                cidade:cidade,
+                numero:numero
+            })
+        }).then(function(resposta) {
+            if(resposta.ok) {
+                Swal.fire({
+                        title: 'Alterado!',
+                        icon: 'success',
+                        confirmButtonText: 'Ok'
+                    })
+                    mostrarFuncionario()
+
+                    nome.innerHTML = ""
+                    rua.innerHTML = ""
+                    cep.innerHTML = ""
+                    bairro.innerHTML = ""
+                    cidade.innerHTML = ""
+                    estado.innerHTML = ""
+                    numero.innerHTML = ""
+            }else {
+                Swal.fire({
+                        title: 'Erro ao alterar',
+                        icon: 'error',
+                        confirmButtonText: 'Ok'
+                    })
+            }
+        
+            }).catch(erro => console.log(erro))
+        }
+    }
+
 </script>
 <script src="./js/plotarGrafico.js" defer></script>
 <script src="./js/graficos.js"defer></script>
-<script src="./js/Alerts.js"defer></script>
-<script src="./js/gerenciarFuncionario.js"defer></script>
 <script>
-    let idFuncionario = 0
      function openCadastrarSlack() {
         cadastrarSlack_div.style.display = "flex"
     }
@@ -659,6 +1078,7 @@ const editarPerfilOk = () => {
 
     function openCadastroFuncionarios() {
         cadastroFuncionarios.style.display = "flex"
+        listaFuncionarios.style.display = "none"
     }
 
     function exitCadastroFuncionarios() {
@@ -672,5 +1092,20 @@ const editarPerfilOk = () => {
 
     function exitEditarFuncionarios() {
         editarFuncionarios.style.display = "none"
+    }
+    function openListaDark() {
+        listaDark.style.display = "flex"
+    }
+    function exitListaDark() {
+        listaDark.style.display = "none"
+    }
+    function openCadastrarDark () {
+        div_cadastro_darkStore.style.display = "flex"
+    }
+    function exitCadastroDark() {
+        div_cadastro_darkStore.style.display = "none"
+    }
+    function exitEditarDark() {
+        div_editar_darkStore.style.display ="none"
     }
 </script>

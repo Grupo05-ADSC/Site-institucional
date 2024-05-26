@@ -12,24 +12,21 @@ email VARCHAR(100) NOT NULL,
 senha VARCHAR(18) NOT NULL
 );
 
-insert into empresa values
-(null, "empresa", "12345678912345", "michelly@gmail.com", "123");
-
 CREATE TABLE funcionario (
 idFuncionario INT PRIMARY KEY AUTO_INCREMENT,
 nomeFuncionario VARCHAR(49),
-sobrenome VARCHAR(40),
+senha VARCHAR(50),
 emailFuncionario VARCHAR(100),
 cargo VARCHAR(45) NOT NULL,
 fkEmpresa INT NOT NULL,  
-FOREIGN KEY (fkEmpresa) REFERENCES empresa (idEmpresa)
+FOREIGN KEY (fkEmpresa) REFERENCES empresa (idEmpresa) ON DELETE CASCADE
 );
 
 CREATE TABLE darkstore (
 idDarkstore INT PRIMARY KEY AUTO_INCREMENT,
 nome VARCHAR(40) UNIQUE,
 fkEmpresa INT NOT NULL,
-FOREIGN KEY (fkEmpresa) REFERENCES empresa (idEmpresa)
+FOREIGN KEY (fkEmpresa) REFERENCES empresa (idEmpresa) ON DELETE CASCADE
 );
 
 CREATE TABLE metrica_ideal (
@@ -45,7 +42,7 @@ FOREIGN KEY (fkMetrica_ideal) REFERENCES metrica_ideal (idMetrica_ideal),
 fkDarkstore INT NOT NULL,
 CONSTRAINT fkDarkstore FOREIGN KEY (fkDarkstore) 
 REFERENCES darkstore (idDarkstore),
-PRIMARY KEY (idMaquina, fkDarkstore)
+PRIMARY KEY (idMaquina, fkDarkstore) 
 );
 
 CREATE TABLE componentes (
@@ -138,7 +135,7 @@ bairro VARCHAR(50)NOT NULL,
 rua VARCHAR(50) NOT NULL,
 numero INT NOT NULL,
 fkDarkstore INT NOT NULL,
-FOREIGN KEY (fkDarkstore) REFERENCES darkstore (idDarkstore)
+FOREIGN KEY (fkDarkstore) REFERENCES darkstore (idDarkstore)  ON DELETE CASCADE
 );
 
 SHOW TABLES;
