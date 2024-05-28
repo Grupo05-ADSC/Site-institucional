@@ -94,9 +94,17 @@
                         icon: 'success',
                         confirmButtonText: 'Ok'
                     })
-                    localStorage.NOME = dados.nomeEmpresa 
-                    localStorage.ID = dados.idEmpresa 
-                    localStorage.EMAIL = dados.email 
+                    if(dados.cargo) {
+                        localStorage.NOME = dados.nomeFuncionario 
+                        localStorage.ID = dados.idFuncionario 
+                        localStorage.ID = dados.idEmpresa 
+                        localStorage.EMAIL = dados.emailFuncionario
+                        localStorage.CARGO = dados.cargo
+                    }else {
+                        localStorage.NOME = dados.nomeEmpresa 
+                        localStorage.ID = dados.idEmpresa 
+                        localStorage.EMAIL = dados.email 
+                    }
                     setTimeout(() => {
                         location.href = "./dashboard/dash.html"
                     },3000)

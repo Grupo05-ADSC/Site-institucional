@@ -40,9 +40,11 @@ body{
 
 .menuGraficos{
     height: 8vh;
-    width: 35vh;
+    width: 100%;
     border-bottom: #b6b6b6 solid 2px;
-
+    display: flex;
+    align-items: center;
+    justify-content: center;
     display: flex;
     flex-direction: row;
 }
@@ -199,18 +201,19 @@ border: solid 3px #8039EB;
 
 .linha{
     height: 135px;
-    width: 95%;
+    width: 100%;
     margin: 10px 0px 0px 5px;
+    padding: 1% 3% 0 0;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
 }
 
 .boxMaquina{
     background-color: #2E2E2E;
     height: 95%;
-    width: 125px;
+    width: 22%;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -218,6 +221,7 @@ border: solid 3px #8039EB;
     text-align: center;
     color: #b6b6b6;
     padding: 5px 0px 0px 0px;
+    margin-right: 1%;
 }
 
 .boxMaquinaV{
@@ -233,7 +237,11 @@ border: solid 3px #8039EB;
     color: #b6b6b6;
     padding: 5px 0px 0px 0px;
 }
-
+.boxMaquina p {
+    margin: 0;
+    font-size: 14px;
+    width: 85%;
+}
 .graficoDiario{
     background-color: #111111;
     height: 100%;
@@ -254,9 +262,21 @@ border: solid 3px #8039EB;
 .boxGrafico{
     height: 100%;
     width: 400px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+#myChart {
+    width: 90% !important;
+}
+/* menu lado direiro */
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
-/* menu lado direiro */
 .linha3{
     height: 560px;
     width: 120px;
@@ -279,7 +299,10 @@ border: solid 3px #8039EB;
     align-items: center;
     text-align: center;
 }
-
+.boxGrafico h2 {
+    width: 100%;
+    font-size: 16px;
+}
 .destaque{
     color: #8039EB;
 }

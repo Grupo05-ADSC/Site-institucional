@@ -1258,3 +1258,24 @@ th {
     border: 1px solid #8039EB;
     padding: 2%;
 }
+
+.div_conteudo_processos {
+    width: 100%;
+    height: 80%;
+    overflow-y: auto;
+}
+.td_button_processo {
+    padding: 0;
+    width: 20%;
+    border: 0;
+}
+.button_stop_processo {
+    padding: 3%;
+    width: 80%;
+    margin: 0;
+}
+.td_tirar_border {
+    border: 0 !important;
+    padding: 2%;
+    font-size: 15px;
+}

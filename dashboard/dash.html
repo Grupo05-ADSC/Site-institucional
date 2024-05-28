@@ -230,6 +230,43 @@
 
 
 
+    <div class="cadastroFuncionarios" id="div_listar_processos" style="display: none;">
+        <div class="pop-up" id="pop-up_cadastro_dark">
+            <div class="header_pop-up" id="header_pop_up_processos">
+                <div class="div_titulo_pop-up">
+                    <h2>Processos da Maquina </h2>
+                </div>
+                <div class="div_sair_pop-up">
+                    <i class="fa fa-remove" id="icon_sair_pop-up" onclick="closeProcessos()"></i>
+                </div>
+            </div>
+            <div class="div_conteudo_processos">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="td_tirar_border">PID</th>
+                            <th class="td_tirar_border">CPU %</th>
+                            <th class="td_tirar_border">RAM %</th>
+                            <th id="td_stop_func" class="td_tirar_border">STOP</th>
+                        </tr>
+                    </thead>
+     
+                        <tbody>
+                            <tr>
+                                <td class="td_tirar_border">10</td>
+                                <td class="td_tirar_border">10</td>
+                                <td class="td_tirar_border">10</td>
+                                <td class="td_button_processo" ><button class="button_stop_processo">Stop</button></td>
+                            </tr>
+                       
+                        </tbody>
+                   
+                </table>
+            </div>
+        </div>
+    </div>
+
+
     <div class="cadastrarSlack_div" style="display: none;">
         <div class="pop-up">
             <div class="head">
@@ -335,27 +372,27 @@
                     <div class="boxTextoMenu"><a href="dash.html">Gráficos</a></div>
                 </div>
 
-                <div class="menuGraficos">
+                <div class="menuGraficos" id="overview_options">
                    
                     <div class="boxTextoMenu"><a href="dashGeral.html">Overview</a></div>
                 </div>
 
-                <div class="menuPerfil" onclick="">
+                <div class="menuPerfil" onclick="" id="dark_options">
                    
-                    <div class="boxTextoMenu" onclick="openListaDark()"> Dark store </div>
+                    <div class="boxTextoMenu" onclick="openListaDark()"> Dark Store</div>
                 </div>
 
-                <div class="menuPerfil" onclick="">
+                <div class="menuPerfil" onclick="" id="maquinas_options">
                   
                     <div class="boxTextoMenu"> Máquinas </div>
                 </div>
 
-                <div class="menuPerfil" onclick="openListaFuncionarios()">
+                <div class="menuPerfil" onclick="openListaFuncionarios()" id="funcionarios_options">
                     
                     <div class="boxTextoMenu"> Funcionários </div>
                 </div>
 
-                <div class="menuPerfil" onclick="openPerfil()">
+                <div class="menuPerfil" onclick="openPerfil()" id="perfil_options">
                    
                     <div class="boxTextoMenu"> Perfil </div>
                 </div>
@@ -363,7 +400,7 @@
                 <div class="boxSair">
                     <div class="playSair">
                        
-                        <b class="sair"><a class="voltar" href="../index.html">sair</a></b>
+                        <b class="sair" onclick="Logout()"><a class="voltar">sair</a></b>
                     </div>
                 </div>
             </div>
@@ -441,7 +478,7 @@
                         Descrição: o uso da sua cpu está acima do ideal
 
                         <button class="buttonSlack" onclick="openCadastrarSlack()">
-                            Cadastrar slack
+                            Gerenciar slack
                         </button>
                     </div>
                 </div>
@@ -475,7 +512,7 @@
                     <div class="grafico1">
                         <div class="box">
                             <b id="titulo">Processos com consumo elevado</b>
-                            <button class="button">Ver mais</button>
+                            <button class="button" onclick="openProcessos()">Ver mais</button>
                             <table>
                                 <thead>
                                     <tr>
@@ -520,9 +557,9 @@
                 <b>Máquinas Ativas</b>
                 <h1 class="destaque">23</h1>
             </div>
-            <div class="box">
+            <div class="box" id="total_funcionario_div">
                 <b>Total de Funcionários</b>
-                <h1 class="destaque">7</h1>
+                <h1 class="destaque" id="total_funcionario"></h1>
             </div>
         </div>
 
@@ -534,7 +571,10 @@
 <script defer>
     let nomeEmpresa = localStorage.NOME
     let idEmpresa = localStorage.ID
+
     let email =localStorage.EMAIL
+    let cargo =localStorage.CARGO || ''
+
     let idDark;
 
     var listaFuncionarios = document.querySelector('#lista_funcionarios');
@@ -545,15 +585,52 @@
     var editarPerfil = document.querySelector('.editarPerfil');
     var cadastrarSlack_div = document.querySelector('.cadastrarSlack_div');
     var conteudo_funcionario = document.querySelector('#conteudo_funcionario');
-
+    var td_stop_func = document.querySelector('#td_stop_func');
+    var td_button_processo = document.querySelector('.td_button_processo');
 
 
     span_nome_empresa.innerHTML = `${nomeEmpresa}!`
-    // POPUPS
+
     email_perfil.innerHTML = `${email}`
     
 
+    function funcionarioTotais() {
+        console.log(cargo)
+        if(cargo === "") {
+            fetch(`http://localhost:3000/funcionariosTotais/${idEmpresa}`, {
+                method:"GET"
+            }).then(resposta => resposta.json())
+            .then(item => {
+                localStorage.QTDFUNC = quantidadeFuncionario = item["resposta"][0]["COUNT(*)"]
 
+                total_funcionario.innerHTML = `${quantidadeFuncionario}`
+            })
+        }else if(cargo == "gerente"){
+            fetch(`http://localhost:3000/funcionariosTotais/${idEmpresa}`, {
+                method:"GET"
+            }).then(resposta => resposta.json())
+            .then(item => {
+                localStorage.QTDFUNC = quantidadeFuncionario = item["resposta"][0]["COUNT(*)"]
+
+                total_funcionario.innerHTML = `${quantidadeFuncionario}`
+            })
+            dark_options.style.display = "none"
+          
+        }else if(cargo === "comum"){
+            total_funcionario.style.display = "none";
+            td_button_processo.style.display = "none";
+            td_stop_func.style.display = "none"
+            dark_options.style.display = "none";
+            perfil_options.style.display = "none";
+            maquinas_options.style.display = "none";
+            funcionarios_options.style.display = "none";
+            total_funcionario_div.style.display = "none";
+            overview_options.style.display = "none";
+         
+        }
+    }   
+
+    funcionarioTotais()
     function mostrarDark() {
         try {
         fetch(`http://localhost:3000/mostrarDarkstore/${idEmpresa}`, {
@@ -572,19 +649,22 @@
     
     mostrarDark()
 
-
     function plotarDark(dados) {
-        let selectDark = darkStoreSelect
+        if(cargo === "" || cargo === "gerente") {
+            let selectDark = darkStoreSelect
         dados.map(item => {
-            console.log(item)
+        
             selectDark.innerHTML += `<option value=${item.idDarkstore}>${item.nome}</option>`
         })
+        }else {
+        
+            darkStoreSelect.innerHTML += `<option>Não autorizado</option>`
+        }
     }
     
+  
     const mostrarFuncionario = () => {
-        if (idEmpresa === null || idEmpresa === 0) {
-            
-        }else  {
+        
             fetch(`http://localhost:3000/funcionario/${idEmpresa}`, {
                 method: "GET",
                 headers : {
@@ -618,7 +698,7 @@
             })
             })
         }
-    }
+    
 
     mostrarFuncionario()
 
@@ -636,6 +716,7 @@
                 confirmButtonText: 'Ok'
             })
            mostrarFuncionario()
+           funcionarioTotais()
         }else {
             Swal.fire({
                 confirmButtonText: 'Ok',
@@ -711,6 +792,7 @@
                         confirmButtonText: 'Ok'
                     })
                     mostrarFuncionario()
+                    funcionarioTotais()
             }else {
                 Swal.fire({
                         title: 'Erro ao cadastrar',
@@ -833,6 +915,15 @@ const editarPerfilOk =() => {
 }
     //sweet alert
    
+
+const Logout = () => {
+    localStorage.NOME = ''
+    localStorage.ID = ''
+    localStorage.EMAIL = ""
+    localStorage.CARGO = ''
+
+    document.location.href="../login.html"
+}
 
 function exibirListaDark() {
         if (idEmpresa === null || idEmpresa === 0) {
@@ -1048,7 +1139,15 @@ const editarDark = () => {
 <script src="./js/graficos.js"defer></script>
 <script>
      function openCadastrarSlack() {
-        cadastrarSlack_div.style.display = "flex"
+        if(cargo === "" || cargo === "gerente") {
+            cadastrarSlack_div.style.display = "flex"
+        }else {
+            Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text:"Sem autorização necessaria"
+        });
+        }
     }
 
     function exitCadastrarSlack() {
@@ -1107,5 +1206,11 @@ const editarDark = () => {
     }
     function exitEditarDark() {
         div_editar_darkStore.style.display ="none"
+    }
+    function openProcessos() {
+        div_listar_processos.style.display = 'flex'
+    }
+    function closeProcessos() {
+        div_listar_processos.style.display = 'none'
     }
 </script>
