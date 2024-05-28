@@ -12,6 +12,7 @@ email VARCHAR(100) NOT NULL,
 senha VARCHAR(18) NOT NULL
 );
 
+insert empresa values(null, "frizza", "1231","frizza", "123");
 CREATE TABLE funcionario (
 idFuncionario INT PRIMARY KEY AUTO_INCREMENT,
 nomeFuncionario VARCHAR(49),
@@ -37,7 +38,7 @@ metrica_padrao VARCHAR(45)
 CREATE TABLE maquina (
 idMaquina INT AUTO_INCREMENT,
 fkMetrica_ideal INT,
-
+idProcessador varchar(100) unique,
 FOREIGN KEY (fkMetrica_ideal) REFERENCES metrica_ideal (idMetrica_ideal),
 fkDarkstore INT NOT NULL,
 CONSTRAINT fkDarkstore FOREIGN KEY (fkDarkstore) 

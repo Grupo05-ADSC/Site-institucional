@@ -18,7 +18,7 @@
         <div class="div_header_links">
             <ul class="lista_header_links">
                 <a href="index.html">Home</a>
-                <button class="button_header_login_cadastro">
+                <button class="button_header_login_cadastro" onclick="irLink()">
                     Login
                 </button>
             </ul>
@@ -74,6 +74,11 @@
 </body>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
 <script>
+
+    const irLink = () => {
+        document.location.href="./login.html"
+    }
+
     function Cadastrar() {
         let nome = input_nome.value
         let email = input_email.value
