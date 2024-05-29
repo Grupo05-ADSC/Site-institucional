@@ -74,11 +74,7 @@ CREATE TABLE componente (
     Maquina_fkDarkStore INT,
     Maquina_MetricaIdeal INT,
     Metrica_MetricaIdeal INT,
-    RAMcomponente VARCHAR(40),
-    CPUcomponente VARCHAR(40),
-    DISCOcomponente VARCHAR(40),
-    REDEcomponente VARCHAR(40),
-    dispositivoUSB VARCHAR(45),
+    nome VARCHAR(100),
     PRIMARY KEY (idComponente, Maquina_idMaquina, Maquina_fkDarkStore, Maquina_MetricaIdeal, Metrica_MetricaIdeal),
     FOREIGN KEY (Maquina_idMaquina, Maquina_MetricaIdeal) REFERENCES maquina(idMaquina, Metrica_MetricaIdeal),
     FOREIGN KEY (Maquina_fkDarkStore) REFERENCES maquina(fkDarkStore)
