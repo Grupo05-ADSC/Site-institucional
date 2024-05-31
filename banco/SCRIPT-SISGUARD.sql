@@ -71,10 +71,7 @@ FOREIGN KEY (maquina_fkDarkstore) REFERENCES maquina (fkDarkstore),
 maquina_fkMetrica_ideal INT,
 FOREIGN KEY (maquina_fkMetrica_ideal) REFERENCES maquina (fkMetrica_ideal),
 PRIMARY KEY(idProcessos, fkMaquina),
-PID varchar(45) NOT NULL,
-usoCPU varchar(45) NOT NULL,
-usoRAM varchar(45) NOT NULL,
-usoDISCO varchar(45) NOT NULL
+dados varchar(500) NOT NULL
 );
 
 CREATE TABLE registro (
