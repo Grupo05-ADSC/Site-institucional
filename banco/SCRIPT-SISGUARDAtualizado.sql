@@ -80,7 +80,7 @@ CREATE TABLE componente (
     Maquina_fkDarkStore INT,
     Maquina_MetricaIdeal INT,
     Metrica_MetricaIdeal INT,
-    nome VARCHAR(40),
+    nome VARCHAR(100),
     PRIMARY KEY (idComponente, Maquina_idMaquina, Maquina_fkDarkStore, Maquina_MetricaIdeal, Metrica_MetricaIdeal),
     FOREIGN KEY (Maquina_idMaquina, Maquina_MetricaIdeal) REFERENCES maquina(idMaquina, Metrica_MetricaIdeal),
     FOREIGN KEY (Maquina_fkDarkStore) REFERENCES maquina(fkDarkStore)
