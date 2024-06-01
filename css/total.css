@@ -95,38 +95,43 @@ body {
 }
 
 .div_separar_input_cadastro2 {
-    width: 100%;
+    width: 90%;
     height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row-reverse;
     margin-top: 6px;
-    padding-right: 600px;
+    gap: 1rem;
 }
 .div_input_text_cadastro2 {
     display: flex;
-    width: 60%;
+    width: 66%;
     padding: 1% 4% 1% 4%;
     height: auto;
-    align-items: center;
+    align-items: self-start;
     justify-content: center;
-    flex-direction: row;
+    flex-direction: column;
 }
 #div_input_text_cadastro2 select {
     display: flex;
-    width: auto;
+    width: 100%;
     padding: 2% 5% 2% 5%;
-    height: auto;
+    height: 28px;
     align-items: center;
     justify-content: center;
-    flex-direction: row;
+    flex-direction: column;
     border: #555 0,5px solid;
-    border-radius: 7px;
+    border-radius: 9px;
     margin-top: 8px;
 }
 .div_input_text_cadastro2 p {
     font-size: 13px;
+}
+#div_input_text_cadastro2 p {
+    font-size: 13px;
+    height: 1.2rem;
+    width: 10rem;
 }
 .div_input_text_cadastro2 input {
     margin-top: 2%;
