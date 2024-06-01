@@ -617,14 +617,312 @@ button:hover{
     margin: 0 15vh 0 0;
 }
 
-/* .iconsCRUD{
-    width: 30px;
+
+.lista-maquinas {
+    z-index: 100;
     display: flex;
+    align-items: center;
     justify-content: center;
+    position: fixed;
+
+    background-color: rgba(12, 12, 14, 0.2);
+    color: #fff;
+
+    width: 100%;
+    height: 100vh;
+    transition: 0.6s;
 }
-.iconsCRUD:hover{
+
+.lista-maquinas .pop-up {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10%;
+
+    background-color: #272628;
+    width: 50%;
+    height: 70%;
+
+    border: 1px solid #8039EB;
+    border-radius: 5px;
+
+    padding: 0 80px;
+    padding-bottom: 30px;
+}
+
+.lista-maquinas .pop-up .head {
+    margin-top: 10%;
+    height: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 0%;
+    transition: all 0.3s;
+}
+
+.lista-maquinas .pop-up .head .titulo {
+    width: 95%;
+    text-align: center;
+}
+
+.lista-maquinas .pop-up .head h1 {
+    font-size: 2vw;
+    margin: 0;
+}
+
+
+.lista-maquinas .pop-up .head i:hover {
     cursor: pointer;
-} */
+    scale: 1.04;
+}
+
+.lista-maquinas .pop-up .conteudo {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    height: 40%;
+    overflow-y: scroll;
+}
+
+
+.lista-maquinas .pop-up .conteudo i {
+    transition: all 0.3s;
+}
+
+.lista-maquinas .pop-up .conteudo i:hover {
+    cursor: pointer;
+    scale: 1.08;
+}
+
+.editarMaquinas  {
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+
+    background-color: rgba(12, 12, 14, 0.2);
+    color: #fff;
+
+    width: 100%;
+    height: 100vh;
+    transition: 0.6s;
+}
+
+.editarMaquinas .pop-up {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    background-color: #272628;
+    width: 30%;
+    height: 40%;
+
+    border: 1px solid #8039EB;
+    border-radius: 5px;
+
+    padding: 0 80px;
+    padding-bottom: 30px;
+}
+
+.editarMaquinas .pop-up .head {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 10%;
+}
+
+.editarMaquinas .pop-up .head .titulo {
+    width: 95%;
+    text-align: center;
+}
+
+.editarMaquinas .pop-up .head h1 {
+    font-size: 2vw;
+    margin: 0;
+}
+
+
+.editarMaquinas .pop-up .head i:hover {
+    cursor: pointer;
+}
+
+.editarMaquinas .pop-up .conteudo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.editarMaquinas .pop-up .conteudo input {
+    width: 100%;
+    height: 4vh;
+
+    background-color: #000000;
+    color: #ffffff;
+
+    border: 1px solid #8039EB;
+    border-radius: 5px;
+}
+
+.editarMaquinas  {
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+
+    background-color: rgba(12, 12, 14, 0.2);
+    color: #fff;
+
+    width: 100%;
+    height: 100vh;
+    transition: 0.6s;
+}
+
+.editarMaquinas .pop-up {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    background-color: #272628;
+    width: 50%;
+    height: 70%;
+
+    border: 1px solid #8039EB;
+    border-radius: 5px;
+
+    padding: 0 80px;
+    padding-bottom: 30px;
+}
+
+.editarMaquinas .pop-up .head {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 10%;
+
+}
+
+.editarMaquinas .pop-up .head .titulo {
+    width: 95%;
+    text-align: center;
+}
+
+.editarMaquinas .pop-up .head h1 {
+    font-size: 2vw;
+    margin: 0;
+}
+
+
+.editarMaquinas .pop-up .head i:hover {
+    cursor: pointer;
+}
+
+.editarMaquinas .pop-up .conteudo {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.editarMaquinas .pop-up .conteudo input {
+    width: 100%;
+    height: 4vh;
+
+    background-color: #000000;
+    color: #ffffff;
+
+    border: 1px solid #8039EB;
+    border-radius: 5px;
+}
+
+*::-webkit-scrollbar {
+    width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #272628;
+}
+button{
+    background-color: #8039EB;
+    width: 25vh;
+    border: 1px solid #272628;
+    border-radius: 5px;
+    transition: all 0.3s linear;
+    color: #ffffff;
+}
+button:hover{
+    cursor: pointer;
+    background-color: #9658f2;
+    border: 1px solid #272628;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #8039EB;
+    border-radius: 5px;
+    border: 3px solid #272628;
+}
+
+.id {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+}
+
+.nome {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+}
+
+.excluir {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+}
+
+.editar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+}
+
+.maquina {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 13vh 0 0;
+}
+
+.lista-maquinas .pop-up .conteudo .maquina h2 {
+    font-size: 1.5vw;
+}
+
+.lista-maquinas .pop-up .conteudo .maquina p {
+    font-size: 1.2vw;
+}
+
+.lista-maquinas .pop-up .conteudo .maquina span {
+    width: 5%;
+    height: 13%;
+    margin-top: 6%;
+    margin-left: 50px;
+
+    background-color: #000;
+}
+
+.legendaMaquinas {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 15vh 0 0;
+}
 
 .boxgraficos {
     height: 380px;
@@ -767,7 +1065,6 @@ button:hover{
 
 .cardGauge .box .gauge {
     width: 200px;
-    /* align-items: center; */
 
 }
 
@@ -1123,7 +1420,7 @@ th {
 #pop-up_cadastro_dark {
     width: 50%;
     height: 80%;
-    border: 1px solid black;
+    border: 1px solid #8039EB;
     display: flex;
     padding: 2%;
     flex-direction: column;
@@ -1154,6 +1451,9 @@ th {
 }
 #icon_sair_pop-up {
     font-size: 30px;
+}
+#icon_sair_pop-up:hover {
+    cursor: pointer;
 }
 
 
@@ -1230,6 +1530,7 @@ th {
 
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 .div_separar_nome_and_cargo {
     width: 100%;

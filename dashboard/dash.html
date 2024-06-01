@@ -42,8 +42,8 @@
 
             <div class="conteudo" id="conteudo_funcionario">
 
-                
-            
+
+
             </div>
         </div>
     </div>
@@ -68,8 +68,8 @@
 
             <div class="conteudo" id="conteudo_darkStore">
 
-                
-            
+
+
             </div>
         </div>
     </div>
@@ -98,7 +98,7 @@
                                 <option value="comum">Comum</option>
                             </select>
                         </div>
-                 </div>
+                    </div>
                     <p>E-mail:</p>
                     <input type="email" name="" id="email_inputCadastro">
                     <p>Senha:</p>
@@ -107,12 +107,60 @@
                     <input type="password" name="" id="confirme_inputCadastro">
 
                 </div>
-                <button onclick="cadastrarFuncionario()" style="width: 40vh;" class="btnCadastro">Cadastrar funcionário</button>
+                <button onclick="cadastrarFuncionario()" style="width: 40vh;" class="btnCadastro">Cadastrar
+                    funcionário</button>
             </div>
 
         </div>
     </div>
 
+
+
+       <!--lISTA DE MÁQUINAS-->
+       <div class="lista-maquinas" id="lista_maquinas" style="display: none;">
+        <div class="pop-up">
+            <div class="head">
+                <div class="titulo">
+                    <h1>Máquinas</h1>
+                </div>
+                <i class="fa fa-remove" style="width: 6vh; font-size: 4vh;" onclick="exitListaMaquinas()"></i>
+            </div>
+
+            <button class="btnCadastroF" onclick="openEditarMaquinas()">Editar Máquinas</button>
+
+            <div class="legendaMaquinas">
+                <b class="id">ID</b>
+                <b class="nome">Nome</b>
+                <b class="excluir">Excluir</b>
+                <b class="editar">Editar</b>
+            </div>
+
+            <div class="conteudo" id="conteudo_maquina">
+            </div>
+        </div>
+    </div>
+
+
+    <!--EDITAR MÁQUINA -- MODAL -->
+    <div class="editarMaquinas" style="display: none;">
+        <div class="pop-up">
+            <div class="head">
+                <div class="titulo">
+                    <h1>Editar Máquina</h1>
+                </div>
+                <i class="fa fa-remove" style="width: 6vh; font-size: 4vh;" onclick="exitEditarMaquinas()"></i>
+            </div>
+
+            <div class="conteudo">
+                    <p>Nome:</p>
+                    <input type="text" id="nome_inputCadastro">
+
+                </div>
+                <button onclick="cadastrarFuncionario()" style="width: 40vh;" class="btnCadastro">Editar máquina</button>
+            </div>
+
+        </div>
+    </div>
 
 
     <!--CADASTRO DE DARK STORE-->
@@ -124,7 +172,7 @@
                 </div>
                 <div class="div_sair_pop-up">
                     <i class="fa fa-remove" id="icon_sair_pop-up" onclick="exitCadastroDark()"></i>
-           
+
                 </div>
             </div>
             <div class="div_conteudo_cadastrar_darkstore">
@@ -147,7 +195,7 @@
                         <p>Cidade</p>
                         <input type="text" name="" id="cidade">
                     </div>
-                </div> 
+                </div>
                 <div class="div_principal_inputs_pop-up">
                     <div class="div_esquerdo_inputs_pop-up">
                         <p>Bairro</p>
@@ -181,7 +229,7 @@
                 </div>
                 <div class="div_sair_pop-up">
                     <i class="fa fa-remove" id="icon_sair_pop-up" onclick="exitEditarDark()"></i>
-           
+
                 </div>
             </div>
             <div class="div_conteudo_cadastrar_darkstore">
@@ -204,7 +252,7 @@
                         <p>Cidade</p>
                         <input type="text" name="" id="cidade_editar">
                     </div>
-                </div> 
+                </div>
                 <div class="div_principal_inputs_pop-up">
                     <div class="div_esquerdo_inputs_pop-up">
                         <p>Bairro</p>
@@ -250,17 +298,17 @@
                             <th id="td_stop_func" class="td_tirar_border">STOP</th>
                         </tr>
                     </thead>
-     
-                        <tbody>
-                            <tr>
-                                <td class="td_tirar_border">10</td>
-                                <td class="td_tirar_border">10</td>
-                                <td class="td_tirar_border">10</td>
-                                <td class="td_button_processo" ><button class="button_stop_processo">Stop</button></td>
-                            </tr>
-                       
-                        </tbody>
-                   
+
+                    <tbody>
+                        <tr>
+                            <td class="td_tirar_border">10</td>
+                            <td class="td_tirar_border">10</td>
+                            <td class="td_tirar_border">10</td>
+                            <td class="td_button_processo"><button class="button_stop_processo">Stop</button></td>
+                        </tr>
+
+                    </tbody>
+
                 </table>
             </div>
         </div>
@@ -299,7 +347,7 @@
             <div class="conteudo">
                 <div>
                     <p>Nome:</p>
-                    <input type="text" id="nome_input_funcionario" >
+                    <input type="text" id="nome_input_funcionario">
                     <p>E-mail:</p>
                     <input type="email" name="" id="email_input_funcionario">
                     <p>Nova senha:</p>
@@ -307,7 +355,8 @@
                     <p>Confirmar nova senha:</p>
                     <input type="password" name="" id="confirme_input_funcionario">
                 </div>
-                <button onclick="editarFuncionarioOk()" style="width: 40vh;" class="btnCadastro">Editar funcionário</button>
+                <button onclick="editarFuncionarioOk()" style="width: 40vh;" class="btnCadastro">Editar
+                    funcionário</button>
             </div>
 
         </div>
@@ -368,38 +417,38 @@
             <div class="menu">
 
                 <div class="menuGraficos">
-                
+
                     <div class="boxTextoMenu"><a href="dash.html">Gráficos</a></div>
                 </div>
 
                 <div class="menuGraficos" id="overview_options">
-                   
+
                     <div class="boxTextoMenu"><a href="dashGeral.html">Overview</a></div>
                 </div>
 
                 <div class="menuPerfil" onclick="" id="dark_options">
-                   
+
                     <div class="boxTextoMenu" onclick="openListaDark()"> Dark Store</div>
                 </div>
 
-                <div class="menuPerfil" onclick="" id="maquinas_options">
-                  
+                <div class="menuPerfil" onclick="openListaMaquinas()" id="maquinas_options">
+
                     <div class="boxTextoMenu"> Máquinas </div>
                 </div>
 
                 <div class="menuPerfil" onclick="openListaFuncionarios()" id="funcionarios_options">
-                    
+
                     <div class="boxTextoMenu"> Funcionários </div>
                 </div>
 
                 <div class="menuPerfil" onclick="openPerfil()" id="perfil_options">
-                   
+
                     <div class="boxTextoMenu"> Perfil </div>
                 </div>
 
                 <div class="boxSair">
                     <div class="playSair">
-                       
+
                         <b class="sair" onclick="Logout()"><a class="voltar">sair</a></b>
                     </div>
                 </div>
@@ -409,7 +458,7 @@
         <div class="linha1">
             <div class="box1">
                 <select id="darkStoreSelect">
-                 
+
                 </select>
             </div>
             <div class="box1">
@@ -459,7 +508,7 @@
                             <span id="uso_atual2"></span>
                             <canvas id="gauge2" class="gauge"></canvas>
 
-                           
+
                         </div>
                         <div class="box">
                             <span id="uso_atual3"></span>
@@ -471,7 +520,7 @@
                 <div class="card_alerta">
                     <div class="titulo_icon">
                         <div class="titulo_alerta"><b>Notificações</b></div>
-                    
+
                     </div>
                     <div class="box">
                         <b>CPU alterada</b> <br>
@@ -572,12 +621,14 @@
     let nomeEmpresa = localStorage.NOME
     let idEmpresa = localStorage.ID
 
-    let email =localStorage.EMAIL
-    let cargo =localStorage.CARGO || ''
+    let email = localStorage.EMAIL
+    let cargo = localStorage.CARGO || ''
 
     let idDark;
 
     var listaFuncionarios = document.querySelector('#lista_funcionarios');
+    var listaMaquinas = document.querySelector('#lista_maquinas');
+    var editarMaquinas = document.querySelector('.editarMaquinas');
     var listaDark = document.querySelector('#lista_dark');
     var cadastroFuncionarios = document.querySelector('.cadastroFuncionarios');
     var editarFuncionarios = document.querySelector('.editarFuncionarios');
@@ -592,30 +643,30 @@
     span_nome_empresa.innerHTML = `${nomeEmpresa}!`
 
     email_perfil.innerHTML = `${email}`
-    
+
     function funcionarioTotais() {
         console.log(cargo)
-        if(cargo === "") {
+        if (cargo === "") {
             fetch(`http://localhost:3000/funcionariosTotais/${idEmpresa}`, {
-                method:"GET"
+                method: "GET"
             }).then(resposta => resposta.json())
-            .then(item => {
-                localStorage.QTDFUNC = quantidadeFuncionario = item["resposta"][0]["COUNT(*)"]
+                .then(item => {
+                    localStorage.QTDFUNC = quantidadeFuncionario = item["resposta"][0]["COUNT(*)"]
 
-                total_funcionario.innerHTML = `${quantidadeFuncionario}`
-            })
-        }else if(cargo == "gerente"){
+                    total_funcionario.innerHTML = `${quantidadeFuncionario}`
+                })
+        } else if (cargo == "gerente") {
             fetch(`http://localhost:3000/funcionariosTotais/${idEmpresa}`, {
-                method:"GET"
+                method: "GET"
             }).then(resposta => resposta.json())
-            .then(item => {
-                localStorage.QTDFUNC = quantidadeFuncionario = item["resposta"][0]["COUNT(*)"]
+                .then(item => {
+                    localStorage.QTDFUNC = quantidadeFuncionario = item["resposta"][0]["COUNT(*)"]
 
-                total_funcionario.innerHTML = `${quantidadeFuncionario}`
-            })
+                    total_funcionario.innerHTML = `${quantidadeFuncionario}`
+                })
             dark_options.style.display = "none"
-          
-        }else if(cargo === "comum"){
+
+        } else if (cargo === "comum") {
             total_funcionario.style.display = "none";
             td_button_processo.style.display = "none";
             td_stop_func.style.display = "none"
@@ -626,54 +677,54 @@
             total_funcionario_div.style.display = "none";
             overview_options.style.display = "none";
         }
-    }   
+    }
 
     funcionarioTotais()
     function mostrarDark() {
         try {
-        fetch(`http://localhost:3000/mostrarDarkstore/${idEmpresa}`, {
-            method:"GET",
-            headers: {
-                "Content-Type":"application/json"
-            }
-        }).then(resposta => resposta.json())
-        .then(dados => {
-            plotarDark(dados.resposta)
-        })
-    }catch(erro) {
-        console.log(erro)
+            fetch(`http://localhost:3000/mostrarDarkstore/${idEmpresa}`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).then(resposta => resposta.json())
+                .then(dados => {
+                    plotarDark(dados.resposta)
+                })
+        } catch (erro) {
+            console.log(erro)
+        }
     }
-    } 
-    
+
     mostrarDark()
 
     function plotarDark(dados) {
-        if(cargo === "" || cargo === "gerente") {
+        if (cargo === "" || cargo === "gerente") {
             let selectDark = darkStoreSelect
-        dados.map(item => {
-        
-            selectDark.innerHTML += `<option value=${item.idDarkstore}>${item.nome}</option>`
-        })
-        }else {
-        
+            dados.map(item => {
+
+                selectDark.innerHTML += `<option value=${item.idDarkstore}>${item.nome}</option>`
+            })
+        } else {
+
             darkStoreSelect.innerHTML += `<option>Não autorizado</option>`
         }
     }
-    
-  
+
+
     const mostrarFuncionario = () => {
-        
-            fetch(`http://localhost:3000/funcionario/${idEmpresa}`, {
-                method: "GET",
-                headers : {
-                    "Content-Type":"application/json"
-                }
-            }).then(resposta => resposta.json())
+
+        fetch(`http://localhost:3000/funcionario/${idEmpresa}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }).then(resposta => resposta.json())
             .then(value => {
                 conteudo_funcionario.innerHTML = "";
                 value['resposta'].map(item => {
 
-                conteudo_funcionario.innerHTML += `
+                    conteudo_funcionario.innerHTML += `
                 <div class="funcionario">
                     <div class="id">
                         <p>${item.idFuncionario}</p>
@@ -693,39 +744,39 @@
                     </div>
                 </div>
                 `
+                })
             })
-            })
-        }
-    
+    }
+
 
     mostrarFuncionario()
 
     const excluirFuncionario = (idFuncionario) => {
-    fetch(`http://localhost:3000/deletarFuncionario/${idEmpresa}/${idFuncionario}`, {
-        method: "DELETE",
-        headers: {
-            "Content-Type":"application/json"
-        },
-    }).then(function (resposta) {
-        if(resposta.ok) {
-            Swal.fire({
-                title: 'Funcionario excluido!',
-                icon: 'success',
-                confirmButtonText: 'Ok'
-            })
-           mostrarFuncionario()
-           funcionarioTotais()
-        }else {
-            Swal.fire({
-                confirmButtonText: 'Ok',
-                icon: "error",
-                title: "Erro ao excluir funcionario",
-            });
-        }
-    }).catch(erro => {
-        console.log(erro)
-    })
-}
+        fetch(`http://localhost:3000/deletarFuncionario/${idEmpresa}/${idFuncionario}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+            },
+        }).then(function (resposta) {
+            if (resposta.ok) {
+                Swal.fire({
+                    title: 'Funcionario excluido!',
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+                })
+                mostrarFuncionario()
+                funcionarioTotais()
+            } else {
+                Swal.fire({
+                    confirmButtonText: 'Ok',
+                    icon: "error",
+                    title: "Erro ao excluir funcionario",
+                });
+            }
+        }).catch(erro => {
+            console.log(erro)
+        })
+    }
 
     // function openListaFuncionarios() {
     //     listaFuncionarios.style.display = "flex"
@@ -742,202 +793,202 @@
 
 
 
- 
-    const cadastrarFuncionario = () =>  {
-    const nome = nome_inputCadastro.value
-    const email = email_inputCadastro.value
-    const senha = senha_inputCadastro.value
-    const confirmar = confirme_inputCadastro.value
-    const cargo = select_funcionario.value
 
-    if (nome === '' || email === '' || senha === '' || confirmar === ''|| cargo === "") {
-        Swal.fire({
-            color: "#ffffff",
-            background: "#272628",
-            confirmButtonColor: "#8039EB",
-            icon: "error",
-            title: "Oops...",
-            text: "Preencha todos os campos",
-        });
-        return false
-    } else if (senha != confirmar) {
-        Swal.fire({
-            color: "#ffffff",
-            background: "#272628",
-            confirmButtonColor: "#8039EB",
-            icon: "warning",
-            title: "Oops...",
-            text: "As senhas precisam ser iguais",
-        });
-        return false
-    }  else {
-        fetch(`http://localhost:3000/cadastroFunc/${idEmpresa}`, {
-            method:"POST",
-            headers: {
-                "Content-Type":"application/json"
-            },
-            body: JSON.stringify({
-                nome:nome,
-                email:email,
-                senha:senha,
-                cargo: cargo
-            })
-        }).then(function(resposta) {
-            if(resposta.ok) {
-                Swal.fire({
+    const cadastrarFuncionario = () => {
+        const nome = nome_inputCadastro.value
+        const email = email_inputCadastro.value
+        const senha = senha_inputCadastro.value
+        const confirmar = confirme_inputCadastro.value
+        const cargo = select_funcionario.value
+
+        if (nome === '' || email === '' || senha === '' || confirmar === '' || cargo === "") {
+            Swal.fire({
+                color: "#ffffff",
+                background: "#272628",
+                confirmButtonColor: "#8039EB",
+                icon: "error",
+                title: "Oops...",
+                text: "Preencha todos os campos",
+            });
+            return false
+        } else if (senha != confirmar) {
+            Swal.fire({
+                color: "#ffffff",
+                background: "#272628",
+                confirmButtonColor: "#8039EB",
+                icon: "warning",
+                title: "Oops...",
+                text: "As senhas precisam ser iguais",
+            });
+            return false
+        } else {
+            fetch(`http://localhost:3000/cadastroFunc/${idEmpresa}`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    nome: nome,
+                    email: email,
+                    senha: senha,
+                    cargo: cargo
+                })
+            }).then(function (resposta) {
+                if (resposta.ok) {
+                    Swal.fire({
                         title: 'Cadastrado!',
                         icon: 'success',
                         confirmButtonText: 'Ok'
                     })
                     mostrarFuncionario()
                     funcionarioTotais()
-            }else {
-                Swal.fire({
+                } else {
+                    Swal.fire({
                         title: 'Erro ao cadastrar',
                         icon: 'error',
                         confirmButtonText: 'Ok'
                     })
-            }
-        }).catch(erro => console.log(erro))
+                }
+            }).catch(erro => console.log(erro))
+        }
     }
-}
 
-function openEditarFuncionarios(idFuncionarioParams) {
+    function openEditarFuncionarios(idFuncionarioParams) {
         idFuncionario = idFuncionarioParams
         editarFuncionarios.style.display = "flex"
     }
 
-const editarFuncionarioOk = () => {
-    let nome = nome_input_funcionario.value
-    let email = email_input_funcionario.value
-    let senha = senha_input_funcionario.value
-    let confirme = senha_input_funcionario.value
+    const editarFuncionarioOk = () => {
+        let nome = nome_input_funcionario.value
+        let email = email_input_funcionario.value
+        let senha = senha_input_funcionario.value
+        let confirme = senha_input_funcionario.value
 
-    if(nome === "" || email === "" || senha === "" || confirme === "") {
-        Swal.fire({
-                        title: 'Campos vazios',
-                        icon: 'error',
-                        confirmButtonText: 'Ok'
-                    })
-    }else {
-        if(senha != confirme) {
+        if (nome === "" || email === "" || senha === "" || confirme === "") {
             Swal.fire({
-                        title: 'Senhas diferentes',
-                        icon: 'error',
-                        confirmButtonText: 'Ok'
-                    })
-        }else {
-            fetch(`http://localhost:3000/atualizarFuncionario/${idEmpresa}/${idFuncionario}`, 
-                {
-            method:"PUT",
-            headers: {
-                "Content-Type":"application/json"
-            },
-            body: JSON.stringify({
-                nome:nome,
-                email:email,
+                title: 'Campos vazios',
+                icon: 'error',
+                confirmButtonText: 'Ok'
             })
-        }).then(function(resposta) {
-            if(resposta.ok) {
+        } else {
+            if (senha != confirme) {
                 Swal.fire({
-                        title: 'Alterado!',
-                        icon: 'success',
-                        confirmButtonText: 'Ok'
-                    })
-                    mostrarFuncionario()
+                    title: 'Senhas diferentes',
+                    icon: 'error',
+                    confirmButtonText: 'Ok'
+                })
+            } else {
+                fetch(`http://localhost:3000/atualizarFuncionario/${idEmpresa}/${idFuncionario}`,
+                    {
+                        method: "PUT",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            nome: nome,
+                            email: email,
+                        })
+                    }).then(function (resposta) {
+                        if (resposta.ok) {
+                            Swal.fire({
+                                title: 'Alterado!',
+                                icon: 'success',
+                                confirmButtonText: 'Ok'
+                            })
+                            mostrarFuncionario()
 
-                     nome_input_funcionario.innerHTML = ""
-                     email_input_funcionario.innerHTML = ""
-                     senha_input_funcionario.innerHTML = ""
-                     senha_input_funcionario.innerHTML = ""
-            }else {
-                Swal.fire({
-                        title: 'Erro ao alterar',
-                        icon: 'error',
-                        confirmButtonText: 'Ok'
-                    })
+                            nome_input_funcionario.innerHTML = ""
+                            email_input_funcionario.innerHTML = ""
+                            senha_input_funcionario.innerHTML = ""
+                            senha_input_funcionario.innerHTML = ""
+                        } else {
+                            Swal.fire({
+                                title: 'Erro ao alterar',
+                                icon: 'error',
+                                confirmButtonText: 'Ok'
+                            })
+                        }
+
+                    }).catch(erro => console.log(erro))
             }
-        
-            }).catch(erro => console.log(erro))
         }
     }
-}
-const editarPerfilOk =() => {
-    let email = email_input_perfil.value
-    let senha = senha_input_perfil.value
-    let confirmar = confirme_input_perfil.value
+    const editarPerfilOk = () => {
+        let email = email_input_perfil.value
+        let senha = senha_input_perfil.value
+        let confirmar = confirme_input_perfil.value
 
-    if(email === "" || senha === "" || confirmar === "") {
-        Swal.fire({
-                        title: 'Campos vazios',
-                        icon: 'error',
-                        confirmButtonText: 'Ok'
-                    })
-    }else {
-        if(senha != confirmar) {
+        if (email === "" || senha === "" || confirmar === "") {
             Swal.fire({
-                        title: 'Senhas diferentes',
-                        icon: 'error',
-                        confirmButtonText: 'Ok'
-                    })
-        }else {
-            fetch(`http://localhost:3000/editarPerfil/${idEmpresa}`, 
-                {
-            method:"PUT",
-            headers: {
-                "Content-Type":"application/json"
-            },
-            body: JSON.stringify({
-                senha:senha,
-                email:email,
+                title: 'Campos vazios',
+                icon: 'error',
+                confirmButtonText: 'Ok'
             })
-        }).then(function(resposta) {
-            if(resposta.ok) {
+        } else {
+            if (senha != confirmar) {
                 Swal.fire({
-                        title: 'Alterado!',
-                        icon: 'success',
-                        confirmButtonText: 'Ok'
-                    })
-                    email_perfil.innerHTML = `${email}`
-            }else {
-                Swal.fire({
-                        title: 'Erro ao alterar',
-                        icon: 'error',
-                        confirmButtonText: 'Ok'
-                    })
+                    title: 'Senhas diferentes',
+                    icon: 'error',
+                    confirmButtonText: 'Ok'
+                })
+            } else {
+                fetch(`http://localhost:3000/editarPerfil/${idEmpresa}`,
+                    {
+                        method: "PUT",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            senha: senha,
+                            email: email,
+                        })
+                    }).then(function (resposta) {
+                        if (resposta.ok) {
+                            Swal.fire({
+                                title: 'Alterado!',
+                                icon: 'success',
+                                confirmButtonText: 'Ok'
+                            })
+                            email_perfil.innerHTML = `${email}`
+                        } else {
+                            Swal.fire({
+                                title: 'Erro ao alterar',
+                                icon: 'error',
+                                confirmButtonText: 'Ok'
+                            })
+                        }
+
+                    }).catch(erro => console.log(erro))
             }
-        
-            }).catch(erro => console.log(erro))
         }
     }
-}
     //sweet alert
-   
 
-const Logout = () => {
-    localStorage.NOME = ''
-    localStorage.ID = ''
-    localStorage.EMAIL = ""
-    localStorage.CARGO = ''
 
-    document.location.href="../login.html"
-}
+    const Logout = () => {
+        localStorage.NOME = ''
+        localStorage.ID = ''
+        localStorage.EMAIL = ""
+        localStorage.CARGO = ''
 
-function exibirListaDark() {
+        document.location.href = "../login.html"
+    }
+
+    function exibirListaDark() {
         if (idEmpresa === null || idEmpresa === 0) {
-            
-        }else  {
+
+        } else {
             fetch(`http://localhost:3000/mostrarDarkstore/${idEmpresa}`, {
                 method: "GET",
-                headers : {
-                    "Content-Type":"application/json"
+                headers: {
+                    "Content-Type": "application/json"
                 }
             }).then(resposta => resposta.json())
-            .then(value => {
-                conteudo_darkStore.innerHTML = "";
-                value['resposta'].map(item => {
+                .then(value => {
+                    conteudo_darkStore.innerHTML = "";
+                    value['resposta'].map(item => {
 
-                    conteudo_darkStore.innerHTML += `
+                        conteudo_darkStore.innerHTML += `
                 <div class="funcionario">
                     <div class="id">
                         <p>${item.idDarkstore}</p>
@@ -954,197 +1005,197 @@ function exibirListaDark() {
                     </div>
                 </div>
                 `
-            })
-            })
+                    })
+                })
         }
-}
-exibirListaDark()
+    }
+    exibirListaDark()
 
     const buscarCep = () => {
         var cep = document.querySelector('#cep').value;
-        if(cep.length === 8) {
+        if (cep.length === 8) {
             fetch(`https://viacep.com.br/ws/${cep}/json/`, {
-                method:"GET",
+                method: "GET",
                 headers: {
-                    "Content-type":"application/json"
+                    "Content-type": "application/json"
                 }
             })
-            .then(resposta => resposta.json())
-            .then(item => {
-                console.log(item)
-                var rua = document.querySelector('#rua').value = item.logradouro;
-                var estado = document.querySelector('#estado').value = item.uf;
-                var bairro = document.querySelector('#bairro').value = item.bairro;
-                var cidade = document.querySelector('#cidade').value = item.localidade;
+                .then(resposta => resposta.json())
+                .then(item => {
+                    console.log(item)
+                    var rua = document.querySelector('#rua').value = item.logradouro;
+                    var estado = document.querySelector('#estado').value = item.uf;
+                    var bairro = document.querySelector('#bairro').value = item.bairro;
+                    var cidade = document.querySelector('#cidade').value = item.localidade;
 
-            }) .catch(error => {
+                }).catch(error => {
                     console.error('Erro ao buscar CEP:', error);
                 });
         }
     }
 
 
-const cadastrarDark = () => {
-    var nome = document.querySelector('#nome_dark').value;
-    var rua = document.querySelector('#rua').value;
-    var cep = document.querySelector('#cep').value;
-    var estado = document.querySelector('#estado').value;
-    var bairro = document.querySelector('#bairro').value;
-    var cidade = document.querySelector('#cidade').value;
-    var numero = document.querySelector('#numero_dark').value;
+    const cadastrarDark = () => {
+        var nome = document.querySelector('#nome_dark').value;
+        var rua = document.querySelector('#rua').value;
+        var cep = document.querySelector('#cep').value;
+        var estado = document.querySelector('#estado').value;
+        var bairro = document.querySelector('#bairro').value;
+        var cidade = document.querySelector('#cidade').value;
+        var numero = document.querySelector('#numero_dark').value;
 
-    if(nome === "" || rua === "" || cep === "" || estado === "" || 
-    bairro === "" ||  cidade === "" || numero === "") {
-        Swal.fire({
-            color: "#ffffff",
-            background: "#272628",
-            confirmButtonColor: "#8039EB",
-            icon: "error",
-            title: "Oops...",
-            text: "Preencha todos os campos",
-        });
-    }else {
-        fetch(`http://localhost:3000/cadastroDark/${idEmpresa}`, {
-            method:"POST",
-            headers: {
-                "Content-Type":"application/json"
-            },
-            body: JSON.stringify({
-                nome:nome,
-                rua:rua,
-                cep:cep,
-                estado:estado,
-                bairro:bairro,
-                cidade:cidade,
-                numero:numero
-            })
-        }).then(function(resposta) {
-            if(resposta.ok) {
-                Swal.fire({
+        if (nome === "" || rua === "" || cep === "" || estado === "" ||
+            bairro === "" || cidade === "" || numero === "") {
+            Swal.fire({
+                color: "#ffffff",
+                background: "#272628",
+                confirmButtonColor: "#8039EB",
+                icon: "error",
+                title: "Oops...",
+                text: "Preencha todos os campos",
+            });
+        } else {
+            fetch(`http://localhost:3000/cadastroDark/${idEmpresa}`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    nome: nome,
+                    rua: rua,
+                    cep: cep,
+                    estado: estado,
+                    bairro: bairro,
+                    cidade: cidade,
+                    numero: numero
+                })
+            }).then(function (resposta) {
+                if (resposta.ok) {
+                    Swal.fire({
                         title: 'Cadastrado!',
                         icon: 'success',
                         confirmButtonText: 'Ok'
                     })
                     exibirListaDark()
-            }else {
-                Swal.fire({
+                } else {
+                    Swal.fire({
                         title: 'Erro ao cadastrar',
                         icon: 'error',
                         confirmButtonText: 'Ok'
                     })
-            }
-        }).catch(erro => console.log(erro))
-    }
-}
-
-function excluirDark(idDark)  {
-    fetch(`http://localhost:3000/deletarDark/${idEmpresa}/${idDark}`, {
-        method: "DELETE",
-        headers: {
-            "Content-Type":"application/json"
-        },
-    }).then(function (resposta) {
-        if(resposta.ok) {
-            Swal.fire({
-                title: 'Dark Store excluido!',
-                icon: 'success',
-                confirmButtonText: 'Ok'
-            })
-           exibirListaDark()
-        }else {
-            Swal.fire({
-                confirmButtonText: 'Ok',
-                icon: "error",
-                title: "Erro ao excluir Dark Store",
-            });
-        }
-    }).catch(erro => {
-        console.log(erro)
-    })
-}
-
-function editarDarkOk(idDarkParams) {
-    idDark = idDarkParams
-    div_editar_darkStore.style.display = "flex"
-}
-
-const editarDark = () => {
-    var nome = document.querySelector('#nome_dark_editar').value;
-    var rua = document.querySelector('#rua_editar').value;
-    var cep = document.querySelector('#cep_editar').value;
-    var estado = document.querySelector('#estado_editar').value;
-    var bairro = document.querySelector('#bairro_editar').value;
-    var cidade = document.querySelector('#cidade_editar').value;
-    var numero = document.querySelector('#numero_dark_editar').value;
-
-    if(nome === "" || rua === "" || cep === "" || estado === "" || 
-    bairro === "" ||  cidade === "" || numero === "") {
-    
-        Swal.fire({
-            color: "#ffffff",
-            background: "#272628",
-            confirmButtonColor: "#8039EB",
-            icon: "error",
-            title: "Oops...",
-            text: "Preencha todos os campos",
-        });
-    }else {
-            fetch(`http://localhost:3000/atualizarDark/${idEmpresa}/${idDark}`, 
-                {
-            method:"PUT",
-            headers: {
-                "Content-Type":"application/json"
-            },
-            body: JSON.stringify({
-                nome:nome,
-                rua:rua,
-                cep:cep,
-                estado:estado,
-                bairro:bairro,
-                cidade:cidade,
-                numero:numero
-            })
-        }).then(function(resposta) {
-            if(resposta.ok) {
-                Swal.fire({
-                        title: 'Alterado!',
-                        icon: 'success',
-                        confirmButtonText: 'Ok'
-                    })
-                    mostrarFuncionario()
-
-                    nome.innerHTML = ""
-                    rua.innerHTML = ""
-                    cep.innerHTML = ""
-                    bairro.innerHTML = ""
-                    cidade.innerHTML = ""
-                    estado.innerHTML = ""
-                    numero.innerHTML = ""
-            }else {
-                Swal.fire({
-                        title: 'Erro ao alterar',
-                        icon: 'error',
-                        confirmButtonText: 'Ok'
-                    })
-            }
-        
+                }
             }).catch(erro => console.log(erro))
+        }
+    }
+
+    function excluirDark(idDark) {
+        fetch(`http://localhost:3000/deletarDark/${idEmpresa}/${idDark}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+            },
+        }).then(function (resposta) {
+            if (resposta.ok) {
+                Swal.fire({
+                    title: 'Dark Store excluido!',
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+                })
+                exibirListaDark()
+            } else {
+                Swal.fire({
+                    confirmButtonText: 'Ok',
+                    icon: "error",
+                    title: "Erro ao excluir Dark Store",
+                });
+            }
+        }).catch(erro => {
+            console.log(erro)
+        })
+    }
+
+    function editarDarkOk(idDarkParams) {
+        idDark = idDarkParams
+        div_editar_darkStore.style.display = "flex"
+    }
+
+    const editarDark = () => {
+        var nome = document.querySelector('#nome_dark_editar').value;
+        var rua = document.querySelector('#rua_editar').value;
+        var cep = document.querySelector('#cep_editar').value;
+        var estado = document.querySelector('#estado_editar').value;
+        var bairro = document.querySelector('#bairro_editar').value;
+        var cidade = document.querySelector('#cidade_editar').value;
+        var numero = document.querySelector('#numero_dark_editar').value;
+
+        if (nome === "" || rua === "" || cep === "" || estado === "" ||
+            bairro === "" || cidade === "" || numero === "") {
+
+            Swal.fire({
+                color: "#ffffff",
+                background: "#272628",
+                confirmButtonColor: "#8039EB",
+                icon: "error",
+                title: "Oops...",
+                text: "Preencha todos os campos",
+            });
+        } else {
+            fetch(`http://localhost:3000/atualizarDark/${idEmpresa}/${idDark}`,
+                {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        nome: nome,
+                        rua: rua,
+                        cep: cep,
+                        estado: estado,
+                        bairro: bairro,
+                        cidade: cidade,
+                        numero: numero
+                    })
+                }).then(function (resposta) {
+                    if (resposta.ok) {
+                        Swal.fire({
+                            title: 'Alterado!',
+                            icon: 'success',
+                            confirmButtonText: 'Ok'
+                        })
+                        mostrarFuncionario()
+
+                        nome.innerHTML = ""
+                        rua.innerHTML = ""
+                        cep.innerHTML = ""
+                        bairro.innerHTML = ""
+                        cidade.innerHTML = ""
+                        estado.innerHTML = ""
+                        numero.innerHTML = ""
+                    } else {
+                        Swal.fire({
+                            title: 'Erro ao alterar',
+                            icon: 'error',
+                            confirmButtonText: 'Ok'
+                        })
+                    }
+
+                }).catch(erro => console.log(erro))
         }
     }
 
 </script>
 <script src="./js/plotarGrafico.js" defer></script>
-<script src="./js/graficos.js"defer></script>
+<script src="./js/graficos.js" defer></script>
 <script>
-     function openCadastrarSlack() {
-        if(cargo === "" || cargo === "gerente") {
+    function openCadastrarSlack() {
+        if (cargo === "" || cargo === "gerente") {
             cadastrarSlack_div.style.display = "flex"
-        }else {
+        } else {
             Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text:"Sem autorização necessaria"
-        });
+                icon: "error",
+                title: "Oops...",
+                text: "Sem autorização necessaria"
+            });
         }
     }
 
@@ -1156,15 +1207,31 @@ const editarDark = () => {
         listaFuncionarios.style.display = "flex"
     }
 
+    function openListaMaquinas() {
+        listaMaquinas.style.display = "flex"
+    }
+
+    function exitListaMaquinas() {
+        listaMaquinas.style.display = "none"
+    }
+
+    function openEditarMaquinas() {
+        editarMaquinas.style.display = "flex"
+    }
+
+    function exitEditarMaquinas() {
+        editarMaquinas.style.display = "none"
+    }
+
     function openPerfil() {
         abrirPerfil.style.display = "flex"
     }
 
-    function exitPerfil(){
+    function exitPerfil() {
         abrirPerfil.style.display = "none"
     }
 
-    function exitPerfilOk(){
+    function exitPerfilOk() {
         editarPerfil.style.display = "none"
         abrirPerfil.style.display = "none"
     }
@@ -1175,14 +1242,13 @@ const editarDark = () => {
 
     function openCadastroFuncionarios() {
         cadastroFuncionarios.style.display = "flex"
-        listaFuncionarios.style.display = "none"
     }
 
     function exitCadastroFuncionarios() {
         cadastroFuncionarios.style.display = "none"
     }
 
- 
+
     function openEditarPerfil() {
         editarPerfil.style.display = "flex"
     }
@@ -1196,14 +1262,14 @@ const editarDark = () => {
     function exitListaDark() {
         listaDark.style.display = "none"
     }
-    function openCadastrarDark () {
+    function openCadastrarDark() {
         div_cadastro_darkStore.style.display = "flex"
     }
     function exitCadastroDark() {
         div_cadastro_darkStore.style.display = "none"
     }
     function exitEditarDark() {
-        div_editar_darkStore.style.display ="none"
+        div_editar_darkStore.style.display = "none"
     }
     function openProcessos() {
         div_listar_processos.style.display = 'flex'
@@ -1211,4 +1277,15 @@ const editarDark = () => {
     function closeProcessos() {
         div_listar_processos.style.display = 'none'
     }
+
+    // function abrirModal() {
+    //     switch (key) {
+    //         case 1:
+                
+    //             break;
+        
+    //         default:
+    //             break;
+    //     }
+    // }
 </script>
