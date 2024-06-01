@@ -105,6 +105,7 @@
         let cnpj = input_cnpj.value
         let senha = input_senha.value
         let repita = input_repita_senha.value
+        let plano = select_plano.value
 
         if (nome === "" || email === "" || cnpj === "" || senha === "" || repita === "") {
             Swal.fire({
@@ -135,7 +136,8 @@
                         email: email,
                         senha: senha,
                         cnpj: cnpj,
-                        nome: nome
+                        nome: nome,
+                        plano : plano
                     })
                 }).then(function (resposta) {
                     if (resposta.ok) {
