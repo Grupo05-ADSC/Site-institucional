@@ -126,6 +126,12 @@
                     icon: 'error',
                     confirmButtonText: 'Ok'
                 })
+            } else if (plano == 0) {
+                Swal.fire({
+                    title: 'Selecione um plano válido',
+                    icon: 'error',
+                    confirmButtonText: 'Ok'
+                })
             } else {
                 fetch(`http://localhost:3000/cadastro`, {
                     method: "POST",
