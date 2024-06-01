@@ -62,13 +62,14 @@ body {
 }
 
 
-.div_separar_input_cadastro {
+.div_separar_input_cadastro1 {
     width: 100%;
     height: auto;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    flex-direction: row-reverse;
 }
-.div_input_text_cadastro {
+.div_input_text_cadastro1 {
     width: auto;
     padding: 1% 4% 1% 4%;
     height: auto;
@@ -77,16 +78,94 @@ body {
     flex-direction: column;
     display: flex;
 }
-.div_input_text_cadastro p {
+.div_input_text_cadastro1 p {
     font-size: 13px;
 }
-.div_input_text_cadastro input {
+.div_input_text_cadastro1 input {
+    margin-top: 2%;
+    width: 100%;
+    padding: 1% 1% 1% 2%;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.253);
+}
+.div_input_text_cadastro1 input:focus {
+    border: 1px solid rgba(0, 0, 0, 0);
+    box-shadow: 0 0 0 2px #3483fa; /* Adiciona uma borda de 2px colorida ao redor do input */
+    outline: 0;
+}
+
+.div_separar_input_cadastro2 {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row-reverse;
+    margin-top: 6px;
+    padding-right: 600px;
+}
+.div_input_text_cadastro2 {
+    display: flex;
+    width: 60%;
+    padding: 1% 4% 1% 4%;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+#div_input_text_cadastro2 select {
+    display: flex;
+    width: auto;
+    padding: 2% 5% 2% 5%;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    border: #555 0,5px solid;
+    border-radius: 7px;
+    margin-top: 8px;
+}
+.div_input_text_cadastro2 p {
+    font-size: 13px;
+}
+.div_input_text_cadastro2 input {
+    margin-top: 2%;
+    width: 100%;
+    padding: 1% 1% 1% 2%;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.253);
+}
+.div_input_text_cadastro2 input:focus {
+    border: 1px solid rgba(0, 0, 0, 0);
+    box-shadow: 0 0 0 2px #3483fa; /* Adiciona uma borda de 2px colorida ao redor do input */
+    outline: 0;
+}
+
+.div_separar_input_cadastro3 {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+.div_input_text_cadastro3 {
+    width: auto;
+    padding: 1% 4% 1% 4%;
+    height: auto;
+    align-items: left;
+    justify-content: left;
+    flex-direction: column;
+    display: flex;
+}
+.div_input_text_cadastro3 p {
+    font-size: 13px;
+}
+.div_input_text_cadastro3 input {
     margin-top: 2%;
     padding: 1% 1% 1% 2%;
     border-radius: 10px;
     border: 1px solid rgba(0, 0, 0, 0.253);
 }
-.div_input_text_cadastro input:focus {
+.div_input_text_cadastro3 input:focus {
     border: 1px solid rgba(0, 0, 0, 0);
     box-shadow: 0 0 0 2px #3483fa; /* Adiciona uma borda de 2px colorida ao redor do input */
     outline: 0;
