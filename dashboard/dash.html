@@ -126,7 +126,7 @@
                 <i class="fa fa-remove" style="width: 6vh; font-size: 4vh;" onclick="exitListaMaquinas()"></i>
             </div>
 
-            <button class="btnCadastroF" onclick="openEditarMaquinas()">Editar Máquinas</button>
+            <!-- <button class="btnCadastroF" onclick="openEditarMaquinas()">Editar Máquinas</button> -->
 
             <div class="legendaMaquinas">
                 <b class="id">ID</b>
@@ -153,7 +153,7 @@
 
             <div class="conteudo">
                     <p>Nome:</p>
-                    <input type="text" id="nome_inputCadastro">
+                    <input type="text" id="nome_input_maquina">
 
                 </div>
                 <button onclick="cadastrarFuncionario()" style="width: 40vh;" class="btnCadastro">Editar máquina</button>
@@ -432,7 +432,6 @@
                 </div>
 
                 <div class="menuPerfil" onclick="openListaMaquinas()" id="maquinas_options">
-
                     <div class="boxTextoMenu"> Máquinas </div>
                 </div>
 
@@ -472,11 +471,11 @@
             </div>
             <div class="box2">
                 Total de Threads
-                <h1>4</h1>
+                <h1 id="total_threads">4</h1>
             </div>
             <div class="box2">
                 Processos Abertos
-                <h1>31</h1>
+                <h1 id="processos_abertos">31</h1>
             </div>
             <div class="box3">
                 <b id="titulo">Espaço de Disco</b>
@@ -600,15 +599,15 @@
         <div class="linha3">
             <div class="box">
                 <b>Total de Máquinas</b>
-                <h1 class="destaque">24</h1>
+                <h1 class="destaque" id="total_maquinas">24</h1>
             </div>
             <div class="box">
                 <b>Máquinas Ativas</b>
-                <h1 class="destaque">23</h1>
+                <h1 class="destaque" id="maquinas_ativas">23</h1>
             </div>
-            <div class="box" id="total_funcionario_div">
+            <div class="box">
                 <b>Total de Funcionários</b>
-                <h1 class="destaque" id="total_funcionario"></h1>
+                <h1 class="destaque" id="total_funcionario">7</h1>
             </div>
         </div>
 
@@ -618,13 +617,27 @@
 
 </html>
 <script defer>
+
+    let nome = localStorage.NOME
+    let qtdFunc = localStorage.QTDFUNC
+    let qtdMac = localStorage.QTDMAC
+    let macAtivas = localStorage.MACATIVAS
+    let totalThreads = localStorage.TOTALTHREADS
+    let processosAbertos = localStorage.PROCESSOSABERTOS
+
+    processos_abertos.innerHTML = `${processosAbertos}` || ''
+    total_threads.innerHTML = `${totalThreads}` || ''
+    total_funcionario.innerHTML = `${qtdFunc}` || ''
+    total_maquinas.innerHTML = `${qtdMac}` || ''
+    maquinas_ativas.innerHTML = `${macAtivas}` || ''
+
     let nomeEmpresa = localStorage.NOME
     let idEmpresa = localStorage.ID
 
     let email = localStorage.EMAIL
     let cargo = localStorage.CARGO || ''
 
-    let idDark;
+    let idDark, idMaquina;
 
     var listaFuncionarios = document.querySelector('#lista_funcionarios');
     var listaMaquinas = document.querySelector('#lista_maquinas');
@@ -635,6 +648,8 @@
     var abrirPerfil = document.querySelector('.abrirPerfil');
     var editarPerfil = document.querySelector('.editarPerfil');
     var cadastrarSlack_div = document.querySelector('.cadastrarSlack_div');
+
+
     var conteudo_funcionario = document.querySelector('#conteudo_funcionario');
     var td_stop_func = document.querySelector('#td_stop_func');
     var td_button_processo = document.querySelector('.td_button_processo');
@@ -708,6 +723,19 @@
         } else {
 
             darkStoreSelect.innerHTML += `<option>Não autorizado</option>`
+        }
+    }
+
+    function plotarMaquina(dados) {
+        if (cargo === "" || cargo === "gerente") {
+            let selectMaquina = computerSelect
+            dados.map(item => {
+
+                selectMaquina.innerHTML += `<option value=${item.idMaquina}>${item.nome}</option>`
+            })
+        } else {
+
+            computerSelect.innerHTML += `<option>Não autorizado</option>`
         }
     }
 
@@ -1179,6 +1207,117 @@
                 }).catch(erro => console.log(erro))
         }
     }
+
+
+const mostrarMaquina = () => {
+
+fetch(`http://localhost:3000/maquina/${idDark}`, {
+    method: "GET",
+    headers: {
+        "Content-Type": "application/json"
+    }
+}).then(resposta => resposta.json())
+    .then(value => { console.log("ola", value)
+        conteudo_maquina.innerHTML = "";
+        value['resposta'].map(item => {
+
+            conteudo_maquina.innerHTML += `
+        <div class="maquina">
+            <div class="id">
+                <p>${item.idMaquina}</p>
+            </div>
+            <div class="nome">
+                <p>${item.nomeMaquina}</p>
+            </div>
+            <div class="excluir">
+                <i onclick="excluirDark(${item.idMaquina})" class="fa fa-trash-o"
+                style="font-size:24px; display: flex; align-items: center;"></i>
+                    </div>
+            <div class="editar">
+                <i onclick="openEditarMaquinas(${item.idMaquina})" class="fa fa-edit" style="font-size:24px; display: flex; align-items: center;"></i>
+            </div>
+        </div>
+        `
+        })
+    })
+}
+
+mostrarMaquina()
+
+function openEditarMaquinas(idMaquinaParams) {
+    idMaquina = idMaquinaParams
+    editarMaquinas.style.display = "flex"
+}
+
+
+const editarMaquinaOk = () => {
+    let nome = nome_input_maquina.value
+    let idMaquina = id_maquina.value
+
+    if (nome === "") {
+        Swal.fire({
+            title: 'Campo vazio',
+            icon: 'error',
+            confirmButtonText: 'Ok'
+        })
+    } else {
+            fetch(`http://localhost:3000/atualizarMaquina/${idMaquina}`,
+                {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        nome: nome,
+                    })
+                }).then(function (resposta) {
+                    if (resposta.ok) {
+                        Swal.fire({
+                            title: 'Nome alterado!',
+                            icon: 'success',
+                            confirmButtonText: 'Ok'
+                        })
+                        mostrarMaquina()
+
+                        nome_input_maquina.innerHTML = ""
+                    } else {
+                        Swal.fire({
+                            title: 'Erro ao alterar',
+                            icon: 'error',
+                            confirmButtonText: 'Ok'
+                        })
+                    }
+
+                }).catch(erro => console.log(erro))
+        }
+    }
+
+        
+function excluirMaquina(idMaquina) {
+    fetch(`http://localhost:3000/deletarMaquina/${idMaquina}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json"
+        },
+    }).then(function (resposta) {
+        if (resposta.ok) {
+            Swal.fire({
+                title: 'Máquina excluida!',
+                icon: 'success',
+                confirmButtonText: 'Ok'
+            })
+            exibirListaMaquina()
+        } else {
+            Swal.fire({
+                confirmButtonText: 'Ok',
+                icon: "error",
+                title: "Erro ao excluir máquina",
+            });
+        }
+    }).catch(erro => {
+        console.log(erro)
+    })
+}
 
 </script>
 <script src="./js/plotarGrafico.js" defer></script>
