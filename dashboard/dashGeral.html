@@ -17,7 +17,7 @@
 
 </head>
 
-<body>
+<body onload="getAllData()">
     <nav class="menuLateral">
         <div class="boxLogo">
             <img class="imagem" src="img/logoSISGUARD.png" alt="">
@@ -45,23 +45,23 @@
             <div class="box">
                 <b>Geral</b> <br>
                 Máquinas em alerta <br> <br>
-                <b>11</b>
+                <b id="alerta_geral" class="alerts">11</b>
             </div>
             <div class="box">
                 <b>CPU</b> <br>
                 Máquinas em alerta <br> <br>
-                <b>7</b>
+                <b class="alerts" id="alerta_cpu">7</b>
 
             </div>
             <div class="box">
                 <b>RAM</b> <br>
                 Máquinas em alerta <br> <br>
-                <b>4</b>
+                <b class="alerts" id="alerta_ram">4</b>
             </div>
             <div class="box">
                 <b>Disco</b> <br>
                 Máquinas em alerta <br> <br>
-                <b>0</b>
+                <b class="alerts" id="alerta_disco">0</b>
             </div>
         </div>
 
@@ -69,13 +69,9 @@
 
             <div class="caixaMaquinasGeral">
                 <select id="darkStoreSelect">
-                    <option value="darkStore1">Dark Store 1</option>
-                    <option value="darkStore2">Dark Store 2</option>
-                    <option value="darkStore3">Dark Store 3</option>
-                    <option value="darkStore4">Dark Store 4</option>
-                    <option value="darkStore5">Dark Store 5</option>
+
                 </select>
-                
+
                 <div class="maquinas">
                     <div class="linha">
                         <div class="boxMaquina">
@@ -117,16 +113,27 @@
 
 </html>
 <script>
+
+    let alertaGeral = localStorage.ALERTAGERAL
+    let alertaCPU = localStorage.ALERTACPU
+    let alertaRAM = localStorage.ALERTARAM
+    let alertaDisco = localStorage.ALERTADISCO
+
+    alerta_geral.innerHTML = `${alertaGeral}` || ''
+    alerta_cpu.innerHTML = `${alertaCPU}` || ''
+    alerta_ram.innerHTML = `${alertaRAM}` || ''
+    alerta_disco.innerHTML = `${alertaDisco}` || ''
+
     let nome = localStorage.NOME
     let qtdFunc = localStorage.QTDFUNC
     let qtdMac = localStorage.QTDMAC
     let macAtivas = localStorage.MACATIVAS
-    
+
     total_funcionario.innerHTML = `${qtdFunc}` || ''
     total_maquinas.innerHTML = `${qtdMac}` || ''
     maquinas_ativas.innerHTML = `${macAtivas}` || ''
 
-    span_nome_empresa.innerHTML = `${nome}`
+    span_nome_empresa.innerHTML = nome;
     var ctx = document.getElementById('myChart').getContext('2d');
     var myChart = new Chart(ctx, {
         type: 'bar',
@@ -152,7 +159,59 @@
         }
     });
 
-    if (teste >= 1) {
-        spanElement.classList.add("red");
+    function mostrarDark() {
+        try {
+            fetch(`http://localhost:3000/mostrarDarkstore/${idEmpresa}`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).then(resposta => resposta.json())
+                .then(dados => {
+                    plotarDark(dados.resposta)
+                })
+        } catch (erro) {
+            console.log(erro)
+        }
     }
+
+    mostrarDark()
+
+    function plotarDark(dados) {
+        if (cargo === "" || cargo === "gerente") {
+            let selectDark = darkStoreSelect
+            dados.map(item => {
+
+                selectDark.innerHTML += `<option value=${item.idDarkstore}>${item.nome}</option>`
+            })
+        } else {
+
+            darkStoreSelect.innerHTML += `<option>Não autorizado</option>`
+        }
+    }
+
+    // if (teste >= 1) {
+    //     spanElement.classList.add("red");
+    // }
+
+    // var idEmpresa = 1;
+    // console.log("antes de entrar na function get all data")
+    // async function getAllData(idEmpresa) {
+    //     console.log("dentro da function get all")
+
+    //     const resultado = await fetch(`http://localhost:3000/metrica/getAllData/${idEmpresa}`, {
+    //         method: "GET",
+    //         headers: {
+    //             "Content-type": "application/json"
+    //         }
+    //     }).then((resposta) => {
+    //         if (resposta.ok) {
+    //             console.log(resposta.JSON.stringfy())
+
+
+    //         }
+    //     }).catch((erro) => {
+    //         console.log("deu erro", erro)
+    //     })
+    // }
 </script>
