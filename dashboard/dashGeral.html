@@ -8,8 +8,7 @@
 
     <link rel="shortcut icon" href="./img/logoSISGUARD.png" type="image/x-icon">
     <link rel="stylesheet" href="dashGeral.css">
-    <link rel="stylesheet" 
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -18,140 +17,201 @@
 
 </head>
 
-<body>
-        <nav class="menuLateral">
-            <div class="boxLogo">
-                <img class="imagem" src="img/logoSISGUARD.png" alt="">
-            </div>
-            <div class="boxTitulo"> Olá, <span id="span_nome_empresa"></span>!</div>
-            <div class="menu">
-    
-                <div class="menuGraficos">
-                 
-                    <div class="boxTextoMenu"><a href="dash.html">Gráficos</a></div>
-                </div>
+<body onload="getAllData()">
+    <nav class="menuLateral">
+        <div class="boxLogo">
+            <img class="imagem" src="img/logoSISGUARD.png" alt="">
+        </div>
+        <div class="boxTitulo"> Olá, <span id="span_nome_empresa"></span>!</div>
+        <div class="menu">
 
-                <div class="menuGraficos">
-                 
-                    <div class="boxTextoMenu"><a href="dashGeral.html">Overview</a></div>
-                </div>
-    
-             
-    
-             
-             
-    
-               
-            </div>
-        </nav>
-    
-        <div class="conteudoGeral">
-            <div class="cardBox">
-                <div class="box">
-                    <b>Geral</b> <br>
-                    Máquinas em alerta <br> <br>
-                    <b>11</b>
-                </div>
-                <div class="box">
-                    <b>CPU</b> <br>
-                    Máquinas em alerta <br> <br>
-                    <b>7</b>
-                    
-                </div>
-                <div class="box">
-                    <b>RAM</b> <br>
-                    Máquinas em alerta <br> <br>
-                    <b>4</b>
-                </div>
-                <div class="box">
-                    <b>Disco</b> <br>
-                    Máquinas em alerta <br> <br>
-                    <b>0</b>
-                </div>
+            <div class="menuGraficos">
+
+                <div class="boxTextoMenu"><a href="dash.html">Gráficos</a></div>
             </div>
 
-            <div class="cardGeral">
-                <div class="caixaMaquinasGeral">
-                    <select id="darkStoreSelect">
-                        <option value="darkStore1">Dark Store 1</option>
-                        <option value="darkStore2">Dark Store 2</option>
-                        <option value="darkStore3">Dark Store 3</option>
-                        <option value="darkStore4">Dark Store 4</option>
-                        <option value="darkStore5">Dark Store 5</option>
-                    </select>
-                    <div class="maquinas">
-                        <div class="linha">
-                            <div class="boxMaquina">
-                                <img class="imagem" src="img/comp.png" alt="">
-                                <p>Máquina - 01
-                                    Dark Store - 01</p>
-                            </div>
-                           
+            <div class="menuGraficos">
+
+                <div class="boxTextoMenu"><a href="dashGeral.html">Overview</a></div>
+            </div>
+
+
+
+        </div>
+    </nav>
+
+    <div class="conteudoGeral">
+        <div class="cardBox">
+            <div class="box">
+                <b>Geral</b> <br>
+                Máquinas em alerta <br> <br>
+                <b id="alerta_geral" class="alerts">11</b>
+            </div>
+            <div class="box">
+                <b>CPU</b> <br>
+                Máquinas em alerta <br> <br>
+                <b class="alerts" id="alerta_cpu">7</b>
+
+            </div>
+            <div class="box">
+                <b>RAM</b> <br>
+                Máquinas em alerta <br> <br>
+                <b class="alerts" id="alerta_ram">4</b>
+            </div>
+            <div class="box">
+                <b>Disco</b> <br>
+                Máquinas em alerta <br> <br>
+                <b class="alerts" id="alerta_disco">0</b>
+            </div>
+        </div>
+
+        <div class="cardGeral">
+
+            <div class="caixaMaquinasGeral">
+                <select id="darkStoreSelect">
+
+                </select>
+
+                <div class="maquinas">
+                    <div class="linha">
+                        <div class="boxMaquina">
+                            <img class="imagem" src="img/comp.png" alt="">
+                            <p>
+                                Máquina - 01
+                                Dark Store - 01
+                            </p>
                         </div>
-                    
-                    </div>
-
-                </div>
-
-                <div class="graficoDiario">
-                    <div class="boxGrafico">
-                        <h2>Total de máquinas em alertas (diariamente)</h2>
-                        <canvas id="myChart" width="300" height="220"></canvas>
                     </div>
                 </div>
             </div>
+
+            <div class="graficoDiario">
+                <div class="boxGrafico">
+                    <h2>Total de máquinas em alertas (diariamente)</h2>
+                    <canvas id="myChart" width="300" height="220"></canvas>
+                </div>
+            </div>
+
         </div>
-    
-        <div class="linha3">
-            <div class="box">
-                <b>Total de Máquinas</b>
-                <h1 class="destaque">24</h1>
-            </div>
-            <div class="box">
-                <b>Máquinas Ativas</b>
-                <h1 class="destaque">23</h1>
-            </div>
-            <div class="box">
-                <b>Total de Funcionários</b>
-                <h1 class="destaque" id="total_funcionario">7</h1>
-            </div>
+    </div>
+
+    <div class="linha3">
+        <div class="box">
+            <b>Total de Máquinas</b>
+            <h1 class="destaque" id="total_maquinas">24</h1>
         </div>
+        <div class="box">
+            <b>Máquinas Ativas</b>
+            <h1 class="destaque" id="maquinas_ativas">23</h1>
+        </div>
+        <div class="box">
+            <b>Total de Funcionários</b>
+            <h1 class="destaque" id="total_funcionario">7</h1>
+        </div>
+    </div>
 </body>
 
 </html>
 <script>
+
+    let alertaGeral = localStorage.ALERTAGERAL
+    let alertaCPU = localStorage.ALERTACPU
+    let alertaRAM = localStorage.ALERTARAM
+    let alertaDisco = localStorage.ALERTADISCO
+
+    alerta_geral.innerHTML = `${alertaGeral}` || ''
+    alerta_cpu.innerHTML = `${alertaCPU}` || ''
+    alerta_ram.innerHTML = `${alertaRAM}` || ''
+    alerta_disco.innerHTML = `${alertaDisco}` || ''
+
     let nome = localStorage.NOME
     let qtdFunc = localStorage.QTDFUNC
+    let qtdMac = localStorage.QTDMAC
+    let macAtivas = localStorage.MACATIVAS
 
     total_funcionario.innerHTML = `${qtdFunc}` || ''
+    total_maquinas.innerHTML = `${qtdMac}` || ''
+    maquinas_ativas.innerHTML = `${macAtivas}` || ''
 
-    span_nome_empresa.innerHTML = `${nome}`
+    span_nome_empresa.innerHTML = nome;
     var ctx = document.getElementById('myChart').getContext('2d');
     var myChart = new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'],
-        datasets: [{
-          label: 'Número de alertas',
-          data: [3, 4, 3, 5, 12, 10, 8],
-          backgroundColor: 'rgba(54, 162, 235, 0.2)',
-          borderColor: 'rgba(54, 162, 235, 1)',
-          borderWidth: 1
-        }]
-      },
-      options: {
-        scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero: true,
-              max: 15
+        type: 'bar',
+        data: {
+            labels: ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'],
+            datasets: [{
+                label: 'Número de alertas',
+                data: [3, 4, 3, 5, 12, 10, 8],
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                        max: 15
+                    }
+                }]
             }
-          }]
         }
-      }
     });
 
-    if(teste >= 1){
-        spanElement.classList.add("red");
+    function mostrarDark() {
+        try {
+            fetch(`http://localhost:3000/mostrarDarkstore/${idEmpresa}`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).then(resposta => resposta.json())
+                .then(dados => {
+                    plotarDark(dados.resposta)
+                })
+        } catch (erro) {
+            console.log(erro)
+        }
     }
-  </script>
+
+    mostrarDark()
+
+    function plotarDark(dados) {
+        if (cargo === "" || cargo === "gerente") {
+            let selectDark = darkStoreSelect
+            dados.map(item => {
+
+                selectDark.innerHTML += `<option value=${item.idDarkstore}>${item.nome}</option>`
+            })
+        } else {
+
+            darkStoreSelect.innerHTML += `<option>Não autorizado</option>`
+        }
+    }
+
+    // if (teste >= 1) {
+    //     spanElement.classList.add("red");
+    // }
+
+    // var idEmpresa = 1;
+    // console.log("antes de entrar na function get all data")
+    // async function getAllData(idEmpresa) {
+    //     console.log("dentro da function get all")
+
+    //     const resultado = await fetch(`http://localhost:3000/metrica/getAllData/${idEmpresa}`, {
+    //         method: "GET",
+    //         headers: {
+    //             "Content-type": "application/json"
+    //         }
+    //     }).then((resposta) => {
+    //         if (resposta.ok) {
+    //             console.log(resposta.JSON.stringfy())
+
+
+    //         }
+    //     }).catch((erro) => {
+    //         console.log("deu erro", erro)
+    //     })
+    // }
+</script>

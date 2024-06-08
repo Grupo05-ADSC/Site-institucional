@@ -56,18 +56,20 @@ body {
     width: 40%;
     height: auto;
     background-color: #5b2a867a;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 
-
-
-.div_separar_input_cadastro {
+.div_separar_input_cadastro1 {
     width: 100%;
     height: auto;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    flex-direction: row-reverse;
 }
-.div_input_text_cadastro {
+.div_input_text_cadastro1 {
     width: auto;
     padding: 1% 4% 1% 4%;
     height: auto;
@@ -76,16 +78,99 @@ body {
     flex-direction: column;
     display: flex;
 }
-.div_input_text_cadastro p {
+.div_input_text_cadastro1 p {
     font-size: 13px;
 }
-.div_input_text_cadastro input {
+.div_input_text_cadastro1 input {
+    margin-top: 2%;
+    width: 100%;
+    padding: 1% 1% 1% 2%;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.253);
+}
+.div_input_text_cadastro1 input:focus {
+    border: 1px solid rgba(0, 0, 0, 0);
+    box-shadow: 0 0 0 2px #3483fa; /* Adiciona uma borda de 2px colorida ao redor do input */
+    outline: 0;
+}
+
+.div_separar_input_cadastro2 {
+    width: 90%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row-reverse;
+    margin-top: 6px;
+    gap: 1rem;
+}
+.div_input_text_cadastro2 {
+    display: flex;
+    width: 66%;
+    padding: 1% 4% 1% 4%;
+    height: auto;
+    align-items: self-start;
+    justify-content: center;
+    flex-direction: column;
+}
+#div_input_text_cadastro2 select {
+    display: flex;
+    width: 100%;
+    padding: 2% 5% 2% 5%;
+    height: 28px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: #555 0,5px solid;
+    border-radius: 9px;
+    margin-top: 8px;
+}
+.div_input_text_cadastro2 p {
+    font-size: 13px;
+}
+#div_input_text_cadastro2 p {
+    font-size: 13px;
+    height: 1.2rem;
+    width: 10rem;
+}
+.div_input_text_cadastro2 input {
+    margin-top: 2%;
+    width: 100%;
+    padding: 1% 1% 1% 2%;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.253);
+}
+.div_input_text_cadastro2 input:focus {
+    border: 1px solid rgba(0, 0, 0, 0);
+    box-shadow: 0 0 0 2px #3483fa; /* Adiciona uma borda de 2px colorida ao redor do input */
+    outline: 0;
+}
+
+.div_separar_input_cadastro3 {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+.div_input_text_cadastro3 {
+    width: auto;
+    padding: 1% 4% 1% 4%;
+    height: auto;
+    align-items: left;
+    justify-content: left;
+    flex-direction: column;
+    display: flex;
+}
+.div_input_text_cadastro3 p {
+    font-size: 13px;
+}
+.div_input_text_cadastro3 input {
     margin-top: 2%;
     padding: 1% 1% 1% 2%;
     border-radius: 10px;
     border: 1px solid rgba(0, 0, 0, 0.253);
 }
-.div_input_text_cadastro input:focus {
+.div_input_text_cadastro3 input:focus {
     border: 1px solid rgba(0, 0, 0, 0);
     box-shadow: 0 0 0 2px #3483fa; /* Adiciona uma borda de 2px colorida ao redor do input */
     outline: 0;
@@ -115,18 +200,19 @@ body {
     padding: 5% 2% 0 5% 2%;
 }
 .div_div_button_login_telaCadastro button{
-    width:80%;
-    border-radius: 5px;
+    width:70%;
+    height: 100%;
+    border-radius: 6px;
     border: 0;
     padding: 2.5%;
     background-color: #5B2A86;
     color: white;
     font-weight: 500;
     font-size: 15px; 
+    transition: all 0.8s;
 }
 .div_div_button_login_telaCadastro button:hover{
     color: white;
-    transition: all 0.8s;
     cursor: pointer;
     background-color: black;
 }
@@ -298,12 +384,12 @@ body {
     font-size: 17px;
     font-weight: 500;
     border-radius: 10px;
+    transition: all 0.8s;
 }
 .div_button_login button:hover {
     cursor: pointer;
-    background-color: white;
-    color: #5B2A86;
-    transition: all 0.8s;
+    background-color: black;
+    color: #FFFFFF;
     border: 1px solid rgba(0, 0, 0, 0.26);
 }
 .div_titulo_cadastro_login {
@@ -313,14 +399,51 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
-.div_titulo_cadastro_login a {
-    font-size: 20px;
-    color: white;
-    list-style: none;
-    text-decoration: 1px solid white;
-    font-weight: 500;
+
+.div_titulo_cadastro_login button {
+    width: 55%;
+    height: 40%;
+    text-decoration: 1px solid;
+    color: rgb(255, 255, 255);
+    background-color: #5B2A86;
+    border: solid 1px #5B2A86;
+    border-radius: 7px;
+    font-size: 15px;
+    transition: all 0.6s;
+}
+.div_titulo_cadastro_login button:hover {
+    cursor: pointer;
+    color: #5B2A86;
+    background-color: #FFFFFF;
+    text-decoration: 1px solid;
+}
+
+.div_titulo_cadastro_login_2 {
+    width: 100%;
+    height: 40%;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.div_titulo_cadastro_login_2 button {
+    width: 45%;
+    height: 40%;
+    text-decoration: 1px solid;
+    color: #5B2A86;
+    background-color: #FFFFFF;
+    border: solid 1px #555;
+    border-radius: 7px;
+    font-size: 15px;
+    transition: all 0.6s;
+}
+.div_titulo_cadastro_login_2 button:hover {
+    cursor: pointer;
+    color: #FFFFFF;
+    background-color: #5B2A86;
+    text-decoration: 1px solid;
 }
 .div_suporte_login {
     padding: 6%;

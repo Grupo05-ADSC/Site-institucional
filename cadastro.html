@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +8,12 @@
     <link rel="stylesheet" href="./css/total.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="sweetalert2.min.css">
 </head>
+
 <body>
     <div class="header">
         <div class="div_header_logo">
@@ -26,44 +30,60 @@
     </div>
     <div class="div_principal_cadastro">
         <div class="div_separacao_principal_cadastro">
+
+            <!-- LADO ESQUERDO DO CARD -->
             <div class="div_esquerdo_cadastro">
                 <div class="div_titulo_cadastro">
                     <h1>Cadastro</h1>
                 </div>
-                <div class="div_separar_input_cadastro">
-                    <div class="div_input_text_cadastro">
-                        <p>Nome da empresa</p>
-                        <input type="text" name="" id="input_nome" class="">
-                    </div>
+                <div class="div_input_text_cadastro1">
+                    <p>Nome da empresa</p>
+                    <input type="text" name="" id="input_nome" class="">
                 </div>
-                <div class="div_separar_input_cadastro">
-                    <div class="div_input_text_cadastro">
-                        <p>CPNJ</p>
+
+                <div class="div_separar_input_cadastro2">
+                    <div id="div_input_text_cadastro2">
+                        <p>Selecione um plano:</p>
+                        <select name="" id="select_plano">
+                            <option value="0">Selecione</option>
+                            <option value="1">Plano Agile</option>
+                            <option value="2">Plano Dark</option>
+                        </select>
+                    </div>
+
+                    <div class="div_input_text_cadastro2">
+                        <p>CPNJ:</p>
                         <input type="text" name="" id="input_cnpj" class="">
                     </div>
                 </div>
-                <div class="div_separar_input_cadastro">
-                    <div class="div_input_text_cadastro">
+
+                <div class="div_separar_input_cadastro3">
+                    <div class="div_input_text_cadastro3">
                         <p>E-mail</p>
                         <input type="email" name="" id="input_email" class="">
                     </div>
-                    <div class="div_input_text_cadastro">
+                    <div class="div_input_text_cadastro3">
                         <p>Senha</p>
                         <input type="password" name="" id="input_senha" class="">
                     </div>
-                    <div class="div_input_text_cadastro">
+                    <div class="div_input_text_cadastro3">
                         <p>Repita a senha</p>
                         <input type="password" name="" id="input_repita_senha" class="">
                     </div>
                 </div>
             </div>
+
+            <!-- LADO DIREITO DO CARD -->
             <div class="div_direito_cadastro">
-                <div class="div_titulo_cadastro_separation">
-                    <a href="./login.html">Login</a>
-                </div>
-                <div class="div_suporte_login">
-                    <h3>Suporte</h3>
-                    <p>Caso tenha duvidas ou tenha dificuldades em entrar em nosso sistema, entre em contato com nossa equipe na tela home</p>
+                <div id="div_direito_cadatro_pt1">
+                    <div class="div_titulo_cadastro_login_2">
+                        <button onclick="irLink()">Login</button>
+                    </div>
+                    <div class="div_suporte_login">
+                        <h3>Suporte</h3>
+                        <p>Caso tenha duvidas ou tenha dificuldades em entrar em nosso sistema, entre em contato com
+                            nossa equipe na tela home.</p>
+                    </div>
                 </div>
                 <div class="div_div_button_login_telaCadastro">
                     <button onclick="Cadastrar()">Cadastrar</button>
@@ -76,7 +96,7 @@
 <script>
 
     const irLink = () => {
-        document.location.href="./login.html"
+        document.location.href = "./login.html"
     }
 
     function Cadastrar() {
@@ -85,29 +105,36 @@
         let cnpj = input_cnpj.value
         let senha = input_senha.value
         let repita = input_repita_senha.value
+        let plano = select_plano.value
 
-        if(nome === "" || email === "" || cnpj === "" || senha === "" ||repita === ""  ) {
+        if (nome === "" || email === "" || cnpj === "" || senha === "" || repita === "") {
             Swal.fire({
-                        title: 'Insira todos os dados',
-                        icon: 'error',
-                        confirmButtonText: 'Ok'
-                    })
-        }else {
-            if(senha !== repita) {
+                title: 'Insira todos os dados',
+                icon: 'error',
+                confirmButtonText: 'Ok'
+            })
+        } else {
+            if (senha !== repita) {
                 Swal.fire({
-                        title: 'Senhas difentes!',
-                        icon: 'error',
-                        confirmButtonText: 'Ok'
-                    })
-            }else if(senha.length < 8) {
+                    title: 'Senhas difentes!',
+                    icon: 'error',
+                    confirmButtonText: 'Ok'
+                })
+            } else if (senha.length < 8) {
                 Swal.fire({
-                        title: 'Senha tem que ser maior que 8 digitos',
-                        icon: 'error',
-                        confirmButtonText: 'Ok'
-                    })
-            }else{
+                    title: 'Senha tem que ser maior que 8 digitos',
+                    icon: 'error',
+                    confirmButtonText: 'Ok'
+                })
+            } else if (plano == 0) {
+                Swal.fire({
+                    title: 'Selecione um plano válido',
+                    icon: 'error',
+                    confirmButtonText: 'Ok'
+                })
+            } else {
                 fetch(`http://localhost:3000/cadastro`, {
-                    method:"POST",
+                    method: "POST",
                     headers: {
                         "Content-Type": "application/json"
                     },
@@ -115,24 +142,25 @@
                         email: email,
                         senha: senha,
                         cnpj: cnpj,
-                        nome: nome
+                        nome: nome,
+                        plano : plano
                     })
-                }).then(function(resposta) {
-                    if(resposta.ok) {
+                }).then(function (resposta) {
+                    if (resposta.ok) {
                         Swal.fire({
-                        title: 'Cadastro realizado com sucesso!',
-                        icon: 'success',
-                        confirmButtonText: 'Ok'
-                    })
-                    setTimeout(() => {
-                        location.href="./login.html"
-                    },3000)
-                    }else {
+                            title: 'Cadastro realizado com sucesso!',
+                            icon: 'success',
+                            confirmButtonText: 'Ok'
+                        })
+                        setTimeout(() => {
+                            location.href = "./login.html"
+                        }, 3000)
+                    } else {
                         Swal.fire({
-                        title: 'Erro ao cadastrar!',
-                        icon: 'error',
-                        confirmButtonText: 'Ok'
-                    })
+                            title: 'Erro ao cadastrar!',
+                            icon: 'error',
+                            confirmButtonText: 'Ok'
+                        })
                     }
                 }).catch(err => {
                     console.log(err)
@@ -141,4 +169,5 @@
         }
     }
 </script>
+
 </html>

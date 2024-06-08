@@ -142,6 +142,10 @@ body{
 border: solid 3px #8039EB;
 }
 
+.cardBox .box .alerts{
+color: #935ce7;
+}
+
 .cardGeral{
     height: 470px;
     width: 100%;
