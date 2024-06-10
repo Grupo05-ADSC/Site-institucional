@@ -635,6 +635,8 @@
     let idEmpresa = localStorage.ID
 
     let email = localStorage.EMAIL
+    let email2 = localStorage.EMAIL
+    let senha = localStorage.SENHA
     let cargo = localStorage.CARGO || ''
 
     let idDark, idMaquina;
@@ -662,7 +664,7 @@
     function funcionarioTotais() {
         console.log(cargo)
         if (cargo === "") {
-            fetch(`http://localhost:3000/funcionariosTotais/${idEmpresa}`, {
+            fetch(`http://localhost:3000/funcionariosTotais/:${idEmpresa}`, {
                 method: "GET"
             }).then(resposta => resposta.json())
                 .then(item => {
@@ -697,7 +699,7 @@
     funcionarioTotais()
     function mostrarDark() {
         try {
-            fetch(`http://localhost:3000/mostrarDarkstore/${idEmpresa}`, {
+            fetch(`http://localhost:3000/mostrarDarkstore/:${idEmpresa}`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json"
@@ -740,7 +742,7 @@
     }
 
 
-    const mostrarFuncionario = () => {
+    function mostrarFuncionario () {
 
         fetch(`http://localhost:3000/funcionario/${idEmpresa}`, {
             method: "GET",
@@ -819,7 +821,7 @@
     // parte da table de processos
 
 
-    const cadastrarFuncionario = () => {
+    function cadastrarFuncionario () {
         const nome = nome_inputCadastro.value
         const email = email_inputCadastro.value
         const senha = senha_inputCadastro.value
@@ -938,6 +940,7 @@
             }
         }
     }
+
     const editarPerfilOk = () => {
         let email = email_input_perfil.value
         let senha = senha_input_perfil.value
@@ -990,7 +993,7 @@
     //sweet alert
 
 
-    const Logout = () => {
+    function Logout () {
         localStorage.NOME = ''
         localStorage.ID = ''
         localStorage.EMAIL = ""
@@ -1060,7 +1063,7 @@
     }
 
 
-    const cadastrarDark = () => {
+    function cadastrarDark() {
         var nome = document.querySelector('#nome_dark').value;
         var rua = document.querySelector('#rua').value;
         var cep = document.querySelector('#cep').value;
@@ -1080,7 +1083,7 @@
                 text: "Preencha todos os campos",
             });
         } else {
-            fetch(`http://localhost:3000/cadastroDark/${idEmpresa}`, {
+            fetch(`http://localhost:3000/cadastrarDark/${idEmpresa}`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -1209,9 +1212,9 @@
     }
 
 
-const mostrarMaquina = () => {
+function mostrarMaquina () {
 
-fetch(`http://localhost:3000/maquina/${idDark}`, {
+fetch(`http://localhost:3000/maquina/mostrar/${idEmpresa}`, {
     method: "GET",
     headers: {
         "Content-Type": "application/json"

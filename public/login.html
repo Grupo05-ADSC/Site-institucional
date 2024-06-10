@@ -108,29 +108,30 @@
                         localStorage.NOME = dados.nomeEmpresa 
                         localStorage.ID = dados.idEmpresa 
                         localStorage.EMAIL = dados.email 
-                    }
-                    setTimeout(() => {
-                        location.href = "./dash.html"
-                    },3000)
-                }else {
-                    Swal.fire({
-                        title: 'Usuario não encontrado!',
-                        icon: 'error',
-                        confirmButtonText: 'Ok'
-                    })
-                }
-            }
-            )).catch(erro => console.log(erro))
-            
-    }
-       
-   }
-</script>
-</script>
-</html> -->
+                        }
+                        setTimeout(() => {
+                            location.href = "./dash.html"
+                            },3000)
+                            }else {
+                                Swal.fire({
+                                    title: 'Usuario não encontrado!',
+                                    icon: 'error',
+                                    confirmButtonText: 'Ok'
+                                    })
+                                    }
+                                    }
+                                    )).catch(erro => console.log(erro))
+                                    
+                                    }
+                                    
+                                    }
+                                    </script>
+                                    </script>
+                                    </html> -->
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -139,9 +140,12 @@
     <link rel="stylesheet" href="./css/total.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="sweetalert2.min.css">
 </head>
+
 <body>
     <div class="div_principal">
         <div class="header">
@@ -165,7 +169,8 @@
                     </div>
                     <div class="div_suporte_login">
                         <h3>Suporte</h3>
-                        <p>Caso tenha dúvidas ou tenha dificuldades em entrar em nosso sistema, entre em contato com nossa equipe na tela home</p>
+                        <p>Caso tenha dúvidas ou tenha dificuldades em entrar em nosso sistema, entre em contato com
+                            nossa equipe na tela home</p>
                     </div>
                 </div>
                 <div class="div_separation_login_children_2">
@@ -185,7 +190,7 @@
                         </div>
                     </div>
                     <div class="div_esqueceu_a_senha">
-                         <p>Esqueceu sua senha?</p> <a href="./redefinir.html">Redefina agora!</a>
+                        <p>Esqueceu sua senha?</p> <a href="./redefinir.html">Redefina agora!</a>
                     </div>
                     <div class="div_button_login">
                         <button onclick="login()">Entrar</button>
@@ -205,14 +210,14 @@
         let email = document.getElementById('input_email').value;
         let senha = document.getElementById('input_senha').value;
 
-        if(email === "" || senha === "") {
+        if (email === "" || senha === "") {
             Swal.fire({
                 title: 'Insira todos os dados!',
                 icon: 'error',
                 confirmButtonText: 'Ok'
             });
         } else {
-            fetch('http://localhost:80/login', {
+            fetch('http://localhost:3000/login', {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -222,42 +227,43 @@
                     senha: senha
                 })
             })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Usuário não encontrado!');
-                }
-                return response.json();
-            })
-            .then(dados => {
-                if (dados.cargo) {
-                    localStorage.setItem('NOME', dados.nomeFuncionario);
-                    localStorage.setItem('ID_FUNCIONARIO', dados.idFuncionario);
-                    localStorage.setItem('ID_EMPRESA', dados.idEmpresa);
-                    localStorage.setItem('EMAIL', dados.emailFuncionario);
-                    localStorage.setItem('CARGO', dados.cargo);
-                } else {
-                    localStorage.setItem('NOME', dados.nomeEmpresa);
-                    localStorage.setItem('ID_EMPRESA', dados.idEmpresa);
-                    localStorage.setItem('EMAIL', dados.email);
-                }
-                Swal.fire({
-                    title: 'Seja bem-vindo novamente!',
-                    icon: 'success',
-                    confirmButtonText: 'Ok'
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Usuário não encontrado!');
+                    }
+                    return response.json();
+                })
+                .then(dados => {
+                    if (dados.cargo) {
+                        localStorage.setItem('NOME', dados.nomeFuncionario);
+                        localStorage.setItem('ID_FUNCIONARIO', dados.idFuncionario);
+                        localStorage.setItem('ID_EMPRESA', dados.idEmpresa);
+                        localStorage.setItem('EMAIL', dados.emailFuncionario);
+                        localStorage.setItem('CARGO', dados.cargo);
+                    } else {
+                        localStorage.setItem('NOME', dados.nomeEmpresa);
+                        localStorage.setItem('ID_EMPRESA', dados.idEmpresa);
+                        localStorage.setItem('EMAIL', dados.email);
+                    }
+                    Swal.fire({
+                        title: 'Seja bem-vindo novamente!',
+                        icon: 'success',
+                        confirmButtonText: 'Ok'
+                    });
+                    setTimeout(() => {
+                        location.href = "dash.html";
+                    }, 3000);
+                })
+                .catch(erro => {
+                    console.error('Erro:', erro);
+                    Swal.fire({
+                        title: erro.message,
+                        icon: 'error',
+                        confirmButtonText: 'Ok'
+                    });
                 });
-                setTimeout(() => {
-                    location.href = "dash.html";
-                }, 3000);
-            })
-            .catch(erro => {
-                console.error('Erro:', erro);
-                Swal.fire({
-                    title: erro.message,
-                    icon: 'error',
-                    confirmButtonText: 'Ok'
-                });
-            });
         }
     }
 </script>
+
 </html>
