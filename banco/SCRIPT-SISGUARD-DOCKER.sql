@@ -23,8 +23,10 @@ CREATE TABLE darkstore (
     FOREIGN KEY (fkEmpresa) REFERENCES empresa (idEmpresa)
 );
 
-INSERT INTO darkstore(nome, fkEmpresa) VALUES ("Setor 1", 1);
 
+
+INSERT INTO darkstore(nome, fkEmpresa,canalSlack) VALUES ("Setor 1", 1, "C06KZSZV72B");
+select * from darkstore;
 CREATE TABLE metrica_ideal (
     idMetricaIdeal INT PRIMARY KEY AUTO_INCREMENT,
     alertaPadrao DOUBLE,
@@ -39,7 +41,27 @@ CREATE TABLE metrica_ideal (
     FOREIGN KEY (fkDarkStore) REFERENCES darkstore (idDarkstore)
 );
 
-INSERT INTO metrica_ideal(fkDarkStore) VALUES (1);
+INSERT INTO metrica_ideal (
+    alertaPadrao,
+    criticaPadrao,
+    alertaCPU,
+    criticoCPU,
+    alertaRAM,
+    criticoRAM,
+    alertaDisco,
+    criticoDisco,
+    fkDarkStore
+) VALUES (
+    10.0,
+    20.0, 
+    10.0,
+    20.0, 
+    10.0, 
+    20.0, 
+    10.0,
+    20.0, 
+    1 
+);
 
 CREATE TABLE maquina (
     idMaquina INT AUTO_INCREMENT PRIMARY KEY,
@@ -132,5 +154,5 @@ CREATE TABLE alerta (
         REFERENCES metrica_ideal (idMetricaIdeal)
 );
 
-
+select * from processos;
 SET SQL_SAFE_UPDATES = 0;
