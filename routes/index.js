@@ -13,6 +13,7 @@ router.get('/login', (req, res) => {
 router.get('/dash', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/dash.html'));
 });
+
 router.get('/dashGeral', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/dashGeral.html'));
 });

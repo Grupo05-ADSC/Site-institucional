@@ -129,7 +129,7 @@
             <!-- <button class="btnCadastroF" onclick="openEditarMaquinas()">Editar Máquinas</button> -->
 
             <div class="legendaMaquinas">
-                <b class="id">ID</b>
+                <b class="id">Darkstore</b>
                 <b class="nome">Nome</b>
                 <b class="excluir">Excluir</b>
                 <b class="editar">Editar</b>
@@ -156,12 +156,86 @@
                     <input type="text" id="nome_input_maquina">
 
                 </div>
-                <button onclick="cadastrarFuncionario()" style="width: 40vh;" class="btnCadastro">Editar máquina</button>
+                <button onclick="editarMaquinaOk()" style="width: 40vh;" class="btnCadastro">Editar máquina</button>
             </div>
 
         </div>
     </div>
 
+    <!-- LISTA DE MÉTRICAS -- MODAL -->
+    <div class="lista-metricas" id="lista_metricas" style="display: none;">
+        <div class="pop-up">
+            <div class="head">
+                <div class="titulo">
+                    <h1>Métricas</h1>
+                </div>
+                <i class="fa fa-remove" style="width: 6vh; font-size: 4vh;" onclick="exitListaMetricas()"></i>
+            </div>
+
+            <button class="btnCadastroF" onclick="openCadastroMetricas()">Cadastrar métrica</button>
+
+            <div class="legendaMetricas">
+                <b class="id">ID</b>
+                <b class="alerta">Alerta</b>
+                <b class="critico">Crítico</b>
+                <b class="excluir">Excluir</b>
+                <b class="editar">Editar</b>
+            </div>
+
+            <div class="conteudo" id="conteudo_metricas">
+            </div>
+        </div>
+    </div>
+
+
+    <!--CADASTRO DE MÉTRICAS -- MODAL -->
+    <div class="cadastroMetricas" style="display: none;">
+        <div class="pop-up">
+            <div class="head">
+                <div class="titulo">
+                    <h1>Cadastrar Métricas</h1>
+                </div>
+                <i class="fa fa-remove" style="width: 6vh; font-size: 4vh;" onclick="exitCadastroMetricas()"></i>
+            </div>
+
+            <div class="conteudo">
+                <div class="conteudo_principal_cadastroMetricas">
+                    <p>Alerta:</p>
+                    <input type="number" name="" id="input_alertaMetrica">
+                    <p>Crítico:</p>
+                    <input type="number" name="" id="input_criticoMetrica">
+
+                </div>
+                <button onclick="cadastrarMetricas()" style="width: 40vh;" class="btnCadastro">Cadastrar
+                    métrica</button>
+            </div>
+
+        </div>
+    </div>
+
+      <!--EDITAR MÁQUINA -- MODAL -->
+      <div class="editarMetricas" style="display: none;">
+        <div class="pop-up">
+            <div class="head">
+                <div class="titulo">
+                    <h1>Editar Métrica</h1>
+                </div>
+                <i class="fa fa-remove" style="width: 6vh; font-size: 4vh;" onclick="exitEditarMetricas()"></i>
+            </div>
+
+                <div class="conteudo">
+                    <p>Alerta:</p>
+                    <input type="number" id="alerta_input_metricas">
+                </div>
+                <div class="conteudo">
+                    <p>Crítico:</p>
+                    <input type="number" id="critico_input_metricas">
+                </div>
+                <button onclick="editarMetricasOk()" style="width: 40vh;" class="btnCadastro">Editar métricas</button>
+            </div>
+
+        </div>
+    </div>
 
     <!--CADASTRO DE DARK STORE-->
     <div class="cadastroFuncionarios" id="div_cadastro_darkStore" style="display: none;">
@@ -238,36 +312,7 @@
                         <p>Nome</p>
                         <input type="text" name="" id="nome_dark_editar">
                     </div>
-                    <div class="div_direito_inputs_pop-up">
-                        <p>CEP</p>
-                        <input type="text" id="cep_editar" name="" id="" onchange="buscarCep()">
-                    </div>
-                </div>
-                <div class="div_principal_inputs_pop-up">
-                    <div class="div_esquerdo_inputs_pop-up">
-                        <p>Estado</p>
-                        <input type="text" name="" id="estado_editar">
-                    </div>
-                    <div class="div_direito_inputs_pop-up">
-                        <p>Cidade</p>
-                        <input type="text" name="" id="cidade_editar">
-                    </div>
-                </div>
-                <div class="div_principal_inputs_pop-up">
-                    <div class="div_esquerdo_inputs_pop-up">
-                        <p>Bairro</p>
-                        <input type="text" name="" id="bairro_editar">
-                    </div>
-                    <div class="div_direito_inputs_pop-up">
-                        <p>Rua</p>
-                        <input type="text" name="" id="rua_editar">
-                    </div>
-                </div>
-                <div class="div_principal_inputs_pop-up">
-                    <div class="div_esquerdo_inputs_pop-up">
-                        <p>Número</p>
-                        <input type="text" name="" id="numero_dark_editar">
-                    </div>
+                    
                     <div class="div_direito_inputs_pop-up" id="div_direito_button_pop-up">
                         <button onclick="editarDark()">Editar</button>
                     </div>
@@ -395,7 +440,7 @@
             <div class="conteudo">
                 <div>
                     <p>E-mail:</p>
-                    <input type="email" name="" id="email_input_perfil">
+                    <input type="email" id="email_input_perfil">
                     <p>Nova senha:</p>
                     <input type="password" name="" id="senha_input_perfil">
                     <p>Confirmar nova senha:</p>
@@ -431,6 +476,10 @@
                     <div class="boxTextoMenu" onclick="openListaDark()"> Dark Store</div>
                 </div>
 
+                <div class="menuPerfil" onclick="openListaMetricas()" id="metricas_options">
+                    <div class="boxTextoMenu"> Métricas ideais </div>
+                </div>
+
                 <div class="menuPerfil" onclick="openListaMaquinas()" id="maquinas_options">
                     <div class="boxTextoMenu"> Máquinas </div>
                 </div>
@@ -456,17 +505,15 @@
 
         <div class="linha1">
             <div class="box1">
-                <select id="darkStoreSelect">
+                <select id="darkStoreSelect" onclick="salvarDark(), mostrarMaquinas()">
+                    <option value="0">Selecione uma DarkStore</option>
 
                 </select>
             </div>
             <div class="box1">
                 <select id="computerSelect">
-                    <option value="computer2">Máquina 1</option>
-                    <option value="computer3">Máquina 2</option>
-                    <option value="computer4">Máquina 3</option>
-                    <option value="computer5">Máquina 4</option>
-                    <option value="computer6">Máquina 5</option>
+                    <option value="0">Selecione uma máquina</option>
+                   
                 </select>
             </div>
             <div class="box2">
@@ -599,15 +646,15 @@
         <div class="linha3">
             <div class="box">
                 <b>Total de Máquinas</b>
-                <h1 class="destaque" id="total_maquinas">24</h1>
+                <span class="destaque" id="total_maquinas">0</span>
             </div>
             <div class="box">
                 <b>Máquinas Ativas</b>
-                <h1 class="destaque" id="maquinas_ativas">23</h1>
+                <span class="destaque" id="maquinas_ativas">0</span>
             </div>
             <div class="box">
                 <b>Total de Funcionários</b>
-                <h1 class="destaque" id="total_funcionario">7</h1>
+                <span class="destaque" id="total_funcionario">0</span>
             </div>
         </div>
 
@@ -621,6 +668,7 @@
     let nome = localStorage.NOME
     let qtdFunc = localStorage.QTDFUNC
     let qtdMac = localStorage.QTDMAC
+
     let macAtivas = localStorage.MACATIVAS
     let totalThreads = localStorage.TOTALTHREADS
     let processosAbertos = localStorage.PROCESSOSABERTOS
@@ -628,11 +676,12 @@
     processos_abertos.innerHTML = `${processosAbertos}` || ''
     total_threads.innerHTML = `${totalThreads}` || ''
     total_funcionario.innerHTML = `${qtdFunc}` || ''
-    total_maquinas.innerHTML = `${qtdMac}` || ''
-    maquinas_ativas.innerHTML = `${macAtivas}` || ''
+    // total_maquinas.innerHTML = `${qtdMac}` || ''
+    // maquinas_ativas.innerHTML = `${macAtivas}` || ''
 
     let nomeEmpresa = localStorage.NOME
-    let idEmpresa = localStorage.ID
+    let idEmpresa = localStorage.ID_EMPRESA
+    console.log('id empresa ==> ',idEmpresa);
 
     let email = localStorage.EMAIL
     let email2 = localStorage.EMAIL
@@ -644,6 +693,9 @@
     var listaFuncionarios = document.querySelector('#lista_funcionarios');
     var listaMaquinas = document.querySelector('#lista_maquinas');
     var editarMaquinas = document.querySelector('.editarMaquinas');
+    var listaMetricas = document.querySelector('#lista_metricas');
+    var cadastroMetricas = document.querySelector('.cadastroMetricas');
+    var editarMetricas = document.querySelector('.editarMetricas');
     var listaDark = document.querySelector('#lista_dark');
     var cadastroFuncionarios = document.querySelector('.cadastroFuncionarios');
     var editarFuncionarios = document.querySelector('.editarFuncionarios');
@@ -690,6 +742,7 @@
             dark_options.style.display = "none";
             perfil_options.style.display = "none";
             maquinas_options.style.display = "none";
+            metricas_options.style.display = "none";
             funcionarios_options.style.display = "none";
             total_funcionario_div.style.display = "none";
             overview_options.style.display = "none";
@@ -699,7 +752,7 @@
     funcionarioTotais()
     function mostrarDark() {
         try {
-            fetch(`http://localhost:3000/mostrarDarkstore/:${idEmpresa}`, {
+            fetch(`http://localhost:3000/mostrarDarkstore/${idEmpresa}`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json"
@@ -707,15 +760,43 @@
             }).then(resposta => resposta.json())
                 .then(dados => {
                     plotarDark(dados.resposta)
+                    console.log(dados.resposta);
                 })
         } catch (erro) {
             console.log(erro)
         }
     }
 
+    function mostrarMaquinas() {
+        console.log('id dark ===> ',localStorage.DARK);
+        let idEmpresa = localStorage.DARK
+        
+        // if(darkStoreSelect.value != 0){
+        try {
+            fetch(`http://localhost:3000/maquinas/${idEmpresa}`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).then(resposta => resposta.json())
+                .then(dados => {
+                    // console.log('valor selecionado', darkStoreSelect)
+                    console.log('dados mostrar maquinas',dados);
+                    console.log('dados mostrar maquinas ==> ',dados.length);
+                        plotarMaquina(dados.resposta)
+                })
+        } catch (erro) {
+            console.log(erro)
+       } 
+    }
+    // }
+
+    // mostrarMaquinas()
+
     mostrarDark()
 
     function plotarDark(dados) {
+        console.log(dados);
         if (cargo === "" || cargo === "gerente") {
             let selectDark = darkStoreSelect
             dados.map(item => {
@@ -727,14 +808,40 @@
             darkStoreSelect.innerHTML += `<option>Não autorizado</option>`
         }
     }
+    function salvarDark(){
+        console.log(darkStoreSelect.value);
+        localStorage.DARK = darkStoreSelect.value;
+        // localStorage.DARK = dark
+        // console.log('id dark local ===> ',dark);    
+    }
 
     function plotarMaquina(dados) {
+        // if(dados == undefined){
+        //     console.log("dados vazio");
+        //      computerSelect.innerHTML += `<option value="0">Não há computadores</option>`
+        // }
+        if(dados != undefined){
+            console.log('dados length',dados.length);
+            total_maquinas.innerHTML = dados.length;
+            maquinas_ativas.innerHTML = dados.length;
+
+        }
+        // selectMaquina.innerHTML = "";
+        
         if (cargo === "" || cargo === "gerente") {
             let selectMaquina = computerSelect
-            dados.map(item => {
-
-                selectMaquina.innerHTML += `<option value=${item.idMaquina}>${item.nome}</option>`
-            })
+            // selectMaquina.innerHTML = "";
+            if(dados == undefined|| dados.length < 0){
+                selectMaquina.innerHTML = "<option>Não há maquinas</option>";
+                // selectMaquina.innerHTML = "";
+            }else if(dados.length >= 0){
+            selectMaquina.innerHTML = ""
+            selectMaquina.innerHTML += `<option>Selecione uma máquina</option>`
+            dados.forEach(item => {
+                console.log('item foreach',item);
+                selectMaquina.innerHTML += `<option value="${item.idMaquina}">${item.nomeMaquina}</option>`;
+                });
+            }
         } else {
 
             computerSelect.innerHTML += `<option>Não autorizado</option>`
@@ -744,13 +851,14 @@
 
     function mostrarFuncionario () {
 
-        fetch(`http://localhost:3000/funcionario/${idEmpresa}`, {
+        fetch(`http://localhost:3000/mostrarfuncionario/${idEmpresa}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
             }
         }).then(resposta => resposta.json())
             .then(value => {
+                console.log('funcionarios value ==> ',value);
                 conteudo_funcionario.innerHTML = "";
                 value['resposta'].map(item => {
 
@@ -770,7 +878,7 @@
                             style="font-size:24px; display: flex; align-items: center;"></i>
                     </div>
                     <div class="editar">
-                        <i onclick="openEditarFuncionarios(${item.idFuncionario})" class="fa fa-edit" style="font-size:24px; display: flex; align-items: center;"></i>
+                        <i onclick="openEditarFuncionarios(${item.idFuncionario}, '${item.nomeFuncionario}', '${item.emailFuncionario}')" class="fa fa-edit" style="font-size:24px; display: flex; align-items: center;"></i>
                     </div>
                 </div>
                 `
@@ -781,34 +889,35 @@
 
     mostrarFuncionario()
 
-    const excluirFuncionario = (idFuncionario) => {
-        fetch(`http://localhost:3000/deletarFuncionario/${idEmpresa}/${idFuncionario}`, {
-            method: "DELETE",
-            headers: {
-                "Content-Type": "application/json"
-            },
-        }).then(function (resposta) {
-            if (resposta.ok) {
-                Swal.fire({
-                    title: 'Funcionario excluido!',
-                    icon: 'success',
-                    confirmButtonText: 'Ok'
-                })
-                mostrarFuncionario()
-                funcionarioTotais()
-            } else {
-                Swal.fire({
-                    confirmButtonText: 'Ok',
-                    icon: "error",
-                    title: "Erro ao excluir funcionario",
-                });
-            }
-        }).catch(erro => {
-            console.log(erro)
-        })
-    }
+    // function excluirFuncionario(idFuncionario) {
+    //     fetch(`http://localhost:3000/deletarFuncionario/${idEmpresa}/${idFuncionario}`, {
+    //         method: "DELETE",
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //         },
+    //     }).then(function (resposta) {
+    //         if (resposta.ok) {
+    //             Swal.fire({
+    //                 title: 'Funcionario excluido!',
+    //                 icon: 'success',
+    //                 confirmButtonText: 'Ok'
+    //             })
+    //             mostrarFuncionario()
+    //             funcionarioTotais()
+    //         } else {
+    //             Swal.fire({
+    //                 confirmButtonText: 'Ok',
+    //                 icon: "error",
+    //                 title: "Erro ao excluir funcionario",
+    //             });
+    //         }
+    //     }).catch(erro => {
+    //         console.log(erro)
+    //     })
+    // }
 
     // function openListaFuncionarios() {
+
     //     listaFuncionarios.style.display = "flex"
     // }
 
@@ -820,6 +929,77 @@
 
     // parte da table de processos
 
+    function mostrarMetricas () {
+
+fetch(`http://localhost:3000/mostrarMetricas/${idDark}`, {
+    method: "GET",
+    headers: {
+        "Content-Type": "application/json"
+    }
+}).then(resposta => resposta.json())
+    .then(value => {
+        console.log('metricas value ==> ',value);
+        conteudo_metricas.innerHTML = "";
+        value['resposta'].map(item => {
+
+            conteudo_metricas.innerHTML += `
+        <div class="funcionario">
+            <div class="id">
+                <p>${item.idMetricas}</p>
+            </div>
+            <div class="alerta">
+                <p>${item.alertaMetricas}</p>
+            </div>
+            <div class="critico">
+                <p>${item.criticoMetricas}</p>
+            </div>
+            <div class="excluir">
+                <i onclick="excluirFuncionario(${item.idMetricas})" class="fa fa-trash-o"
+                    style="font-size:24px; display: flex; align-items: center;"></i>
+            </div>
+            <div class="editar">
+                <i onclick="openEditarMetricas(${item.idFuncionario}, '${item.alertaMetricas}', '${item.criticoMetricas}')" class="fa fa-edit" style="font-size:24px; display: flex; align-items: center;"></i>
+            </div>
+        </div>
+        `
+        })
+    })
+}
+
+
+mostrarFuncionario()
+    var fkEmpresa = idEmpresa
+    function excluirFuncionario(idFuncionario) {
+    fetch(`http://localhost:3000/deletarFuncionario/${fkEmpresa}/${idFuncionario}`, {
+        method: "DELETE",
+        headers : {
+            "Content-type" : "application/json"
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            console.log("Funcionário deletado com sucesso");
+            Swal.fire({
+                    title: 'Funcionario excluido!',
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+                })
+                mostrarFuncionario()
+                funcionarioTotais() 
+                setTimeout(() => {
+                    window.location.reload()
+                }, 2000);
+        } else {
+            console.log("Erro ao deletar funcionário");
+            Swal.fire({
+                    confirmButtonText: 'Ok',
+                    icon: "error",
+                    title: "Erro ao excluir funcionario",
+                });
+        }
+    })
+    .catch(error => console.error("Erro:", error));
+}
 
     function cadastrarFuncionario () {
         const nome = nome_inputCadastro.value
@@ -879,10 +1059,63 @@
             }).catch(erro => console.log(erro))
         }
     }
+ 
+    function cadastrarMetricas() {
+        idDark = localStorage.DARK
+        const alerta = input_alertaMetrica.value
+        const critico = input_criticoMetrica.value
 
-    function openEditarFuncionarios(idFuncionarioParams) {
+        if (alerta === '' || critico === "") {
+            Swal.fire({
+                color: "#ffffff",
+                background: "#272628",
+                confirmButtonColor: "#8039EB",
+                icon: "error",
+                title: "Oops...",
+                text: "Preencha todos os campos",
+            });
+            return false
+        } else {
+            fetch(`http://localhost:3000/cadastroMetricas/${idDark}`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    alerta: alerta,
+                    critico: critico,
+                })
+            }).then(function (resposta) {
+                if (resposta.ok) {
+                    Swal.fire({
+                        title: 'Cadastrado!',
+                        icon: 'success',
+                        confirmButtonText: 'Ok'
+                    })
+                    mostrarMetricas()
+                } else {
+                    Swal.fire({
+                        title: 'Erro ao cadastrar',
+                        icon: 'error',
+                        confirmButtonText: 'Ok'
+                    })
+                }
+            }).catch(erro => console.log(erro))
+        }
+    }
+
+    function openEditarFuncionarios(idFuncionarioParams, nome, email) {
+        nome_input_funcionario.value = nome
+        email_input_funcionario.value = email
         idFuncionario = idFuncionarioParams
         editarFuncionarios.style.display = "flex"
+    }
+   
+    function openEditarMetricas(idMetriasParams, alerta, critico) {
+        alerta_input_metricas.value = nome
+        critico_input_metricas.value = email
+        idMetricas = idMetricasParams
+        editarMetricas.style.display = "flex"
     }
 
     const editarFuncionarioOk = () => {
@@ -914,6 +1147,7 @@
                         body: JSON.stringify({
                             nome: nome,
                             email: email,
+                            senha: senha
                         })
                     }).then(function (resposta) {
                         if (resposta.ok) {
@@ -922,12 +1156,15 @@
                                 icon: 'success',
                                 confirmButtonText: 'Ok'
                             })
-                            mostrarFuncionario()
+                            // mostrarFuncionario()
 
-                            nome_input_funcionario.innerHTML = ""
-                            email_input_funcionario.innerHTML = ""
-                            senha_input_funcionario.innerHTML = ""
-                            senha_input_funcionario.innerHTML = ""
+                            // nome_input_funcionario.innerHTML = ""
+                            // email_input_funcionario.innerHTML = ""
+                            // senha_input_funcionario.innerHTML = ""
+                            // senha_input_funcionario.innerHTML = ""
+                            setTimeout(() => {
+                        location.href = "dash.html";
+                    }, 2000);
                         } else {
                             Swal.fire({
                                 title: 'Erro ao alterar',
@@ -942,11 +1179,11 @@
     }
 
     const editarPerfilOk = () => {
-        let email = email_input_perfil.value
+        let email1 = email_input_perfil.value
         let senha = senha_input_perfil.value
         let confirmar = confirme_input_perfil.value
 
-        if (email === "" || senha === "" || confirmar === "") {
+        if (email1 === "" || senha === "" || confirmar === "") {
             Swal.fire({
                 title: 'Campos vazios',
                 icon: 'error',
@@ -968,7 +1205,7 @@
                         },
                         body: JSON.stringify({
                             senha: senha,
-                            email: email,
+                            email: email1,
                         })
                     }).then(function (resposta) {
                         if (resposta.ok) {
@@ -977,7 +1214,12 @@
                                 icon: 'success',
                                 confirmButtonText: 'Ok'
                             })
-                            email_perfil.innerHTML = `${email}`
+                            // email_perfil.innerHTML = email1;
+                            localStorage.EMAIL = email1
+                            setTimeout(() => {
+                        location.href = "dash.html";
+                    }, 2000);
+
                         } else {
                             Swal.fire({
                                 title: 'Erro ao alterar',
@@ -990,6 +1232,50 @@
             }
         }
     }
+    const editarMetricasOk = () => {
+        let alerta = alerta_input_metricas.value
+        let critico = critico_input_metricas.value
+
+        if (alerta === "" || critico === "") {
+            Swal.fire({
+                title: 'Campos vazios',
+                icon: 'error',
+                confirmButtonText: 'Ok'
+            })
+        } else {
+                fetch(`http://localhost:3000/editarPerfil/${idDark}`,
+                    {
+                        method: "PUT",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify({
+                            alerta: alerta,
+                            critico: critico,
+                        })
+                    }).then(function (resposta) {
+                        if (resposta.ok) {
+                            Swal.fire({
+                                title: 'Alterado!',
+                                icon: 'success',
+                                confirmButtonText: 'Ok'
+                            })
+                            setTimeout(() => {
+                        location.href = "dash.html";
+                    }, 2000);
+
+                        } else {
+                            Swal.fire({
+                                title: 'Erro ao alterar',
+                                icon: 'error',
+                                confirmButtonText: 'Ok'
+                            })
+                        }
+
+                    }).catch(erro => console.log(erro))
+            }
+        }
+    
     //sweet alert
 
 
@@ -1013,6 +1299,7 @@
                 }
             }).then(resposta => resposta.json())
                 .then(value => {
+                    console.log("data dark ===>", value);
                     conteudo_darkStore.innerHTML = "";
                     value['resposta'].map(item => {
 
@@ -1029,7 +1316,7 @@
                             style="font-size:24px; display: flex; align-items: center;"></i>
                     </div>
                     <div class="editar">
-                        <i onclick="editarDarkOk(${item.idDarkstore})" class="fa fa-edit" style="font-size:24px; display: flex; align-items: center;"></i>
+                        <i onclick="editarDarkOk(${item.idDarkstore}, '${item.nome}')" class="fa fa-edit" style="font-size:24px; display: flex; align-items: center;"></i>
                     </div>
                 </div>
                 `
@@ -1037,7 +1324,7 @@
                 })
         }
     }
-    exibirListaDark()
+    // exibirListaDark()
 
     const buscarCep = () => {
         var cep = document.querySelector('#cep').value;
@@ -1062,61 +1349,78 @@
         }
     }
 
+    
+    function cadastrarDark() { // Certifique-se de passar idEmpresa como argumento
+    let idEmpresa = localStorage.ID_EMPRESA;
+    var nome = document.querySelector('#nome_dark').value;
+    var rua = document.querySelector('#rua').value;
+    var cep1 = document.querySelector('#cep').value;
+    var estado = document.querySelector('#estado').value;
+    var bairro = document.querySelector('#bairro').value;
+    var cidade = document.querySelector('#cidade').value;
+    var numero = document.querySelector('#numero_dark').value;
+    var cep = cep1.replace(/-/g, '');
+    console.log('cep ====> ',cep);
 
-    function cadastrarDark() {
-        var nome = document.querySelector('#nome_dark').value;
-        var rua = document.querySelector('#rua').value;
-        var cep = document.querySelector('#cep').value;
-        var estado = document.querySelector('#estado').value;
-        var bairro = document.querySelector('#bairro').value;
-        var cidade = document.querySelector('#cidade').value;
-        var numero = document.querySelector('#numero_dark').value;
-
-        if (nome === "" || rua === "" || cep === "" || estado === "" ||
-            bairro === "" || cidade === "" || numero === "") {
-            Swal.fire({
-                color: "#ffffff",
-                background: "#272628",
-                confirmButtonColor: "#8039EB",
-                icon: "error",
-                title: "Oops...",
-                text: "Preencha todos os campos",
-            });
-        } else {
-            fetch(`http://localhost:3000/cadastrarDark/${idEmpresa}`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    nome: nome,
-                    rua: rua,
-                    cep: cep,
-                    estado: estado,
-                    bairro: bairro,
-                    cidade: cidade,
-                    numero: numero
+    if (nome === "" || rua === "" || cep === "" || estado === "" ||
+        bairro === "" || cidade === "" || numero === "") {
+        Swal.fire({
+            color: "#ffffff",
+            background: "#272628",
+            confirmButtonColor: "#8039EB",
+            icon: "error",
+            title: "Oops...",
+            text: "Preencha todos os campos",
+        });
+    } else {
+        fetch(`http://localhost:3000/darkstore/cadastrarDark/${idEmpresa}`, { // Ajuste no endpoint
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                nome: nome,
+                rua: rua,
+                cep: cep,
+                estado: estado,
+                bairro: bairro,
+                cidade: cidade,
+                numero: numero,
+                empresa : idEmpresa
+            })
+        }).then(function (resposta) {
+            if (resposta.ok) {
+                Swal.fire({
+                    title: 'Cadastrado!',
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
                 })
-            }).then(function (resposta) {
-                if (resposta.ok) {
-                    Swal.fire({
-                        title: 'Cadastrado!',
-                        icon: 'success',
-                        confirmButtonText: 'Ok'
-                    })
-                    exibirListaDark()
-                } else {
-                    Swal.fire({
-                        title: 'Erro ao cadastrar',
-                        icon: 'error',
-                        confirmButtonText: 'Ok'
-                    })
-                }
-            }).catch(erro => console.log(erro))
-        }
+
+                setTimeout(() => {
+                        location.href = "dash.html";
+                    }, 2000);
+                // exibirListaDark(); // Certifique-se de que esta função está definida
+            } else {
+                Swal.fire({
+                    title: 'Erro ao cadastrar',
+                    icon: 'error',
+                    confirmButtonText: 'Ok'
+                })
+            }
+        }).catch(erro => {
+            console.log(erro);
+            Swal.fire({
+                title: 'Erro de conexão',
+                icon: 'error',
+                confirmButtonText: 'Ok'
+            });
+        })
     }
+}
+
 
     function excluirDark(idDark) {
+        console.log("excluir dark");
         fetch(`http://localhost:3000/deletarDark/${idEmpresa}/${idDark}`, {
             method: "DELETE",
             headers: {
@@ -1129,7 +1433,11 @@
                     icon: 'success',
                     confirmButtonText: 'Ok'
                 })
-                exibirListaDark()
+
+                setTimeout(() => {
+                        location.href = "dash.html";
+                    }, 3000);
+                // exibirListaDark()
             } else {
                 Swal.fire({
                     confirmButtonText: 'Ok',
@@ -1142,22 +1450,17 @@
         })
     }
 
-    function editarDarkOk(idDarkParams) {
+    function editarDarkOk(idDarkParams, nome) {
+        nome_dark_editar.value = nome;
         idDark = idDarkParams
         div_editar_darkStore.style.display = "flex"
     }
 
     const editarDark = () => {
-        var nome = document.querySelector('#nome_dark_editar').value;
-        var rua = document.querySelector('#rua_editar').value;
-        var cep = document.querySelector('#cep_editar').value;
-        var estado = document.querySelector('#estado_editar').value;
-        var bairro = document.querySelector('#bairro_editar').value;
-        var cidade = document.querySelector('#cidade_editar').value;
-        var numero = document.querySelector('#numero_dark_editar').value;
-
-        if (nome === "" || rua === "" || cep === "" || estado === "" ||
-            bairro === "" || cidade === "" || numero === "") {
+        // var nome = document.querySelector('#nome_dark_editar').value;
+        var nome1 = nome_dark_editar.value;
+        console.log('nome ==> ',nome1);
+        if (nome1 === "") {
 
             Swal.fire({
                 color: "#ffffff",
@@ -1170,18 +1473,12 @@
         } else {
             fetch(`http://localhost:3000/atualizarDark/${idEmpresa}/${idDark}`,
                 {
-                    method: "PUT",
+                    method: "POST",
                     headers: {
                         "Content-Type": "application/json"
                     },
                     body: JSON.stringify({
-                        nome: nome,
-                        rua: rua,
-                        cep: cep,
-                        estado: estado,
-                        bairro: bairro,
-                        cidade: cidade,
-                        numero: numero
+                        nome: nome1,
                     })
                 }).then(function (resposta) {
                     if (resposta.ok) {
@@ -1190,15 +1487,11 @@
                             icon: 'success',
                             confirmButtonText: 'Ok'
                         })
-                        mostrarFuncionario()
 
-                        nome.innerHTML = ""
-                        rua.innerHTML = ""
-                        cep.innerHTML = ""
-                        bairro.innerHTML = ""
-                        cidade.innerHTML = ""
-                        estado.innerHTML = ""
-                        numero.innerHTML = ""
+                        setTimeout(() => {
+                        location.href = "dash.html";
+                    }, 2000);
+                       
                     } else {
                         Swal.fire({
                             title: 'Erro ao alterar',
@@ -1212,32 +1505,35 @@
     }
 
 
-function mostrarMaquina () {
-
-fetch(`http://localhost:3000/maquina/mostrar/${idEmpresa}`, {
-    method: "GET",
-    headers: {
-        "Content-Type": "application/json"
-    }
-}).then(resposta => resposta.json())
-    .then(value => { console.log("ola", value)
+function mostrarMaquina() {
+    
+// console.log("entrou na função");
+    fetch(`http://localhost:3000/maquinass/${idEmpresa}`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then(resposta => resposta.json())
+    .then(value => { 
+        console.log("lista maquinas", value)
         conteudo_maquina.innerHTML = "";
-        value['resposta'].map(item => {
+        // value.forEach(item => {
+        value['resposta'].forEach(item => {
 
             conteudo_maquina.innerHTML += `
         <div class="maquina">
             <div class="id">
-                <p>${item.idMaquina}</p>
+                <p>${item.nome}</p>
             </div>
             <div class="nome">
                 <p>${item.nomeMaquina}</p>
             </div>
             <div class="excluir">
-                <i onclick="excluirDark(${item.idMaquina})" class="fa fa-trash-o"
+                <i onclick="excluirMaquina(${item.idMaquina})" class="fa fa-trash-o"
                 style="font-size:24px; display: flex; align-items: center;"></i>
                     </div>
             <div class="editar">
-                <i onclick="openEditarMaquinas(${item.idMaquina})" class="fa fa-edit" style="font-size:24px; display: flex; align-items: center;"></i>
+                <i onclick="openEditarMaquinas(${item.idMaquina},'${item.nomeMaquina}')" class="fa fa-edit" style="font-size:24px; display: flex; align-items: center;"></i>
             </div>
         </div>
         `
@@ -1245,19 +1541,23 @@ fetch(`http://localhost:3000/maquina/mostrar/${idEmpresa}`, {
     })
 }
 
-mostrarMaquina()
+        // mostrarMaquina()
 
-function openEditarMaquinas(idMaquinaParams) {
+function openEditarMaquinas(idMaquinaParams, nome) {
+    console.log('nome maquina', nome);
+    nome_input_maquina.value = nome;
     idMaquina = idMaquinaParams
     editarMaquinas.style.display = "flex"
 }
 
 
 const editarMaquinaOk = () => {
-    let nome = nome_input_maquina.value
-    let idMaquina = id_maquina.value
+    let nome1 = nome_input_maquina.value
+    // let idMaquina = id_maquina
+    // idMaquina = idMaquinaParams
 
-    if (nome === "") {
+
+    if (nome1 === "") {
         Swal.fire({
             title: 'Campo vazio',
             icon: 'error',
@@ -1266,12 +1566,12 @@ const editarMaquinaOk = () => {
     } else {
             fetch(`http://localhost:3000/atualizarMaquina/${idMaquina}`,
                 {
-                    method: "PUT",
+                    method: "POST",
                     headers: {
                         "Content-Type": "application/json"
                     },
                     body: JSON.stringify({
-                        nome: nome,
+                        nome: nome1,
                     })
                 }).then(function (resposta) {
                     if (resposta.ok) {
@@ -1280,9 +1580,11 @@ const editarMaquinaOk = () => {
                             icon: 'success',
                             confirmButtonText: 'Ok'
                         })
-                        mostrarMaquina()
-
-                        nome_input_maquina.innerHTML = ""
+                        // mostrarMaquina()
+                        setTimeout(() => {
+                        location.href = "dash.html";
+                    }, 2000);
+                        // nome_input_maquina.innerHTML = ""
                     } else {
                         Swal.fire({
                             title: 'Erro ao alterar',
@@ -1309,7 +1611,10 @@ function excluirMaquina(idMaquina) {
                 icon: 'success',
                 confirmButtonText: 'Ok'
             })
-            exibirListaMaquina()
+            setTimeout(() => {
+                        location.href = "dash.html";
+                    }, 2000);
+            // exibirListaMaquina()
         } else {
             Swal.fire({
                 confirmButtonText: 'Ok',
@@ -1345,18 +1650,28 @@ function excluirMaquina(idMaquina) {
     function openListaFuncionarios() {
         listaFuncionarios.style.display = "flex"
     }
+    
+    function openListaMetricas() {
+        listaMetricas.style.display = "flex"
+    }
+    function exitListaMetricas() {
+        listaMetricas.style.display = "none"
+    }
 
     function openListaMaquinas() {
         listaMaquinas.style.display = "flex"
+        mostrarMaquina();
+        console.log("entrou na função open maquinas")
     }
 
     function exitListaMaquinas() {
         listaMaquinas.style.display = "none"
     }
 
-    function openEditarMaquinas() {
-        editarMaquinas.style.display = "flex"
-    }
+    // function openEditarMaquinas() {
+    //     editarMaquinas.style.display = "flex"
+        
+    // }
 
     function exitEditarMaquinas() {
         editarMaquinas.style.display = "none"
@@ -1382,22 +1697,36 @@ function excluirMaquina(idMaquina) {
     function openCadastroFuncionarios() {
         cadastroFuncionarios.style.display = "flex"
     }
+  
+    function openCadastroMetricas() {
+        cadastroMetricas.style.display = "flex"
+    }
 
     function exitCadastroFuncionarios() {
         cadastroFuncionarios.style.display = "none"
     }
+ 
+    function exitCadastroMetricas() {
+        cadastroMetricas.style.display = "none"
+    }
 
 
     function openEditarPerfil() {
+        console.log('open editar perfil');
+        email_input_perfil.value = localStorage.EMAIL;
         editarPerfil.style.display = "flex"
     }
 
     function exitEditarFuncionarios() {
         editarFuncionarios.style.display = "none"
     }
+    
     function openListaDark() {
         listaDark.style.display = "flex"
+        exibirListaDark()
+        console.log("open lista dark");
     }
+    
     function exitListaDark() {
         listaDark.style.display = "none"
     }

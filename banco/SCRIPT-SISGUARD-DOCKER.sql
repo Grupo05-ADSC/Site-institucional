@@ -49,7 +49,13 @@ CREATE TABLE maquina (
     UNIQUE (idMaquina, fkDarkStore),
     FOREIGN KEY (fkDarkStore) REFERENCES darkstore(idDarkstore)
 );
-																		
+	INSERT INTO maquina VALUES (null, '2033232BE23', 'aso', 1);
+	INSERT INTO maquina VALUES (null, '2033232BE23', 'aso2', 1);
+	INSERT INTO maquina VALUES (null, '2033232BE23', 'aso3', 1);
+	INSERT INTO maquina VALUES (null, '2033232BE23', 'aso4', 1);
+	INSERT INTO maquina VALUES (null, '2033232BE23', 'aso5', 1);
+	INSERT INTO maquina VALUES (null, '2033232BE23', 'aso6', 1);
+                                
 CREATE TABLE funcionario (
     idFuncionario INT PRIMARY KEY AUTO_INCREMENT,
     nomeFuncionario VARCHAR(40),
@@ -131,6 +137,5 @@ CREATE TABLE alerta (
     FOREIGN KEY (registroComponenteMaquinafkMetricaIdeal)
         REFERENCES metrica_ideal (idMetricaIdeal)
 );
-
 
 SET SQL_SAFE_UPDATES = 0;

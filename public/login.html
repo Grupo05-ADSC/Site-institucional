@@ -234,6 +234,7 @@
                     return response.json();
                 })
                 .then(dados => {
+                    console.log(dados)
                     if (dados.cargo) {
                         localStorage.setItem('NOME', dados.nomeFuncionario);
                         localStorage.setItem('ID_FUNCIONARIO', dados.idFuncionario);

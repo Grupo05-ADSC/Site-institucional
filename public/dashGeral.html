@@ -68,21 +68,12 @@
         <div class="cardGeral">
 
             <div class="caixaMaquinasGeral">
-                <select id="darkStoreSelect">
-
+                <select id="darkStoreSelect" onclick="salvarDark(), mostrarMaquinas()">
+                    <option value="0">Selecione uma DarkStore</option>
                 </select>
-
-                <div class="maquinas">
-                    <div class="linha">
-                        <div class="boxMaquina">
-                            <img class="imagem" src="img/comp.png" alt="">
-                            <p>
-                                Máquina - 01
-                                Dark Store - 01
-                            </p>
-                        </div>
-                    </div>
-                </div>
+            <div id="boxMaquina" style="display: flex; flex-wrap: wrap; gap: 17px; margin-top: 10px;">
+                
+            </div>
             </div>
 
             <div class="graficoDiario">
@@ -130,8 +121,46 @@
     let macAtivas = localStorage.MACATIVAS
 
     total_funcionario.innerHTML = `${qtdFunc}` || ''
-    total_maquinas.innerHTML = `${qtdMac}` || ''
-    maquinas_ativas.innerHTML = `${macAtivas}` || ''
+    // total_maquinas.innerHTML = `${qtdMac}` || ''
+    // maquinas_ativas.innerHTML = `${macAtivas}` || ''
+    let idEmpresa = localStorage.ID_EMPRESA
+    let cargo = localStorage.CARGO || ''
+
+    function funcionarioTotais() {
+        console.log(cargo)
+        if (cargo === "") {
+            fetch(`http://localhost:3000/funcionariosTotais/:${idEmpresa}`, {
+                method: "GET"
+            }).then(resposta => resposta.json())
+                .then(item => {
+                    localStorage.QTDFUNC = quantidadeFuncionario = item["resposta"][0]["COUNT(*)"]
+
+                    total_funcionario.innerHTML = `${quantidadeFuncionario}`
+                })
+        } else if (cargo == "gerente") {
+            fetch(`http://localhost:3000/funcionariosTotais/${idEmpresa}`, {
+                method: "GET"
+            }).then(resposta => resposta.json())
+                .then(item => {
+                    localStorage.QTDFUNC = quantidadeFuncionario = item["resposta"][0]["COUNT(*)"]
+
+                    total_funcionario.innerHTML = `${quantidadeFuncionario}`
+                })
+            dark_options.style.display = "none"
+
+        } else if (cargo === "comum") {
+            total_funcionario.style.display = "none";
+            td_button_processo.style.display = "none";
+            td_stop_func.style.display = "none"
+            dark_options.style.display = "none";
+            perfil_options.style.display = "none";
+            maquinas_options.style.display = "none";
+            funcionarios_options.style.display = "none";
+            total_funcionario_div.style.display = "none";
+            overview_options.style.display = "none";
+        }
+    }
+    funcionarioTotais()
 
     span_nome_empresa.innerHTML = nome;
     var ctx = document.getElementById('myChart').getContext('2d');
@@ -159,6 +188,8 @@
         }
     });
 
+   
+
     function mostrarDark() {
         try {
             fetch(`http://localhost:3000/mostrarDarkstore/${idEmpresa}`, {
@@ -169,15 +200,109 @@
             }).then(resposta => resposta.json())
                 .then(dados => {
                     plotarDark(dados.resposta)
+                    console.log(dados.resposta);
                 })
         } catch (erro) {
             console.log(erro)
         }
     }
 
-    mostrarDark()
+    mostrarDark();
+
+    function mostrarMaquinas() {
+        console.log('id dark ===> ',localStorage.DARK);
+        let idEmpresa = localStorage.DARK
+        
+        // if(darkStoreSelect.value != 0){
+        try {
+            fetch(`http://localhost:3000/maquinas/${idEmpresa}`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).then(resposta => resposta.json())
+                .then(dados => {
+                    // console.log('valor selecionado', darkStoreSelect)
+                    console.log('dados mostrar maquinas',dados);
+                    console.log('dados mostrar maquinas ==> ',dados.length);
+                        plotarMaquina(dados.resposta)
+                })
+        } catch (erro) {
+            console.log(erro)
+       } 
+    }
+
+    
+
+    function plotarMaquina(dados) {
+        // if(dados == undefined){
+        //     console.log("dados vazio");
+        //      computerSelect.innerHTML += `<option value="0">Não há computadores</option>`
+        // }
+        if(dados != undefined){
+            console.log('dados length',dados.length);
+            total_maquinas.innerHTML = dados.length;
+            maquinas_ativas.innerHTML = dados.length;
+
+        }
+        // selectMaquina.innerHTML = "";
+        
+        // if (cargo === "" || cargo === "gerente") {
+            // let selectMaquina = computerSelect
+            // selectMaquina.innerHTML = "";
+            if(dados == undefined|| dados.length < 0){
+                boxMaquina.innerHTML = "Não há maquinas";
+                // selectMaquina.innerHTML = "";
+            }else if(dados.length >= 0){
+                boxMaquina.innerHTML = ""
+            // selectMaquina.innerHTML += `<option>Selecione uma máquina</option>`
+            dados.forEach((item, i) => {
+                console.log('item foreach',item);
+                // if(i % 4 == 0 && i != 0) {
+                //     console.log("if log", i);
+                //     boxMaquina.innerHTML += `
+                // <div class="maquinas">
+                //     <div class="linha">
+                //         <div class="boxMaquina">
+                //             <img class="imagem" src="img/comp.png" alt="">
+                //             <p>
+                //                 Máquina - ${item.nomeMaquina}
+                               
+                //             </p>
+                //         </div>
+                //     </div>
+                // </div> `;
+                // }
+                // else{   
+                    console.log("else log", i);
+
+                boxMaquina.innerHTML += `<div class="maquinas">
+                    <div class="linha">
+                        <div class="boxMaquina">
+                            <img class="imagem" src="img/comp.png" alt="">
+                            <p>
+                                Máquina - ${item.nomeMaquina}
+                               
+                            </p>
+                        </div>
+                    </div>
+                </div>`;
+            // }
+                });
+            }
+        // } else {
+
+            // computerSelect.innerHTML += `<option>Não autorizado</option>`
+        // }
+    }
+    // }
+
+   
+
+    // mostrarDark()
 
     function plotarDark(dados) {
+        console.log(dados);
         if (cargo === "" || cargo === "gerente") {
             let selectDark = darkStoreSelect
             dados.map(item => {
@@ -188,6 +313,21 @@
 
             darkStoreSelect.innerHTML += `<option>Não autorizado</option>`
         }
+    }
+
+    function salvarDark(){
+        console.log(darkStoreSelect.value);
+        localStorage.DARK = darkStoreSelect.value;
+        // localStorage.DARK = dark
+        // console.log('id dark local ===> ',dark);    
+    }
+
+
+    function salvarDark(){
+        console.log(darkStoreSelect.value);
+        localStorage.DARK = darkStoreSelect.value;
+        // localStorage.DARK = dark
+        // console.log('id dark local ===> ',dark);    
     }
 
     // if (teste >= 1) {

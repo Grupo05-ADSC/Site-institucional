@@ -847,6 +847,308 @@ button:hover{
 *::-webkit-scrollbar-track {
     background: #272628;
 }
+
+.lista-metricas {
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+
+    background-color: rgba(12, 12, 14, 0.2);
+    color: #fff;
+
+    width: 100%;
+    height: 100vh;
+    transition: 0.6s;
+}
+
+.lista-metricas .pop-up {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10%;
+
+    background-color: #272628;
+    width: 50%;
+    height: 70%;
+
+    border: 1px solid #8039EB;
+    border-radius: 5px;
+
+    padding: 0 80px;
+    padding-bottom: 30px;
+}
+
+.lista-metricas .pop-up .head {
+    margin-top: 10%;
+    height: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 0%;
+    transition: all 0.3s;
+}
+
+.lista-metricas .pop-up .head .titulo {
+    width: 95%;
+    text-align: center;
+}
+
+.lista-metricas .pop-up .head h1 {
+    font-size: 2vw;
+    margin: 0;
+}
+
+
+.lista-metricas .pop-up .head i:hover {
+    cursor: pointer;
+    scale: 1.04;
+}
+
+.lista-metricas .pop-up .conteudo {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    height: 40%;
+    overflow-y: scroll;
+}
+
+
+.lista-metricas .pop-up .conteudo i {
+    transition: all 0.3s;
+}
+
+.lista-metricas .pop-up .conteudo i:hover {
+    cursor: pointer;
+    scale: 1.08;
+}
+
+.cadastroMetricas  {
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+
+    background-color: rgba(12, 12, 14, 0.2);
+    color: #fff;
+
+    width: 100%;
+    height: 100vh;
+    transition: 0.6s;
+}
+
+.cadastroMetricas .pop-up {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    background-color: #272628;
+    width: 40%;
+    height: 70%;
+
+    border: 1px solid #8039EB;
+    border-radius: 5px;
+
+    padding: 0 80px;
+    padding-bottom: 30px;
+}
+
+.cadastroMetricas .pop-up .head {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 10%;
+}
+
+.cadastroMetricas .pop-up .head .titulo {
+    width: 95%;
+    text-align: center;
+}
+
+.cadastroMetricas .pop-up .head h1 {
+    font-size: 2vw;
+    margin: 0;
+}
+
+
+.cadastroMetricas .pop-up .head i:hover {
+    cursor: pointer;
+}
+
+.cadastroMetricas .pop-up .conteudo {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.cadastroMetricas .pop-up .conteudo input {
+    width: 100%;
+    height: 4vh;
+
+    background-color: #000000;
+    color: #ffffff;
+
+    border: 1px solid #8039EB;
+    border-radius: 5px;
+}
+
+.editarMetricas  {
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+
+    background-color: rgba(12, 12, 14, 0.2);
+    color: #fff;
+
+    width: 100%;
+    height: 100vh;
+    transition: 0.6s;
+}
+
+.editarMetricas .pop-up {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    background-color: #272628;
+    width: 30%;
+    height: 40%;
+
+    border: 1px solid #8039EB;
+    border-radius: 5px;
+
+    padding: 0 80px;
+    padding-bottom: 30px;
+}
+
+.editarMetricas .pop-up .head {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 10%;
+}
+
+.editarMetricas .pop-up .head .titulo {
+    width: 95%;
+    text-align: center;
+}
+
+.editarMetricas .pop-up .head h1 {
+    font-size: 2vw;
+    margin: 0;
+}
+
+
+.editarMetricas .pop-up .head i:hover {
+    cursor: pointer;
+}
+
+.editarMetricas .pop-up .conteudo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.editarMetricas .pop-up .conteudo input {
+    width: 100%;
+    height: 4vh;
+
+    background-color: #000000;
+    color: #ffffff;
+
+    border: 1px solid #8039EB;
+    border-radius: 5px;
+}
+
+.editarMetricas  {
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+
+    background-color: rgba(12, 12, 14, 0.2);
+    color: #fff;
+
+    width: 100%;
+    height: 100vh;
+    transition: 0.6s;
+}
+
+.editarMetricas .pop-up {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    background-color: #272628;
+    width: 50%;
+    height: 70%;
+
+    border: 1px solid #8039EB;
+    border-radius: 5px;
+
+    padding: 0 80px;
+    padding-bottom: 30px;
+}
+
+.editarMetricas .pop-up .head {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 10%;
+
+}
+
+.editarMetricas .pop-up .head .titulo {
+    width: 95%;
+    text-align: center;
+}
+
+.editarMetricas .pop-up .head h1 {
+    font-size: 2vw;
+    margin: 0;
+}
+
+
+.editarMetricas .pop-up .head i:hover {
+    cursor: pointer;
+}
+
+.editarMetricas .pop-up .conteudo {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.editarMetricas .pop-up .conteudo input {
+    width: 100%;
+    height: 4vh;
+
+    background-color: #000000; 
+    color: #ffffff;
+
+    border: 1px solid #8039EB;
+    border-radius: 5px;
+}
+
+*::-webkit-scrollbar {
+    width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #272628;
+}
 button{
     background-color: #8039EB;
     width: 25vh;
@@ -919,6 +1221,29 @@ button:hover{
 }
 
 .legendaMaquinas {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 15vh 0 0;
+}
+
+.lista-metricas .pop-up .conteudo .metricas h2 {
+    font-size: 1.5vw;
+}
+
+.lista-metricas .pop-up .conteudo .metricas p {
+    font-size: 1.2vw;
+}
+
+.lista-metricas .pop-up .conteudo .metricas span {
+    width: 5%;
+    height: 13%;
+    margin-top: 6%;
+    margin-left: 50px;
+
+    background-color: #000;
+}
+
+.legendaMetricas {
     display: flex;
     justify-content: space-between;
     margin: 0 15vh 0 0;
