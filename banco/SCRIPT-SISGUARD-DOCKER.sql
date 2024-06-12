@@ -71,7 +71,7 @@ CREATE TABLE maquina (
     UNIQUE (idMaquina, fkDarkStore),
     FOREIGN KEY (fkDarkStore) REFERENCES darkstore(idDarkstore)
 );
-																		
+                         
 CREATE TABLE funcionario (
     idFuncionario INT PRIMARY KEY AUTO_INCREMENT,
     nomeFuncionario VARCHAR(40),
@@ -154,5 +154,6 @@ CREATE TABLE alerta (
         REFERENCES metrica_ideal (idMetricaIdeal)
 );
 
-select * from processos;
 SET SQL_SAFE_UPDATES = 0;
+
+
