@@ -204,6 +204,10 @@ body {
     padding: 0%;
 }
 
+/* #div_total_processos {
+    display: none;
+} */
+
 #darkStoreSelect {
     height: 35px;
     width: 170px;
@@ -280,7 +284,12 @@ body {
     color: #b6b6b6;
     padding: 0%;
 }
-
+/* #div_total_threads {
+    display: none;
+} */
+#maquina_ativas_div {
+    display: none;
+}
 .imagem {
     height: 80px;
     width: 80px;

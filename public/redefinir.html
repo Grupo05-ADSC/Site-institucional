@@ -36,7 +36,7 @@
         <div class="div_separation_login">
             <div class="div_separation_login_children">
                 <div class="div_titulo_cadastro_login">
-                    <a href="./cadastro.html">Cadastrar-se</a>
+                    <button onclick="irLink()">Cadastrar-se</button>
                 </div>
                 <div class="div_suporte_login">
                     <h3>Suporte</h3>
@@ -76,6 +76,9 @@
 </body>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
 <script>
+     const irLink = () => {
+        document.location.href = "cadastro.html";
+    }
   function Redefinir() {
     let email = input_email.value;
     let senha = input_senha.value;
@@ -106,16 +109,16 @@
                 senha: senha
             })
         })
-        .then(resposta => resposta.json()
-        .then(data => ({status: resposta.status, body: data})))
-        .then(({status, body}) => {
-            if (status === 200) {
+        .then(resposta => resposta.json())
+        .then((item) => {
+            console.log(item)
+            if (item.message === "A senha foi trocada com sucesso!") {
                 Swal.fire({
                     title: 'A senha foi trocada com sucesso!',
                     icon: 'success',
                     confirmButtonText: 'Ok'
                 });
-            } else if (status === 404) {
+            } else if (item.error === "Email não encontrado") {
                 Swal.fire({
                     title: 'Email não encontrado!',
                     icon: 'error',

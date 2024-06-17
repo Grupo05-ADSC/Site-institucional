@@ -17,7 +17,7 @@
 
 </head>
 
-<body onload="getAllData()">
+<body>
     <nav class="menuLateral">
         <div class="boxLogo">
             <img class="imagem" src="img/logoSISGUARD.png" alt="">
@@ -43,24 +43,24 @@
     <div class="conteudoGeral">
         <div class="cardBox">
             <div class="box">
-                <b>Geral</b> <br>
-                Máquinas em alerta <br> <br>
-                <b id="alerta_geral" class="alerts">11</b>
+                <b>Métricas dos Componentes</b> <br>
+            
+                <b id="alerta_geral" class="alerts"></b>
             </div>
             <div class="box">
                 <b>CPU</b> <br>
-                Máquinas em alerta <br> <br>
+        
                 <b class="alerts" id="alerta_cpu">7</b>
 
             </div>
             <div class="box">
                 <b>RAM</b> <br>
-                Máquinas em alerta <br> <br>
+               
                 <b class="alerts" id="alerta_ram">4</b>
             </div>
             <div class="box">
                 <b>Disco</b> <br>
-                Máquinas em alerta <br> <br>
+               
                 <b class="alerts" id="alerta_disco">0</b>
             </div>
         </div>
@@ -76,12 +76,12 @@
             </div>
             </div>
 
-            <div class="graficoDiario">
+            <!-- <div class="graficoDiario">
                 <div class="boxGrafico">
                     <h2>Total de máquinas em alertas (diariamente)</h2>
                     <canvas id="myChart" width="300" height="220"></canvas>
                 </div>
-            </div>
+            </div> -->
 
         </div>
     </div>
@@ -89,9 +89,9 @@
     <div class="linha3">
         <div class="box">
             <b>Total de Máquinas</b>
-            <h1 class="destaque" id="total_maquinas">24</h1>
+            <h1 class="destaque" id="total_maquinas">0</h1>
         </div>
-        <div class="box">
+        <div class="box" id="div_maquinas_ativas">
             <b>Máquinas Ativas</b>
             <h1 class="destaque" id="maquinas_ativas">23</h1>
         </div>
@@ -103,17 +103,17 @@
 </body>
 
 </html>
-<script>
-
+<script defer>
+    
     let alertaGeral = localStorage.ALERTAGERAL
     let alertaCPU = localStorage.ALERTACPU
     let alertaRAM = localStorage.ALERTARAM
     let alertaDisco = localStorage.ALERTADISCO
 
     alerta_geral.innerHTML = `${alertaGeral}` || ''
-    alerta_cpu.innerHTML = `${alertaCPU}` || ''
-    alerta_ram.innerHTML = `${alertaRAM}` || ''
-    alerta_disco.innerHTML = `${alertaDisco}` || ''
+    alerta_cpu.innerHTML = 0
+    alerta_ram.innerHTML = 0
+    alerta_disco.innerHTML = 0
 
     let nome = localStorage.NOME
     let qtdFunc = localStorage.QTDFUNC
@@ -126,16 +126,44 @@
     let idEmpresa = localStorage.ID_EMPRESA
     let cargo = localStorage.CARGO || ''
 
+
+    span_nome_empresa.innerHTML = `${nome}`;
+    function mostrarTotalMaquinas() {
+try {
+    fetch(`http://localhost:3000/totalMaquinas/${idDarkStore}`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then(function(resposta) {
+        if (!resposta.ok) {
+            console.log("erro nos dados" + resposta);
+        } else {
+            return resposta.json();
+        }
+    }).then(dados => {
+    
+        dados['resposta'].forEach(item => {
+            total_maquinas.innerHTML = `${item.total_maquinas}`
+        });
+    }).catch(error => {
+        console.log('Erro ao processar os dados:', error);
+    });
+} catch (erro) {
+    console.log(erro)
+}
+}
+
     function funcionarioTotais() {
         console.log(cargo)
         if (cargo === "") {
-            fetch(`http://localhost:3000/funcionariosTotais/:${idEmpresa}`, {
+            fetch(`http://localhost:3000/funcionariosTotais/${idEmpresa}`, {
                 method: "GET"
             }).then(resposta => resposta.json())
                 .then(item => {
                     localStorage.QTDFUNC = quantidadeFuncionario = item["resposta"][0]["COUNT(*)"]
 
-                    total_funcionario.innerHTML = `${quantidadeFuncionario}`
+                    total_funcionario.innerHTML = `${quantidadeFuncionario}` || ""
                 })
         } else if (cargo == "gerente") {
             fetch(`http://localhost:3000/funcionariosTotais/${idEmpresa}`, {
@@ -162,33 +190,6 @@
     }
     funcionarioTotais()
 
-    span_nome_empresa.innerHTML = nome;
-    var ctx = document.getElementById('myChart').getContext('2d');
-    var myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'],
-            datasets: [{
-                label: 'Número de alertas',
-                data: [3, 4, 3, 5, 12, 10, 8],
-                backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                borderColor: 'rgba(54, 162, 235, 1)',
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true,
-                        max: 15
-                    }
-                }]
-            }
-        }
-    });
-
-   
 
     function mostrarDark() {
         try {
@@ -200,17 +201,16 @@
             }).then(resposta => resposta.json())
                 .then(dados => {
                     plotarDark(dados.resposta)
-                    console.log(dados.resposta);
+            
                 })
         } catch (erro) {
             console.log(erro)
         }
     }
 
-    mostrarDark();
+    mostrarDark()
 
     function mostrarMaquinas() {
-        console.log('id dark ===> ',localStorage.DARK);
         let idEmpresa = localStorage.DARK
         
         // if(darkStoreSelect.value != 0){
@@ -222,9 +222,7 @@
                 }
             }).then(resposta => resposta.json())
                 .then(dados => {
-                    // console.log('valor selecionado', darkStoreSelect)
-                    console.log('dados mostrar maquinas',dados);
-                    console.log('dados mostrar maquinas ==> ',dados.length);
+            
                         plotarMaquina(dados.resposta)
                 })
         } catch (erro) {
@@ -235,67 +233,43 @@
     
 
     function plotarMaquina(dados) {
-        // if(dados == undefined){
-        //     console.log("dados vazio");
-        //      computerSelect.innerHTML += `<option value="0">Não há computadores</option>`
-        // }
-        if(dados != undefined){
-            console.log('dados length',dados.length);
-            total_maquinas.innerHTML = dados.length;
-            maquinas_ativas.innerHTML = dados.length;
+    if (dados != undefined) {
+        console.log('dados length', dados.length);
+        total_maquinas.innerHTML = dados.length;
+        maquinas_ativas.innerHTML = dados.length;
+    }
 
-        }
-        // selectMaquina.innerHTML = "";
-        
-        // if (cargo === "" || cargo === "gerente") {
-            // let selectMaquina = computerSelect
-            // selectMaquina.innerHTML = "";
-            if(dados == undefined|| dados.length < 0){
-                boxMaquina.innerHTML = "Não há maquinas";
-                // selectMaquina.innerHTML = "";
-            }else if(dados.length >= 0){
-                boxMaquina.innerHTML = ""
-            // selectMaquina.innerHTML += `<option>Selecione uma máquina</option>`
-            dados.forEach((item, i) => {
-                console.log('item foreach',item);
-                // if(i % 4 == 0 && i != 0) {
-                //     console.log("if log", i);
-                //     boxMaquina.innerHTML += `
-                // <div class="maquinas">
-                //     <div class="linha">
-                //         <div class="boxMaquina">
-                //             <img class="imagem" src="img/comp.png" alt="">
-                //             <p>
-                //                 Máquina - ${item.nomeMaquina}
-                               
-                //             </p>
-                //         </div>
-                //     </div>
-                // </div> `;
-                // }
-                // else{   
-                    console.log("else log", i);
+    if (dados == undefined || dados.length === 0) {
+        boxMaquina.innerHTML = "Não há maquinas";
+    } else if (dados.length > 0) {
+        boxMaquina.innerHTML = "";
+        dados.forEach((item) => {
+            console.log('item foreach', item);
+            // Armazena o ID da máquina no sessionStorage
+            sessionStorage.ID_MAQUINA = item.idMaquina;
 
-                boxMaquina.innerHTML += `<div class="maquinas">
+            boxMaquina.innerHTML += `
+                <div class="maquinas" onclick="selecionarMaquina(${item.idMaquina}, ${item.fkDarkStore})">
                     <div class="linha">
                         <div class="boxMaquina">
                             <img class="imagem" src="img/comp.png" alt="">
                             <p>
                                 Máquina - ${item.nomeMaquina}
-                               
                             </p>
                         </div>
                     </div>
                 </div>`;
-            // }
-                });
-            }
-        // } else {
-
-            // computerSelect.innerHTML += `<option>Não autorizado</option>`
-        // }
+        });
     }
-    // }
+}
+
+// Função para selecionar a máquina e redirecionar para a tela "dash"
+function selecionarMaquina(idMaquina, idDarkstore) {
+    sessionStorage.setItem('ID_MAQUINA', idMaquina);
+    sessionStorage.setItem('ID_DARK', idDarkstore);
+    window.location.href = `dash.html?idMaquina=${idMaquina}&idDark=${idDarkstore}`;
+}
+
 
    
 
@@ -306,8 +280,10 @@
         if (cargo === "" || cargo === "gerente") {
             let selectDark = darkStoreSelect
             dados.map(item => {
-
+                
                 selectDark.innerHTML += `<option value=${item.idDarkstore}>${item.nome}</option>`
+
+                metricas(item.idDarkstore)
             })
         } else {
 
@@ -354,4 +330,50 @@
     //         console.log("deu erro", erro)
     //     })
     // }
+
+
+    function metricas(idDark) {
+        fetch(`http://localhost:3000/metricas/${idDark}`, {
+    method: "GET",
+    headers: {
+        "Content-Type": "application/json"
+    }
+}).then(resposta => resposta.json())
+    .then(value => {
+        value['resposta'].map(item => {
+            alerta_cpu.innerHTML = `${item.criticoCPU}`
+            alerta_ram.innerHTML = `${item.criticoRAM}`
+            alerta_disco.innerHTML = `${item.criticoDisco}`
+        })
+    })
+    }
+
+</script>
+<script>
+     var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado', 'Domingo'],
+            datasets: [{
+                label: 'Número de alertas',
+                data: [3, 4, 3, 5, 12, 10, 8],
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                        max: 15
+                    }
+                }]
+            }
+        }
+    });
+
+   
 </script>

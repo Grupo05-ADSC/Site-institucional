@@ -1,8 +1,10 @@
-																		
 DROP DATABASE IF EXISTS sisguard;
 CREATE DATABASE IF NOT EXISTS sisguard;
 
-use sisguard;
+USE sisguard;
+
+select * from empresa;
+
 CREATE TABLE empresa (
     idEmpresa INT PRIMARY KEY AUTO_INCREMENT,
     nomeEmpresa VARCHAR(40) NOT NULL,
@@ -13,20 +15,14 @@ CREATE TABLE empresa (
     dataCriacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-INSERT INTO empresa(nomeEmpresa, cnpj, email, senha) VALUES ("frizza", "123", "frizza", "123");
-
 CREATE TABLE darkstore (
     idDarkstore INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(40),
     canalSlack VARCHAR(100),
     fkEmpresa INT NOT NULL,
-    FOREIGN KEY (fkEmpresa) REFERENCES empresa (idEmpresa)
+    FOREIGN KEY (fkEmpresa) REFERENCES empresa(idEmpresa) ON DELETE CASCADE
 );
 
-
-
-INSERT INTO darkstore(nome, fkEmpresa,canalSlack) VALUES ("Setor 1", 1, "C06KZSZV72B");
-select * from darkstore;
 CREATE TABLE metrica_ideal (
     idMetricaIdeal INT PRIMARY KEY AUTO_INCREMENT,
     alertaPadrao DOUBLE,
@@ -38,40 +34,17 @@ CREATE TABLE metrica_ideal (
     alertaDisco DOUBLE,
     criticoDisco DOUBLE,
     fkDarkStore INT NOT NULL,
-    FOREIGN KEY (fkDarkStore) REFERENCES darkstore (idDarkstore)
+    FOREIGN KEY (fkDarkStore) REFERENCES darkstore(idDarkstore) ON DELETE CASCADE
 );
-
-INSERT INTO metrica_ideal (
-    alertaPadrao,
-    criticaPadrao,
-    alertaCPU,
-    criticoCPU,
-    alertaRAM,
-    criticoRAM,
-    alertaDisco,
-    criticoDisco,
-    fkDarkStore
-) VALUES (
-    10.0,
-    20.0, 
-    10.0,
-    20.0, 
-    10.0, 
-    20.0, 
-    10.0,
-    20.0, 
-    1 
-);
-
 CREATE TABLE maquina (
     idMaquina INT AUTO_INCREMENT PRIMARY KEY,
     numSerie VARCHAR(30),
     nomeMaquina VARCHAR(50),
     fkDarkStore INT NOT NULL,
     UNIQUE (idMaquina, fkDarkStore),
-    FOREIGN KEY (fkDarkStore) REFERENCES darkstore(idDarkstore)
+    FOREIGN KEY (fkDarkStore) REFERENCES darkstore(idDarkstore) ON DELETE CASCADE
 );
-                         
+
 CREATE TABLE funcionario (
     idFuncionario INT PRIMARY KEY AUTO_INCREMENT,
     nomeFuncionario VARCHAR(40),
@@ -80,7 +53,7 @@ CREATE TABLE funcionario (
     senha VARCHAR(45),
     cargo VARCHAR(45) NOT NULL,
     fkEmpresa INT NOT NULL,
-    FOREIGN KEY (fkEmpresa) REFERENCES empresa (idEmpresa)
+    FOREIGN KEY (fkEmpresa) REFERENCES empresa(idEmpresa) ON DELETE CASCADE
 );
 
 CREATE TABLE endereco (
@@ -92,7 +65,7 @@ CREATE TABLE endereco (
     rua VARCHAR(50) NOT NULL,
     numero INT NOT NULL,
     fkDarkstore INT NOT NULL,
-    FOREIGN KEY (fkDarkstore) REFERENCES darkstore (idDarkstore)
+    FOREIGN KEY (fkDarkstore) REFERENCES darkstore(idDarkstore) ON DELETE CASCADE
 );
 
 CREATE TABLE componente (
@@ -107,13 +80,10 @@ CREATE TABLE processos (
     idProcessos INT PRIMARY KEY AUTO_INCREMENT,
     dado VARCHAR(650),
     pid VARCHAR(20),
-    desativar char(3) default "NAO",
+    desativar CHAR(3) DEFAULT "NAO",
     fkMaquina INT,
-    FOREIGN KEY (fkMaquina) REFERENCES maquina(idMaquina)
+    FOREIGN KEY (fkMaquina) REFERENCES maquina(idMaquina) ON DELETE CASCADE
 );
-
-ALTER TABLE maquina ADD COLUMN maquinaMetricaIdeal INT;
-
 CREATE TABLE registro (
     idRegistro INT PRIMARY KEY AUTO_INCREMENT,
     dado VARCHAR(200) NOT NULL,
@@ -122,11 +92,12 @@ CREATE TABLE registro (
     componente_fkMaquina INT NOT NULL,
     componente_maquina_fkDarkstore INT NOT NULL,
     componente_maquina_fkMetrica_ideal INT NOT NULL,
-    FOREIGN KEY (fkComponente) REFERENCES componente(idComponente),
-    FOREIGN KEY (componente_fkMaquina) REFERENCES maquina(idMaquina),
-    FOREIGN KEY (componente_maquina_fkDarkstore) REFERENCES darkstore(idDarkstore),
-    FOREIGN KEY (componente_maquina_fkMetrica_ideal) REFERENCES metrica_ideal(idMetricaIdeal)
+    FOREIGN KEY (fkComponente) REFERENCES componente(idComponente) ON DELETE CASCADE,
+    FOREIGN KEY (componente_fkMaquina) REFERENCES maquina(idMaquina) ON DELETE CASCADE,
+    FOREIGN KEY (componente_maquina_fkDarkstore) REFERENCES darkstore(idDarkstore) ON DELETE CASCADE,
+    FOREIGN KEY (componente_maquina_fkMetrica_ideal) REFERENCES metrica_ideal(idMetricaIdeal) ON DELETE CASCADE
 );
+
 CREATE TABLE alerta (
     idAlerta INT PRIMARY KEY AUTO_INCREMENT,
     descricao VARCHAR(250),
@@ -138,22 +109,15 @@ CREATE TABLE alerta (
     registroComponentefkMaquina INT,
     registroComponenteMaquinafkDarkstore INT,
     registroComponenteMaquinafkMetricaIdeal INT,
-    FOREIGN KEY (fkMaquina)
-        REFERENCES maquina (idMaquina),
-    FOREIGN KEY (maquinafkDarkstore)
-        REFERENCES darkstore (idDarkstore),
-    FOREIGN KEY (fkRegistro)
-        REFERENCES registro (idRegistro),
-    FOREIGN KEY (registrofkComponente)
-        REFERENCES componente (idComponente),
-    FOREIGN KEY (registroComponentefkMaquina)
-        REFERENCES maquina (idMaquina),
-    FOREIGN KEY (registroComponenteMaquinafkDarkstore)
-        REFERENCES darkstore (idDarkstore),
-    FOREIGN KEY (registroComponenteMaquinafkMetricaIdeal)
-        REFERENCES metrica_ideal (idMetricaIdeal)
+    FOREIGN KEY (fkMaquina) REFERENCES maquina(idMaquina) ON DELETE CASCADE,
+    FOREIGN KEY (maquinafkDarkstore) REFERENCES darkstore(idDarkstore) ON DELETE CASCADE,
+    FOREIGN KEY (fkRegistro) REFERENCES registro(idRegistro) ON DELETE CASCADE,
+    FOREIGN KEY (registrofkComponente) REFERENCES componente(idComponente) ON DELETE CASCADE,
+    FOREIGN KEY (registroComponentefkMaquina) REFERENCES maquina(idMaquina) ON DELETE CASCADE,
+    FOREIGN KEY (registroComponenteMaquinafkDarkstore) REFERENCES darkstore(idDarkstore) ON DELETE CASCADE,
+    FOREIGN KEY (registroComponenteMaquinafkMetricaIdeal) REFERENCES metrica_ideal(idMetricaIdeal) ON DELETE CASCADE
 );
 
+select * from darkstore;
+
 SET SQL_SAFE_UPDATES = 0;
-
-

@@ -1,26 +1,3 @@
-var ctx = document.getElementById('donutChart').getContext('2d');
-var donutChart = new Chart(ctx, {
-    type: 'doughnut',
-    data: {
-        datasets: [{
-            data: [70, 30],
-            backgroundColor: [
-                'rgba(54, 122, 235, 0.8)',
-                'rgba(153, 42, 255, 0.8)'
-            ],
-            borderWidth: 0
-        }]
-    },
-    options: {
-        title: {
-            display: true,
-            text: 'Espaço do Disco'
-        },
-        cutoutPercentage: 70
-    }
-});
-
-
 // Gráfico da CPU
 var ctx1 = document.getElementById('lineChart1').getContext('2d');
 var lineChart1 = new Chart(ctx1, {
@@ -50,18 +27,15 @@ var lineChart1 = new Chart(ctx1, {
     }
 });
 
-function updateCPUData(chart) {
-    var now = new Date();
-    var hour = now.getHours();
-    var minute = now.getMinutes();
-    var time = (hour < 10 ? '0' : '') + hour + ':' + (minute < 10 ? '0' : '') + minute;
-
+// Função para atualizar dados da CPU
+function updateCPUData(chart, data) {
+    var time = new Date().toLocaleTimeString();
     chart.data.labels.push(time);
     if (chart.data.labels.length > 10) {
         chart.data.labels.shift();
         chart.data.datasets[0].data.shift();
     }
-    chart.data.datasets[0].data.push(Math.floor(Math.random() * 70) + 25);
+    chart.data.datasets[0].data.push(parseFloat(data.dado));
     chart.update();
 }
 
@@ -94,22 +68,19 @@ var lineChart2 = new Chart(ctx2, {
     }
 });
 
-function updateDiskData(chart) {
-    var now = new Date();
-    var hour = now.getHours();
-    var minute = now.getMinutes();
-    var time = (hour < 10 ? '0' : '') + hour + ':' + (minute < 10 ? '0' : '') + minute;
-
+// Função para atualizar dados do Disco
+function updateDiskData(chart, data) {
+    var time = new Date().toLocaleTimeString();
     chart.data.labels.push(time);
     if (chart.data.labels.length > 10) {
         chart.data.labels.shift();
         chart.data.datasets[0].data.shift();
     }
-    chart.data.datasets[0].data.push(Math.floor(Math.random() * 5));
+    chart.data.datasets[0].data.push(parseFloat(data.dado));
     chart.update();
 }
 
-// Gráfico da RAM AQUI
+// Gráfico da RAM
 var ctx3 = document.getElementById('lineChart3').getContext('2d');
 var lineChart3 = new Chart(ctx3, {
     type: 'line',
@@ -138,64 +109,33 @@ var lineChart3 = new Chart(ctx3, {
     }
 });
 
-
-function updateRAMData(chart) {
-    var now = new Date();
-    var hour = now.getHours();
-    var minute = now.getMinutes();
-    var time = (hour < 10 ? '0' : '') + hour + ':' + (minute < 10 ? '0' : '') + minute;
-
+// Função para atualizar dados da RAM
+function updateRAMData(chart, data) {
+    var time = new Date().toLocaleTimeString();
     chart.data.labels.push(time);
     if (chart.data.labels.length > 10) {
         chart.data.labels.shift();
         chart.data.datasets[0].data.shift();
     }
-    chart.data.datasets[0].data.push(Math.floor(Math.random() * 16) + 35);
+    chart.data.datasets[0].data.push(parseFloat(data.dado));
     chart.update();
 }
 
+// Função para simular a obtenção de dados a cada 10 segundos
+function fetchDataAndUpdateCharts() {
+    // Simulando a obtenção de dados (você deve substituir isso pela lógica real de busca de dados)
+    var fakeData = [
+        { idRegistro: 2, dado: '5.85' },
+        { idRegistro: 3, dado: '617.1' },
+        { idRegistro: 4, dado: '1.0' }
+        // Adicione aqui os dados da RAM
+    ];
 
-// Gráfico da REDE
-var ctx4 = document.getElementById('lineChart4').getContext('2d');
-var lineChart4 = new Chart(ctx4, {
-    type: 'line',
-    data: {
-        labels: [],
-        datasets: [{
-            label: 'Registros REDE',
-            data: [],
-            backgroundColor: 'rgba(54, 162, 235, 0.2)',
-            borderColor: 'rgba(54, 162, 235, 1)',
-            borderWidth: 1,
-            fill: true
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true,
-                    min: 35,
-                    max: 50,
-                    stepSize: 5
-                }
-            }]
-        }
-    }
-});
-
-
-function updateREDEData(chart) {
-    var now = new Date();
-    var hour = now.getHours();
-    var minute = now.getMinutes();
-    var time = (hour < 10 ? '0' : '') + hour + ':' + (minute < 10 ? '0' : '') + minute;
-
-    chart.data.labels.push(time);
-    if (chart.data.labels.length > 10) {
-        chart.data.labels.shift();
-        chart.data.datasets[0].data.shift();
-    }
-    chart.data.datasets[0].data.push(Math.floor(Math.random() * 3001) + 6000);
-    chart.update();
+    // Atualiza os gráficos com os novos dados
+    updateCPUData(lineChart1, fakeData[0]);
+    updateDiskData(lineChart2, fakeData[1]);
+    updateRAMData(lineChart3, fakeData[2]);
 }
+
+// Chama a função de busca e atualização de dados a cada 10 segundos
+setInterval(fetchDataAndUpdateCharts, 10000);
