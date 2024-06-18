@@ -25,7 +25,7 @@
         <div class="div_header_links">
             <ul class="lista_header_links">
                 <a href="index.html">Home</a>
-                <button class="button_header_login_cadastro">
+                <button class="button_header_login_cadastro" onclick="irLink()">
                     Cadastro
                 </button>
             </ul>
@@ -99,7 +99,7 @@
         });
         return false;
     } else {
-        fetch(`http://localhost:3000/recuperarSenha`, {
+        fetch(`/usuario/recuperarSenha`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -111,7 +111,7 @@
         })
         .then(resposta => resposta.json())
         .then((item) => {
-            console.log(item)
+    
             if (item.message === "A senha foi trocada com sucesso!") {
                 Swal.fire({
                     title: 'A senha foi trocada com sucesso!',

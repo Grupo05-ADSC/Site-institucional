@@ -156,6 +156,12 @@
                     <input type="text" id="nome_input_maquina">
 
                 </div>
+                <div class="conteudo">
+                    <p>DarkStore:</p>
+                    <select id="darkStoreSelect_editar" onchange="mostrarMaquinas(this.value)">
+                        <option value="0">Selecione uma DarkStore</option>
+                    </select>
+                </div>
                 <button onclick="editarMaquinaOk()" style="width: 40vh;" class="btnCadastro">Editar máquina</button>
             </div>
 
@@ -204,8 +210,10 @@
                     <input type="number" name="" id="input_alertaMetrica">
                     <p>Crítico:</p>
                     <input type="number" name="" id="input_criticoMetrica">
-
                 </div>
+                <select id="darkStoreSelect_editar_metricas" onchange="mostrarMaquinas(this.value)">
+                    <option value="0">Selecione uma DarkStore</option>
+                </select>
                 <button onclick="cadastrarMetricas()" style="width: 40vh;" class="btnCadastro">Cadastrar
                     métrica</button>
             </div>
@@ -231,6 +239,7 @@
                     <p>Crítico:</p>
                     <input type="number" id="critico_input_metricas">
                 </div>
+                
                 <button onclick="editarMetricasOk()" style="width: 40vh;" class="btnCadastro">Editar métricas</button>
             </div>
 
@@ -698,12 +707,11 @@
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
-
+let fkDarkTeste 
 window.onload = function() {
     // Tenta obter o idMaquina e idDark da URL
     let idMaquina = getParameterByName('idMaquina');
     let idDark = getParameterByName('idDark');
-
     // Se não encontrar na URL, tenta obter do sessionStorage
     if (!idMaquina) {
         idMaquina = sessionStorage.getItem('ID_MAQUINA');
@@ -720,6 +728,7 @@ window.onload = function() {
 
     if (idDark) {
         console.log("ID Darkstore:", idDark);
+        fkDarkTeste = idDark
     } else {
         console.log("ID da Darkstore não encontrado.");
     }
@@ -729,7 +738,7 @@ window.onload = function() {
     function funcionarioTotais() {
   
         if (cargo === "") {
-            fetch(`http://localhost:3000/funcionariosTotais/${idEmpresa}`, {
+            fetch(`/funcionario/funcionariosTotais/${idEmpresa}`, {
                 method: "GET"
             }).then(resposta => resposta.json())
                 .then(item => {
@@ -738,7 +747,7 @@ window.onload = function() {
                     total_funcionario.innerHTML = `${quantidadeFuncionario}`
                 })
         } else if (cargo == "gerente") {
-            fetch(`http://localhost:3000/funcionariosTotais/${idEmpresa}`, {
+            fetch(`/funcionario/funcionariosTotais/${idEmpresa}`, {
                 method: "GET"
             }).then(resposta => resposta.json())
                 .then(item => {
@@ -746,35 +755,21 @@ window.onload = function() {
 
                     total_funcionario.innerHTML = `${quantidadeFuncionario}`
                 })
-            dark_options.style.display = "none"
-
-        } else if (cargo === "comum") {
-            total_funcionario.style.display = "none";
-            td_button_processo.style.display = "none";
-            td_stop_func.style.display = "none"
-            dark_options.style.display = "none";
-            perfil_options.style.display = "none";
-            maquinas_options.style.display = "none";
-            metricas_options.style.display = "none";
-            funcionarios_options.style.display = "none";
-            total_funcionario_div.style.display = "none";
-            overview_options.style.display = "none";
-        }else if (cargo === "comum") {
-            perfil_options.style.display = "none";
-        }
+        
+        } 
     }
 
     funcionarioTotais()
     function mostrarDark() {
         try {
-            fetch(`http://localhost:3000/mostrarDarkstore/${idEmpresa}`, {
+            fetch(`/darkstore/mostrarDarkstore/${idEmpresa}`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json"
                 }
             }).then(resposta => resposta.json())
                 .then(dados => {
-                    console.log(dados)
+                  
                     plotarDark(dados.resposta)
             
                 })
@@ -795,9 +790,9 @@ function mostrarMaquinas(idDarkstore) {
         document.getElementById('computerSelect').innerHTML = '<option value="0">Selecione uma máquina</option>';
         return;
     }
-
+    fkDarkTeste = idDarkstore
     try {
-        fetch(`http://localhost:3000/maquinas/${idDarkstore}`, {
+        fetch(`/maquinas/maquinas/${idDarkstore}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -816,7 +811,9 @@ function mostrarMaquinas(idDarkstore) {
     
             dadosAtualizados.forEach(item => {
                 computerSelect.innerHTML += `<option value="${item.idMaquina}">${item.nomeMaquina || item.numSerie}</option>`;
+                idMaquina = item.idMaquina
             });
+        
         })
         .catch(error => {
             console.log('Erro ao processar os dados:', error);
@@ -834,6 +831,8 @@ function mostrarMaquinas(idDarkstore) {
             idDarkStore = item.idDarkstore
         
             selectDark.innerHTML += `<option value="${item.idDarkstore}">${item.nome}</option>`;
+            darkStoreSelect_editar.innerHTML  += `<option value="${item.idDarkstore}">${item.nome}</option>`
+            darkStoreSelect_editar_metricas.innerHTML  += `<option value="${item.idDarkstore}">${item.nome}</option>`
         });
     } else {
         document.getElementById('darkStoreSelect').innerHTML = `<option>Não autorizado</option>`;
@@ -841,7 +840,7 @@ function mostrarMaquinas(idDarkstore) {
 }
     function mostrarFuncionario () {
 
-        fetch(`http://localhost:3000/mostrarfuncionario/${idEmpresa}`, {
+        fetch(`/funcionario/mostrarfuncionario/${idEmpresa}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -925,7 +924,7 @@ function mostrarMaquinas(idDarkstore) {
 mostrarFuncionario()
     var fkEmpresa = idEmpresa
     function excluirFuncionario(idFuncionario) {
-    fetch(`http://localhost:3000/deletarFuncionario/${fkEmpresa}/${idFuncionario}`, {
+    fetch(`/funcionario/deletarFuncionario/${fkEmpresa}/${idFuncionario}`, {
         method: "DELETE",
         headers : {
             "Content-type" : "application/json"
@@ -983,7 +982,7 @@ mostrarFuncionario()
             });
             return false
         } else {
-            fetch(`http://localhost:3000/cadastroFunc/${idEmpresa}`, {
+            fetch(`/funcionario/cadastroFunc/${idEmpresa}`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -1049,7 +1048,7 @@ mostrarFuncionario()
                     confirmButtonText: 'Ok'
                 })
             } else {
-                fetch(`http://localhost:3000/atualizarFuncionario/${idEmpresa}/${idFuncionario}`,
+                fetch(`/funcionario/atualizarFuncionario/${idEmpresa}/${idFuncionario}`,
                     {
                         method: "PUT",
                         headers: {
@@ -1108,7 +1107,7 @@ mostrarFuncionario()
                     confirmButtonText: 'Ok'
                 })
             } else {
-                fetch(`http://localhost:3000/editarPerfil/${idEmpresa}`,
+                fetch(`/perfil/editarPerfil/${idEmpresa}`,
                     {
                         method: "PUT",
                         headers: {
@@ -1152,14 +1151,14 @@ mostrarFuncionario()
         localStorage.EMAIL = ""
         localStorage.CARGO = ''
 
-        document.location.href = "../login.html"
+        document.location.href = "login.html"
     }
 
     function exibirListaDark() {
         if (idEmpresa === null || idEmpresa === 0) {
 
         } else {
-            fetch(`http://localhost:3000/mostrarDarkstore/${idEmpresa}`, {
+            fetch(`/darkstore/mostrarDarkstore/${idEmpresa}`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json"
@@ -1239,7 +1238,7 @@ mostrarFuncionario()
             text: "Preencha todos os campos",
         });
     } else {
-        fetch(`http://localhost:3000/darkstore/cadastrarDark/${idEmpresa}`, { // Ajuste no endpoint
+        fetch(`/darkstore/cadastrarDark/${idEmpresa}`, { // Ajuste no endpoint
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -1286,8 +1285,8 @@ mostrarFuncionario()
 
 
     function excluirDark(idDark) {
-        console.log("excluir dark");
-        fetch(`http://localhost:3000/deletarDark/${idEmpresa}/${idDark}`, {
+
+        fetch(`/darkstore/deletarDark/${idEmpresa}/${idDark}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"
@@ -1337,7 +1336,7 @@ mostrarFuncionario()
                 text: "Preencha todos os campos",
             });
         } else {
-            fetch(`http://localhost:3000/atualizarDark/${idEmpresa}/${idDark}`,
+            fetch(`/darkstore/atualizarDark/${idEmpresa}/${idDark}`,
                 {
                     method: "POST",
                     headers: {
@@ -1373,14 +1372,14 @@ mostrarFuncionario()
 
 function mostrarMaquina() {
     
-// console.log("entrou na função");
-    fetch(`http://localhost:3000/maquinass/${idEmpresa}`, {
+    fetch(`/maquinas/maquinass/${fkDarkTeste}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json"
         }
     }).then(resposta => resposta.json())
     .then(value => { 
+
         conteudo_maquina.innerHTML = "";
         // value.forEach(item => {
         value['resposta'].forEach(item => {
@@ -1407,28 +1406,29 @@ function mostrarMaquina() {
 }
 
         // mostrarMaquina()
-
+let idMaquinaTeste
 function openEditarMaquinas(idMaquinaParams, nome) {
     nome_input_maquina.value = nome;
-    idMaquina = idMaquinaParams
+    idMaquinaTeste = idMaquinaParams
+
     editarMaquinas.style.display = "flex"
 }
 
 
 const editarMaquinaOk = () => {
     let nome1 = nome_input_maquina.value
+    let darkEscolhida = darkStoreSelect_editar.value
     // let idMaquina = id_maquina
     // idMaquina = idMaquinaParams
-
-
-    if (nome1 === "") {
+   
+    if (nome1 === "" || darkEscolhida === "") {
         Swal.fire({
             title: 'Campo vazio',
             icon: 'error',
             confirmButtonText: 'Ok'
         })
     } else {
-            fetch(`http://localhost:3000/atualizarMaquina/${idMaquina}`,
+            fetch(`/maquinas/atualizarMaquina/${idMaquinaTeste}`,
                 {
                     method: "POST",
                     headers: {
@@ -1436,11 +1436,12 @@ const editarMaquinaOk = () => {
                     },
                     body: JSON.stringify({
                         nome: nome1,
+                        darkEscolhida: darkEscolhida
                     })
                 }).then(function (resposta) {
                     if (!resposta.ok) {
                         Swal.fire({
-                            title: 'Nome alterado!',
+                            title: 'Dados alterados!',
                             icon: 'success',
                             confirmButtonText: 'Ok'
                         })
@@ -1463,7 +1464,7 @@ const editarMaquinaOk = () => {
 
         
 function excluirMaquina(idMaquina) {
-    fetch(`http://localhost:3000/deletarMaquina/${idMaquina}`, {
+    fetch(`/maquinas/deletarMaquina/${idMaquina}`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json"
@@ -1492,8 +1493,9 @@ function excluirMaquina(idMaquina) {
 }
 
 function plotarGraficos(idMaquina) {
+
     idGrafico = idMaquina
-    fetch(`http://localhost:3000/pegarDados/${idMaquina}`, {
+    fetch(`/graficos/pegarDados/${idMaquina}`, {
         method: "GET",
         headers: {
             "Content-type": "application/json"
@@ -1506,7 +1508,7 @@ function plotarGraficos(idMaquina) {
         return response.json();
     })
     .then(data => {
-    
+        console.log(data)
         if (data.length > 0) {
             const registrosCPU = data.filter(item => item.nomeComponente === "CPU");
             const registrosDISCO = data.filter(item => item.nomeComponente === "Disco");
@@ -1553,7 +1555,7 @@ function updateCPUData(chart, data) {
     var time = new Date().toLocaleTimeString();
 
     chart.data.labels.push(time);
-    if (chart.data.labels.length > 10) {
+    if (chart.data.labels.length > 5) {
         chart.data.labels.shift();
         chart.data.datasets[0].data.shift();
     }
@@ -1565,7 +1567,7 @@ function updateDiskData(chart, data) {
     var time = new Date().toLocaleTimeString();
 
     chart.data.labels.push(time);
-    if (chart.data.labels.length > 10) {
+    if (chart.data.labels.length > 5) {
         chart.data.labels.shift();
         chart.data.datasets[0].data.shift();
     }
@@ -1587,7 +1589,7 @@ function updateRAMData(chart, data) {
     var time = new Date().toLocaleTimeString();
 
     chart.data.labels.push(time);
-    if (chart.data.labels.length > 10) {
+    if (chart.data.labels.length > 5) {
         chart.data.labels.shift();
         chart.data.datasets[0].data.shift();
     }
@@ -1708,7 +1710,7 @@ function atualizarValorDisco(valor) {
 }
 
 const pegarProcesso = () => {
-    fetch(`http://localhost:3000/pegarProcesso/${idGrafico}`, {
+    fetch(`/graficos/pegarProcesso/${idGrafico}`, {
         method: "GET"
     })
     .then(resposta => resposta.json())
@@ -1749,7 +1751,7 @@ const pegarProcesso = () => {
 };
 
 const pegarProcessoTop10 = () => {
-    fetch(`http://localhost:3000/pegarProcesso/${idGrafico}`, {
+    fetch(`/graficos/pegarProcesso/${idGrafico}`, {
         method: "GET"
     })
     .then(resposta => resposta.json())
@@ -1793,8 +1795,7 @@ const pegarProcessoTop10 = () => {
 };
 
 const pararProcesso = (pid) => {
-    let idMaquina = sessionStorage.getItem('ID_MAQUINA');
-    fetch(`http://localhost:3000/pararProcesso/${idMaquina}`, {
+    fetch(`/processo/pararProcesso/${idGrafico}`, {
                     method: "PUT",
                     headers: {
                         "Content-Type": "application/json"
@@ -1802,24 +1803,25 @@ const pararProcesso = (pid) => {
                     body: JSON.stringify({
                         pid: pid,
                     })
-                }).then(function (resposta) {
-                    if (resposta.ok) {
+                }).then(resposta => resposta.json())
+                .then(function(dados) {
+                    console.log(dados)
+                    if (dados.messege === "Processo Parado!") {
+                        Swal.fire({
+                            title: 'Erro ao parar processo!',
+                            icon: 'error',
+                            confirmButtonText: 'Ok'
+                        })
+                    } else {
+                    
                         Swal.fire({
                             title: 'Processo Parado!',
                             icon: 'success',
                             confirmButtonText: 'Ok'
                         })
                         pegarProcessoTop10()
-                
-                    } else {
-                        Swal.fire({
-                            title: 'Erro ao parar processo!',
-                            icon: 'error',
-                            confirmButtonText: 'Ok'
-                        })
                     }
-
-                }).catch(erro => console.log(erro))
+                })
 }
 function fetchDataAndUpdateCharts() {
     plotarGraficos(idGrafico);
@@ -1831,7 +1833,7 @@ setInterval(fetchDataAndUpdateCharts, 10000);
 
 function mostrarTotalMaquinas() {
 try {
-    fetch(`http://localhost:3000/totalMaquinas/${idDarkStore}`, {
+    fetch(`/maquinas/totalMaquinas/${idDarkStore}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json"
@@ -1867,7 +1869,7 @@ const cadastrarSlack = () => {
                             confirmButtonText: 'Ok'
                         })
     }else {
-        fetch(`http://localhost:3000/cadastrarSlack/${idDarkStore}`, {
+        fetch(`/slack/cadastrarSlack/${idDarkStore}`, {
                     method: "PUT",
                     headers: {
                         "Content-Type": "application/json"
@@ -1900,7 +1902,7 @@ const cadastrarSlack = () => {
 }
 function mostrarMetricas () {
 
-fetch(`http://localhost:3000/metricas/${idDarkStore}`, {
+fetch(`/metricas/metricas/${idDarkStore}`, {
     method: "GET",
     headers: {
         "Content-Type": "application/json"
@@ -1938,7 +1940,9 @@ function cadastrarMetricas() {
     
     const alerta = input_alertaMetrica.value
     const critico = input_criticoMetrica.value
+    const darkEscolhida = darkStoreSelect_editar_metricas.value
 
+    
     if (alerta === '' || critico === "") {
         Swal.fire({
             color: "#ffffff",
@@ -1950,7 +1954,7 @@ function cadastrarMetricas() {
         });
         return false
     } else {
-        fetch(`http://localhost:3000/cadastroMetricas/${idDarkStore}`, {
+        fetch(`/metricas/cadastroMetricas/${darkEscolhida}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -1978,7 +1982,7 @@ function cadastrarMetricas() {
     }
 }
 function excluirMetrica(idMetricaIdeal) {
-    fetch(`http://localhost:3000/deletarMetrica/${idMetricaIdeal}`, {
+    fetch(`/metricas/deletarMetrica/${idMetricaIdeal}`, {
         method: "DELETE",
         headers : {
             "Content-type" : "application/json"
@@ -2013,7 +2017,7 @@ const editarMetricasOk = () => {
                 confirmButtonText: 'Ok'
             })
         } else {
-                fetch(`http://localhost:3000/atualizarMetrica/${idMetricas}`,
+                fetch(`/metricas/atualizarMetrica/${idMetricas}`,
                     {
                         method: "PUT",
                         headers: {

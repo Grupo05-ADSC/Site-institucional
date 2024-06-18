@@ -128,9 +128,10 @@
 
 
     span_nome_empresa.innerHTML = `${nome}`;
-    function mostrarTotalMaquinas() {
+
+    function mostrarTotalMaquinas(idDark) {
 try {
-    fetch(`http://localhost:3000/totalMaquinas/${idDarkStore}`, {
+    fetch(`/maquinas/totalMaquinas/${idDark}`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json"
@@ -157,7 +158,7 @@ try {
     function funcionarioTotais() {
         console.log(cargo)
         if (cargo === "") {
-            fetch(`http://localhost:3000/funcionariosTotais/${idEmpresa}`, {
+            fetch(`/funcionario/funcionariosTotais/${idEmpresa}`, {
                 method: "GET"
             }).then(resposta => resposta.json())
                 .then(item => {
@@ -166,7 +167,7 @@ try {
                     total_funcionario.innerHTML = `${quantidadeFuncionario}` || ""
                 })
         } else if (cargo == "gerente") {
-            fetch(`http://localhost:3000/funcionariosTotais/${idEmpresa}`, {
+            fetch(`/funcionario/funcionariosTotais/${idEmpresa}`, {
                 method: "GET"
             }).then(resposta => resposta.json())
                 .then(item => {
@@ -193,7 +194,7 @@ try {
 
     function mostrarDark() {
         try {
-            fetch(`http://localhost:3000/mostrarDarkstore/${idEmpresa}`, {
+            fetch(`/darkstore/mostrarDarkstore/${idEmpresa}`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json"
@@ -201,7 +202,7 @@ try {
             }).then(resposta => resposta.json())
                 .then(dados => {
                     plotarDark(dados.resposta)
-            
+                    
                 })
         } catch (erro) {
             console.log(erro)
@@ -215,7 +216,7 @@ try {
         
         // if(darkStoreSelect.value != 0){
         try {
-            fetch(`http://localhost:3000/maquinas/${idEmpresa}`, {
+            fetch(`/maquinas/maquinas/${idEmpresa}`, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json"
@@ -284,6 +285,7 @@ function selecionarMaquina(idMaquina, idDarkstore) {
                 selectDark.innerHTML += `<option value=${item.idDarkstore}>${item.nome}</option>`
 
                 metricas(item.idDarkstore)
+                mostrarTotalMaquinas(item.idDarkstore)
             })
         } else {
 
@@ -333,7 +335,7 @@ function selecionarMaquina(idMaquina, idDarkstore) {
 
 
     function metricas(idDark) {
-        fetch(`http://localhost:3000/metricas/${idDark}`, {
+        fetch(`/metricas/metricas/${idDark}`, {
     method: "GET",
     headers: {
         "Content-Type": "application/json"

@@ -224,7 +224,24 @@ body {
 #darkStoreSelect option:hover {
     cursor: pointer;
 }
-
+#darkStoreSelect_editar {
+    width: 50%;
+    height: 35px;
+    font-size: 13px;
+    background-color: black;
+    border: none;
+    color: white;
+    border: 1px solid #8039EB;
+}
+#darkStoreSelect_editar_metricas {
+    width: 50%;
+    height: 35px;
+    font-size: 13px;
+    background-color: black;
+    border: none;
+    color: white;
+    border: 1px solid #8039EB;
+}
 #computerSelect {
     height: 35px;
     width: 170px;
